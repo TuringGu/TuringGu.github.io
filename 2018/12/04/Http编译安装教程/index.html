@@ -26,7 +26,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">First Paper</h3>
+    <h3 class="subtitle">Http编译安装教程</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -43,30 +43,97 @@
     <div class="section">
         <div class="article">
     <div class="main">
-        <h1 class="title">First Paper</h1>
+        <h1 class="title">Http编译安装教程</h1>
         <div class="stuff">
             <span>十二月 04, 2018</span>
             
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/CentOS/">CentOS</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/httpd/">httpd</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/源码安装/">源码安装</a></li></ul>
+
 
         </div>
         <div class="content markdown">
-            <table border="1"><br>    <tr><br>        <td>123</td><td>456</td><td>789</td><br>    </tr><br>    <tr><br>        <td>123</td><td>456</td><td>789</td><br>    </tr><br></table>
-
-
-<p>|123|456|7890|<br>|321|654|0987|<br>|098|765|4321|</p>
+            <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a><strong>写在前面</strong></h3><p>本文主要说明httpd的编译安装过程。<br>源码安装是比较麻烦的一种安装方法，但却有其不可替代性。<br>因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己与他人的查询。<br>注：安装步骤中的知识补充放在文末。</p>
+<h4 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h4><p>物理机：Windows 10 Enterprise<br>虚拟机：CentOS 7 64位</p>
+<h4 id="具体操作流程"><a href="#具体操作流程" class="headerlink" title="具体操作流程"></a>具体操作流程</h4><p>首先安装开发者套件：<br><code><br>    yum groups mark convert    //<br>    yum groupinstall “Development Tools” -y //整套安装一组开发者工具<br></code></p>
+<p>下载源码包：<br><code></code></p>
+<pre><code># cd /usr/local/src/
+# wget https://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-1.6.5.tar.gz
+# wget https://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-util-1.6.1.tar.gz
+# wget https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.37.tar.gz
+</code></pre><p><br>备注：三个源码包都放在/usr/local/src/</p>
+<p>安装apr-1.6.5<br><code></code></p>
+<pre><code># cd /usr/local/src/
+# cp -r apr-1.6.5  /usr/local/src/httpd-2.4.37/srclib/apr
+# cd apr-1.6.5
+# ./configure --prefix=/usr/local/apr
+# make &amp;&amp; make install
+</code></pre><p></p>
+<p>安装apr-util-1.6.<br><code></code></p>
+<pre><code># cd /usr/local/src
+# cp -r apr-util-1.6.1  /usr/local/src/httpd-2.4.37/srclib/apr-util
+# cd /usr/local/src/apr-util-1.6.1
+# ./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr
+# make &amp;&amp; make install
+</code></pre><p></p>
+<p>pcre的编译安装<br><code></code></p>
+<pre><code># wget https://ftp.pcre.org/pub/pcre/pcre-8.00.tar.gz
+# tar -zxvf pcre-8.10.tar.gz
+# cd pcre-8.10
+# ./configure
+# make  &amp;&amp; make install
+</code></pre><p></p>
+<p>安装httpd-2.4.37<br><code></code></p>
+<pre><code># ./configure --with-included-apr --prefix=/usr/local/apache2.4 --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --enable-so --enable-mods-shared=most
+# make &amp;&amp; make install 
+</code></pre><p></p>
+<p>编写启动脚本：<br><code></code></p>
+<pre><code># vim httpd
+#!/bin/bash
+# chkconfig: 12345 80 90
+function start_http()
+{
+/usr/local/apache2.4/bin/apachectl  start
+}
+function stop_http()
+{
+ /usr/local/apache2.4/bin/apachectl  stop
+}
+case &quot;$1&quot; in
+start)
+    start_http
+;;
+stop)
+    stop_http
+;;  
+restart)
+    stop_http
+    start_http
+;;
+*)
+    echo &quot;Usage : start | stop | restart&quot;
+;;
+esac
+</code></pre><p><code></code></p>
+<p>加入所编写的httpd系统服务：<code></code></p>
+<pre><code># chmod a+x httpd
+# cp -arf httpd /etc/init.d/
+</code></pre><p></p>
+<p>启动自己编写的服务：<code></code></p>
+<pre><code># systemctl daemon-reload
+# systemctl start httpd
+</code></pre><p></p>
+<p>设置开机自启动：<code># chkconfig --add httpd</code><br>查看配置文件路径：<code># /usr/local/apache2.4/conf/httpd.conf</code><br>查看httpd服务运行状态<code># systemctl status httpd</code></p>
+<hr>
+<h4 id="补充知识："><a href="#补充知识：" class="headerlink" title="补充知识："></a>补充知识：</h4><p><code>–enable-so    让apache核心装载DSO，但不实际编译任何动态模块<br>    –enable-ModuleName=share    将模块编译成动态的<br>    –enable-ModuleName=most    动态地编译进来大多数的模块<br>    –enable-ModuleName=all    动态地编译所有的模块</code><br>若不加参数，则为静态地编译</p>
+<p>动态编译：使用模块时才将需要使用的模块Load进来<br>静态编译：先将所需模块Load进去，使用时直接调用</p>
+<p>install 与groupinstall区别：<br>yum install    安装单个软件<br>yum grouplist    查看这个软件的所有软件包，每次安装前可以先查看yum grouplist有哪些软件，然后再去安装yum groupinstall<br>yum groupinstall    看装多个软件，安装这个软件的所有依赖包，yum groupinstall安装的时候必须加双引号<br>eg:<br>yum -y groupinstall Desktop<br>-y参数同意所有软件安装操作<br>yum groupremove :卸载所有软件包，</p>
+<p>使用<code>./configure –prefix=/supersparrow</code><br>安装完成将自动生成目录supersparrow,则该软件任何的文档都被复制到这个目录。指定此安装目录是为了以后的维护方便，否则该软件所需的软件会被复制到不同的系统目录下，难以维护。</p>
+<p>用了-prefix选项的另一个好处是卸载软件或移植软件。当某个安装的软件不再需要时，只须简单的删除该安装目录，就能够把软件卸载得干干净净;移植软件只需拷贝整个目录到另外一个机器即可(相同的操作系统)。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
+                <source type="audio/mpeg" src="http://domain.com/awesome.mp3">
             </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
-                    
-                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
-                    
-                </ul>
             
         </div>
         
