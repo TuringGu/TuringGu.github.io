@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TuringGu - My first blog</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TuringGu,"> 
+    <meta name="description" content="
+写在前面本文主要说明httpd的编译安装过程。源码安装是比较麻烦的一种安装方法，但却有其不可替代性。因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己,"> 
+    <meta name="author" content="TuringGu"> 
+    <link rel="alternative" href="atom.xml" title="TuringGu" type="application/atom+xml"> 
+    <link rel="icon" href="/img/avatar.jpg"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Httpd编译安装教程</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Httpd编译安装教程</h1>
+        <div class="stuff">
+            <span>十二月 04, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/CentOS/">CentOS</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/httpd/">httpd</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/源码安装/">源码安装</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <hr>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要说明httpd的编译安装过程。<br>源码安装是比较麻烦的一种安装方法，但却有其不可替代性。<br>因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己与他人的查询。</p>
+<p>注：安装步骤中的知识补充放在文末。</p>
+<hr>
+<h4 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h4><p>物理机：Windows 10 Enterprise<br>虚拟机：CentOS 7 64位</p>
+<hr>
+<h3 id="具体操作流程"><a href="#具体操作流程" class="headerlink" title="具体操作流程"></a>具体操作流程</h3><p>首先安装开发者套件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># yum groups mark convert</span><br><span class="line"># yum groupinstall &quot;Development Tools&quot; -y // 整套安装一组开发者工具</span><br></pre></td></tr></table></figure></p>
+<h4 id="下载源码包："><a href="#下载源码包：" class="headerlink" title="下载源码包："></a>下载源码包：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local/src/</span><br><span class="line"># wget https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-1.6.5.tar.gz</span><br><span class="line"># wget https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-util-1.6.1.tar.gz</span><br><span class="line"># wget https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.37.tar.gz</span><br></pre></td></tr></table></figure>
+<p>备注：三个源码包都放在<code>/usr/local/src/</code></p>
+<hr>
+<h4 id="安装apr-1-6-5"><a href="#安装apr-1-6-5" class="headerlink" title="安装apr-1.6.5"></a>安装apr-1.6.5</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local/src/</span><br><span class="line"># cp -r apr-1.6.5  /usr/local/src/httpd-2.4.37/srclib/apr</span><br><span class="line"># cd apr-1.6.5</span><br><span class="line"># ./configure --prefix=/usr/local/apr</span><br><span class="line"># make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="安装apr-util-1-6-1"><a href="#安装apr-util-1-6-1" class="headerlink" title="安装apr-util-1.6.1"></a>安装apr-util-1.6.1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local/src</span><br><span class="line"># cp -r apr-util-1.6.1  /usr/local/src/httpd-2.4.37/srclib/apr-util</span><br><span class="line"># cd /usr/local/src/apr-util-1.6.1</span><br><span class="line"># ./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr</span><br><span class="line"># make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>pcre的编译安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># wget https://ftp.pcre.org/pub/pcre/pcre-8.00.tar.gz</span><br><span class="line"># tar -zxvf pcre-8.10.tar.gz</span><br><span class="line"># cd pcre-8.10</span><br><span class="line"># ./configure</span><br><span class="line"># make  &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="安装httpd-2-4-37"><a href="#安装httpd-2-4-37" class="headerlink" title="安装httpd-2.4.37"></a>安装httpd-2.4.37</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># ./configure --with-included-apr --prefix=/usr/local/apache2.4 --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --enable-so --enable-mods-shared=most</span><br><span class="line"># make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="编写启动脚本："><a href="#编写启动脚本：" class="headerlink" title="编写启动脚本："></a>编写启动脚本：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># vim httpd</span></span><br><span class="line">#!/bin/bash</span><br><span class="line"><span class="meta"># chkconfig: 12345 80 90</span></span><br><span class="line"><span class="function">function <span class="title">start_http</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">/usr/local/apache2<span class="number">.4</span>/bin/apachectl  start</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">function <span class="title">stop_http</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> /usr/local/apache2<span class="number">.4</span>/bin/apachectl  stop</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"$1"</span> in</span><br><span class="line">start)</span><br><span class="line">    start_http</span><br><span class="line">;;</span><br><span class="line">stop)</span><br><span class="line">    stop_http</span><br><span class="line">;;  </span><br><span class="line">restart)</span><br><span class="line">    stop_http</span><br><span class="line">    start_http</span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line">    echo <span class="string">"Usage : start | stop | restart"</span></span><br><span class="line">;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+<hr>
+<p>加入所编写的httpd系统服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># chmod a+x httpd</span><br><span class="line"># cp -arf httpd /etc/init.d/</span><br></pre></td></tr></table></figure></p>
+<p>启动自己编写的服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># systemctl daemon-reload</span><br><span class="line"># systemctl start httpd</span><br></pre></td></tr></table></figure></p>
+<p>设置开机自启动：<code># chkconfig --add httpd</code><br>查看配置文件路径：<code># /usr/local/apache2.4/conf/httpd.conf</code><br>查看httpd服务运行状态<code># systemctl status httpd</code></p>
+<hr>
+<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><h4 id="参数释义："><a href="#参数释义：" class="headerlink" title="参数释义："></a>参数释义：</h4><blockquote>
+<p>–enable-mods     // 让apache核心装载DSO，但不实际编译任何动态模块，未加参数，为静态编译<br>–enable-ModuleName=share     // 将模块编译成动态的<br>–enable-ModuleName=most     // 动态地编译进来大多数的模块<br>–enable-ModuleName=all     // 动态地编译所有的模块</p>
+</blockquote>
+<p>动态编译：使用模块时才将需要使用的模块Load进来<br>静态编译：先将所需模块Load进去，使用时直接调用</p>
+<hr>
+<h4 id="install与groupinstall区别："><a href="#install与groupinstall区别：" class="headerlink" title="install与groupinstall区别："></a>install与groupinstall区别：</h4><blockquote>
+<p><code>yum install</code>    安装单个软件<br><code>yum grouplist</code>    查看这个软件的所有软件包，每次安装前可以先查看<code>yum grouplist</code>有哪些软件，然后再去安装<code>yum groupinstall</code><br><code>yum groupinstall</code>    看装多个软件，安装这个软件的所有依赖包，<code>yum groupinstall</code>安装的时候必须加双引号</p>
+</blockquote>
+<p>示例代码:</p>
+<blockquote>
+<p>yum -y groupinstall Desktop     // -y参数同意所有软件安装操作<br>yum groupremove     // 卸载所有软件包</p>
+</blockquote>
+<hr>
+<h4 id="prefix选项："><a href="#prefix选项：" class="headerlink" title="-prefix选项："></a>-prefix选项：</h4><p>使用<code>./configure --prefix=/supersparrow</code><br>安装完成将自动生成目录<code>supersparrow</code>，则该软件任何的文档都被复制到这个目录。指定此安装目录是为了以后的维护方便，否则该软件所需的软件会被复制到不同的系统目录下，难以维护。</p>
+<p>用了<code>-prefix</code>选项的另一个好处是卸载软件或移植软件。当某个安装的软件不再需要时，只须简单的删除该安装目录，就能够把软件卸载得干干净净;移植软件只需拷贝整个目录到另外一个机器即可(相同的操作系统)。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/425570952.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#操作环境"><span class="toc-number">1.1.</span> <span class="toc-text">操作环境</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体操作流程"><span class="toc-number">2.</span> <span class="toc-text">具体操作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下载源码包："><span class="toc-number">2.1.</span> <span class="toc-text">下载源码包：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装apr-1-6-5"><span class="toc-number">2.2.</span> <span class="toc-text">安装apr-1.6.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装apr-util-1-6-1"><span class="toc-number">2.3.</span> <span class="toc-text">安装apr-util-1.6.1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装httpd-2-4-37"><span class="toc-number">2.4.</span> <span class="toc-text">安装httpd-2.4.37</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编写启动脚本："><span class="toc-number">2.5.</span> <span class="toc-text">编写启动脚本：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充知识"><span class="toc-number">3.</span> <span class="toc-text">补充知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参数释义："><span class="toc-number">3.1.</span> <span class="toc-text">参数释义：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#install与groupinstall区别："><span class="toc-number">3.2.</span> <span class="toc-text">install与groupinstall区别：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#prefix选项："><span class="toc-number">3.3.</span> <span class="toc-text">-prefix选项：</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
