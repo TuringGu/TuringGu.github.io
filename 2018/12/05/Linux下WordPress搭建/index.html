@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TuringGu - My first blog</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TuringGu,"> 
+    <meta name="description" content="
+写在前面本文主要说明Linux下基于LAMP的WordPress动态博客的搭建过程。从网站流量上来说，70%以上的访问流量都是LAMP来提供的，是开源的极为强大的网站解决方案。而WordPress,"> 
+    <meta name="author" content="TuringGu"> 
+    <link rel="alternative" href="atom.xml" title="TuringGu" type="application/atom+xml"> 
+    <link rel="icon" href="/img/avatar.jpg"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">基于LAMP的WordPress动态博客搭建</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">基于LAMP的WordPress动态博客搭建</h1>
+        <div class="stuff">
+            <span>十二月 05, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/CentOS/">CentOS</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/LAMP/">LAMP</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <hr>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要说明Linux下基于LAMP的WordPress动态博客的搭建过程。<br>从网站流量上来说，70%以上的访问流量都是LAMP来提供的，是开源的极为强大的网站解决方案。而WordPress功能强大，插件众多，易于扩充功能，安装与使用都极为方便。此组合非常适合新手进行网站搭建的练手。<br>因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己与他人的查询。</p>
+<p><strong>注：安装步骤中的知识补充放在文末。</strong></p>
+<hr>
+<h4 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h4><p>物理机：Windows 10 Enterprise<br>虚拟机：CentOS 7 64位</p>
+<hr>
+<h3 id="LAMP环境搭建"><a href="#LAMP环境搭建" class="headerlink" title="LAMP环境搭建"></a>LAMP环境搭建</h3><h4 id="Apache安装"><a href="#Apache安装" class="headerlink" title="Apache安装"></a>Apache安装</h4><p>在CentOS下，Apache软件安装包又叫httpd，此前曾使用过源码编译安装过httpd，这里使用简单的yum命令安装即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install httpd</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>systemctl start httpd     // 开启Apache服务<br>systemctl status httpd    // 查看Apache服务状态<br>chkconfig –level 2345 httpd on     // 设置服务在运行级别为2、3、4、5的情况下都为开启的状态<br>systemctl enable httpd    // 设置服务开机自启</p>
+</blockquote>
+<blockquote>
+<p>systemctl list-unit-files|grep firewalld.service     //查看防火墙状态<br>systemctl stop firewalld.service     // 停止防火墙服务<br>systemctl disable firewalld.service     // 禁止防火墙开机自启</p>
+</blockquote>
+<p>验证Apache是否安装成功：<br>在浏览器中输入CentOS系统服务器IP地址：<br><code>http://{YourServerAddress}</code><br>若出现Apache相关页面，则安装成功</p>
+<hr>
+<h4 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h4><p>由于mysql在CentOS的源中被移除，因此这里安装其分支产品mariaDB数据库。<br>查找所需安装包并安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># yum search mariadb</span><br><span class="line"># yum install mariadb.x86_64 mariadb-server.x86_64 mariadb-libs.x86_64 mariadb-devel.x86_64</span><br></pre></td></tr></table></figure></p>
+<p>启动mysql并设置在特定运行级别为开启状态：</p>
+<blockquote>
+<p>service mariadb start<br>chkconfig –level 2345 mariadb on</p>
+</blockquote>
+<p>设置mariaDB初始密码并登陆：</p>
+<blockquote>
+<p>mysqladmin -u root -p password<br>mysql -u root -p</p>
+</blockquote>
+<p>修改密码：</p>
+<blockquote>
+<p>use mysql;<br>update mysql.user set authentication_string=password(‘YourPassword’) where user=’root’ ;</p>
+</blockquote>
+<p>重启Mysql服务并登陆验证所修改信息：</p>
+<blockquote>
+<p>systemctl restart mysqld.service<br>mysql -u root -p</p>
+</blockquote>
+<hr>
+<h4 id="PHP安装"><a href="#PHP安装" class="headerlink" title="PHP安装"></a>PHP安装</h4><p>查找所需安装包并安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># yum search php</span><br><span class="line"># yum install php.x86_64 php-mysql.x86_64 php-pear php-pear-DB php-gd</span><br></pre></td></tr></table></figure></p>
+<p>验证PHP安装：</p>
+<blockquote>
+<p>vi /var/www/html/info.php     // 新建文件，并输入下列内容</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span> php phpinfo(); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>重启Apache Web服务器： <code>systemctl restart apache2</code><br>打开URL：<code>http://{YourServerAddress}/info.php</code><br>若能显示php信息页面，则安装成功。</p>
+<hr>
+<h3 id="WordPress个人博客搭建"><a href="#WordPress个人博客搭建" class="headerlink" title="WordPress个人博客搭建"></a>WordPress个人博客搭建</h3><h4 id="WordPress安装"><a href="#WordPress安装" class="headerlink" title="WordPress安装"></a>WordPress安装</h4><p>进入WordPress官网<a href="https://cn.wordpress.org/download/" target="_blank" rel="noopener">https://cn.wordpress.org/download/</a><br>复制下载链接，进行下载安装操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># wget https://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz 	// 下载</span><br><span class="line"># tar -xzvf wordpress-4.9.4-zh_CN.tar.gz 	// 解压</span><br><span class="line"># mv -r wordpress /var/www/html/ 	// 进入下载根目录，移动文件</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>打开URL：<code>http://{YourServerAddress}/wordpress</code><br>此时若能访问到正常页面，则可进入下一步。<br>按照安装前的提示信息进行准备，确认无误后，单机开始按钮进行安装</p>
+</blockquote>
+<blockquote>
+<p>填入数据库名、用户名密码，数据库主机和表前缀先按默认来，完成后提交</p>
+</blockquote>
+<blockquote>
+<p>接下来步骤按提示进行，即可完成安装WordPress</p>
+</blockquote>
+<p>进行验证：</p>
+<blockquote>
+<p>打开URL：<code>http://{YourServerAddress}/wordpress</code>，即可进入自己的WordPress博客<br>可以在URL：<code>http://{YourServerAddress}/wordpress/wp-admin</code>，进行自己的博客管理</p>
+</blockquote>
+<p><strong>至此，基于LAMP的WordPress动态个博客搭建成功</strong></p>
+<hr>
+<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><h4 id="LAMP是什么"><a href="#LAMP是什么" class="headerlink" title="LAMP是什么"></a>LAMP是什么</h4><blockquote>
+<p>LAMP = Linux + Apache + MySQL + PHP<br>WAMP = Windows + Apache + MySQL + PHP</p>
+</blockquote>
+<hr>
+<h4 id="mysql修改密码"><a href="#mysql修改密码" class="headerlink" title="mysql修改密码"></a>mysql修改密码</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; use mysql;</span><br><span class="line">&gt; UPDATE user SET password=password("YourPassword") WHERE user='root'</span><br><span class="line">&gt; exit;</span><br></pre></td></tr></table></figure>
+<p>如果提示无法修改密码，可尝试如下操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># service mysql stop</span><br><span class="line"># mkdir -p /var/run/mysqld</span><br><span class="line"># chwon -R mysql:mysql /var/run/mysqld /usr/bin/mysqld_safe --skip-grant-tables --skip-networking</span><br></pre></td></tr></table></figure>
+<p>再开启一个终端：<br><code># mysql -u root</code><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; use mysql;</span><br><span class="line">&gt; update user set authentication_string=password("YourPassword") where user='root';</span><br><span class="line">&gt; update user set plugin="mysql_native_password";</span><br><span class="line">&gt; flush privileges;	#更新所有操作权限</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="mysql数据库创建与权限管理"><a href="#mysql数据库创建与权限管理" class="headerlink" title="mysql数据库创建与权限管理"></a>mysql数据库创建与权限管理</h4><p>常用操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root -p 	</span><br><span class="line"># 使用用户名密码登陆root账号</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; show databases; #查看当前有哪些数据库</span><br><span class="line">&gt; create database wordpress; #创建新的名为wordpress的数据库</span><br><span class="line">&gt; create user admin identified by 'YourPassword'; #创建用户admin</span><br><span class="line">&gt; drop user admin; #删除用户admin</span><br><span class="line">&gt; show grants for admin; #查看admin权限</span><br><span class="line">&gt; grant select on test.* to admin; #授予用户admin对数据库test的查询权限</span><br><span class="line">&gt; revoke select on test.* from admin; #收回相应权限</span><br><span class="line">&gt; quit; #退出</span><br></pre></td></tr></table></figure>
+<p>常用用户权限如下：</p>
+<blockquote>
+<p>CREATE： 允许MySQL用户创建新的表或数据库<br>DROP：允许删除表或数据库<br>DELETE：    允许从表中删除行<br>INSERT：    允许向表中插入行<br>SELECT：    允许使用Select命令来读取数据库<br>UPDATE：    允许更新表行<br>GRANT OPTION：允许授予或删除其他用户的权限<br>ALL PRIVILEGES：允许访问指定的数据库</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/425570952.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#操作环境"><span class="toc-number">1.1.</span> <span class="toc-text">操作环境</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LAMP环境搭建"><span class="toc-number">2.</span> <span class="toc-text">LAMP环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Apache安装"><span class="toc-number">2.1.</span> <span class="toc-text">Apache安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL安装"><span class="toc-number">2.2.</span> <span class="toc-text">MySQL安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP安装"><span class="toc-number">2.3.</span> <span class="toc-text">PHP安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WordPress个人博客搭建"><span class="toc-number">3.</span> <span class="toc-text">WordPress个人博客搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#WordPress安装"><span class="toc-number">3.1.</span> <span class="toc-text">WordPress安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充知识"><span class="toc-number">4.</span> <span class="toc-text">补充知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LAMP是什么"><span class="toc-number">4.1.</span> <span class="toc-text">LAMP是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql修改密码"><span class="toc-number">4.2.</span> <span class="toc-text">mysql修改密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql数据库创建与权限管理"><span class="toc-number">4.3.</span> <span class="toc-text">mysql数据库创建与权限管理</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
