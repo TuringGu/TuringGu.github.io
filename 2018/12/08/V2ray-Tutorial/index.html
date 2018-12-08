@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hexo</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="写在前面因为个人工作、学习、性质的需要，常常需要能够自由地上网，但苦于使用别人提供的服务代价较高，因此自己做了个微小的工作，在各路大佬的帮助下，算是能够科学上网了。
+注：补充知识放在文末
+
+准备一台,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">V2ray科学上网教程</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">V2ray科学上网教程</h1>
+        <div class="stuff">
+            <span>十二月 08, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/V2ray/">V2ray</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/VPS/">VPS</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/科学上网/">科学上网</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>因为个人工作、学习、性质的需要，常常需要能够自由地上网，但苦于使用别人提供的服务代价较高，因此自己做了个微小的工作，在各路大佬的帮助下，算是能够科学上网了。</p>
+<p><strong>注：补充知识放在文末</strong></p>
+<hr>
+<h3 id="准备一台VPS"><a href="#准备一台VPS" class="headerlink" title="准备一台VPS"></a>准备一台VPS</h3><p>如果你是通过搜索引擎搜索关于科学上网相关内容，多看几篇相关教程，你就会发现，大部分都在打广告。由于这些VPS服务商都会对自家产品进行推广，因此已注册用户帮助进行推广，能得到较为丰厚的收益。</p>
+<p>比如你通过我的推广链接进行注册并使用：<br><a href="https://www.vultr.com/?ref=7685138" target="_blank" rel="noopener">https://www.vultr.com/?ref=7685138</a></p>
+<p>你就会发现爱心的传递原来是这么简单的事情！</p>
+<p>不同服务商的服务对不同地区的用户效果会不同，最好能够多试几家，适合自己的才是最好的。</p>
+<p>服务商一般会提供不同价位、不同地区节点的选项，选择好后，里面有可以更换不同操作系统等功能，依据自己的实际需求选择即可。</p>
+<p>本篇教程基于V2ray搭建，为使用大佬脚本所推荐的系统，这里选择Debain9 64位。</p>
+<hr>
+<h3 id="远程控制VPS"><a href="#远程控制VPS" class="headerlink" title="远程控制VPS"></a>远程控制VPS</h3><p>如果你是windows系统，且cmd中未配置ssh服务，可使用Xshell进行ssh远程登录。<br>Xshell官网：<a href="https://xshell.en.softonic.com/" target="_blank" rel="noopener">https://xshell.en.softonic.com/</a><br>直接进软件输入命令：</p>
+<blockquote>
+<p>ssh YourServerIP    // YourServerIP 替换为VPS的IP 地址</p>
+</blockquote>
+<p>此时会弹出窗口，按照窗口提示，输入VPS服务中提供的用户名、密码信息，即可登录成功。</p>
+<hr>
+<p>如果你是类unix系统，先配置ssh服务，然后使用系统终端输入命令：</p>
+<blockquote>
+<p>ssh UserName@YourServerIP    // UserName 替换为VPS服务提供的用户名</p>
+</blockquote>
+<p>和windows一样，按命令行提示输入相关信息，登录。</p>
+<hr>
+<h3 id="V2ray安装与配置"><a href="#V2ray安装与配置" class="headerlink" title="V2ray安装与配置"></a>V2ray安装与配置</h3><h4 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h4><p>远程登录了VPS后，在终端输入下列命令：</p>
+<p>安装或更新curl，并使用curl运行V2ray多用户安装脚本进行安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get update -y</span><br><span class="line"># sudo apt-get install curl</span><br><span class="line"># source &lt;(curl -sL https://git.io/fNgqx)</span><br></pre></td></tr></table></figure></p>
+<p>开源代码作者的github源码在此：<br><a href="https://github.com/Jrohy/multi-v2ray" target="_blank" rel="noopener">https://github.com/Jrohy/multi-v2ray</a></p>
+<p>进入脚本原作者的github，里面有详细的图文步骤，依葫芦画瓢，完成服务端V2ray搭建，并开启服务。</p>
+<p>选择查看配置，复制已经生成的账号的配置文件链接，链接格式是“vmess:”开头的一串链接。</p>
+<hr>
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><h5 id="windows系统"><a href="#windows系统" class="headerlink" title="windows系统"></a>windows系统</h5><p>进入V2rayN的github页面，选择.zip文件下载：<br><a href="https://github.com/2dust/v2rayN/releases" target="_blank" rel="noopener">https://github.com/2dust/v2rayN/releases</a></p>
+<p>解压缩，打开v2rayN.exe运行，点击从URL批量导入选项，将会从剪贴板导入在服务端复制好的账号配置链接，运行服务即可。</p>
+<hr>
+<h5 id="浏览器配置"><a href="#浏览器配置" class="headerlink" title="浏览器配置"></a>浏览器配置</h5><p>这里使用的是firefox浏览器，官网链接：<br><a href="http://www.firefox.com.cn/" target="_blank" rel="noopener">http://www.firefox.com.cn/</a></p>
+<p>进入浏览器，选项–&gt;网络设置，选择“手动代理配置”，SOCKS主机填<code>127.0.0.1</code>，端口<code>1080</code>，选择SOCKS v5，使用SOCKS v5时代理DNS查询，确定后退出，设置完毕。</p>
+<p><strong>至此，浏览器应该可以科学上网了。</strong></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://domain.com/awesome.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备一台VPS"><span class="toc-number">2.</span> <span class="toc-text">准备一台VPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程控制VPS"><span class="toc-number">3.</span> <span class="toc-text">远程控制VPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V2ray安装与配置"><span class="toc-number">4.</span> <span class="toc-text">V2ray安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务端"><span class="toc-number">4.1.</span> <span class="toc-text">服务端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端"><span class="toc-number">4.2.</span> <span class="toc-text">客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#windows系统"><span class="toc-number">4.2.1.</span> <span class="toc-text">windows系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#浏览器配置"><span class="toc-number">4.2.2.</span> <span class="toc-text">浏览器配置</span></a></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
