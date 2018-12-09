@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TuringGu - My first blog</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TuringGu,"> 
+    <meta name="description" content="写在前面本文主要为前端开发做个引子，对常见的或者常用的知识做个简介，包括HTML、CSS、Javascript一些入门级知识
+注：补充知识放在文末
+
+HTML简介HTML不是一种编程语言，而是一种超,"> 
+    <meta name="author" content="TuringGu"> 
+    <link rel="alternative" href="atom.xml" title="TuringGu" type="application/atom+xml"> 
+    <link rel="icon" href="/img/avatar.jpg"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">前端开发入门</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">前端开发入门</h1>
+        <div class="stuff">
+            <span>十二月 09, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/CSS/">CSS</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/HTML/">HTML</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要为前端开发做个引子，对常见的或者常用的知识做个简介，包括HTML、CSS、Javascript一些入门级知识</p>
+<p><strong>注：补充知识放在文末</strong></p>
+<hr>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p><strong>HTML不是一种编程语言，而是一种超文本标记语言</strong></p>
+<blockquote>
+<p>网页的本质就是超级文本标记语言，通过结合使用其他的Web技术（如：脚本语言、公共网关接口、组件等），可以创造出功能强大的网页。因而，超级文本标记语言是万维网（Web）编程的基础，也就是说万维网是建立在超文本基础之上的。超级文本标记语言之所以称为超文本标记语言，是因为文本中包含了所谓“超级链接”点。</p>
+</blockquote>
+<hr>
+<h4 id="Form表单"><a href="#Form表单" class="headerlink" title="Form表单"></a>Form表单</h4><p>输入框<code>&lt;input/&gt;</code>标签最常用<br><code>type=&quot;text&quot;</code>普通的文本输入框<br><code>type=&quot;password&quot;</code>带星号的密码输入框<br><code>type=&quot;radio&quot;</code>单选框，同一类型要有相同的name，表明是同一类<br><code>type=&quot;chechbox&quot;</code>复选框，添加checked属性会默认选中<br><code>type=&quot;file&quot;</code>文件上传选择<br><code>type=&quot;email&quot;</code>带简单验证的邮箱输入<br><code>&lt;textarea&gt;</code>标签input只能单行输入，textarea可以多行输入</p>
+<hr>
+<h4 id="HTML元素属性"><a href="#HTML元素属性" class="headerlink" title="HTML元素属性"></a>HTML元素属性</h4><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>值</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class</td>
+<td>classname</td>
+<td>规定元素的类名（classname）</td>
+</tr>
+<tr>
+<td>id</td>
+<td>id</td>
+<td>规定元素的唯一id</td>
+</tr>
+<tr>
+<td>title</td>
+<td>text</td>
+<td>规定元素的行内样式（inline style）</td>
+</tr>
+<tr>
+<td>style</td>
+<td>style_definition</td>
+<td>规定元素的额外信息（可在工具提示中显示）</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><h4 id="样式的引入"><a href="#样式的引入" class="headerlink" title="样式的引入"></a>样式的引入</h4><p>优先级：</p>
+<blockquote>
+<p>行内式 &gt; 内嵌式 &gt; 外链式</p>
+</blockquote>
+<p>行内样式：<br><code>&lt;p style = &quot;display:none&quot;&gt;&lt;/p&gt;</code></p>
+<p>内嵌式<br>一般指<code>&lt;head&gt;</code>标签中的<code>&lt;style&gt;</code>样式</p>
+<p>外链式<br>通过<code>&lt;link&gt;</code>标签引入外部的CSS文件</p>
+<p>导入外部样式：<br>用<code>@import</code>在<code>&lt;head&gt;</code>与<code>&lt;/head&gt;</code>间引入</p>
+<hr>
+<h4 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h4><blockquote>
+<p>元素选择器：文档的元素就是最基本的选择器，如：p、h1、em、a<br>id选择器：配合元素的id属性，以‘#’ + id实现选择<br>类选择器：配合元素的class属性，以‘.’+className实现选择<br>属性选择器：对带有指定属性的HTML元素设置样式<br>派生选择器：通过依据元素在其位置的上下文关系来定义样式<br>自元素选择器：类似派生选择器，但是只能选择第一级子元素</p>
+</blockquote>
+<hr>
+<h4 id="CSS选择器权重计算"><a href="#CSS选择器权重计算" class="headerlink" title="CSS选择器权重计算"></a>CSS选择器权重计算</h4><p>通常来说：</p>
+<blockquote>
+<p>行内 &gt; 内链 &gt; 外部样式<br>ID &gt; class &gt; 元素</p>
+</blockquote>
+<p>不同选择器有不同的权重：</p>
+<ol>
+<li>第一等：代表内联样式，如：<code>style=&quot; &quot;</code>，权值为1000</li>
+<li>第二等：代表ID选择器，如：<code>#content</code>，权值为0100</li>
+<li>第三等：代表类、伪类和属性选择器，如：<code>.content</code>，权值为0010</li>
+<li>第四等：代表类型选择器和伪元素选择器，如：<code>div p</code>，权值为0001</li>
+<li>第五等：通配符、子选择器、相邻选择器等的，如：<code>*</code>、<code>&gt;</code>、<code>+</code>，权值为0000</li>
+<li>继承的样式没有权值</li>
+<li>有时还会用到交集选择器</li>
+</ol>
+<hr>
+<h4 id="CSS属性"><a href="#CSS属性" class="headerlink" title="CSS属性"></a>CSS属性</h4><p>文字属性<br>符号属性<br>背景属性<br>连接属性<br>鼠标光标样式属性</p>
+<hr>
+<h4 id="CSS定位和浮动"><a href="#CSS定位和浮动" class="headerlink" title="CSS定位和浮动"></a>CSS定位和浮动</h4><p>定位通过使用position属性，可以选择4种不同类型的定位，这会影响元素框的生成的方式</p>
+<p>positon属性值：<br>Static<br>Relative<br>Absolute<br>fixed</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/425570952.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">2.</span> <span class="toc-text">HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Form表单"><span class="toc-number">2.2.</span> <span class="toc-text">Form表单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML元素属性"><span class="toc-number">2.3.</span> <span class="toc-text">HTML元素属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">3.</span> <span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#样式的引入"><span class="toc-number">3.1.</span> <span class="toc-text">样式的引入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS选择器"><span class="toc-number">3.2.</span> <span class="toc-text">CSS选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS选择器权重计算"><span class="toc-number">3.3.</span> <span class="toc-text">CSS选择器权重计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS属性"><span class="toc-number">3.4.</span> <span class="toc-text">CSS属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS定位和浮动"><span class="toc-number">3.5.</span> <span class="toc-text">CSS定位和浮动</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
