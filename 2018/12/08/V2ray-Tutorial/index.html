@@ -59,13 +59,13 @@ HTML简介HTML不是一种编程语言，而是一种超,">
 <p><strong>注：补充知识放在文末</strong></p>
 <hr>
 <h3 id="准备一台VPS"><a href="#准备一台VPS" class="headerlink" title="准备一台VPS"></a>准备一台VPS</h3><p>如果你是通过搜索引擎搜索关于科学上网相关内容，多看几篇相关教程，你就会发现，大部分都在打广告。由于这些VPS服务商都会对自家产品进行推广，因此已注册用户帮助进行推广，能得到较为丰厚的收益。</p>
-<p>比如你通过我的推广链接进行注册并使用：<br><a href="https://www.vultr.com/?ref=7685138" target="_blank" rel="noopener">https://www.vultr.com/?ref=7685138</a></p>
+<p>比如你通过<a href="https://www.vultr.com/?ref=7685138" target="_blank" rel="noopener">我的推广链接</a>进行注册并使用</p>
 <p>你就会发现爱心的传递原来是这么简单的事情！</p>
 <p>不同服务商的服务对不同地区的用户效果会不同，最好能够多试几家，适合自己的才是最好的。</p>
 <p>服务商一般会提供不同价位、不同地区节点的选项，选择好后，里面有可以更换不同操作系统等功能，依据自己的实际需求选择即可。</p>
 <p>本篇教程基于V2ray搭建，为使用大佬脚本所推荐的系统，这里选择Debain9 64位。</p>
 <hr>
-<h3 id="远程控制VPS"><a href="#远程控制VPS" class="headerlink" title="远程控制VPS"></a>远程控制VPS</h3><p>如果你是windows系统，且cmd中未配置ssh服务，可使用Xshell进行ssh远程登录。<br>Xshell官网：<a href="https://xshell.en.softonic.com/" target="_blank" rel="noopener">https://xshell.en.softonic.com/</a><br>直接进软件输入命令：</p>
+<h3 id="远程控制VPS"><a href="#远程控制VPS" class="headerlink" title="远程控制VPS"></a>远程控制VPS</h3><p>如果你是windows系统，且cmd中未配置ssh服务，可使用Xshell进行ssh远程登录。<br><a href="https://xshell.en.softonic.com/" target="_blank" rel="noopener">Xshell官网地址</a><br>直接进软件输入命令：</p>
 <blockquote>
 <p>ssh YourServerIP    // YourServerIP 替换为VPS的IP 地址</p>
 </blockquote>
@@ -79,14 +79,14 @@ HTML简介HTML不是一种编程语言，而是一种超,">
 <hr>
 <h3 id="V2ray安装与配置"><a href="#V2ray安装与配置" class="headerlink" title="V2ray安装与配置"></a>V2ray安装与配置</h3><h4 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h4><p>远程登录了VPS后，在终端输入下列命令：</p>
 <p>安装或更新curl，并使用curl运行V2ray多用户安装脚本进行安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get update -y</span><br><span class="line"># sudo apt-get install curl</span><br><span class="line"># source &lt;(curl -sL https://git.io/fNgqx)</span><br></pre></td></tr></table></figure></p>
-<p>开源代码作者的github源码在此：<br><a href="https://github.com/Jrohy/multi-v2ray" target="_blank" rel="noopener">https://github.com/Jrohy/multi-v2ray</a></p>
+<p><a href="https://github.com/Jrohy/multi-v2ray" target="_blank" rel="noopener">开源代码作者的github源码</a></p>
 <p>进入脚本原作者的github，里面有详细的图文步骤，依葫芦画瓢，完成服务端V2ray搭建，并开启服务。</p>
 <p>选择查看配置，复制已经生成的账号的配置文件链接，链接格式是“vmess:”开头的一串链接。</p>
 <hr>
-<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><h5 id="windows系统"><a href="#windows系统" class="headerlink" title="windows系统"></a>windows系统</h5><p>进入V2rayN的github页面，选择.zip文件下载：<br><a href="https://github.com/2dust/v2rayN/releases" target="_blank" rel="noopener">https://github.com/2dust/v2rayN/releases</a></p>
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><h5 id="windows系统"><a href="#windows系统" class="headerlink" title="windows系统"></a>windows系统</h5><p>进入<a href="https://github.com/2dust/v2rayN/releases" target="_blank" rel="noopener">V2rayN</a>的github页面，选择.zip文件下载</p>
 <p>解压缩，打开v2rayN.exe运行，点击从URL批量导入选项，将会从剪贴板导入在服务端复制好的账号配置链接，运行服务即可。</p>
 <hr>
-<h5 id="浏览器配置"><a href="#浏览器配置" class="headerlink" title="浏览器配置"></a>浏览器配置</h5><p>这里使用的是firefox浏览器，官网链接：<br><a href="http://www.firefox.com.cn/" target="_blank" rel="noopener">http://www.firefox.com.cn/</a></p>
+<h5 id="浏览器配置"><a href="#浏览器配置" class="headerlink" title="浏览器配置"></a>浏览器配置</h5><p>这里使用的是<a href="http://www.firefox.com.cn/" target="_blank" rel="noopener">Firefox</a>浏览器</p>
 <p>进入浏览器，选项–&gt;网络设置，选择“手动代理配置”，SOCKS主机填<code>127.0.0.1</code>，端口<code>1080</code>，选择SOCKS v5，使用SOCKS v5时代理DNS查询，确定后退出，设置完毕。</p>
 <p><strong>至此，浏览器应该可以科学上网了。</strong></p>
 
