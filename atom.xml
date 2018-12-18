@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>TuringGu</title>
+  
+  <subtitle>My first blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://TuringGu.github.io/"/>
+  <updated>2018-12-14T10:30:22.000Z</updated>
+  <id>https://TuringGu.github.io/</id>
+  
+  <author>
+    <name>TuringGu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>后端开发入门</title>
+    <link href="https://TuringGu.github.io/2018/12/12/Back-end/"/>
+    <id>https://TuringGu.github.io/2018/12/12/Back-end/</id>
+    <published>2018-12-12T11:38:53.000Z</published>
+    <updated>2018-12-14T10:30:22.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
+    
+      <category term="MySQL" scheme="https://TuringGu.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端开发入门</title>
+    <link href="https://TuringGu.github.io/2018/12/09/Front-end/"/>
+    <id>https://TuringGu.github.io/2018/12/09/Front-end/</id>
+    <published>2018-12-09T12:23:43.000Z</published>
+    <updated>2018-12-12T11:35:12.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="HTML" scheme="https://TuringGu.github.io/tags/HTML/"/>
+    
+      <category term="CSS" scheme="https://TuringGu.github.io/tags/CSS/"/>
+    
+      <category term="Javascript" scheme="https://TuringGu.github.io/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>V2ray科学上网教程</title>
+    <link href="https://TuringGu.github.io/2018/12/08/V2ray-Tutorial/"/>
+    <id>https://TuringGu.github.io/2018/12/08/V2ray-Tutorial/</id>
+    <published>2018-12-08T03:54:40.000Z</published>
+    <updated>2018-12-10T08:31:26.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="科学上网" scheme="https://TuringGu.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+      <category term="V2ray" scheme="https://TuringGu.github.io/tags/V2ray/"/>
+    
+      <category term="VPS" scheme="https://TuringGu.github.io/tags/VPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于LAMP的WordPress动态博客搭建</title>
+    <link href="https://TuringGu.github.io/2018/12/05/Linux%E4%B8%8BWordPress%E6%90%AD%E5%BB%BA/"/>
+    <id>https://TuringGu.github.io/2018/12/05/Linux下WordPress搭建/</id>
+    <published>2018-12-05T10:16:59.000Z</published>
+    <updated>2018-12-09T12:12:42.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;hr&gt;
+&lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
+    
+      <category term="WordPress" scheme="https://TuringGu.github.io/tags/WordPress/"/>
+    
+      <category term="LAMP" scheme="https://TuringGu.github.io/tags/LAMP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Httpd编译安装教程</title>
+    <link href="https://TuringGu.github.io/2018/12/04/Httpd%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    <id>https://TuringGu.github.io/2018/12/04/Httpd编译安装教程/</id>
+    <published>2018-12-04T09:40:33.000Z</published>
+    <updated>2018-12-06T08:36:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;hr&gt;
+&lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Httpd" scheme="https://TuringGu.github.io/tags/Httpd/"/>
+    
+      <category term="编译安装" scheme="https://TuringGu.github.io/tags/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/"/>
+    
+      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>First Paper</title>
+    <link href="https://TuringGu.github.io/2018/12/04/First-Paper/"/>
+    <id>https://TuringGu.github.io/2018/12/04/First-Paper/</id>
+    <published>2018-12-04T03:12:33.000Z</published>
+    <updated>2018-12-04T03:30:22.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;table border=&quot;1&quot;&gt;&lt;br&gt;    &lt;tr&gt;&lt;br&gt;        &lt;td&gt;123&lt;/td&gt;&lt;td&gt;456&lt;/td&gt;&lt;td&gt;789&lt;/td&gt;&lt;br&gt;    &lt;/tr&gt;&lt;br&gt;    &lt;tr&gt;&lt;br&gt;       
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://TuringGu.github.io/2018/12/04/hello-world/"/>
+    <id>https://TuringGu.github.io/2018/12/04/hello-world/</id>
+    <published>2018-12-04T02:28:50.467Z</published>
+    <updated>2018-12-04T02:28:52.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>个人网站搭建</title>
+    <link href="https://TuringGu.github.io/2018/10/12/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/"/>
+    <id>https://TuringGu.github.io/2018/10/12/网站搭建/</id>
+    <published>2018-10-12T10:38:45.000Z</published>
+    <updated>2018-12-06T08:34:08.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;个人网站搭建&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;简单基础知识准备&lt;/h2&gt;
+
+&lt;p&gt;静态页面和动态页面&lt;/p&gt;
+&lt;p&gt;静态页面：没有后台，不添加数据库，为静态网站，只有静态资源，相对安全&lt;br&gt;特点：维护麻烦，功能单一，但是相对安全&lt;/p&gt;
+&lt;p&gt;动态页面：
+        
+      
+    
+    </summary>
+    
+    
+      <category term="标签" scheme="https://TuringGu.github.io/tags/%E6%A0%87%E7%AD%BE/"/>
+    
+  </entry>
+  
+</feed>
