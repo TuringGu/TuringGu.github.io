@@ -97,11 +97,11 @@
       
         <tags>
             
+            <tag> CentOS </tag>
+            
             <tag> WordPress </tag>
             
             <tag> LAMP </tag>
-            
-            <tag> CentOS </tag>
             
         </tags>
       
@@ -118,11 +118,11 @@
       
         <tags>
             
-            <tag> CentOS </tag>
-            
             <tag> Httpd </tag>
             
             <tag> 编译安装 </tag>
+            
+            <tag> CentOS </tag>
             
         </tags>
       

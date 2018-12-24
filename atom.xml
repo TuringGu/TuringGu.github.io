@@ -149,11 +149,11 @@
     </summary>
     
     
+      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
+    
       <category term="WordPress" scheme="https://TuringGu.github.io/tags/WordPress/"/>
     
       <category term="LAMP" scheme="https://TuringGu.github.io/tags/LAMP/"/>
-    
-      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
     
   </entry>
   
@@ -178,11 +178,11 @@
     </summary>
     
     
-      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
-    
       <category term="Httpd" scheme="https://TuringGu.github.io/tags/Httpd/"/>
     
       <category term="编译安装" scheme="https://TuringGu.github.io/tags/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/"/>
+    
+      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
     
   </entry>
   
