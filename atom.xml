@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2018-12-24T09:30:39.447Z</updated>
+  <updated>2019-01-02T08:31:07.546Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -17,11 +17,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>数据库和SQL</title>
+    <link href="https://TuringGu.github.io/2019/12/15/DB-SQL/"/>
+    <id>https://TuringGu.github.io/2019/12/15/DB-SQL/</id>
+    <published>2019-12-15T04:39:57.000Z</published>
+    <updated>2019-01-02T08:31:07.546Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;数据库&quot;&gt;&lt;a href=&quot;#数据库&quot; class=&quot;headerlink&quot; title=&quot;数据库&quot;&gt;&lt;/a&gt;数据库&lt;/h2&gt;&lt;h3 id=&quot;定义与概念&quot;&gt;&lt;a href=&quot;#定义与概念&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Database" scheme="https://TuringGu.github.io/tags/Database/"/>
+    
+      <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL注入</title>
+    <link href="https://TuringGu.github.io/2019/01/01/SQL-injection/"/>
+    <id>https://TuringGu.github.io/2019/01/01/SQL-injection/</id>
+    <published>2019-01-01T05:22:45.000Z</published>
+    <updated>2019-01-06T08:19:56.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;SQL注入&quot;&gt;&lt;a href=&quot;#SQL注入&quot; class=&quot;headerlink&quot; title=&quot;SQL注入&quot;&gt;&lt;/a&gt;SQL注入&lt;/h2&gt;&lt;h3 id=&quot;定义与概念&quot;&gt;&lt;a href=&quot;#定义与概念&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
+    
+      <category term="注入" scheme="https://TuringGu.github.io/tags/%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>HTTP协议基础</title>
     <link href="https://TuringGu.github.io/2018/12/24/Http-protocol/"/>
     <id>https://TuringGu.github.io/2018/12/24/Http-protocol/</id>
     <published>2018-12-24T07:44:28.000Z</published>
-    <updated>2018-12-24T09:30:39.447Z</updated>
+    <updated>2018-12-24T09:30:40.000Z</updated>
     
     <summary type="html">
     
@@ -47,11 +99,35 @@
   </entry>
   
   <entry>
+    <title>PHP入门基础</title>
+    <link href="https://TuringGu.github.io/2018/12/15/Php_basic/"/>
+    <id>https://TuringGu.github.io/2018/12/15/Php_basic/</id>
+    <published>2018-12-15T09:00:00.000Z</published>
+    <updated>2018-12-15T09:27:28.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>后端开发入门</title>
     <link href="https://TuringGu.github.io/2018/12/12/Back-end/"/>
     <id>https://TuringGu.github.io/2018/12/12/Back-end/</id>
     <published>2018-12-12T11:38:53.000Z</published>
-    <updated>2018-12-27T11:41:59.656Z</updated>
+    <updated>2019-01-06T08:28:12.000Z</updated>
     
     <summary type="html">
     
@@ -69,6 +145,32 @@
       <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
     
       <category term="MySQL" scheme="https://TuringGu.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP开发入门</title>
+    <link href="https://TuringGu.github.io/2018/12/12/PHP/"/>
+    <id>https://TuringGu.github.io/2018/12/12/PHP/</id>
+    <published>2018-12-12T11:38:53.000Z</published>
+    <updated>2019-01-03T02:55:40.995Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
+    
+      <category term="Back-end" scheme="https://TuringGu.github.io/tags/Back-end/"/>
     
   </entry>
   
@@ -130,10 +232,10 @@
   
   <entry>
     <title>基于LAMP的WordPress动态博客搭建</title>
-    <link href="https://TuringGu.github.io/2018/12/05/Linux%E4%B8%8BWordPress%E6%90%AD%E5%BB%BA/"/>
-    <id>https://TuringGu.github.io/2018/12/05/Linux下WordPress搭建/</id>
+    <link href="https://TuringGu.github.io/2018/12/05/Linux_wordpress_setup/"/>
+    <id>https://TuringGu.github.io/2018/12/05/Linux_wordpress_setup/</id>
     <published>2018-12-05T10:16:59.000Z</published>
-    <updated>2018-12-09T12:12:42.000Z</updated>
+    <updated>2019-01-02T05:05:24.098Z</updated>
     
     <summary type="html">
     
@@ -178,20 +280,20 @@
     </summary>
     
     
+      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
+    
       <category term="Httpd" scheme="https://TuringGu.github.io/tags/Httpd/"/>
     
       <category term="编译安装" scheme="https://TuringGu.github.io/tags/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/"/>
     
-      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
-    
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://TuringGu.github.io/2018/12/04/hello-world/"/>
-    <id>https://TuringGu.github.io/2018/12/04/hello-world/</id>
-    <published>2018-12-04T02:28:50.467Z</published>
-    <updated>2018-12-04T02:28:52.000Z</updated>
+    <title>常见安全配置</title>
+    <link href="https://TuringGu.github.io/2018/12/03/Security-config/"/>
+    <id>https://TuringGu.github.io/2018/12/03/Security-config/</id>
+    <published>2018-12-03T13:09:16.000Z</published>
+    <updated>2018-12-16T13:10:46.000Z</updated>
     
     <summary type="html">
     
@@ -199,12 +301,69 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;h3 id=&quot;git&quot;&gt;&lt;a href=&quot;#git&quot; class=&quot;headerlink&quot; title=&quot;git&quot;&gt;&lt;/a&gt;git&lt;/h3&gt;&lt;h3 id=&quot;tomcat&quot;&gt;&lt;a href=&quot;#tomcat&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
     
+    
+      <category term="git" scheme="https://TuringGu.github.io/tags/git/"/>
+    
+      <category term="安全配置" scheme="https://TuringGu.github.io/tags/%E5%AE%89%E5%85%A8%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS下软件安装方法</title>
+    <link href="https://TuringGu.github.io/2018/11/30/CentOS-software-install/"/>
+    <id>https://TuringGu.github.io/2018/11/30/CentOS-software-install/</id>
+    <published>2018-11-30T03:44:18.000Z</published>
+    <updated>2018-12-16T05:49:46.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
+    
+      <category term="软件安装" scheme="https://TuringGu.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux入门基础</title>
+    <link href="https://TuringGu.github.io/2018/11/28/Linux-foundation/"/>
+    <id>https://TuringGu.github.io/2018/11/28/Linux-foundation/</id>
+    <published>2018-11-28T08:24:20.000Z</published>
+    <updated>2018-12-16T13:04:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;hr&gt;
+&lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://TuringGu.github.io/tags/Linux/"/>
+    
+      <category term="基础" scheme="https://TuringGu.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   

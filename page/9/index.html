@@ -83,7 +83,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>基于LAMP的WordPress动态博客搭建 | TuringGu - My first blog</title>
+    <title>TuringGu - My first blog</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -125,22 +125,25 @@
         <div class="main-container">
           <div class="content">
             
-<div id="post" class="page">
+
+<div id="index" class="index page">
   
   <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/05/Linux下WordPress搭建/">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/05/Linux_wordpress_setup/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-       <meta itemprop="name" content="TuringGu">
-       <meta itemprop="description" content="">
-       <meta itemprop="image" content="/images/myavatar.jpg">
+        <meta itemprop="name" content="TuringGu">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/myavatar.jpg">
       </span>
       <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="TuringGu">
+        <meta itemprop="name" content="TuringGu">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">基于LAMP的WordPress动态博客搭建</h1>
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/12/05/Linux_wordpress_setup/" itemprop="url">基于LAMP的WordPress动态博客搭建</a>
+      </h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -152,6 +155,7 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
+      
       <hr>
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要说明Linux下基于LAMP的WordPress动态博客的搭建过程。<br>从网站流量上来说，70%以上的访问流量都是LAMP来提供的，是开源的极为强大的网站解决方案。而WordPress功能强大，插件众多，易于扩充功能，安装与使用都极为方便。此组合非常适合新手进行网站搭建的练手。<br>因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己与他人的查询。</p>
 <p><strong>注：安装步骤中的知识补充放在文末。</strong></p>
@@ -226,6 +230,7 @@
 <p>CREATE： 允许MySQL用户创建新的表或数据库<br>DROP：允许删除表或数据库<br>DELETE：    允许从表中删除行<br>INSERT：    允许向表中插入行<br>SELECT：    允许使用Select命令来读取数据库<br>UPDATE：    允许更新表行<br>GRANT OPTION：允许授予或删除其他用户的权限<br>ALL PRIVILEGES：允许访问指定的数据库</p>
 </blockquote>
 
+      
     </main>
     <footer class="post-footer">
       
@@ -243,30 +248,8 @@
   </article>
   
   
-<div class="reward" id="reward">
-  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
-  <button id="reward-button" class="button" disable="enable">打赏</button>
-  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
-    
-    
-    
-  </div>
-</div>
-
-
-  
-  
-  <nav class="page-nav">
-    <div class="page-nav-next page-nav-item">
-      
-      <a href="/2018/12/04/Httpd编译安装教程/" rel="next" title="Httpd编译安装教程"><i class="fas fa-angle-left"></i><span class="nav-title">Httpd编译安装教程</span></a>
-      
-    </div>
-    <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2018/12/08/V2ray-Tutorial/" rel="prev" title="V2ray科学上网教程"><span class="nav-title">V2ray科学上网教程</span><i class="fas fa-angle-right"></i></a>
-      
-    </div>
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -296,7 +279,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">8</a></div>
+      <div><a href="/archives/">14</a></div>
     </div>
     
     
@@ -314,7 +297,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">18</a></div>
+      <div><a href="/tags/">27</a></div>
     </div>
     
   </div>
@@ -327,17 +310,6 @@
 
 
   <div class="sidebar-sticky">
-    
-    
-    
-    
-    
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#操作环境"><span class="toc-text">操作环境</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#LAMP环境搭建"><span class="toc-text">LAMP环境搭建</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Apache安装"><span class="toc-text">Apache安装</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#MySQL安装"><span class="toc-text">MySQL安装</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#PHP安装"><span class="toc-text">PHP安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#WordPress个人博客搭建"><span class="toc-text">WordPress个人博客搭建</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#WordPress安装"><span class="toc-text">WordPress安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#补充知识"><span class="toc-text">补充知识</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#LAMP是什么"><span class="toc-text">LAMP是什么</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#mysql修改密码"><span class="toc-text">mysql修改密码</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#mysql数据库创建与权限管理"><span class="toc-text">mysql数据库创建与权限管理</span></a></li></ol></li></ol></div>
-    </div>
-    
     
     
     
@@ -368,7 +340,7 @@
     <div class="footer-container">
       <div class="footer-left">
         <div class="copyright">
-          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2018</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
         </div>
         
         <div class="busuanzi">
