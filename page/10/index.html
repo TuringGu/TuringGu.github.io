@@ -130,7 +130,7 @@
   
   <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/04/Httpd编译安装教程/">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/05/Linux_wordpress_setup/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="TuringGu">
         <meta itemprop="description" content="">
@@ -142,12 +142,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/12/04/Httpd编译安装教程/" itemprop="url">Httpd编译安装教程</a>
+        <a class="post-title-link post-title-link-external" href="/2018/12/05/Linux_wordpress_setup/" itemprop="url">基于LAMP的WordPress动态博客搭建</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-04T17:40:33+08:00">2018-12-04 17:40:33</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-05T18:16:59+08:00">2018-12-05 18:16:59</time></span>
         </span>
         
         
@@ -157,43 +157,78 @@
     <main class="post-main" itemprop="articleBody">
       
       <hr>
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要说明httpd的编译安装过程。<br>源码安装是比较麻烦的一种安装方法，但却有其不可替代性。<br>因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己与他人的查询。</p>
-<p>注：安装步骤中的知识补充放在文末。</p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要说明Linux下基于LAMP的WordPress动态博客的搭建过程。<br>从网站流量上来说，70%以上的访问流量都是LAMP来提供的，是开源的极为强大的网站解决方案。而WordPress功能强大，插件众多，易于扩充功能，安装与使用都极为方便。此组合非常适合新手进行网站搭建的练手。<br>因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己与他人的查询。</p>
+<p><strong>注：安装步骤中的知识补充放在文末。</strong></p>
 <hr>
 <h4 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h4><p>物理机：Windows 10 Enterprise<br>虚拟机：CentOS 7 64位</p>
 <hr>
-<h3 id="具体操作流程"><a href="#具体操作流程" class="headerlink" title="具体操作流程"></a>具体操作流程</h3><p>首先安装开发者套件：<br><figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># yum groups mark convert</span><br><span class="hljs-meta"># yum groupinstall <span class="hljs-meta-string">"Development Tools"</span> -y <span class="hljs-comment">// 整套安装一组开发者工具</span></span><br></code></pre></td></tr></table></figure></p>
-<h4 id="下载源码包："><a href="#下载源码包：" class="headerlink" title="下载源码包："></a>下载源码包：</h4><figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># cd /usr/local/src/</span><br><span class="hljs-meta"># wget https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-1.6.5.tar.gz</span><br><span class="hljs-meta"># wget https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-util-1.6.1.tar.gz</span><br><span class="hljs-meta"># wget https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.37.tar.gz</span><br></code></pre></td></tr></table></figure>
-<p>备注：三个源码包都放在<code>/usr/local/src/</code></p>
-<hr>
-<h4 id="安装apr-1-6-5"><a href="#安装apr-1-6-5" class="headerlink" title="安装apr-1.6.5"></a>安装apr-1.6.5</h4><figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-built_in">cd</span> /usr/<span class="hljs-built_in">local</span>/src/</span><br><span class="hljs-meta">#</span><span class="bash"> cp -r apr-1.6.5  /usr/<span class="hljs-built_in">local</span>/src/httpd-2.4.37/srclib/apr</span><br><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-built_in">cd</span> apr-1.6.5</span><br><span class="hljs-meta">#</span><span class="bash"> ./configure --prefix=/usr/<span class="hljs-built_in">local</span>/apr</span><br><span class="hljs-meta">#</span><span class="bash"> make &amp;&amp; make install</span><br></code></pre></td></tr></table></figure>
-<hr>
-<h4 id="安装apr-util-1-6-1"><a href="#安装apr-util-1-6-1" class="headerlink" title="安装apr-util-1.6.1"></a>安装apr-util-1.6.1</h4><figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-built_in">cd</span> /usr/<span class="hljs-built_in">local</span>/src</span><br><span class="hljs-meta">#</span><span class="bash"> cp -r apr-util-1.6.1  /usr/<span class="hljs-built_in">local</span>/src/httpd-2.4.37/srclib/apr-util</span><br><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-built_in">cd</span> /usr/<span class="hljs-built_in">local</span>/src/apr-util-1.6.1</span><br><span class="hljs-meta">#</span><span class="bash"> ./configure --prefix=/usr/<span class="hljs-built_in">local</span>/apr-util --with-apr=/usr/<span class="hljs-built_in">local</span>/apr</span><br><span class="hljs-meta">#</span><span class="bash"> make &amp;&amp; make install</span><br></code></pre></td></tr></table></figure>
-<p>pcre的编译安装<br><figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># wget https://ftp.pcre.org/pub/pcre/pcre-8.00.tar.gz</span><br><span class="hljs-meta"># tar -zxvf pcre-8.10.tar.gz</span><br><span class="hljs-meta"># cd pcre-8.10</span><br><span class="hljs-meta"># ./configure</span><br><span class="hljs-meta"># make  &amp;&amp; make install</span><br></code></pre></td></tr></table></figure></p>
-<hr>
-<h4 id="安装httpd-2-4-37"><a href="#安装httpd-2-4-37" class="headerlink" title="安装httpd-2.4.37"></a>安装httpd-2.4.37</h4><figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">#</span><span class="bash"> ./configure --with-included-apr --prefix=/usr/<span class="hljs-built_in">local</span>/apache2.4 --with-apr=/usr/<span class="hljs-built_in">local</span>/apr --with-apr-util=/usr/<span class="hljs-built_in">local</span>/apr-util --<span class="hljs-built_in">enable</span>-so --<span class="hljs-built_in">enable</span>-mods-shared=most</span><br><span class="hljs-meta">#</span><span class="bash"> make &amp;&amp; make install</span><br></code></pre></td></tr></table></figure>
-<hr>
-<h4 id="编写启动脚本："><a href="#编写启动脚本：" class="headerlink" title="编写启动脚本："></a>编写启动脚本：</h4><figure class="hljs highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta"># vim httpd</span><br>#!/bin/bash<br><span class="hljs-meta"># chkconfig: 12345 80 90</span><br><span class="hljs-function">function <span class="hljs-title">start_http</span><span class="hljs-params">()</span><br></span>&#123;<br>/usr/local/apache2<span class="hljs-number">.4</span>/bin/apachectl  start<br>&#125;<br><span class="hljs-function">function <span class="hljs-title">stop_http</span><span class="hljs-params">()</span><br></span>&#123;<br> /usr/local/apache2<span class="hljs-number">.4</span>/bin/apachectl  stop<br>&#125;<br><span class="hljs-keyword">case</span> <span class="hljs-string">"$1"</span> in<br>start)<br>    start_http<br>;;<br>stop)<br>    stop_http<br>;;  <br>restart)<br>    stop_http<br>    start_http<br>;;<br>*)<br>    echo <span class="hljs-string">"Usage : start | stop | restart"</span><br>;;<br>esac<br></code></pre></td></tr></table></figure>
-<hr>
-<p>加入所编写的httpd系统服务：<br><figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># chmod a+x httpd</span><br><span class="hljs-meta"># cp -arf httpd /etc/init.d/</span><br></code></pre></td></tr></table></figure></p>
-<p>启动自己编写的服务：<br><figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># systemctl daemon-reload</span><br><span class="hljs-meta"># systemctl start httpd</span><br></code></pre></td></tr></table></figure></p>
-<p>设置开机自启动：<code># chkconfig --add httpd</code><br>查看配置文件路径：<code># /usr/local/apache2.4/conf/httpd.conf</code><br>查看httpd服务运行状态<code># systemctl status httpd</code></p>
-<hr>
-<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><h4 id="参数释义："><a href="#参数释义：" class="headerlink" title="参数释义："></a>参数释义：</h4><blockquote>
-<p>–enable-mods     // 让apache核心装载DSO，但不实际编译任何动态模块，未加参数，为静态编译<br>–enable-ModuleName=share     // 将模块编译成动态的<br>–enable-ModuleName=most     // 动态地编译进来大多数的模块<br>–enable-ModuleName=all     // 动态地编译所有的模块</p>
-</blockquote>
-<p>动态编译：使用模块时才将需要使用的模块Load进来<br>静态编译：先将所需模块Load进去，使用时直接调用</p>
-<hr>
-<h4 id="install与groupinstall区别："><a href="#install与groupinstall区别：" class="headerlink" title="install与groupinstall区别："></a>install与groupinstall区别：</h4><blockquote>
-<p><code>yum install</code>    安装单个软件<br><code>yum grouplist</code>    查看这个软件的所有软件包，每次安装前可以先查看<code>yum grouplist</code>有哪些软件，然后再去安装<code>yum groupinstall</code><br><code>yum groupinstall</code>    看装多个软件，安装这个软件的所有依赖包，<code>yum groupinstall</code>安装的时候必须加双引号</p>
-</blockquote>
-<p>示例代码:</p>
+<h3 id="LAMP环境搭建"><a href="#LAMP环境搭建" class="headerlink" title="LAMP环境搭建"></a>LAMP环境搭建</h3><h4 id="Apache安装"><a href="#Apache安装" class="headerlink" title="Apache安装"></a>Apache安装</h4><p>在CentOS下，Apache软件安装包又叫httpd，此前曾使用过源码编译安装过httpd，这里使用简单的yum命令安装即可：<br><figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># yum install httpd</span><br></code></pre></td></tr></table></figure></p>
 <blockquote>
-<p>yum -y groupinstall Desktop     // -y参数同意所有软件安装操作<br>yum groupremove     // 卸载所有软件包</p>
+<p>systemctl start httpd     // 开启Apache服务<br>systemctl status httpd    // 查看Apache服务状态<br>chkconfig –level 2345 httpd on     // 设置服务在运行级别为2、3、4、5的情况下都为开启的状态<br>systemctl enable httpd    // 设置服务开机自启</p>
+</blockquote>
+<blockquote>
+<p>systemctl list-unit-files|grep firewalld.service     //查看防火墙状态<br>systemctl stop firewalld.service     // 停止防火墙服务<br>systemctl disable firewalld.service     // 禁止防火墙开机自启</p>
+</blockquote>
+<p>验证Apache是否安装成功：<br>在浏览器中输入CentOS系统服务器IP地址：<br><code>http://{YourServerAddress}</code><br>若出现Apache相关页面，则安装成功</p>
+<hr>
+<h4 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h4><p>由于mysql在CentOS的源中被移除，因此这里安装其分支产品mariaDB数据库。<br>查找所需安装包并安装：<br><figure class="hljs highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># yum search <span class="hljs-keyword">mariadb<br></span># yum install <span class="hljs-keyword">mariadb.x86_64 </span><span class="hljs-keyword">mariadb-server.x86_64 </span><span class="hljs-keyword">mariadb-libs.x86_64 </span><span class="hljs-keyword">mariadb-devel.x86_64</span><br></code></pre></td></tr></table></figure></p>
+<p>启动mysql并设置在特定运行级别为开启状态：</p>
+<blockquote>
+<p>service mariadb start<br>chkconfig –level 2345 mariadb on</p>
+</blockquote>
+<p>设置mariaDB初始密码并登陆：</p>
+<blockquote>
+<p>mysqladmin -u root -p password<br>mysql -u root -p</p>
+</blockquote>
+<p>修改密码：</p>
+<blockquote>
+<p>use mysql;<br>update mysql.user set authentication_string=password(‘YourPassword’) where user=’root’ ;</p>
+</blockquote>
+<p>重启Mysql服务并登陆验证所修改信息：</p>
+<blockquote>
+<p>systemctl restart mysqld.service<br>mysql -u root -p</p>
 </blockquote>
 <hr>
-<h4 id="prefix选项："><a href="#prefix选项：" class="headerlink" title="-prefix选项："></a>-prefix选项：</h4><p>使用<code>./configure --prefix=/supersparrow</code><br>安装完成将自动生成目录<code>supersparrow</code>，则该软件任何的文档都被复制到这个目录。指定此安装目录是为了以后的维护方便，否则该软件所需的软件会被复制到不同的系统目录下，难以维护。</p>
-<p>用了<code>-prefix</code>选项的另一个好处是卸载软件或移植软件。当某个安装的软件不再需要时，只须简单的删除该安装目录，就能够把软件卸载得干干净净;移植软件只需拷贝整个目录到另外一个机器即可(相同的操作系统)。</p>
+<h4 id="PHP安装"><a href="#PHP安装" class="headerlink" title="PHP安装"></a>PHP安装</h4><p>查找所需安装包并安装：<br><figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># yum search php</span><br><span class="hljs-meta"># yum install php.x86_64 php-mysql.x86_64 php-pear php-pear-DB php-gd</span><br></code></pre></td></tr></table></figure></p>
+<p>验证PHP安装：</p>
+<blockquote>
+<p>vi /var/www/html/info.php     // 新建文件，并输入下列内容</p>
+</blockquote>
+<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?</span> php phpinfo(); <span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+<p>重启Apache Web服务器： <code>systemctl restart apache2</code><br>打开URL：<code>http://{YourServerAddress}/info.php</code><br>若能显示php信息页面，则安装成功。</p>
+<hr>
+<h3 id="WordPress个人博客搭建"><a href="#WordPress个人博客搭建" class="headerlink" title="WordPress个人博客搭建"></a>WordPress个人博客搭建</h3><h4 id="WordPress安装"><a href="#WordPress安装" class="headerlink" title="WordPress安装"></a>WordPress安装</h4><p>进入WordPress官网<a href="https://cn.wordpress.org/download/" target="_blank" rel="noopener">https://cn.wordpress.org/download/</a><br>复制下载链接，进行下载安装操作：</p>
+<figure class="hljs highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># wget https:<span class="hljs-comment">//cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz 	// 下载</span></span><br><span class="hljs-meta"># tar -xzvf wordpress-4.9.4-zh_CN.tar.gz 	<span class="hljs-comment">// 解压</span></span><br><span class="hljs-meta"># mv -r wordpress /var/www/html/ 	<span class="hljs-comment">// 进入下载根目录，移动文件</span></span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>打开URL：<code>http://{YourServerAddress}/wordpress</code><br>此时若能访问到正常页面，则可进入下一步。<br>按照安装前的提示信息进行准备，确认无误后，单机开始按钮进行安装</p>
+</blockquote>
+<blockquote>
+<p>填入数据库名、用户名密码，数据库主机和表前缀先按默认来，完成后提交</p>
+</blockquote>
+<blockquote>
+<p>接下来步骤按提示进行，即可完成安装WordPress</p>
+</blockquote>
+<p>进行验证：</p>
+<blockquote>
+<p>打开URL：<code>http://{YourServerAddress}/wordpress</code>，即可进入自己的WordPress博客<br>可以在URL：<code>http://{YourServerAddress}/wordpress/wp-admin</code>，进行自己的博客管理</p>
+</blockquote>
+<p><strong>至此，基于LAMP的WordPress动态个博客搭建成功</strong></p>
+<hr>
+<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><h4 id="LAMP是什么"><a href="#LAMP是什么" class="headerlink" title="LAMP是什么"></a>LAMP是什么</h4><blockquote>
+<p>LAMP = Linux + Apache + MySQL + PHP<br>WAMP = Windows + Apache + MySQL + PHP</p>
+</blockquote>
+<hr>
+<h4 id="mysql修改密码"><a href="#mysql修改密码" class="headerlink" title="mysql修改密码"></a>mysql修改密码</h4><figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">&gt; use mysql;<br>&gt; UPDATE user SET password=password("YourPassword") WHERE user='root'<br>&gt; exit;<br></code></pre></td></tr></table></figure>
+<p>如果提示无法修改密码，可尝试如下操作：</p>
+<figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># service mysql stop</span><br><span class="hljs-meta"># mkdir -p /var/run/mysqld</span><br><span class="hljs-meta"># chwon -R mysql:mysql /var/run/mysqld /usr/bin/mysqld_safe --skip-grant-tables --skip-networking</span><br></code></pre></td></tr></table></figure>
+<p>再开启一个终端：<br><code># mysql -u root</code><br><figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql">&gt; use mysql;<br>&gt; update user set authentication_string=password("YourPassword") where user='root';<br>&gt; update user set plugin="mysql_native_password";<br>&gt; flush privileges;	#更新所有操作权限<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="mysql数据库创建与权限管理"><a href="#mysql数据库创建与权限管理" class="headerlink" title="mysql数据库创建与权限管理"></a>mysql数据库创建与权限管理</h4><p>常用操作：<br><figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># mysql -u root -p 	</span><br><span class="hljs-meta"># 使用用户名密码登陆root账号</span><br></code></pre></td></tr></table></figure></p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql">&gt; show databases; #查看当前有哪些数据库<br>&gt; create database wordpress; #创建新的名为wordpress的数据库<br>&gt; create user admin identified by 'YourPassword'; #创建用户admin<br>&gt; drop user admin; #删除用户admin<br>&gt; show grants for admin; #查看admin权限<br>&gt; grant select on test.* to admin; #授予用户admin对数据库test的查询权限<br>&gt; revoke select on test.* from admin; #收回相应权限<br>&gt; quit; #退出<br></code></pre></td></tr></table></figure>
+<p>常用用户权限如下：</p>
+<blockquote>
+<p>CREATE： 允许MySQL用户创建新的表或数据库<br>DROP：允许删除表或数据库<br>DELETE：    允许从表中删除行<br>INSERT：    允许向表中插入行<br>SELECT：    允许使用Select命令来读取数据库<br>UPDATE：    允许更新表行<br>GRANT OPTION：允许授予或删除其他用户的权限<br>ALL PRIVILEGES：允许访问指定的数据库</p>
+</blockquote>
 
       
     </main>
@@ -203,9 +238,9 @@
         
         <a class="post-tag button" href="/tags/CentOS/" rel="tag"><i class="fas fa-tags"></i>CentOS</a>
         
-        <a class="post-tag button" href="/tags/Httpd/" rel="tag"><i class="fas fa-tags"></i>Httpd</a>
+        <a class="post-tag button" href="/tags/WordPress/" rel="tag"><i class="fas fa-tags"></i>WordPress</a>
         
-        <a class="post-tag button" href="/tags/编译安装/" rel="tag"><i class="fas fa-tags"></i>编译安装</a>
+        <a class="post-tag button" href="/tags/LAMP/" rel="tag"><i class="fas fa-tags"></i>LAMP</a>
         
       </div>
       
@@ -214,7 +249,7 @@
   
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/11/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/11/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -244,7 +279,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">14</a></div>
+      <div><a href="/archives/">15</a></div>
     </div>
     
     
@@ -262,7 +297,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">27</a></div>
+      <div><a href="/tags/">29</a></div>
     </div>
     
   </div>

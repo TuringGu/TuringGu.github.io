@@ -130,7 +130,7 @@
   
   <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/11/30/CentOS-software-install/">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/03/Security-config/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <meta itemprop="name" content="TuringGu">
         <meta itemprop="description" content="">
@@ -142,12 +142,12 @@
     </div>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/11/30/CentOS-software-install/" itemprop="url">CentOS下软件安装方法</a>
+        <a class="post-title-link post-title-link-external" href="/2018/12/03/Security-config/" itemprop="url">常见安全配置</a>
       </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-11-30T11:44:18+08:00">2018-11-30 11:44:18</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-03T21:09:16+08:00">2018-12-03 21:09:16</time></span>
         </span>
         
         
@@ -156,53 +156,16 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要介绍在CentOS操作系统下，软件常用的安装、卸载方法。</p>
-<p><strong>注：补充知识放在文末</strong></p>
-<hr>
-<h3 id="RPM安装"><a href="#RPM安装" class="headerlink" title="RPM安装"></a>RPM安装</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p><code>RPM（Red-Hat Package Manager）</code>软件包管理器，一种用于互联网下载包的打包及安装工具，它包含在某些Linux分发版中。它生成具有.RPM扩展名的文件。与<code>Dpkg</code>类似。</p>
-<hr>
-<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">rpm<br>rpm -ivh</span><br></code></pre></td></tr></table></figure>
-<p>rpm 查询</p>
-<blockquote>
-<p><code>-q</code> 仅查询，后面接的软件吗是否有安装<br><code>-qa</code> 列出所有的，已经安装在本机Linux系统上面的所有软件名称<br><code>-ql</code> 列出该软件所有的文件与目录所在完整文件名（list）<br><code>-qR</code> 列出与该软件有关的相依软件所含的文件（Required）<br><code>rpm -qa | grep python</code></p>
-</blockquote>
-<p><strong>rpm包可以用来安装指定版本</strong></p>
-<hr>
-<h4 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h4><figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">rpm -<span class="hljs-selector-tag">i</span> xxxxx<br></code></pre></td></tr></table></figure>
-<p>若发现依赖问题，可用如下命令尝试解决：<br><figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">yum <span class="hljs-keyword">install</span> -f<br></code></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>yum（Yellow dog Updater,modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。 </p>
-<hr>
-<h4 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h4><p>软件搜索：<br><figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">yum search mysql</span><br></code></pre></td></tr></table></figure></p>
-<p>软件安装：<br><figure class="hljs highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">yum install mariadb	<span class="hljs-comment">// 会自动补全依赖</span><br></code></pre></td></tr></table></figure></p>
-<p>卸载<br><figure class="hljs highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">yum <span class="hljs-builtin-name">remove</span> 软件名<br>yum erase 软件名<br></code></pre></td></tr></table></figure></p>
-<p>整套安装一组开发者工具包<br><figure class="hljs highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">gcc macker install	<span class="hljs-comment">// 安装gcc编译器</span><br>groupinstall	<br>yum groupinstall <span class="hljs-string">"Development Tools"</span> -<span class="hljs-built_in">y</span><br></code></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="通过源码安装"><a href="#通过源码安装" class="headerlink" title="通过源码安装"></a>通过源码安装</h3><p>此方法较为复杂，但有其不可替代性<br><figure class="hljs highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">./configure	 各种配置<br><span class="hljs-built_in">make</span>		 编译<br><span class="hljs-built_in">make</span> install 安装<br></code></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><h4 id="Kali、ubuntu安装包"><a href="#Kali、ubuntu安装包" class="headerlink" title="Kali、ubuntu安装包"></a>Kali、ubuntu安装包</h4><p><code>dpkg</code></p>
-<hr>
-<h4 id="ubuntu软件安装"><a href="#ubuntu软件安装" class="headerlink" title="ubuntu软件安装"></a>ubuntu软件安装</h4><figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">dpkg -<span class="hljs-selector-tag">i</span> xxxxx<br></code></pre></td></tr></table></figure>
-<p>发现依赖有问题:<br><figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">apt <span class="hljs-keyword">install</span> -f<br></code></pre></td></tr></table></figure></p>
-<p>大致步骤：</p>
-<blockquote>
-<ol>
-<li>下载deb包</li>
-<li>dpkg -i xxxx.deb</li>
-<li>发现依赖问题</li>
-<li>解决依赖问题</li>
-</ol>
-</blockquote>
-
+      <h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><h3 id="tomcat"><a href="#tomcat" class="headerlink" title="tomcat"></a>tomcat</h3>
       
     </main>
     <footer class="post-footer">
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/CentOS/" rel="tag"><i class="fas fa-tags"></i>CentOS</a>
+        <a class="post-tag button" href="/tags/git/" rel="tag"><i class="fas fa-tags"></i>git</a>
         
-        <a class="post-tag button" href="/tags/软件安装/" rel="tag"><i class="fas fa-tags"></i>软件安装</a>
+        <a class="post-tag button" href="/tags/安全配置/" rel="tag"><i class="fas fa-tags"></i>安全配置</a>
         
       </div>
       
@@ -211,7 +174,7 @@
   
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/13/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/13/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -241,7 +204,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">14</a></div>
+      <div><a href="/archives/">15</a></div>
     </div>
     
     
@@ -259,7 +222,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">27</a></div>
+      <div><a href="/tags/">29</a></div>
     </div>
     
   </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-01-06T08:19:56.000Z</updated>
+  <updated>2019-01-09T10:00:16.319Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>文件上传</title>
+    <link href="https://TuringGu.github.io/2019/01/09/File-upload/"/>
+    <id>https://TuringGu.github.io/2019/01/09/File-upload/</id>
+    <published>2019-01-09T09:47:42.000Z</published>
+    <updated>2019-01-09T10:00:16.319Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Web应用程序通常会有文件上传的功能，只要
+        
+      
+    
+    </summary>
+    
+    
+      <category term="文件上传" scheme="https://TuringGu.github.io/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+      <category term="WAF绕过" scheme="https://TuringGu.github.io/tags/WAF%E7%BB%95%E8%BF%87/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL注入</title>
