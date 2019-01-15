@@ -325,12 +325,72 @@
 <p><code>addslashes()</code> 对<code>&#39;</code>，<code>&quot;</code>，<code>\</code>和<code>NULL</code>（NULL字符）进行处理<br><code>mysql_real_escape_string()</code> 过滤<code>\x00</code>，<code>\n</code>，<code>\r</code>，<code>\</code>，<code>&#39;</code>，<code>&quot;</code>，<code>\x1a</code><br><code>mysql_escape_string()</code> php5.3已弃用，与完全一样，除了 mysql_real_escape_string() 接受的是一个连接句柄并根据当前字符集转移字符串之外。mysql_escape_string() 并不接受连接参数，也不管当前字符集设定。</p>
 </blockquote>
 <hr>
-<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>当存在此漏洞时，在注入的参数里加入<code>%df%27</code>，即可把程序中过滤的<code>\</code>（即<code>%5c</code>）“吃掉”，%df%5c拼接为gbk编码的“運”<br>例如：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql">/1.php?id=1%27 and 1=1%23  <span class="hljs-comment"># 失败的注入语句</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> news <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span>=<span class="hljs-string">'1\' and 1=1#'</span>  <span class="hljs-comment">#过滤后后台实际执行语句</span><br><br>/<span class="hljs-number">1.</span>php?<span class="hljs-keyword">id</span>=<span class="hljs-number">1</span>%df%<span class="hljs-number">27</span> <span class="hljs-keyword">and</span> <span class="hljs-number">1</span>%<span class="hljs-number">23</span>  <span class="hljs-comment"># 成功的注入语句</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> news <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span>=<span class="hljs-string">'1運'</span> <span class="hljs-keyword">and</span> <span class="hljs-number">1</span><span class="hljs-comment">#'  # 后台实际执行语句</span><br></code></pre></td></tr></table></figure></p>
+<h4 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h4><p>当存在此漏洞时，在注入的参数里加入<code>%df%27</code>，即可把程序中过滤的<code>\</code>（即<code>%5c</code>）“吃掉”，%df%5c拼接为gbk编码的“運”<br>例如：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql">/1.php?id=1%27 and 1=1%23  <span class="hljs-comment"># 失败的注入语句</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> news <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span>=<span class="hljs-string">'1\' and 1=1#'</span>  <span class="hljs-comment">#过滤后后台实际执行语句</span><br><br>/<span class="hljs-number">1.</span>php?<span class="hljs-keyword">id</span>=<span class="hljs-number">1</span>%df%<span class="hljs-number">27</span> <span class="hljs-keyword">and</span> <span class="hljs-number">1</span>%<span class="hljs-number">23</span>  <span class="hljs-comment"># 成功的注入语句</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> news <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span>=<span class="hljs-string">'1運'</span> <span class="hljs-keyword">and</span> <span class="hljs-number">1</span><span class="hljs-comment">#'  # 后台实际执行语句</span><br></code></pre></td></tr></table></figure></p>
 <hr>
 <h4 id="修复方式"><a href="#修复方式" class="headerlink" title="修复方式"></a>修复方式</h4><p>若是为了避免宽字节注入的产生，可限定使用<code>mysql_set_charset(GBK)</code>来指定字符集，并且使用<code>mysql_real_escape_string</code>进行转义</p>
 <hr>
-<h3 id="二次编码注入"><a href="#二次编码注入" class="headerlink" title="二次编码注入"></a>二次编码注入</h3><hr>
-<h3 id="HTTP请求头注入"><a href="#HTTP请求头注入" class="headerlink" title="HTTP请求头注入"></a>HTTP请求头注入</h3><hr>
+<h3 id="二次编码注入"><a href="#二次编码注入" class="headerlink" title="二次编码注入"></a>二次编码注入</h3><blockquote>
+<p>url编码是一种浏览器用来打包表单输入的格式。url编码就是一个字符ascii码的十六进制，前面还需加上<code>%</code><br>例如<code>\</code>的ascii码是92，92的十六进制是<code>5c</code>，所以<code>\</code>的url编码就是<code>%5c</code></p>
+</blockquote>
+<hr>
+<h4 id="原理-4"><a href="#原理-4" class="headerlink" title="原理"></a>原理</h4><p>Web程序中使用了<code>urldecode()</code>或<code>rawurldecode()</code>来解码<code>id</code>参数<br>提交参数到WebServer时，WebServer会自动解码生成单引号而引发注入</p>
+<h4 id="漏洞利用-1"><a href="#漏洞利用-1" class="headerlink" title="漏洞利用"></a>漏洞利用</h4><p><code>%25</code>被解码后被转换为<code>%</code><br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">/<span class="hljs-number">1.</span>php?id=<span class="hljs-number">1</span>%<span class="hljs-number">2527</span>  <span class="hljs-comment">// URL中语句</span><br>id=<span class="hljs-number">1</span>%<span class="hljs-number">27</span>  <span class="hljs-comment">// 实际执行语句，产生单引号成功闭合</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="HTTP请求头注入"><a href="#HTTP请求头注入" class="headerlink" title="HTTP请求头注入"></a>HTTP请求头注入</h3><h4 id="请求头定义"><a href="#请求头定义" class="headerlink" title="请求头定义"></a>请求头定义</h4><p>HTTP客户端（例如浏览器），向服务器发送请求时必须指明请求类型（一般为<code>GET</code>或者<code>POST</code>）。如有必要，客户程序还可以选择发送其它请求头。</p>
+<hr>
+<h4 id="常见请求头"><a href="#常见请求头" class="headerlink" title="常见请求头"></a>常见请求头</h4><p><code>User-agent</code> 浏览器版本信息</p>
+<blockquote>
+<p><code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36</code></p>
+</blockquote>
+<p><code>referer</code> 包含一个URL，指明用户从该URL代表的页面出发访问当前请求的页面</p>
+<blockquote>
+<p><code>https://www.google.co.jp</code></p>
+</blockquote>
+<p><code>X-Forwarded-For</code> 即<code>XFF</code>，用来识别通过HTTP代理或负载均衡方式连接到Web服务器的客户端最原始的IP地址的HTTP请求头字段。</p>
+<blockquote>
+<p>192.168.0.2</p>
+</blockquote>
+<p><code>Cookie</code> 总是保存在客户端中，一般会以文件的方式存储在硬盘中，我们通过一些插件可以修改<code>Cookie</code>内容</p>
+<blockquote>
+<p>user:admin_12536223782183</p>
+</blockquote>
+<hr>
+<h4 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h4><p>常用操作http请求头的工具<br><code>Burpsuite</code> 抓包修改请求头<br><code>Chrome</code> 扩展<code>ModeHeader</code><br><code>FireFox</code> 扩展<code>Header Editor</code></p>
+<hr>
+<h4 id="原理-5"><a href="#原理-5" class="headerlink" title="原理"></a>原理</h4><ul>
+<li><p>常见处理<code>user-agent</code>方法：</p>
+<blockquote>
+<p><code>user-agent</code>很少会带入到数据库中进行处理，一般被用来判断客户端类型<br>例如： <code>PHP</code>使用<code>jenssegers/agent</code>库处理，判断是PC、移动端或者机器</p>
+</blockquote>
+</li>
+<li><p>常见处理<code>referer</code>方法：</p>
+<blockquote>
+<p><code>referer</code>很少会带入数据库中，它主要功能是用来验证请求来源<br>用来防御csrf漏洞</p>
+</blockquote>
+</li>
+<li><p>常见处理<code>Cookie</code>方法：</p>
+<blockquote>
+<p><code>Cookie</code>主要用来存储用户的认证信息，经常会带入到数据库中进行查询<br>在老旧的站点中，会直接将用户信息存储在cookie中，如果使用时直接带入数据库中进行查询，就可能出现<code>SQL注入</code>问题</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>后端PHP处理<code>Cookie</code><br>验证账户信息，为客户端设置<code>Cookie</code>的示例代码：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs php">$sql = <span class="hljs-string">"SELECT * FROM `users` WHERE `username` = '&#123;$username&#125;'"</span>;<br>$data = mysql_query($sql, $conn) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>(mysql_error());<br>$userinfo = mysql_fetch_array($data);<br><span class="hljs-keyword">if</span>(md5($password) == $userinfo[<span class="hljs-string">'password'</span>]) &#123;<br>    setcookie(<span class="hljs-string">'usre'</span>, $userinfo[<span class="hljs-string">'username'</span>], time() + <span class="hljs-number">3600</span>);<br>    setcookie(<span class="hljs-string">'background'</span>, $userinfo[<span class="hljs-string">'background'</span>], time() + <span class="hljs-number">3600</span>);<br>&#125;<br></code></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>在进行敏感操作时，验证并使用cookie中的用户信息：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(!<span class="hljs-keyword">isset</span>($_COOKIE[<span class="hljs-string">'user'</span>])) &#123;<br>	header(<span class="hljs-string">"Location: login.php"</span>);<br>	<span class="hljs-keyword">die</span>();<br>&#125;<br><br>$sql = <span class="hljs-string">"SELECT * FROM `messages` WHERE `author` = '&#123;$_COOKIE['user']&#125;';"</span>;<br>$data = mysql_query($sql, $conn) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>(mysql_error());<br><span class="hljs-keyword">while</span> ($com = mysql_fetch_array($data)) &#123;<br>    $message = $com[<span class="hljs-string">'message'</span>];<br>    $title = $com[<span class="hljs-string">'title'</span>];<br>    $id = $com[<span class="hljs-string">'id'</span>];<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;h3&gt;标题： &lt;a href='index.php?id=&#123;$id&#125;'&gt;&#123;$title&#125;&lt;/a&gt;&lt;/h1&gt;&lt;/h3&gt;"</span>;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;a href='del.php?id=&#123;$id&#125;'&gt;删除消息&lt;/a&gt;&lt;br /&gt;"</span>;<br>&#125;<br></code></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p><code>Cookie</code>中的用户信息直接带入到数据库中，可以直接进行注入攻击<br><figure class="hljs highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Cookie: <span class="hljs-attribute">user</span>=zs' <span class="hljs-keyword">and</span> 1--|<br></code></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>常见处理<code>X-Forwarded-For</code>方法<blockquote>
+<p>调用函数后，获取结果，直接带入数据库中进行更新操作</p>
+<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(md5($password) == $userinfo[<span class="hljs-string">'password'</span>]) &#123;<br>    setcookie(<span class="hljs-string">'user'</span>, $userinfo[<span class="hljs-string">'username'</span>], time() + <span class="hljs-number">3600</span>);<br>    setcookie(<span class="hljs-string">'background'</span>, $userinfo[<span class="hljs-string">'background'</span>], time() + <span class="hljs-number">3600</span>);<br>    setcookie(<span class="hljs-string">'lastip'</span>, $userinfo[<span class="hljs-string">'lastip'</span>], time() + <span class="hljs-number">3600</span>);<br>    $sql = <span class="hljs-string">"UPDATE `user` SET `lastip` = '&#123;$realip&#125;' WHERE `username` = '&#123;$username&#125;'"</span>;<br>    mysql_query($sql, $conn) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>(mysql_error());<br>    header(<span class="hljs-string">"Location: add.php"</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;script language="JavaScript" type="text/javascript"&gt;alert("你的用户名或密码错误");&lt;/script&gt;'</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<hr>
 <h3 id="二阶注入"><a href="#二阶注入" class="headerlink" title="二阶注入"></a>二阶注入</h3><hr>
 <hr>
 <h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="Web漏洞"><a href="#Web漏洞" class="headerlink" title="Web漏洞"></a>Web漏洞</h3><ul>
@@ -354,7 +414,7 @@
   
   
 <div class="reward" id="reward">
-  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <p>您的支持是我前进的动力！</p>
   <button id="reward-button" class="button" disable="enable">打赏</button>
   <div id="qr" class="qr" style="display: none;" aria-hidden="true">
     
@@ -369,7 +429,7 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2018/12/24/Http-protocol/" rel="next" title="HTTP协议基础"><i class="fas fa-angle-left"></i><span class="nav-title">HTTP协议基础</span></a>
+      <a href="/2018/12/26/Information-gathering/" rel="next" title="信息收集"><i class="fas fa-angle-left"></i><span class="nav-title">信息收集</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
@@ -406,7 +466,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">15</a></div>
+      <div><a href="/archives/">18</a></div>
     </div>
     
     
@@ -424,7 +484,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">29</a></div>
+      <div><a href="/tags/">40</a></div>
     </div>
     
   </div>
@@ -445,7 +505,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#SQL注入"><span class="toc-text">SQL注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#定义与概念"><span class="toc-text">定义与概念</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#本质"><span class="toc-text">本质</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#关键条件"><span class="toc-text">关键条件</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#万能密码原理"><span class="toc-text">万能密码原理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#注入分类"><span class="toc-text">注入分类</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常用函数"><span class="toc-text">常用函数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#注入基本流程"><span class="toc-text">注入基本流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#注入操作"><span class="toc-text">注入操作</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Union注入"><span class="toc-text">Union注入</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#BOOL型盲注"><span class="toc-text">BOOL型盲注</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#盲注之报错注入"><span class="toc-text">盲注之报错注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原理-1"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#常用函数与用法："><span class="toc-text">常用函数与用法：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#盲注之时间注入"><span class="toc-text">盲注之时间注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原理-2"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#函数"><span class="toc-text">函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#宽字节注入"><span class="toc-text">宽字节注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原理-3"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#使用方法"><span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#修复方式"><span class="toc-text">修复方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#二次编码注入"><span class="toc-text">二次编码注入</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#HTTP请求头注入"><span class="toc-text">HTTP请求头注入</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#二阶注入"><span class="toc-text">二阶注入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充内容"><span class="toc-text">补充内容</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Web漏洞"><span class="toc-text">Web漏洞</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#SQL注入"><span class="toc-text">SQL注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#定义与概念"><span class="toc-text">定义与概念</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#本质"><span class="toc-text">本质</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#关键条件"><span class="toc-text">关键条件</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#万能密码原理"><span class="toc-text">万能密码原理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#注入分类"><span class="toc-text">注入分类</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常用函数"><span class="toc-text">常用函数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#注入基本流程"><span class="toc-text">注入基本流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#注入操作"><span class="toc-text">注入操作</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Union注入"><span class="toc-text">Union注入</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#BOOL型盲注"><span class="toc-text">BOOL型盲注</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#盲注之报错注入"><span class="toc-text">盲注之报错注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原理-1"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#常用函数与用法："><span class="toc-text">常用函数与用法：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#盲注之时间注入"><span class="toc-text">盲注之时间注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原理-2"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#函数"><span class="toc-text">函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#宽字节注入"><span class="toc-text">宽字节注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原理-3"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#漏洞利用"><span class="toc-text">漏洞利用</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#修复方式"><span class="toc-text">修复方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#二次编码注入"><span class="toc-text">二次编码注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原理-4"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#漏洞利用-1"><span class="toc-text">漏洞利用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#HTTP请求头注入"><span class="toc-text">HTTP请求头注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#请求头定义"><span class="toc-text">请求头定义</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#常见请求头"><span class="toc-text">常见请求头</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#常用工具"><span class="toc-text">常用工具</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原理-5"><span class="toc-text">原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#二阶注入"><span class="toc-text">二阶注入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充内容"><span class="toc-text">补充内容</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Web漏洞"><span class="toc-text">Web漏洞</span></a></li></ol></li></ol></div>
     </div>
     
     

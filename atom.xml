@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-01-09T10:00:16.319Z</updated>
+  <updated>2019-01-15T04:45:13.058Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://TuringGu.github.io/2019/01/09/File-upload/"/>
     <id>https://TuringGu.github.io/2019/01/09/File-upload/</id>
     <published>2019-01-09T09:47:42.000Z</published>
-    <updated>2019-01-09T10:00:16.319Z</updated>
+    <updated>2019-01-15T04:45:13.058Z</updated>
     
     <summary type="html">
     
@@ -37,9 +37,9 @@
     </summary>
     
     
-      <category term="文件上传" scheme="https://TuringGu.github.io/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+      <category term="file upload" scheme="https://TuringGu.github.io/tags/file-upload/"/>
     
-      <category term="WAF绕过" scheme="https://TuringGu.github.io/tags/WAF%E7%BB%95%E8%BF%87/"/>
+      <category term="WAF passby" scheme="https://TuringGu.github.io/tags/WAF-passby/"/>
     
   </entry>
   
@@ -48,7 +48,7 @@
     <link href="https://TuringGu.github.io/2019/01/01/SQL-injection/"/>
     <id>https://TuringGu.github.io/2019/01/01/SQL-injection/</id>
     <published>2019-01-01T05:22:45.000Z</published>
-    <updated>2019-01-06T08:19:56.000Z</updated>
+    <updated>2019-01-10T07:28:16.780Z</updated>
     
     <summary type="html">
     
@@ -66,6 +66,62 @@
       <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
     
       <category term="注入" scheme="https://TuringGu.github.io/tags/%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信息收集</title>
+    <link href="https://TuringGu.github.io/2018/12/26/Information-gathering/"/>
+    <id>https://TuringGu.github.io/2018/12/26/Information-gathering/</id>
+    <published>2018-12-26T03:59:47.000Z</published>
+    <updated>2019-01-14T10:30:58.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;百度百科解释&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;信息收集（Information
+        
+      
+    
+    </summary>
+    
+    
+      <category term="information gathering" scheme="https://TuringGu.github.io/tags/information-gathering/"/>
+    
+      <category term="Social engineering" scheme="https://TuringGu.github.io/tags/Social-engineering/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Burpsuite</title>
+    <link href="https://TuringGu.github.io/2018/12/25/Burpsuite/"/>
+    <id>https://TuringGu.github.io/2018/12/25/Burpsuite/</id>
+    <published>2018-12-25T03:21:48.000Z</published>
+    <updated>2019-01-15T04:28:06.242Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Burpsuite" scheme="https://TuringGu.github.io/tags/Burpsuite/"/>
+    
+      <category term="Tool" scheme="https://TuringGu.github.io/tags/Tool/"/>
+    
+      <category term="Violent Crack" scheme="https://TuringGu.github.io/tags/Violent-Crack/"/>
     
   </entry>
   
@@ -100,11 +156,41 @@
   </entry>
   
   <entry>
+    <title>B/S架构</title>
+    <link href="https://TuringGu.github.io/2018/12/18/B-S-frame/"/>
+    <id>https://TuringGu.github.io/2018/12/18/B-S-frame/</id>
+    <published>2018-12-18T01:31:29.000Z</published>
+    <updated>2019-01-14T03:33:36.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="B/S" scheme="https://TuringGu.github.io/tags/B-S/"/>
+    
+      <category term="Cookie" scheme="https://TuringGu.github.io/tags/Cookie/"/>
+    
+      <category term="Session" scheme="https://TuringGu.github.io/tags/Session/"/>
+    
+      <category term="Form" scheme="https://TuringGu.github.io/tags/Form/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PHP入门基础</title>
     <link href="https://TuringGu.github.io/2018/12/15/Php_basic/"/>
     <id>https://TuringGu.github.io/2018/12/15/Php_basic/</id>
     <published>2018-12-15T09:00:00.000Z</published>
-    <updated>2018-12-15T09:27:28.000Z</updated>
+    <updated>2019-01-14T01:29:22.000Z</updated>
     
     <summary type="html">
     

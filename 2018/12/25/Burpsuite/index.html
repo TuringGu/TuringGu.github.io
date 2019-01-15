@@ -83,7 +83,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>TuringGu - My first blog</title>
+    <title>Burpsuite | TuringGu - My first blog</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -125,29 +125,26 @@
         <div class="main-container">
           <div class="content">
             
-
-<div id="index" class="index page">
+<div id="post" class="page">
   
   <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/11/30/CentOS-software-install/">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/25/Burpsuite/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="TuringGu">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/myavatar.jpg">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
       </span>
       <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="TuringGu">
+       <meta itemprop="name" content="TuringGu">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/11/30/CentOS-software-install/" itemprop="url">CentOS下软件安装方法</a>
-      </h1>
+      <h1 class="post-title" itemprop="name headline">Burpsuite</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-11-30T11:44:18+08:00">2018-11-30 11:44:18</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-25T11:21:48+08:00">2018-12-25 11:21:48</time></span>
         </span>
         
         
@@ -155,54 +152,38 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      
-      <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要介绍在CentOS操作系统下，软件常用的安装、卸载方法。</p>
-<p><strong>注：补充知识放在文末</strong></p>
-<hr>
-<h3 id="RPM安装"><a href="#RPM安装" class="headerlink" title="RPM安装"></a>RPM安装</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p><code>RPM（Red-Hat Package Manager）</code>软件包管理器，一种用于互联网下载包的打包及安装工具，它包含在某些Linux分发版中。它生成具有.RPM扩展名的文件。与<code>Dpkg</code>类似。</p>
-<hr>
-<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">rpm<br>rpm -ivh</span><br></code></pre></td></tr></table></figure>
-<p>rpm 查询</p>
-<blockquote>
-<p><code>-q</code> 仅查询，后面接的软件吗是否有安装<br><code>-qa</code> 列出所有的，已经安装在本机Linux系统上面的所有软件名称<br><code>-ql</code> 列出该软件所有的文件与目录所在完整文件名（list）<br><code>-qR</code> 列出与该软件有关的相依软件所含的文件（Required）<br><code>rpm -qa | grep python</code></p>
+      <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>Burpsuite是用于攻击WEB应用程序的集成平台。它包含了许多工具，并为这些工具设计了许多接口，以促进加快攻击应用程序的过程。<br>所有工具都共享一个能处理并显示HTTP消息、持久性、认证、代理、日志、报警的一个强大的可扩展的框架</p>
 </blockquote>
-<p><strong>rpm包可以用来安装指定版本</strong></p>
+<h2 id="工具箱"><a href="#工具箱" class="headerlink" title="工具箱"></a>工具箱</h2><p><strong><code>proxy</code></strong>：代理，默认地址为<code>127.0.0.1</code>，端口<code>8080</code><br><strong><code>target</code></strong>：站点目标，地图<br><strong><code>spider</code></strong>：爬虫<br><strong><code>scanner</code></strong>：漏洞扫描<br><strong><code>repeater</code></strong>：http请求消息与响应消息修改重放<br><strong><code>intruder</code></strong>：暴力破解<br><strong><code>sequencer</code></strong>：随机数分析<br><strong><code>decoder</code></strong>：各种编码格式和散列转换<br><strong><code>comparer</code></strong>：可视化差异对比功能</p>
 <hr>
-<h4 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h4><figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">rpm -<span class="hljs-selector-tag">i</span> xxxxx<br></code></pre></td></tr></table></figure>
-<p>若发现依赖问题，可用如下命令尝试解决：<br><figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">yum <span class="hljs-keyword">install</span> -f<br></code></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>yum（Yellow dog Updater,modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。 </p>
-<hr>
-<h4 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h4><p>软件搜索：<br><figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">yum search mysql</span><br></code></pre></td></tr></table></figure></p>
-<p>软件安装：<br><figure class="hljs highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">yum install mariadb	<span class="hljs-comment">// 会自动补全依赖</span><br></code></pre></td></tr></table></figure></p>
-<p>卸载<br><figure class="hljs highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">yum <span class="hljs-builtin-name">remove</span> 软件名<br>yum erase 软件名<br></code></pre></td></tr></table></figure></p>
-<p>整套安装一组开发者工具包<br><figure class="hljs highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">gcc macker install	<span class="hljs-comment">// 安装gcc编译器</span><br>groupinstall	<br>yum groupinstall <span class="hljs-string">"Development Tools"</span> -<span class="hljs-built_in">y</span><br></code></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="通过源码安装"><a href="#通过源码安装" class="headerlink" title="通过源码安装"></a>通过源码安装</h3><p>此方法较为复杂，但有其不可替代性<br><figure class="hljs highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">./configure	 各种配置<br><span class="hljs-built_in">make</span>		 编译<br><span class="hljs-built_in">make</span> install 安装<br></code></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><h4 id="Kali、ubuntu安装包"><a href="#Kali、ubuntu安装包" class="headerlink" title="Kali、ubuntu安装包"></a>Kali、ubuntu安装包</h4><p><code>dpkg</code></p>
-<hr>
-<h4 id="ubuntu软件安装"><a href="#ubuntu软件安装" class="headerlink" title="ubuntu软件安装"></a>ubuntu软件安装</h4><figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">dpkg -<span class="hljs-selector-tag">i</span> xxxxx<br></code></pre></td></tr></table></figure>
-<p>发现依赖有问题:<br><figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">apt <span class="hljs-keyword">install</span> -f<br></code></pre></td></tr></table></figure></p>
-<p>大致步骤：</p>
-<blockquote>
-<ol>
-<li>下载deb包</li>
-<li>dpkg -i xxxx.deb</li>
-<li>发现依赖问题</li>
-<li>解决依赖问题</li>
+<h2 id="爆破"><a href="#爆破" class="headerlink" title="爆破"></a>爆破</h2><h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><ol>
+<li>抓登陆请求包</li>
+<li>将请求包发送至<code>intruder</code>模块</li>
+<li>设置爆破位置，对哪些参数进行爆破</li>
+<li>设置爆破字典，使用什么字符对选中位置进行爆破</li>
+<li>开始爆破</li>
 </ol>
-</blockquote>
+<h3 id="爆破方式"><a href="#爆破方式" class="headerlink" title="爆破方式"></a>爆破方式</h3><ol>
+<li>分别对选择的位置进行爆破</li>
+<li>对多个位置使用同一个字典同时爆破</li>
+<li><code>payload1</code>和<code>payload2</code>对应成组分别爆破</li>
+<li>基于排列组合原理，将所有可能进行组合爆破（最常用的多位置爆破方式）</li>
+</ol>
+<hr>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="Payload、exp、poc"><a href="#Payload、exp、poc" class="headerlink" title="Payload、exp、poc"></a>Payload、exp、poc</h3><p><strong><code>payload</code></strong>：攻击载荷，即漏洞的利用方式<br><strong><code>exploite（exp）</code></strong>：漏洞的利用方式，要出现利用结果<br><strong><code>poc</code></strong>：漏洞验证方式，出现是否存在漏洞的验证结果</p>
+<h3 id="火狐代理设置"><a href="#火狐代理设置" class="headerlink" title="火狐代理设置"></a>火狐代理设置</h3><p>Firefox代理不影响全局代理</p>
 
-      
     </main>
     <footer class="post-footer">
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/CentOS/" rel="tag"><i class="fas fa-tags"></i>CentOS</a>
+        <a class="post-tag button" href="/tags/Burpsuite/" rel="tag"><i class="fas fa-tags"></i>Burpsuite</a>
         
-        <a class="post-tag button" href="/tags/软件安装/" rel="tag"><i class="fas fa-tags"></i>软件安装</a>
+        <a class="post-tag button" href="/tags/Tool/" rel="tag"><i class="fas fa-tags"></i>Tool</a>
+        
+        <a class="post-tag button" href="/tags/Violent-Crack/" rel="tag"><i class="fas fa-tags"></i>Violent Crack</a>
         
       </div>
       
@@ -210,8 +191,30 @@
   </article>
   
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/14/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/12/24/Http-protocol/" rel="next" title="HTTP协议基础"><i class="fas fa-angle-left"></i><span class="nav-title">HTTP协议基础</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/12/26/Information-gathering/" rel="prev" title="信息收集"><span class="nav-title">信息收集</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
   </nav>
   
   
@@ -241,7 +244,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">15</a></div>
+      <div><a href="/archives/">18</a></div>
     </div>
     
     
@@ -259,7 +262,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">29</a></div>
+      <div><a href="/tags/">40</a></div>
     </div>
     
   </div>
@@ -272,6 +275,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#工具箱"><span class="toc-text">工具箱</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#爆破"><span class="toc-text">爆破</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#基本流程"><span class="toc-text">基本流程</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#爆破方式"><span class="toc-text">爆破方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Payload、exp、poc"><span class="toc-text">Payload、exp、poc</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#火狐代理设置"><span class="toc-text">火狐代理设置</span></a></li></ol></li></ol></div>
+    </div>
+    
     
     
     

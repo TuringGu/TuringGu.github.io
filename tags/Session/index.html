@@ -83,7 +83,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>TuringGu - My first blog</title>
+    <title>标签: Session | TuringGu - My first blog</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -125,93 +125,21 @@
         <div class="main-container">
           <div class="content">
             
-
-<div id="index" class="index page">
+<div id="tag" class="tag page">
+  <h1 class="page-title">Session</h1>
   
   <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/08/V2ray-Tutorial/">
-      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="TuringGu">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/myavatar.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="TuringGu">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/12/08/V2ray-Tutorial/" itemprop="url">V2ray科学上网教程</a>
+    <header id="post-header" class="post-header">
+      <h1 class="post-title-simple" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/12/18/B-S-frame/" itemprop="url">B/S架构</a>
       </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-08T11:54:40+08:00">2018-12-08 11:54:40</time></span>
-        </span>
-        
-        
-        
-      </div>
+      
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-18T09:31:29+08:00">12-18</time>
+      </span>
+      
     </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>因为个人工作、学习、性质的需要，常常需要能够自由地上网，但苦于使用别人提供的服务代价较高，因此自己做了个微小的工作，在各路大佬的帮助下，算是能够科学上网了。</p>
-<p><strong>注：补充知识放在文末</strong></p>
-<hr>
-<h3 id="准备一台VPS"><a href="#准备一台VPS" class="headerlink" title="准备一台VPS"></a>准备一台VPS</h3><p>如果你是通过搜索引擎搜索关于科学上网相关内容，多看几篇相关教程，你就会发现，大部分都在打广告。由于这些VPS服务商都会对自家产品进行推广，因此已注册用户帮助进行推广，能得到较为丰厚的收益。</p>
-<p>比如你通过<a href="https://www.vultr.com/?ref=7685138" target="_blank" rel="noopener">我的推广链接</a>进行注册并使用</p>
-<p>你就会发现爱心的传递原来是这么简单的事情！</p>
-<p>不同服务商的服务对不同地区的用户效果会不同，最好能够多试几家，适合自己的才是最好的。</p>
-<p>服务商一般会提供不同价位、不同地区节点的选项，选择好后，里面有可以更换不同操作系统等功能，依据自己的实际需求选择即可。</p>
-<p>本篇教程基于V2ray搭建，为使用大佬脚本所推荐的系统，这里选择Debain9 64位。</p>
-<hr>
-<h3 id="远程控制VPS"><a href="#远程控制VPS" class="headerlink" title="远程控制VPS"></a>远程控制VPS</h3><p>如果你是windows系统，且cmd中未配置ssh服务，可使用Xshell进行ssh远程登录。<br><a href="https://xshell.en.softonic.com/" target="_blank" rel="noopener">Xshell官网地址</a><br>直接进软件输入命令：</p>
-<blockquote>
-<p>ssh YourServerIP    // YourServerIP 替换为VPS的IP 地址</p>
-</blockquote>
-<p>此时会弹出窗口，按照窗口提示，输入VPS服务中提供的用户名、密码信息，即可登录成功。</p>
-<hr>
-<p>如果你是类unix系统，先配置ssh服务，然后使用系统终端输入命令：</p>
-<blockquote>
-<p>ssh UserName@YourServerIP    // UserName 替换为VPS服务提供的用户名</p>
-</blockquote>
-<p>和windows一样，按命令行提示输入相关信息，登录。</p>
-<hr>
-<h3 id="V2ray安装与配置"><a href="#V2ray安装与配置" class="headerlink" title="V2ray安装与配置"></a>V2ray安装与配置</h3><h4 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h4><p>远程登录了VPS后，在终端输入下列命令：</p>
-<p>安装或更新curl，并使用curl运行V2ray多用户安装脚本进行安装：<br><figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># sudo apt-get update -y</span><br><span class="hljs-meta"># sudo apt-get install curl</span><br><span class="hljs-meta"># source &lt;(curl -sL https://git.io/fNgqx)</span><br></code></pre></td></tr></table></figure></p>
-<p><a href="https://github.com/Jrohy/multi-v2ray" target="_blank" rel="noopener">开源代码作者的github源码</a></p>
-<p>进入脚本原作者的github，里面有详细的图文步骤，依葫芦画瓢，完成服务端V2ray搭建，并开启服务。</p>
-<p>选择查看配置，复制已经生成的账号的配置文件链接，链接格式是“vmess:”开头的一串链接。</p>
-<hr>
-<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><h5 id="windows系统"><a href="#windows系统" class="headerlink" title="windows系统"></a>windows系统</h5><p>进入<a href="https://github.com/2dust/v2rayN/releases" target="_blank" rel="noopener">V2rayN</a>的github页面，选择.zip文件下载</p>
-<p>解压缩，打开v2rayN.exe运行，点击从URL批量导入选项，将会从剪贴板导入在服务端复制好的账号配置链接，运行服务即可。</p>
-<hr>
-<h5 id="浏览器配置"><a href="#浏览器配置" class="headerlink" title="浏览器配置"></a>浏览器配置</h5><p>这里使用的是<a href="http://www.firefox.com.cn/" target="_blank" rel="noopener">Firefox</a>浏览器</p>
-<p>进入浏览器，选项–&gt;网络设置，选择“手动代理配置”，SOCKS主机填<code>127.0.0.1</code>，端口<code>1080</code>，选择SOCKS v5，使用SOCKS v5时代理DNS查询，确定后退出，设置完毕。</p>
-<p><strong>至此，浏览器应该可以科学上网了。</strong></p>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/科学上网/" rel="tag"><i class="fas fa-tags"></i>科学上网</a>
-        
-        <a class="post-tag button" href="/tags/V2ray/" rel="tag"><i class="fas fa-tags"></i>V2ray</a>
-        
-        <a class="post-tag button" href="/tags/VPS/" rel="tag"><i class="fas fa-tags"></i>VPS</a>
-        
-      </div>
-      
-    </footer>
   </article>
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
   
   
 </div>
@@ -240,7 +168,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">15</a></div>
+      <div><a href="/archives/">18</a></div>
     </div>
     
     
@@ -258,7 +186,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">29</a></div>
+      <div><a href="/tags/">40</a></div>
     </div>
     
   </div>
