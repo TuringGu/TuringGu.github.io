@@ -218,9 +218,9 @@
 <blockquote>
 <p>使用argv数组、使用getopt方法、提示用户输入</p>
 </blockquote>
-<p>argv：<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 使用 $argc $argv 接受参数<br> */</span><br> <br><span class="hljs-keyword">echo</span> <span class="hljs-string">"接收到&#123;$argc&#125;个参数"</span>;<br>print_r($argv);<br><span class="hljs-meta">?&gt;</span></span><br></code></pre></td></tr></table></figure></p>
-<p>getopt:<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 使用 getopt函数<br> */</span><br> <br>$param_arr = getopt(<span class="hljs-string">'a:b:'</span>);<br>print_r($param_arr);<br><span class="hljs-meta">?&gt;</span></span><br></code></pre></td></tr></table></figure></p>
-<p>提示用户输入：<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 提示用户输入，类似Python<br> */</span><br>fwrite(STDOUT,<span class="hljs-string">'请输入您的博客名：'</span>);<br><span class="hljs-keyword">echo</span> <span class="hljs-string">'您输入的信息是：'</span>.fgets(STDIN);<br><span class="hljs-meta">?&gt;</span></span><br></code></pre></td></tr></table></figure></p>
+<p>argv：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 使用 $argc $argv 接受参数<br> */</span><br> <br><span class="hljs-keyword">echo</span> <span class="hljs-string">"接收到&#123;$argc&#125;个参数"</span>;<br>print_r($argv);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p>getopt:<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 使用 getopt函数<br> */</span><br> <br>$param_arr = getopt(<span class="hljs-string">'a:b:'</span>);<br>print_r($param_arr);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p>提示用户输入：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 提示用户输入，类似Python<br> */</span><br>fwrite(STDOUT,<span class="hljs-string">'请输入您的博客名：'</span>);<br><span class="hljs-keyword">echo</span> <span class="hljs-string">'您输入的信息是：'</span>.fgets(STDIN);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
 <p><strong>php的单双引号都能输出字符串，双引号中内部变量会解析，但在单引号中不会。</strong></p>
 <hr>
 <h3 id="EOF"><a href="#EOF" class="headerlink" title="EOF"></a>EOF</h3><p>PHP EOF(heredoc)是一种在命令行shell（如sh、csh、ksh、bash、PowerShell和zsh）和程序语言（像Perl、PHP、Python和Ruby）里定义一个字串的方法。</p>
@@ -429,12 +429,12 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2018/12/09/Front-end/" rel="next" title="前端开发入门"><i class="fas fa-angle-left"></i><span class="nav-title">前端开发入门</span></a>
+      <a href="/2018/12/12/PHP/" rel="next" title="PHP开发入门"><i class="fas fa-angle-left"></i><span class="nav-title">PHP开发入门</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
       
-      <a href="/2018/12/12/PHP/" rel="prev" title="PHP开发入门"><span class="nav-title">PHP开发入门</span><i class="fas fa-angle-right"></i></a>
+      <a href="/2018/12/15/DB-SQL/" rel="prev" title="数据库和SQL"><span class="nav-title">数据库和SQL</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
