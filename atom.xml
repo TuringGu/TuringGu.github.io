@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-01-15T04:45:13.058Z</updated>
+  <updated>2019-02-10T14:16:13.523Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>文件上传</title>
-    <link href="https://TuringGu.github.io/2019/01/09/File-upload/"/>
-    <id>https://TuringGu.github.io/2019/01/09/File-upload/</id>
-    <published>2019-01-09T09:47:42.000Z</published>
-    <updated>2019-01-15T04:45:13.058Z</updated>
+    <title>文件上传漏洞</title>
+    <link href="https://TuringGu.github.io/2019/01/10/File-upload-hole/"/>
+    <id>https://TuringGu.github.io/2019/01/10/File-upload-hole/</id>
+    <published>2019-01-10T11:46:32.000Z</published>
+    <updated>2019-02-10T14:16:13.523Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,7 @@
       
         
         
-          &lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Web应用程序通常会有文件上传的功能，只要
+          &lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot;
         
       
     
@@ -39,7 +38,37 @@
     
       <category term="file upload" scheme="https://TuringGu.github.io/tags/file-upload/"/>
     
-      <category term="WAF passby" scheme="https://TuringGu.github.io/tags/WAF-passby/"/>
+  </entry>
+  
+  <entry>
+    <title>WAF绕过</title>
+    <link href="https://TuringGu.github.io/2019/01/09/WAF_Passby/"/>
+    <id>https://TuringGu.github.io/2019/01/09/WAF_Passby/</id>
+    <published>2019-01-09T09:47:42.000Z</published>
+    <updated>2019-02-10T14:12:46.807Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
+    
+      <category term="file upload" scheme="https://TuringGu.github.io/tags/file-upload/"/>
+    
+      <category term="WAF" scheme="https://TuringGu.github.io/tags/WAF/"/>
+    
+      <category term="Passby" scheme="https://TuringGu.github.io/tags/Passby/"/>
+    
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
     
   </entry>
   
@@ -78,7 +107,7 @@
     <link href="https://TuringGu.github.io/2019/01/01/SQL-injection/"/>
     <id>https://TuringGu.github.io/2019/01/01/SQL-injection/</id>
     <published>2019-01-01T05:22:45.000Z</published>
-    <updated>2019-02-10T09:27:48.817Z</updated>
+    <updated>2019-02-10T13:28:17.444Z</updated>
     
     <summary type="html">
     
@@ -290,32 +319,6 @@
   </entry>
   
   <entry>
-    <title>后端开发入门</title>
-    <link href="https://TuringGu.github.io/2018/12/12/Back-end/"/>
-    <id>https://TuringGu.github.io/2018/12/12/Back-end/</id>
-    <published>2018-12-12T11:38:53.000Z</published>
-    <updated>2019-01-06T08:28:12.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
-    
-      <category term="MySQL" scheme="https://TuringGu.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
     <title>PHP开发入门</title>
     <link href="https://TuringGu.github.io/2018/12/12/PHP/"/>
     <id>https://TuringGu.github.io/2018/12/12/PHP/</id>
@@ -338,6 +341,32 @@
       <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
     
       <category term="Back-end" scheme="https://TuringGu.github.io/tags/Back-end/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>后端开发入门</title>
+    <link href="https://TuringGu.github.io/2018/12/12/Back-end/"/>
+    <id>https://TuringGu.github.io/2018/12/12/Back-end/</id>
+    <published>2018-12-12T11:38:53.000Z</published>
+    <updated>2019-01-06T08:28:12.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
+    
+      <category term="MySQL" scheme="https://TuringGu.github.io/tags/MySQL/"/>
     
   </entry>
   
@@ -531,35 +560,6 @@
       <category term="Linux" scheme="https://TuringGu.github.io/tags/Linux/"/>
     
       <category term="基础" scheme="https://TuringGu.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>个人网站搭建</title>
-    <link href="https://TuringGu.github.io/2018/10/12/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/"/>
-    <id>https://TuringGu.github.io/2018/10/12/网站搭建/</id>
-    <published>2018-10-12T10:38:45.000Z</published>
-    <updated>2018-12-06T08:34:08.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;个人网站搭建&lt;/strong&gt;&lt;/p&gt;
-&lt;h2&gt;简单基础知识准备&lt;/h2&gt;
-
-&lt;p&gt;静态页面和动态页面&lt;/p&gt;
-&lt;p&gt;静态页面：没有后台，不添加数据库，为静态网站，只有静态资源，相对安全&lt;br&gt;特点：维护麻烦，功能单一，但是相对安全&lt;/p&gt;
-&lt;p&gt;动态页面：
-        
-      
-    
-    </summary>
-    
-    
-      <category term="标签" scheme="https://TuringGu.github.io/tags/%E6%A0%87%E7%AD%BE/"/>
     
   </entry>
   
