@@ -44,11 +44,41 @@
   </entry>
   
   <entry>
+    <title>其它常用数据库注入</title>
+    <link href="https://TuringGu.github.io/2019/01/08/Other-Database-Inject/"/>
+    <id>https://TuringGu.github.io/2019/01/08/Other-Database-Inject/</id>
+    <published>2019-01-08T06:29:03.000Z</published>
+    <updated>2019-02-10T09:27:13.112Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Access&quot;&gt;&lt;a href=&quot;#Access&quot; class=&quot;headerlink&quot; title=&quot;Access&quot;&gt;&lt;/a&gt;Access&lt;/h2&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Access" scheme="https://TuringGu.github.io/tags/Access/"/>
+    
+      <category term="MSSQL" scheme="https://TuringGu.github.io/tags/MSSQL/"/>
+    
+      <category term="MongoDB" scheme="https://TuringGu.github.io/tags/MongoDB/"/>
+    
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SQL注入</title>
     <link href="https://TuringGu.github.io/2019/01/01/SQL-injection/"/>
     <id>https://TuringGu.github.io/2019/01/01/SQL-injection/</id>
     <published>2019-01-01T05:22:45.000Z</published>
-    <updated>2019-02-09T14:52:09.357Z</updated>
+    <updated>2019-02-10T09:27:48.817Z</updated>
     
     <summary type="html">
     
@@ -65,7 +95,7 @@
     
       <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
     
-      <category term="注入" scheme="https://TuringGu.github.io/tags/%E6%B3%A8%E5%85%A5/"/>
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
     
   </entry>
   
