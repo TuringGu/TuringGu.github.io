@@ -164,7 +164,7 @@
 <hr>
 <h3 id="Windows10-Sublime配置"><a href="#Windows10-Sublime配置" class="headerlink" title="Windows10 Sublime配置"></a>Windows10 Sublime配置</h3><p><a href="http://www.sublimetext.com/" target="_blank" rel="noopener">Sublime官网</a><br>这里选择windows版下载安装。<br>步骤如下：</p>
 <ol>
-<li>打开Sublime编辑器，输入如下代码：<figure class="hljs highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&#123;<br>	<span class="hljs-attr">"cmd"</span>: [<span class="hljs-string">"php"</span>, <span class="hljs-string">"$file"</span>],<br>	<span class="hljs-attr">"file_regex"</span>: <span class="hljs-string">"php$"</span>,<br>	<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"source.php"</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<li>打开Sublime编辑器，输入如下代码：<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&#123;<br>	&quot;cmd&quot;: [&quot;php&quot;, &quot;$file&quot;],<br>	&quot;file_regex&quot;: &quot;php$&quot;,<br>	&quot;selector&quot;: &quot;source.php&quot;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>一般保存至默认路径即可，如若默认路径有变，则手动选择如下路径：<br><code>C:\User(用户)\{YourName}\AppData\Roaming\Sublime Text3\Packages\User\</code></p>
@@ -218,9 +218,9 @@
 <blockquote>
 <p>使用argv数组、使用getopt方法、提示用户输入</p>
 </blockquote>
-<p>argv：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 使用 $argc $argv 接受参数<br> */</span><br> <br><span class="hljs-keyword">echo</span> <span class="hljs-string">"接收到&#123;$argc&#125;个参数"</span>;<br>print_r($argv);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
-<p>getopt:<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 使用 getopt函数<br> */</span><br> <br>$param_arr = getopt(<span class="hljs-string">'a:b:'</span>);<br>print_r($param_arr);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
-<p>提示用户输入：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 提示用户输入，类似Python<br> */</span><br>fwrite(STDOUT,<span class="hljs-string">'请输入您的博客名：'</span>);<br><span class="hljs-keyword">echo</span> <span class="hljs-string">'您输入的信息是：'</span>.fgets(STDIN);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p>argv：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;?php<br>/**<br> * 使用 $argc $argv 接受参数<br> */<br> <br>echo &quot;接收到&#123;$argc&#125;个参数&quot;;<br>print_r($argv);<br>?&gt;<br></code></pre></td></tr></table></figure></p>
+<p>getopt:<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;?php<br>/**<br> * 使用 getopt函数<br> */<br> <br>$param_arr = getopt(&apos;a:b:&apos;);<br>print_r($param_arr);<br>?&gt;<br></code></pre></td></tr></table></figure></p>
+<p>提示用户输入：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;?php<br>/**<br> * 提示用户输入，类似Python<br> */<br>fwrite(STDOUT,&apos;请输入您的博客名：&apos;);<br>echo &apos;您输入的信息是：&apos;.fgets(STDIN);<br>?&gt;<br></code></pre></td></tr></table></figure></p>
 <p><strong>php的单双引号都能输出字符串，双引号中内部变量会解析，但在单引号中不会。</strong></p>
 <hr>
 <h3 id="EOF"><a href="#EOF" class="headerlink" title="EOF"></a>EOF</h3><p>PHP EOF(heredoc)是一种在命令行shell（如sh、csh、ksh、bash、PowerShell和zsh）和程序语言（像Perl、PHP、Python和Ruby）里定义一个字串的方法。</p>
@@ -466,7 +466,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">22</a></div>
+      <div><a href="/archives/">23</a></div>
     </div>
     
     
@@ -484,7 +484,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">45</a></div>
+      <div><a href="/tags/">47</a></div>
     </div>
     
   </div>

@@ -173,7 +173,7 @@
 <p><strong>tip</strong><br>浏览器A已登录，存有Cookie；浏览器B未登陆，但若获取A的Cookie进行身份认证，则可不用账号密码也可实现登陆</p>
 <hr>
 <h4 id="简单代码使用"><a href="#简单代码使用" class="headerlink" title="简单代码使用"></a>简单代码使用</h4><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>($_POST[<span class="hljs-string">'name'</span>] == <span class="hljs-string">'admin'</span> &amp;&amp; $_POST[<span class="hljs-string">'password'</span>] == <span class="hljs-string">'password'</span>) &#123;<br>	$value = <span class="hljs-string">"my cookie value"</span>;<br>	setcookie(<span class="hljs-string">"loginString"</span>, $value);<br>	<span class="hljs-comment">// setcookie("loginString", $value, 0, "/", "localhost", false, false);</span><br>	header(<span class="hljs-string">"Location:http://localhost/cookie/view.php"</span>);<br>	<span class="hljs-comment">//echo "login ok";</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h4 id="注销逻辑"><a href="#注销逻辑" class="headerlink" title="注销逻辑"></a>注销逻辑</h4><figure class="hljs highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-selector-tag">setcookie</span>(<span class="hljs-string">"loginString"</span>, $value, time() - <span class="hljs-number">60</span> * <span class="hljs-number">60</span>);  <span class="hljs-comment">// 使过期</span><br><span class="hljs-selector-tag">setcookie</span>(<span class="hljs-string">"loginString"</span>,<span class="hljs-string">""</span>);  <span class="hljs-comment">// 置空</span><br></code></pre></td></tr></table></figure>
+<h4 id="注销逻辑"><a href="#注销逻辑" class="headerlink" title="注销逻辑"></a>注销逻辑</h4><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">setcookie(&quot;loginString&quot;, $value, time() - 60 * 60);  // 使过期<br>setcookie(&quot;loginString&quot;,&quot;&quot;);  // 置空<br></code></pre></td></tr></table></figure>
 <hr>
 <h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p><strong>存放</strong>：服务器端，防篡改。即使禁用Cookie，Session依然可以确定个人信息</p>
 <hr>
@@ -266,7 +266,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">22</a></div>
+      <div><a href="/archives/">23</a></div>
     </div>
     
     
@@ -284,7 +284,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">45</a></div>
+      <div><a href="/tags/">47</a></div>
     </div>
     
   </div>

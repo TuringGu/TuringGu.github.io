@@ -255,7 +255,7 @@
 <h4 id="passwd文件配置"><a href="#passwd文件配置" class="headerlink" title="passwd文件配置"></a>passwd文件配置</h4><h5 id="账号格式"><a href="#账号格式" class="headerlink" title="账号格式"></a>账号格式</h5><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">用户名:x:uid:gid:备注信息:home:shell<br></code></pre></td></tr></table></figure>
 <hr>
 <h5 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h5><p><code>nologin</code>     此账户目前不可用，不能被切换到的账号<br><code>/bin/false</code>     登录必然报错，无法登陆<br><code>/home/Username</code>     没有的话，登陆后会报Could not chdir to home<br><code>directory /home/Username</code><br><code>x</code>     代表允许登录，并且密码在<code>/etc/shadow</code><br><code>*</code>     代表不允许登陆</p>
-<p>Kali密码破解：<br><figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">john passwd</span><br></code></pre></td></tr></table></figure></p>
+<p>Kali密码破解：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">john passwd<br></code></pre></td></tr></table></figure></p>
 <hr>
 <h4 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h4><p>环境：CentOS<br><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">useradd Username 	<span class="hljs-comment"># 添加用户，但不设密码，会创建一个/home/用户名</span><br>adduser Username 	<span class="hljs-comment"># 添加用户，但不设密码，会创建一个/home/用户名</span><br>passwd	修改密码<br>su Username	切换用户<br>userdel	删除用户<br></code></pre></td></tr></table></figure></p>
 <blockquote>
@@ -352,7 +352,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">22</a></div>
+      <div><a href="/archives/">23</a></div>
     </div>
     
     
@@ -370,7 +370,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">45</a></div>
+      <div><a href="/tags/">47</a></div>
     </div>
     
   </div>

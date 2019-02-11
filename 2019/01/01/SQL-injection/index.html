@@ -381,7 +381,7 @@
 <p>在进行敏感操作时，验证并使用cookie中的用户信息：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(!<span class="hljs-keyword">isset</span>($_COOKIE[<span class="hljs-string">'user'</span>])) &#123;<br>	header(<span class="hljs-string">"Location: login.php"</span>);<br>	<span class="hljs-keyword">die</span>();<br>&#125;<br><br>$sql = <span class="hljs-string">"SELECT * FROM `messages` WHERE `author` = '&#123;$_COOKIE['user']&#125;';"</span>;<br>$data = mysql_query($sql, $conn) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>(mysql_error());<br><span class="hljs-keyword">while</span> ($com = mysql_fetch_array($data)) &#123;<br>    $message = $com[<span class="hljs-string">'message'</span>];<br>    $title = $com[<span class="hljs-string">'title'</span>];<br>    $id = $com[<span class="hljs-string">'id'</span>];<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;h3&gt;标题： &lt;a href='index.php?id=&#123;$id&#125;'&gt;&#123;$title&#125;&lt;/a&gt;&lt;/h1&gt;&lt;/h3&gt;"</span>;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;a href='del.php?id=&#123;$id&#125;'&gt;删除消息&lt;/a&gt;&lt;br /&gt;"</span>;<br>&#125;<br></code></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p><code>Cookie</code>中的用户信息直接带入到数据库中，可以直接进行注入攻击<br><figure class="hljs highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Cookie: <span class="hljs-attribute">user</span>=zs' <span class="hljs-keyword">and</span> 1--|<br></code></pre></td></tr></table></figure></p>
+<p><code>Cookie</code>中的用户信息直接带入到数据库中，可以直接进行注入攻击<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Cookie: user=zs&apos; and 1--|<br></code></pre></td></tr></table></figure></p>
 </blockquote>
 <ul>
 <li>常见处理<code>X-Forwarded-For</code>方法<blockquote>
@@ -547,7 +547,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">22</a></div>
+      <div><a href="/archives/">23</a></div>
     </div>
     
     
@@ -565,7 +565,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">45</a></div>
+      <div><a href="/tags/">47</a></div>
     </div>
     
   </div>
