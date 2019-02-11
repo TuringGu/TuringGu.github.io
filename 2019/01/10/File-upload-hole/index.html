@@ -188,36 +188,32 @@
 <li>其它类型</li>
 </ul>
 <hr>
-<h3 id="解析漏洞"><a href="#解析漏洞" class="headerlink" title="解析漏洞"></a>解析漏洞</h3><h4 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h4><ul>
-<li><p>Nginx &lt; 8.03 空字节代码执行漏洞</p>
-<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">xxx.jpg%<span class="hljs-number">00</span>.php<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>fix_pathinfo</p>
-<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmd">/<span class="hljs-number">1</span>.jpg/<span class="hljs-number">1</span>.php<br>/<span class="hljs-number">1</span>.jpg<span class="hljs-variable">%00.php<br>/1.jpg/%</span><span class="hljs-number">20</span>\<span class="hljs-number">0</span>.php<br></code></pre></td></tr></table></figure>
-</li>
+<h3 id="解析漏洞"><a href="#解析漏洞" class="headerlink" title="解析漏洞"></a>解析漏洞</h3><h4 id="IIS6-0"><a href="#IIS6-0" class="headerlink" title="IIS6.0"></a>IIS6.0</h4><ul>
+<li>目录解析<br>漏洞原理：<br>服务器默认会把xx.asp目录下的文件都解析成asp文件</li>
+</ul>
+<p>漏洞形式：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.xxx.com/xx.asp/xx.jpg<br></code></pre></td></tr></table></figure></p>
+<ul>
+<li>文件解析<br>漏洞原理：服务器默认不解析<code>;</code>后面的内容，因此<code>xx.asp;.jpg</code>便被解析成asp文件了</li>
 </ul>
 <hr>
-<h4 id="IIS"><a href="#IIS" class="headerlink" title="IIS"></a>IIS</h4><ul>
-<li><p>IIS 5.x ~ IIS 6.x</p>
-<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmd">/xx.asp/xx.jpg<br>xx.asp;.jpg<br>test.asa     test.cer    test.cdx<br></code></pre></td></tr></table></figure>
+<h4 id="Apache-1-x-2-x"><a href="#Apache-1-x-2-x" class="headerlink" title="Apache 1.x 2.x"></a>Apache 1.x 2.x</h4><p>实验环境：wamp2.0<br>漏洞原理：Apache解析文件的规则为从右到左开始判断解析，若后缀名为不可识别文件解析，则再往左判断<br>例如：<code>test.php.a.b</code>的<code>.a</code>和<code>.b</code>，此两种后缀是Apache不可识别解析，Apache将会把<code>test.php.a.b</code>解析成<code>test.php</code></p>
+<p>漏洞形式：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.test.com/test.php.a<br></code></pre></td></tr></table></figure></p>
+<p>其余配置问题：</p>
+<ol>
+<li>若Apache的<code>conf</code>里有如下配置，则文件名里只要包含<code>.php</code>，即使文件名形如：<code>test2.php.jpg</code>，依旧会以PHP文件来执行<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">AddHandler php5-script.php<br></code></pre></td></tr></table></figure>
 </li>
-<li><p>IIS 7.5</p>
-<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">a.aspx.a;.a.aspx.jpg..jpg<br></code></pre></td></tr></table></figure>
-</li>
-</ul>
+</ol>
 <hr>
-<h4 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h4><ul>
-<li><p>从右到左的顺序依次判断解析</p>
-<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">test.php.php123<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>AddHandler</p>
-<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">php5-script.php    test2.php.jpg<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>即使扩展名是jpg，依旧能以php方式执行</p>
-<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">AddType application/x-httpd-php.jpg<br></code></pre></td></tr></table></figure>
-</li>
-</ul>
+<h4 id="Nginx-1-4-6"><a href="#Nginx-1-4-6" class="headerlink" title="Nginx 1.4.6"></a>Nginx 1.4.6</h4><p>漏洞原理：<br>Nginx接收到文件路径(URI)形如：<code>/test.jpg/test.php</code>之后，一遇到后缀是<code>.php</code>，即判断该文件是PHP文件，并转交给php去处理。而php处理是发现<code>/test.jpg/test.php</code>不存在，便删去最后面的<code>/test.php</code>，而又发现<code>/test.jpg</code>存在，便将<code>/test.jpg</code>当成要执行的文件了，但又因后缀为<code>.jpg</code>，则php认定此文件不是php文件，于是返回<code>Access denied</code><br>此中涉及到php的一个选项：<code>cgi.fix_pathinfo</code>，该值默认为<code>1</code>，表示开启。开启此选项后，php可对文件路径进行“修理”。<br>例如：当php遇到文件路径<code>/1.jpg/2.txt/3.php</code>是，若<code>/1.jpg/2.txt/3.php</code>不存在，则会去掉最后的<code>/3.php</code>，然后判断<code>/1.jpg/2.txt</code>是否存在。若存在，则把<code>/1.jpg/2.txt</code>当作文件<code>/1.jpg/2.txt/3.php</code>，此时若<code>/1.jpg/2.txt</code>仍不存在，则再去掉<code>/2.txt</code>，以此类推</p>
+<p>漏洞形式：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.xxx.com/UploadFiles/image/1.jpg/1.php<br>www.xxx.com/UploadFiles/image/1.jpg%00.php<br>www.xxx.com/UploadFiles/image/1.jpg/%20\0.php<br></code></pre></td></tr></table></figure></p>
 <hr>
+<h4 id="IIS7-5"><a href="#IIS7-5" class="headerlink" title="IIS7.5"></a>IIS7.5</h4><p>类似于Nginx，都是由于php配置文件中，开启了<code>cgi.fix_pathinfo</code>，而这并非Nginx或IIS7.5本身的漏洞</p>
+<p>漏洞形式：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.xxx.com/UploadFiles/image/1.jpg/1.php<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="Windows系统"><a href="#Windows系统" class="headerlink" title="Windows系统"></a>Windows系统</h4><p>漏洞原理：<br>旧版Windows Server中存在空格和dot漏洞，类似于<code>a.php.</code>和<code>a.php</code>这样的文件名存储后，会被Windows去掉点和空格，从而使得加上这两个特殊字串后，可以突破过滤，成功上传，并且被当作php代码执行</p>
+<p>漏洞形式：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">test.asp.<br>test.asp[空格] <br><br>test.php:1.jpg<br>test.php:: <span class="hljs-variable">$DATA</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h4><p>参考：<br><a href="https://www.webshell.cc/1006.html" target="_blank" rel="noopener">https://www.webshell.cc/1006.html</a><br><a href="https://blog.csdn.net/u011781521/article/details/59057759" target="_blank" rel="noopener">https://blog.csdn.net/u011781521/article/details/59057759</a><br><a href="https://www.cnblogs.com/qunshu/p/3286650.html" target="_blank" rel="noopener">https://www.cnblogs.com/qunshu/p/3286650.html</a><br><a href="https://www.0dayhack.com/post-426.html" target="_blank" rel="noopener">https://www.0dayhack.com/post-426.html</a></p>
 <hr>
 <h3 id="利用方法"><a href="#利用方法" class="headerlink" title="利用方法"></a>利用方法</h3><h4 id="前端验证绕过"><a href="#前端验证绕过" class="headerlink" title="前端验证绕过"></a>前端验证绕过</h4><ul>
 <li>修改验证函数，在白名单中添加php等后缀名</li>
@@ -298,6 +294,8 @@
     </div>
     <div class="page-nav-prev page-nav-item">
       
+      <a href="/2019/01/15/File-include-hole/" rel="prev" title="文件包含漏洞"><span class="nav-title">文件包含漏洞</span><i class="fas fa-angle-right"></i></a>
+      
     </div>
   </nav>
   
@@ -328,7 +326,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">21</a></div>
+      <div><a href="/archives/">22</a></div>
     </div>
     
     
@@ -346,7 +344,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">44</a></div>
+      <div><a href="/tags/">45</a></div>
     </div>
     
   </div>
@@ -367,7 +365,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#原理"><span class="toc-text">原理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#前端表单"><span class="toc-text">前端表单</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#后端处理"><span class="toc-text">后端处理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#检测方式"><span class="toc-text">检测方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞"><span class="toc-text">漏洞</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常见类型"><span class="toc-text">常见类型</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#解析漏洞"><span class="toc-text">解析漏洞</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Nginx"><span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#IIS"><span class="toc-text">IIS</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Apache"><span class="toc-text">Apache</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#利用方法"><span class="toc-text">利用方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#前端验证绕过"><span class="toc-text">前端验证绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#MINE绕过"><span class="toc-text">MINE绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#黑名单绕过"><span class="toc-text">黑名单绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#htaccess-仅Apache"><span class="toc-text">.htaccess(仅Apache)</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#大小写"><span class="toc-text">大小写</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Windwos特性"><span class="toc-text">Windwos特性</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#NTFS文件流特性"><span class="toc-text">NTFS文件流特性</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#双写绕过"><span class="toc-text">双写绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#截断上传（00截断）"><span class="toc-text">截断上传（00截断）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#文件头检测绕过"><span class="toc-text">文件头检测绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#图片二次渲染绕过"><span class="toc-text">图片二次渲染绕过</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#危害"><span class="toc-text">危害</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#高危触发点"><span class="toc-text">高危触发点</span></a></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#原理"><span class="toc-text">原理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#前端表单"><span class="toc-text">前端表单</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#后端处理"><span class="toc-text">后端处理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#检测方式"><span class="toc-text">检测方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞"><span class="toc-text">漏洞</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常见类型"><span class="toc-text">常见类型</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#解析漏洞"><span class="toc-text">解析漏洞</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#IIS6-0"><span class="toc-text">IIS6.0</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Apache-1-x-2-x"><span class="toc-text">Apache 1.x 2.x</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Nginx-1-4-6"><span class="toc-text">Nginx 1.4.6</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#IIS7-5"><span class="toc-text">IIS7.5</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Windows系统"><span class="toc-text">Windows系统</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#富文本编辑器"><span class="toc-text">富文本编辑器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#利用方法"><span class="toc-text">利用方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#前端验证绕过"><span class="toc-text">前端验证绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#MINE绕过"><span class="toc-text">MINE绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#黑名单绕过"><span class="toc-text">黑名单绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#htaccess-仅Apache"><span class="toc-text">.htaccess(仅Apache)</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#大小写"><span class="toc-text">大小写</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Windwos特性"><span class="toc-text">Windwos特性</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#NTFS文件流特性"><span class="toc-text">NTFS文件流特性</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#双写绕过"><span class="toc-text">双写绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#截断上传（00截断）"><span class="toc-text">截断上传（00截断）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#文件头检测绕过"><span class="toc-text">文件头检测绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#图片二次渲染绕过"><span class="toc-text">图片二次渲染绕过</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#危害"><span class="toc-text">危害</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#高危触发点"><span class="toc-text">高危触发点</span></a></li></ol></div>
     </div>
     
     

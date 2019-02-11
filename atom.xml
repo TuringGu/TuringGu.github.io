@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-02-10T14:16:13.523Z</updated>
+  <updated>2019-02-11T14:11:57.840Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>文件包含漏洞</title>
+    <link href="https://TuringGu.github.io/2019/01/15/File-include-hole/"/>
+    <id>https://TuringGu.github.io/2019/01/15/File-include-hole/</id>
+    <published>2019-01-15T06:38:13.000Z</published>
+    <updated>2019-02-11T14:11:57.840Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="File" scheme="https://TuringGu.github.io/tags/File/"/>
+    
+      <category term="Include" scheme="https://TuringGu.github.io/tags/Include/"/>
+    
+  </entry>
+  
+  <entry>
     <title>文件上传漏洞</title>
     <link href="https://TuringGu.github.io/2019/01/10/File-upload-hole/"/>
     <id>https://TuringGu.github.io/2019/01/10/File-upload-hole/</id>
     <published>2019-01-10T11:46:32.000Z</published>
-    <updated>2019-02-10T14:16:13.523Z</updated>
+    <updated>2019-02-11T15:09:46.557Z</updated>
     
     <summary type="html">
     
@@ -92,13 +118,13 @@
     </summary>
     
     
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
+    
       <category term="Access" scheme="https://TuringGu.github.io/tags/Access/"/>
     
       <category term="MSSQL" scheme="https://TuringGu.github.io/tags/MSSQL/"/>
     
       <category term="MongoDB" scheme="https://TuringGu.github.io/tags/MongoDB/"/>
-    
-      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
     
   </entry>
   
@@ -533,33 +559,6 @@
       <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
     
       <category term="软件安装" scheme="https://TuringGu.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux入门基础</title>
-    <link href="https://TuringGu.github.io/2018/11/28/Linux-foundation/"/>
-    <id>https://TuringGu.github.io/2018/11/28/Linux-foundation/</id>
-    <published>2018-11-28T08:24:20.000Z</published>
-    <updated>2019-02-08T09:27:33.266Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://TuringGu.github.io/tags/Linux/"/>
-    
-      <category term="基础" scheme="https://TuringGu.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
