@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-02-12T14:04:48.492Z</updated>
+  <updated>2019-02-12T17:08:54.534Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>XSS跨站脚本攻击</title>
+    <link href="https://TuringGu.github.io/2019/01/20/XSS/"/>
+    <id>https://TuringGu.github.io/2019/01/20/XSS/</id>
+    <published>2019-01-20T14:12:25.000Z</published>
+    <updated>2019-02-12T17:08:54.534Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;相关基础&quot;&gt;&lt;a href=&quot;#相关基础&quot; class=&quot;headerlink&quot; title=&quot;相关基础&quot;&gt;&lt;/a&gt;相关基础&lt;/h2&gt;&lt;h3 id=&quot;浏览器工作机制&quot;&gt;&lt;a href=&quot;#浏览器工作机制&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="XSS" scheme="https://TuringGu.github.io/tags/XSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PHP反序列化漏洞</title>
     <link href="https://TuringGu.github.io/2019/01/18/Deserialization-vulnerability/"/>
     <id>https://TuringGu.github.io/2019/01/18/Deserialization-vulnerability/</id>
     <published>2019-01-18T08:57:31.000Z</published>
-    <updated>2019-02-12T14:04:48.492Z</updated>
+    <updated>2019-02-12T14:07:31.292Z</updated>
     
     <summary type="html">
     
@@ -140,11 +164,11 @@
     
       <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
     
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
+    
       <category term="WAF" scheme="https://TuringGu.github.io/tags/WAF/"/>
     
       <category term="Passby" scheme="https://TuringGu.github.io/tags/Passby/"/>
-    
-      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
     
       <category term="file upload" scheme="https://TuringGu.github.io/tags/file-upload/"/>
     
@@ -170,13 +194,13 @@
     </summary>
     
     
-      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
-    
       <category term="Access" scheme="https://TuringGu.github.io/tags/Access/"/>
     
       <category term="MSSQL" scheme="https://TuringGu.github.io/tags/MSSQL/"/>
     
       <category term="MongoDB" scheme="https://TuringGu.github.io/tags/MongoDB/"/>
+    
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
     
   </entry>
   
@@ -397,32 +421,6 @@
   </entry>
   
   <entry>
-    <title>PHP开发入门</title>
-    <link href="https://TuringGu.github.io/2018/12/12/PHP/"/>
-    <id>https://TuringGu.github.io/2018/12/12/PHP/</id>
-    <published>2018-12-12T11:38:53.000Z</published>
-    <updated>2019-01-03T02:55:40.995Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
-    
-      <category term="Back-end" scheme="https://TuringGu.github.io/tags/Back-end/"/>
-    
-  </entry>
-  
-  <entry>
     <title>后端开发入门</title>
     <link href="https://TuringGu.github.io/2018/12/12/Back-end/"/>
     <id>https://TuringGu.github.io/2018/12/12/Back-end/</id>
@@ -445,6 +443,32 @@
       <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
     
       <category term="MySQL" scheme="https://TuringGu.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP开发入门</title>
+    <link href="https://TuringGu.github.io/2018/12/12/PHP/"/>
+    <id>https://TuringGu.github.io/2018/12/12/PHP/</id>
+    <published>2018-12-12T11:38:53.000Z</published>
+    <updated>2019-01-03T02:55:40.995Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
+    
+      <category term="Back-end" scheme="https://TuringGu.github.io/tags/Back-end/"/>
     
   </entry>
   
@@ -530,35 +554,6 @@
       <category term="WordPress" scheme="https://TuringGu.github.io/tags/WordPress/"/>
     
       <category term="LAMP" scheme="https://TuringGu.github.io/tags/LAMP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Httpd编译安装教程</title>
-    <link href="https://TuringGu.github.io/2018/12/04/Httpd%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
-    <id>https://TuringGu.github.io/2018/12/04/Httpd编译安装教程/</id>
-    <published>2018-12-04T09:40:33.000Z</published>
-    <updated>2018-12-06T08:36:44.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
-    
-      <category term="Httpd" scheme="https://TuringGu.github.io/tags/Httpd/"/>
-    
-      <category term="编译安装" scheme="https://TuringGu.github.io/tags/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
