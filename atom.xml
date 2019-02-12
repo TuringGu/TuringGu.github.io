@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>TuringGu</title>
   
-  <subtitle>My first blog</subtitle>
+  <subtitle>Info Security</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-02-12T17:08:54.534Z</updated>
+  <updated>2019-02-12T18:34:13.770Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSRF跨站请求伪造</title>
+    <link href="https://TuringGu.github.io/2019/01/22/CSRF/"/>
+    <id>https://TuringGu.github.io/2019/01/22/CSRF/</id>
+    <published>2019-01-21T17:22:43.000Z</published>
+    <updated>2019-02-12T18:34:13.770Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="CSRF" scheme="https://TuringGu.github.io/tags/CSRF/"/>
+    
+  </entry>
   
   <entry>
     <title>XSS跨站脚本攻击</title>
@@ -525,35 +549,6 @@
       <category term="V2ray" scheme="https://TuringGu.github.io/tags/V2ray/"/>
     
       <category term="VPS" scheme="https://TuringGu.github.io/tags/VPS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于LAMP的WordPress动态博客搭建</title>
-    <link href="https://TuringGu.github.io/2018/12/05/Linux_wordpress_setup/"/>
-    <id>https://TuringGu.github.io/2018/12/05/Linux_wordpress_setup/</id>
-    <published>2018-12-05T10:16:59.000Z</published>
-    <updated>2019-01-02T05:05:24.098Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="CentOS" scheme="https://TuringGu.github.io/tags/CentOS/"/>
-    
-      <category term="WordPress" scheme="https://TuringGu.github.io/tags/WordPress/"/>
-    
-      <category term="LAMP" scheme="https://TuringGu.github.io/tags/LAMP/"/>
     
   </entry>
   
