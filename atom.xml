@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-02-11T18:15:53.870Z</updated>
+  <updated>2019-02-12T14:04:48.492Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP反序列化漏洞</title>
+    <link href="https://TuringGu.github.io/2019/01/18/Deserialization-vulnerability/"/>
+    <id>https://TuringGu.github.io/2019/01/18/Deserialization-vulnerability/</id>
+    <published>2019-01-18T08:57:31.000Z</published>
+    <updated>2019-02-12T14:04:48.492Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
+    
+      <category term="Deserialization" scheme="https://TuringGu.github.io/tags/Deserialization/"/>
+    
+  </entry>
   
   <entry>
     <title>任意代码执行</title>
@@ -114,11 +140,11 @@
     
       <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
     
-      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
-    
       <category term="WAF" scheme="https://TuringGu.github.io/tags/WAF/"/>
     
       <category term="Passby" scheme="https://TuringGu.github.io/tags/Passby/"/>
+    
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
     
       <category term="file upload" scheme="https://TuringGu.github.io/tags/file-upload/"/>
     
@@ -144,13 +170,13 @@
     </summary>
     
     
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
+    
       <category term="Access" scheme="https://TuringGu.github.io/tags/Access/"/>
     
       <category term="MSSQL" scheme="https://TuringGu.github.io/tags/MSSQL/"/>
     
       <category term="MongoDB" scheme="https://TuringGu.github.io/tags/MongoDB/"/>
-    
-      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
     
   </entry>
   
@@ -533,32 +559,6 @@
       <category term="Httpd" scheme="https://TuringGu.github.io/tags/Httpd/"/>
     
       <category term="编译安装" scheme="https://TuringGu.github.io/tags/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常见安全配置</title>
-    <link href="https://TuringGu.github.io/2018/12/03/Security-config/"/>
-    <id>https://TuringGu.github.io/2018/12/03/Security-config/</id>
-    <published>2018-12-03T13:09:16.000Z</published>
-    <updated>2018-12-16T13:10:46.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;git&quot;&gt;&lt;a href=&quot;#git&quot; class=&quot;headerlink&quot; title=&quot;git&quot;&gt;&lt;/a&gt;git&lt;/h3&gt;&lt;h3 id=&quot;tomcat&quot;&gt;&lt;a href=&quot;#tomcat&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="git" scheme="https://TuringGu.github.io/tags/git/"/>
-    
-      <category term="安全配置" scheme="https://TuringGu.github.io/tags/%E5%AE%89%E5%85%A8%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
