@@ -156,19 +156,35 @@
 <h3 id="漏洞产生原因"><a href="#漏洞产生原因" class="headerlink" title="漏洞产生原因"></a>漏洞产生原因</h3><p>当Web应用程序在用户进行敏感操作时，如：修改账号密码、添加账号、转账等时，没有校验表单<code>token</code>或者http请求头中的<code>referer</code>值，从而导致恶意攻击者利用普通用户的身份（cookie）完成攻击行为</p>
 <h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><p>CSRF是一种针对Web应用的攻击方式。它可以在受害者毫不知情的情况下，以受害者的名义伪造请求，并发送给受攻击的站点，从而在未授权的情况下执行在权限保护之下的操作，具有很大危害性。<br>与其他攻击方式（SQL注入、上传、XSS等）相比，CSRF的关注度较少，也更容易出现</p>
 <hr>
-<h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><p>一次CSRF攻击的过程中，受害者需要依次完成两个步骤：</p>
+<h3 id="利用方法"><a href="#利用方法" class="headerlink" title="利用方法"></a>利用方法</h3><p>一次CSRF攻击的过程中，受害者需要依次完成两个步骤：</p>
 <ol>
 <li>登录受信任网站A，并在本地生成Cookie</li>
 <li>在A的Cookie存活期间内，访问危险网站B</li>
 </ol>
 <p>eg:</p>
 <ol>
-<li>网站A的管理员A成功登录网站A</li>
-<li>网站A的账号密码修改功能存在CSRF漏洞</li>
+<li><p>网站A的管理员A成功登录网站A<br>正常返回Cookie</p>
+</li>
+<li><p>网站A的账号密码修改功能存在CSRF漏洞</p>
+</li>
 <li>网站B为黑客控制的恶意网站</li>
 <li>管理员A访问网站B</li>
+</ol>
+<ul>
+<li>HTTP Request:<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">HTTP/1.1<br>GET/<br>Host: www.test.com<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="5">
 <li>网站B的响应数据中，包含了请求修改用户A在网站A账号密码的请求</li>
 </ol>
+<ul>
+<li><p>HTTP Response</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">HTTP /1.1 OK<br>Content-Type:text/html<br>Context-Length: 1024<br>&lt;html&gt;<br>    &lt;body&gt;<br>        &lt;img src=http://finance.bdtest.com/bug.php?symbol=BIDU&amp;shares=1000 /&gt;<br>    &lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>CSRF Attack</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">HTTP/1.1<br>GET /bug.php?symbol=BIDU&amp;shares=1000<br>Host: finance.bdtest.com<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
 <hr>
 <h3 id="高危触发点"><a href="#高危触发点" class="headerlink" title="高危触发点"></a>高危触发点</h3><ul>
 <li>论坛交流</li>
@@ -250,6 +266,8 @@
     </div>
     <div class="page-nav-prev page-nav-item">
       
+      <a href="/2019/01/24/Unconventional-Injection/" rel="prev" title="非常规注入"><span class="nav-title">非常规注入</span><i class="fas fa-angle-right"></i></a>
+      
     </div>
   </nav>
   
@@ -280,7 +298,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">26</a></div>
+      <div><a href="/archives/">27</a></div>
     </div>
     
     
@@ -298,7 +316,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">50</a></div>
+      <div><a href="/tags/">51</a></div>
     </div>
     
   </div>
@@ -319,7 +337,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞产生原因"><span class="toc-text">漏洞产生原因</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞原理"><span class="toc-text">漏洞原理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#基本流程"><span class="toc-text">基本流程</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#高危触发点"><span class="toc-text">高危触发点</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞危害"><span class="toc-text">漏洞危害</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞防御"><span class="toc-text">漏洞防御</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Token验证码实现"><span class="toc-text">Token验证码实现</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Referer验证代码实现"><span class="toc-text">Referer验证代码实现</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#防御总结"><span class="toc-text">防御总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#CSRF与XSS区别"><span class="toc-text">CSRF与XSS区别</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#bwapp安装"><span class="toc-text">bwapp安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#同源策略"><span class="toc-text">同源策略</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞产生原因"><span class="toc-text">漏洞产生原因</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞原理"><span class="toc-text">漏洞原理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#利用方法"><span class="toc-text">利用方法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#高危触发点"><span class="toc-text">高危触发点</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞危害"><span class="toc-text">漏洞危害</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞防御"><span class="toc-text">漏洞防御</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Token验证码实现"><span class="toc-text">Token验证码实现</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Referer验证代码实现"><span class="toc-text">Referer验证代码实现</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#防御总结"><span class="toc-text">防御总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#CSRF与XSS区别"><span class="toc-text">CSRF与XSS区别</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#bwapp安装"><span class="toc-text">bwapp安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#同源策略"><span class="toc-text">同源策略</span></a></li></ol></li></ol></div>
     </div>
     
     

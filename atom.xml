@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-02-12T18:34:13.770Z</updated>
+  <updated>2019-02-13T16:37:38.623Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>非常规注入</title>
+    <link href="https://TuringGu.github.io/2019/01/24/Unconventional-Injection/"/>
+    <id>https://TuringGu.github.io/2019/01/24/Unconventional-Injection/</id>
+    <published>2019-01-24T10:59:22.000Z</published>
+    <updated>2019-02-13T16:37:38.623Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;XML&quot;&gt;&lt;a href=&quot;#XML&quot; class=&quot;headerlink&quot; title=&quot;XML&quot;&gt;&lt;/a&gt;XML&lt;/h2&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
+    
+      <category term="Unconventional" scheme="https://TuringGu.github.io/tags/Unconventional/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CSRF跨站请求伪造</title>
     <link href="https://TuringGu.github.io/2019/01/22/CSRF/"/>
     <id>https://TuringGu.github.io/2019/01/22/CSRF/</id>
     <published>2019-01-21T17:22:43.000Z</published>
-    <updated>2019-02-12T18:34:13.770Z</updated>
+    <updated>2019-02-12T18:56:10.310Z</updated>
     
     <summary type="html">
     
@@ -521,34 +547,6 @@
       <category term="CSS" scheme="https://TuringGu.github.io/tags/CSS/"/>
     
       <category term="Javascript" scheme="https://TuringGu.github.io/tags/Javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>V2ray科学上网教程</title>
-    <link href="https://TuringGu.github.io/2018/12/08/V2ray-Tutorial/"/>
-    <id>https://TuringGu.github.io/2018/12/08/V2ray-Tutorial/</id>
-    <published>2018-12-08T03:54:40.000Z</published>
-    <updated>2018-12-10T08:31:26.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="科学上网" scheme="https://TuringGu.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-      <category term="V2ray" scheme="https://TuringGu.github.io/tags/V2ray/"/>
-    
-      <category term="VPS" scheme="https://TuringGu.github.io/tags/VPS/"/>
     
   </entry>
   
