@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-02-13T16:37:38.623Z</updated>
+  <updated>2019-02-14T15:57:30.914Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>信息泄露漏洞</title>
+    <link href="https://TuringGu.github.io/2019/01/26/Information-leakage/"/>
+    <id>https://TuringGu.github.io/2019/01/26/Information-leakage/</id>
+    <published>2019-01-26T14:39:40.000Z</published>
+    <updated>2019-02-14T15:57:30.914Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;漏洞定义&quot;&gt;&lt;a href=&quot;#漏洞定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Information" scheme="https://TuringGu.github.io/tags/Information/"/>
+    
+      <category term="Leakage" scheme="https://TuringGu.github.io/tags/Leakage/"/>
+    
+  </entry>
   
   <entry>
     <title>非常规注入</title>
@@ -147,7 +173,7 @@
     <link href="https://TuringGu.github.io/2019/01/15/File-include-hole/"/>
     <id>https://TuringGu.github.io/2019/01/15/File-include-hole/</id>
     <published>2019-01-15T06:38:13.000Z</published>
-    <updated>2019-02-11T14:11:57.840Z</updated>
+    <updated>2019-02-14T15:58:15.494Z</updated>
     
     <summary type="html">
     
@@ -173,7 +199,7 @@
     <link href="https://TuringGu.github.io/2019/01/10/File-upload-hole/"/>
     <id>https://TuringGu.github.io/2019/01/10/File-upload-hole/</id>
     <published>2019-01-10T11:46:32.000Z</published>
-    <updated>2019-02-11T16:57:52.466Z</updated>
+    <updated>2019-02-14T16:00:12.472Z</updated>
     
     <summary type="html">
     
@@ -188,7 +214,9 @@
     </summary>
     
     
-      <category term="file upload" scheme="https://TuringGu.github.io/tags/file-upload/"/>
+      <category term="File" scheme="https://TuringGu.github.io/tags/File/"/>
+    
+      <category term="Upload" scheme="https://TuringGu.github.io/tags/Upload/"/>
     
   </entry>
   
@@ -244,13 +272,13 @@
     </summary>
     
     
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
+    
       <category term="Access" scheme="https://TuringGu.github.io/tags/Access/"/>
     
       <category term="MSSQL" scheme="https://TuringGu.github.io/tags/MSSQL/"/>
     
       <category term="MongoDB" scheme="https://TuringGu.github.io/tags/MongoDB/"/>
-    
-      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
     
   </entry>
   
@@ -519,34 +547,6 @@
       <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
     
       <category term="Back-end" scheme="https://TuringGu.github.io/tags/Back-end/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端开发入门</title>
-    <link href="https://TuringGu.github.io/2018/12/09/Front-end/"/>
-    <id>https://TuringGu.github.io/2018/12/09/Front-end/</id>
-    <published>2018-12-09T12:23:43.000Z</published>
-    <updated>2018-12-12T11:35:12.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="HTML" scheme="https://TuringGu.github.io/tags/HTML/"/>
-    
-      <category term="CSS" scheme="https://TuringGu.github.io/tags/CSS/"/>
-    
-      <category term="Javascript" scheme="https://TuringGu.github.io/tags/Javascript/"/>
     
   </entry>
   

@@ -153,7 +153,6 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>在通过PHP的相应函数（比如include()）引入文件时，由于传入的文件名没有经过合理的校验，从而操作了预料之外的文件，就可能导致以外的文件泄露甚至恶意代码注入</p>
-<hr>
 <h3 id="本地文件包含-LFI"><a href="#本地文件包含-LFI" class="headerlink" title="本地文件包含(LFI)"></a>本地文件包含(LFI)</h3><p>Local File Inclusion<br>能够读取或执行包含本地文件的漏洞<br>eg:<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <br>$file = $_GET[<span class="hljs-string">'file'</span>];<br><span class="hljs-keyword">if</span>(file_exists(<span class="hljs-string">'/home/wwwrun/'</span>.$file.<span class="hljs-string">'.php'</span>)) &#123;<br>	<span class="hljs-keyword">include</span> <span class="hljs-string">'/home/wwwrun/'</span>.$file.<span class="hljs-string">'.php'</span>;<br>&#125;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
 <p>linux系统越权读取（需要读权限）<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">include</span> <span class="hljs-string">'/home/wwwrun/../../../../../../etc/passwd\0.php</span><br></code></pre></td></tr></table></figure></p>
 <h3 id="远程文件包含-RFI"><a href="#远程文件包含-RFI" class="headerlink" title="远程文件包含(RFI)"></a>远程文件包含(RFI)</h3><p>Remote File Inclusion<br>例如若<code>php.ini</code>的配置选项<code>allow_url_include</code>为<code>ON</code>的话，文件包含函数是可以加载远程文件的。利用远程文件包含漏洞，可以直接执行任意命令</p>
@@ -294,7 +293,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">27</a></div>
+      <div><a href="/archives/">28</a></div>
     </div>
     
     
@@ -312,7 +311,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">51</a></div>
+      <div><a href="/tags/">56</a></div>
     </div>
     
   </div>

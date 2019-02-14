@@ -152,8 +152,9 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>在文件上传功能处，若服务端脚本语言未对上传的文件进行严格验证和过滤，导致恶意用户上传恶意的脚本文件时就有可能获取执行服务端命令的能力，这就是文件上传漏洞</p>
-<hr>
+      <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><blockquote>
+<p>文件上传漏洞是WEB安全中经常利用到的一种漏洞形式。这种类型的攻击从大的类型上来说是攻击“数据与代码分离原则”的一种攻击。<br>在文件上传功能处，若服务端脚本语言未对上传的文件进行严格验证和过滤，导致恶意用户上传恶意的脚本文件时就有可能获取执行服务端命令的能力，这就是文件上传漏洞</p>
+</blockquote>
 <h3 id="前端表单"><a href="#前端表单" class="headerlink" title="前端表单"></a>前端表单</h3><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"upload_file.php"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">"multipart/form-data"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"file"</span>&gt;</span>Filename:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"file"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"submit"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>其中<code>upload_file.php</code>规定了处理上传数据的后台php脚本文件<br><code>method</code>规定上传的方法为post方法<br><code>enctype</code>规定了上传数据的编码方式<br><code>multipart/form-data</code>表示不进行编码，文件上传的表单一般采用此方式</p>
 <hr>
@@ -265,7 +266,9 @@
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/file-upload/" rel="tag"><i class="fas fa-tags"></i>file upload</a>
+        <a class="post-tag button" href="/tags/File/" rel="tag"><i class="fas fa-tags"></i>File</a>
+        
+        <a class="post-tag button" href="/tags/Upload/" rel="tag"><i class="fas fa-tags"></i>Upload</a>
         
       </div>
       
@@ -326,7 +329,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">27</a></div>
+      <div><a href="/archives/">28</a></div>
     </div>
     
     
@@ -344,7 +347,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">51</a></div>
+      <div><a href="/tags/">56</a></div>
     </div>
     
   </div>
