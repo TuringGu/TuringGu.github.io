@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-02-14T16:04:33.348Z</updated>
+  <updated>2019-02-15T17:23:12.083Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>业务逻辑漏洞</title>
+    <link href="https://TuringGu.github.io/2019/01/28/Business-logic-hole/"/>
+    <id>https://TuringGu.github.io/2019/01/28/Business-logic-hole/</id>
+    <published>2019-01-27T16:04:29.000Z</published>
+    <updated>2019-02-15T17:23:12.083Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;权限绕过&quot;&gt;&lt;a href=&quot;#权限绕过&quot; class=&quot;headerlink&quot; title=&quot;权限绕过&quot;&gt;&lt;/a&gt;权限绕过&lt;/h2&gt;&lt;h3 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Business" scheme="https://TuringGu.github.io/tags/Business/"/>
+    
+      <category term="Logic" scheme="https://TuringGu.github.io/tags/Logic/"/>
+    
+  </entry>
+  
+  <entry>
     <title>信息泄露漏洞</title>
     <link href="https://TuringGu.github.io/2019/01/26/Information-leakage/"/>
     <id>https://TuringGu.github.io/2019/01/26/Information-leakage/</id>
     <published>2019-01-26T14:39:40.000Z</published>
-    <updated>2019-02-14T16:04:33.348Z</updated>
+    <updated>2019-02-14T16:05:23.268Z</updated>
     
     <summary type="html">
     
@@ -495,32 +521,6 @@
       <category term="Database" scheme="https://TuringGu.github.io/tags/Database/"/>
     
       <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>后端开发入门</title>
-    <link href="https://TuringGu.github.io/2018/12/12/Back-end/"/>
-    <id>https://TuringGu.github.io/2018/12/12/Back-end/</id>
-    <published>2018-12-12T11:38:53.000Z</published>
-    <updated>2019-01-06T08:28:12.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
-    
-      <category term="MySQL" scheme="https://TuringGu.github.io/tags/MySQL/"/>
     
   </entry>
   
