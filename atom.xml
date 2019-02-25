@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-02-15T17:23:12.083Z</updated>
+  <updated>2019-02-24T07:09:56.000Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -15,6 +15,85 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>内网转发</title>
+    <link href="https://TuringGu.github.io/2019/02/24/Intranet-forwarding/"/>
+    <id>https://TuringGu.github.io/2019/02/24/Intranet-forwarding/</id>
+    <published>2019-02-24T05:58:01.000Z</published>
+    <updated>2019-02-24T07:09:56.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;内网转发目的&quot;&gt;&lt;a href=&quot;#内网转发目的&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Intranet" scheme="https://TuringGu.github.io/tags/Intranet/"/>
+    
+      <category term="Forwading" scheme="https://TuringGu.github.io/tags/Forwading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>权限维持</title>
+    <link href="https://TuringGu.github.io/2019/02/20/Privilege-persistence/"/>
+    <id>https://TuringGu.github.io/2019/02/20/Privilege-persistence/</id>
+    <published>2019-02-20T04:41:03.000Z</published>
+    <updated>2019-02-24T05:39:56.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;攻击者在获取服务器权限后，通常会用一些后门技术来维持服务器权限，服务器一旦被植入后门，攻击者将如入无人之境&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Privilege" scheme="https://TuringGu.github.io/tags/Privilege/"/>
+    
+      <category term="Persistence" scheme="https://TuringGu.github.io/tags/Persistence/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>权限提升</title>
+    <link href="https://TuringGu.github.io/2019/02/18/Privilege-elevation/"/>
+    <id>https://TuringGu.github.io/2019/02/18/Privilege-elevation/</id>
+    <published>2019-02-18T12:27:53.000Z</published>
+    <updated>2019-02-22T14:12:06.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;h3 id=&quot;提权目的&quot;&gt;&lt;a href=&quot;#提权目的&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Privilege" scheme="https://TuringGu.github.io/tags/Privilege/"/>
+    
+      <category term="Elevation" scheme="https://TuringGu.github.io/tags/Elevation/"/>
+    
+  </entry>
   
   <entry>
     <title>业务逻辑漏洞</title>
@@ -298,13 +377,13 @@
     </summary>
     
     
-      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
-    
       <category term="Access" scheme="https://TuringGu.github.io/tags/Access/"/>
     
       <category term="MSSQL" scheme="https://TuringGu.github.io/tags/MSSQL/"/>
     
       <category term="MongoDB" scheme="https://TuringGu.github.io/tags/MongoDB/"/>
+    
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
     
   </entry>
   
@@ -471,82 +550,6 @@
       <category term="Session" scheme="https://TuringGu.github.io/tags/Session/"/>
     
       <category term="Form" scheme="https://TuringGu.github.io/tags/Form/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP入门基础</title>
-    <link href="https://TuringGu.github.io/2018/12/15/Php_basic/"/>
-    <id>https://TuringGu.github.io/2018/12/15/Php_basic/</id>
-    <published>2018-12-15T09:00:00.000Z</published>
-    <updated>2019-01-14T01:29:22.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库和SQL</title>
-    <link href="https://TuringGu.github.io/2018/12/15/DB-SQL/"/>
-    <id>https://TuringGu.github.io/2018/12/15/DB-SQL/</id>
-    <published>2018-12-15T04:39:57.000Z</published>
-    <updated>2019-01-09T09:43:43.115Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;数据库&quot;&gt;&lt;a href=&quot;#数据库&quot; class=&quot;headerlink&quot; title=&quot;数据库&quot;&gt;&lt;/a&gt;数据库&lt;/h2&gt;&lt;h3 id=&quot;定义与概念&quot;&gt;&lt;a href=&quot;#定义与概念&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Database" scheme="https://TuringGu.github.io/tags/Database/"/>
-    
-      <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP开发入门</title>
-    <link href="https://TuringGu.github.io/2018/12/12/PHP/"/>
-    <id>https://TuringGu.github.io/2018/12/12/PHP/</id>
-    <published>2018-12-12T11:38:53.000Z</published>
-    <updated>2019-01-03T02:55:40.995Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
-    
-      <category term="Back-end" scheme="https://TuringGu.github.io/tags/Back-end/"/>
     
   </entry>
   
