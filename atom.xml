@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-03-14T07:34:54.964Z</updated>
+  <updated>2019-03-14T07:57:18.057Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>文件传输</title>
+    <link href="https://TuringGu.github.io/2019/03/01/File-transfer/"/>
+    <id>https://TuringGu.github.io/2019/03/01/File-transfer/</id>
+    <published>2019-03-01T07:42:21.000Z</published>
+    <updated>2019-03-14T07:57:18.057Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;常见文件传输方法&quot;&gt;&lt;a href=&quot;#常见文件传输方法&quot; class=&quot;headerlink&quot; title=&quot;常见文件传输方法&quot;&gt;&lt;/a&gt;常见文件传输方法&lt;/h3&gt;&lt;p&gt;搬运自：&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="File" scheme="https://TuringGu.github.io/tags/File/"/>
+    
+      <category term="Transfer" scheme="https://TuringGu.github.io/tags/Transfer/"/>
+    
+  </entry>
   
   <entry>
     <title>内网转发</title>
@@ -520,36 +546,6 @@
       <category term="SSL" scheme="https://TuringGu.github.io/tags/SSL/"/>
     
       <category term="network" scheme="https://TuringGu.github.io/tags/network/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>B/S架构</title>
-    <link href="https://TuringGu.github.io/2018/12/18/B-S-frame/"/>
-    <id>https://TuringGu.github.io/2018/12/18/B-S-frame/</id>
-    <published>2018-12-18T01:31:29.000Z</published>
-    <updated>2019-02-08T09:28:41.280Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="B/S" scheme="https://TuringGu.github.io/tags/B-S/"/>
-    
-      <category term="Cookie" scheme="https://TuringGu.github.io/tags/Cookie/"/>
-    
-      <category term="Session" scheme="https://TuringGu.github.io/tags/Session/"/>
-    
-      <category term="Form" scheme="https://TuringGu.github.io/tags/Form/"/>
     
   </entry>
   
