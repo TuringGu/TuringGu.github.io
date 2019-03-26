@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-03-26T08:26:24.496Z</updated>
+  <updated>2019-03-26T10:02:16.561Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>爬虫</title>
+    <link href="https://TuringGu.github.io/2019/03/22/Crawler/"/>
+    <id>https://TuringGu.github.io/2019/03/22/Crawler/</id>
+    <published>2019-03-22T09:45:32.000Z</published>
+    <updated>2019-03-26T10:02:16.561Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;网络爬虫，按照一定的规则，自动抓取网络信息的程序或者脚本&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;简单实现&quot;&gt;&lt;a href=&quot;#简单实现&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Crawler" scheme="https://TuringGu.github.io/tags/Crawler/"/>
+    
+      <category term="Information" scheme="https://TuringGu.github.io/tags/Information/"/>
+    
+      <category term="Gathering" scheme="https://TuringGu.github.io/tags/Gathering/"/>
+    
+  </entry>
   
   <entry>
     <title>PowerSploit</title>
@@ -520,30 +550,6 @@
       <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
     
       <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>渗透测试基础</title>
-    <link href="https://TuringGu.github.io/2018/12/27/Penetration-Testing/"/>
-    <id>https://TuringGu.github.io/2018/12/27/Penetration-Testing/</id>
-    <published>2018-12-27T06:38:02.000Z</published>
-    <updated>2019-02-09T13:33:08.438Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;渗透测试（Penetration
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Penetration Testing" scheme="https://TuringGu.github.io/tags/Penetration-Testing/"/>
     
   </entry>
   
