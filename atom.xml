@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-03-26T07:46:09.275Z</updated>
+  <updated>2019-03-26T08:26:24.496Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PowerSploit</title>
+    <link href="https://TuringGu.github.io/2019/03/20/PowerSploit/"/>
+    <id>https://TuringGu.github.io/2019/03/20/PowerSploit/</id>
+    <published>2019-03-20T07:55:26.000Z</published>
+    <updated>2019-03-26T08:26:24.496Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;内网渗透神器&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;基本使用过程&quot;&gt;&lt;a href=&quot;#基本使用过程&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Domain" scheme="https://TuringGu.github.io/tags/Domain/"/>
+    
+      <category term="Penetration" scheme="https://TuringGu.github.io/tags/Penetration/"/>
+    
+      <category term="PowerSploit" scheme="https://TuringGu.github.io/tags/PowerSploit/"/>
+    
+  </entry>
   
   <entry>
     <title>域渗透</title>
@@ -514,34 +544,6 @@
     
     
       <category term="Penetration Testing" scheme="https://TuringGu.github.io/tags/Penetration-Testing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>信息收集</title>
-    <link href="https://TuringGu.github.io/2018/12/26/Information-gathering/"/>
-    <id>https://TuringGu.github.io/2018/12/26/Information-gathering/</id>
-    <published>2018-12-26T03:59:47.000Z</published>
-    <updated>2019-01-14T10:30:58.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;百度百科解释&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;信息收集（Information
-        
-      
-    
-    </summary>
-    
-    
-      <category term="information gathering" scheme="https://TuringGu.github.io/tags/information-gathering/"/>
-    
-      <category term="Social engineering" scheme="https://TuringGu.github.io/tags/Social-engineering/"/>
     
   </entry>
   
