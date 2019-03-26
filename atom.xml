@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TuringGu.github.io/"/>
-  <updated>2019-03-15T05:42:34.696Z</updated>
+  <updated>2019-03-26T07:46:09.275Z</updated>
   <id>https://TuringGu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>域渗透</title>
+    <link href="https://TuringGu.github.io/2019/03/15/Domain-penetration/"/>
+    <id>https://TuringGu.github.io/2019/03/15/Domain-penetration/</id>
+    <published>2019-03-15T06:18:27.000Z</published>
+    <updated>2019-03-26T07:46:09.275Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;域环境搭建&quot;&gt;&lt;a href=&quot;#域环境搭建&quot; class=&quot;headerlink&quot; title=&quot;域环境搭建&quot;&gt;&lt;/a&gt;域环境搭建&lt;/h2&gt;&lt;p&gt;这里使用Windows server 2008
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Domain" scheme="https://TuringGu.github.io/tags/Domain/"/>
+    
+      <category term="Penetration" scheme="https://TuringGu.github.io/tags/Penetration/"/>
+    
+  </entry>
   
   <entry>
     <title>Hash基础</title>
@@ -516,34 +542,6 @@
       <category term="information gathering" scheme="https://TuringGu.github.io/tags/information-gathering/"/>
     
       <category term="Social engineering" scheme="https://TuringGu.github.io/tags/Social-engineering/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Burpsuite</title>
-    <link href="https://TuringGu.github.io/2018/12/25/Burpsuite/"/>
-    <id>https://TuringGu.github.io/2018/12/25/Burpsuite/</id>
-    <published>2018-12-25T03:21:48.000Z</published>
-    <updated>2019-01-15T04:28:06.242Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Burpsuite" scheme="https://TuringGu.github.io/tags/Burpsuite/"/>
-    
-      <category term="Tool" scheme="https://TuringGu.github.io/tags/Tool/"/>
-    
-      <category term="Violent Crack" scheme="https://TuringGu.github.io/tags/Violent-Crack/"/>
     
   </entry>
   

@@ -3,6 +3,25 @@
   
     
     <entry>
+      <title>域渗透</title>
+      <link href="/2019/03/15/Domain-penetration/"/>
+      <url>/2019/03/15/Domain-penetration/</url>
+      
+        <content type="html"><![CDATA[<h2 id="域环境搭建"><a href="#域环境搭建" class="headerlink" title="域环境搭建"></a>域环境搭建</h2><p>这里使用Windows server 2008 r2<br>dcpromo<br>关键步骤：</p><ol><li>域控：<br>添加角色向导：<br>添加角色–&gt;服务器角色–&gt;Active Directory 域服务</li></ol><p>Active Directory 域服务安装向导<br>在新林中新建域<br>输入域名xxx.com<br>DNS服务器</p><ol start="2"><li>客户：<br>系统–&gt;高级系统设置–&gt;系统属性–&gt;更改域<br>先脱离原先域：选择隶属于工作组<br>其它–&gt;输入与域控相同的域名</li></ol><h2 id="域环境操作"><a href="#域环境操作" class="headerlink" title="域环境操作"></a>域环境操作</h2><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p><code>whoami</code>  列出当前登录的用户信息<br><code>ipconfig /add</code>  查询本机IP段、所在域等<br><code>net user</code>  本机用户列表<br><code>net localhroup administrators</code>  本机管理员（通常含有域用户）<br><code>net user /domain</code>  查询域用户<br><code>net group /domain</code>  查询域用户<br><code>net group &quot;domain admins&quot; /domain</code>  查询域管理员用户组<br><code>net localgroup administrators /domain</code>  登录本机的域管理员<br><code>net localgroup administrators [workgroup]\user001 /add</code>  域用户添加到本机<br><code>net group &quot;domain controllers&quot; /domain</code>  查看域控制器（如果有多台）<br><code>net time /domain</code>  判断主域（主域服务器都做时间服务器）<br><code>net config workstation</code>  当前登录域<br><code>net session</code>  查看当前会话<br><code>net user \\ip\ipc$ password /user:username</code>  建立IPC会话[空连接-<code>***</code>]<br><code>net user x: \\192.168.10.100\gong</code> 文件共享<br><code>net share</code>  查看SMB指向的路径[即共享]<br><code>net view</code>  查询同一域内机器列表<br><code>net view \\ip</code>  查询某IP共享<br><code>net view /domain</code>  查询域列表<br><code>net view /domain:domainname</code>  查看workgroup域中计算机列表<br><code>net start</code>  查看当前运行的服务<br><code>net accounts</code>  查看本地密码策略<br><code>net accounts /domain</code>  查看域密码策略<br><code>nbtstat -A ip</code>  netbios查询<br><code>netstat -an/ano/anb</code>  网络连接查询<br><code>route print</code>  路由表<br><code>NETSH FIREWALL show all</code>  显示域/标准配置文件的允许的程序配置<br><code>tasklist /V</code>  查看进程[显示对应用户]<br><code>tasklist /S ip /U domain\username /p password /V</code>  查看远程计算机进程列表<br><code>qprocess *</code>  类似于tasklist<br><code>qprocess /SERVER:IP</code>  远程查看计算机进程列表<br><code>nslookup --qt-MX Yahoo.com</code>  查看邮件服务器<br><code>whoami /all</code>  查询当前用户权限<br><code>set</code>  查看系统环境变量<br><code>systeminfo</code>  查看系统信息<br><code>qwinsta</code>  查看登陆情况<br><code>qwinsta /SERVER:IP</code>  查看远程登录情况<br><code>fsutil fsinfo drives</code>  查看所有盘符<br><code>gpupdate /force</code>  更新域策略</p><hr><h3 id="wmic命令集"><a href="#wmic命令集" class="headerlink" title="wmic命令集"></a>wmic命令集</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>wmic命令集，Windows Management Instrumentation Command-line<br>wmic有2种命令执行方式：</p><ul><li><p>cmd输入wmic进入wmic控制台，再输入详细命令<br>如<code>process</code></p></li><li><p>cmd下直接输入<code>wmic process</code>执行<br>wmic提供了从命令行接口和批命令脚本执行系统管理的支持</p></li></ul><hr><h4 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h4><p><code>process</code>  负责进程管理<br><code>service</code>  负责应用程序管理<br><code>bios</code>  基本输入/输出服务（BIOS）管理<br><code>qfe</code>  快速修复工程（补丁qfe get hotfixid）<br><code>startup</code>  当用户登录到计算机系统时自动运行的命令的管理<br><code>os</code>  已安装操作系统的管理<br><code>share</code>  共享资源管理<br><code>useraccount</code>  用户账户管理<br><code>logicaldisk</code>  本地存储设备管理<br><code>cpu</code>  CPU管理 </p><hr><h3 id="dsquery"><a href="#dsquery" class="headerlink" title="dsquery"></a>dsquery</h3><p>AD域中的管理利器<br><code>dsquery computer</code>  查找目录中的计算机<br><code>dsquery contact</code>  查找目录中的联系人<br><code>dsquery subnet</code>  查找目录中的子网<br><code>dsquery group</code>  查找目录中的组<br><code>dsquery ou</code>  查找目录中的组织单位<br><code>dsquery site</code>  查找目录中的站点<br><code>dsquery server</code>  查找目录中的AD DC/LDS实例<br><code>dsquery user</code>  查找目录中的用户<br><code>dsquery quota</code>  查找目录中的配额规定<br><code>dsquery partition</code>  查找目录中的分区<br><code>dsquery *</code>  用通用的LDAP查询来查找目录中的任何对象</p><hr><h3 id="命令行帮助"><a href="#命令行帮助" class="headerlink" title="命令行帮助"></a>命令行帮助</h3><p><code>/?</code>或<code>-?</code>  显示所有全局开关和别名的语法<br><code>//? /user /?</code>  显示指定全局开关的信息<br><code>/? class /?</code>  显示某个命令的信息<br><code>/? memcache /?</code>  显示某个别名的信息<br><code>/? temperature get /?</code>  显示别名与动词组合的信息<br><code>/?:Full irq get /?:Full</code>  显示动词的帮助信息<br>eg:<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wmic:root\cli&gt;process /?<br></code></pre></td></tr></table></figure></p><hr><h2 id="域环境渗透流程与技巧"><a href="#域环境渗透流程与技巧" class="headerlink" title="域环境渗透流程与技巧"></a>域环境渗透流程与技巧</h2><h3 id="域渗透目的"><a href="#域渗透目的" class="headerlink" title="域渗透目的"></a>域渗透目的</h3><p>从目的出发，找路线：<br>域中，由众多的服务器资源组成。想要摸清整个域结构，在一个很大的域中每一台尝试去渗透是不现实的（时间、精力不足）<br>因此，域渗透中瞄准的对象永远是DC（Domain Controller）域控，所有的一切准备工作都是为了<strong>获取域控</strong>，有了域控，整个域的拓扑、敏感信息信手拈来</p><hr><h3 id="域环境信息搜集"><a href="#域环境信息搜集" class="headerlink" title="域环境信息搜集"></a>域环境信息搜集</h3><h4 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h4><ol><li>内网环境下先查看网络架构。如：网段信息、域控、DNS服务器、时间服务器</li><li>收集到了足够多的信息，考虑扫开放端口21、22、80、443、8080等确定敏感信息，以及之后的渗透方向</li><li>通过以上信息进行一定的弱口令尝试，针对特定的软件做banner采集利用，snamp测试读取和写入权限</li><li>进行一些提权操作，从横向和纵向对目标服务器进行渗透</li><li>注意ids和一些出口控制的绕过预警提示</li><li>进行敏感信息挖掘，同时擦出入侵足迹</li></ol><hr><h4 id="应当收集的信息："><a href="#应当收集的信息：" class="headerlink" title="应当收集的信息："></a>应当收集的信息：</h4><ul><li>已获取权限机：</li></ul><ol><li><p>用户列表[Windows用户列表/邮件列表/…]:<br>分析Windows用户列表，不要忽略administrator<br>分析邮件用户，内网[域]邮件用户，通常就是内网[域]用户，如：owa</p></li><li><p>进程列表：<br>分析杀毒软件/安全监控工具等<br>邮件客户端<br>VPN等</p></li><li><p>端口列表：<br>开放端口对应的常见服务/应用程序[匿名/权限/漏洞等]<br>利用端口进行信息收集，建议深入挖掘[NETBIOS，SMB等]</p></li><li><p>补丁列表：<br>分析Windows补丁<br>第三方软件[Java/Oracle/Flash等]漏洞</p></li><li><p>本机共享[域内共享很多时候相同]：<br>本机共享列表/访问权限<br>本机访问的域共享/访问权限</p></li><li><p>本地用户习惯分析：<br>历史记录<br>收藏夹<br>文档等</p></li></ol><ul><li>扩散信息收集<br>利用本机获取的信息收集内网[域]其它机器的信息：</li></ul><ol><li>用户列表/共享/进程/服务等[参考已获取权限机]</li><li>收集Active Directory信息</li></ol><ul><li>第三方信息收集</li></ul><ol><li>NETBIOS信息收集工具</li><li>SMB </li><li>空会话信息收集</li><li>端口信息收集</li><li>漏洞信息收集</li></ol><hr><h3 id="找域控"><a href="#找域控" class="headerlink" title="找域控"></a>找域控</h3><p>找域控登入过的机器</p><ul><li><code>tasklist /s x.x.x.x /u username /p password /v</code></li><li>系统内部自带的工具<code>psloggedon.exe</code></li><li><code>netsess.exe</code></li><li><code>Nmap</code></li><li><code>Powershell</code></li></ul><hr><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>渗透过程中，走到哪一步，需要做什么<br>使用powershell加载powersploit嗅探模块(recon)<br>需要权限，加载提权/查密码<br>需要维持，使用进程注入/dll注入</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Domain </tag>
+            
+            <tag> Penetration </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Hash基础</title>
       <link href="/2019/03/05/Hash/"/>
       <url>/2019/03/05/Hash/</url>
@@ -672,20 +691,20 @@
   
     
     <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>如果觉得主题刺眼，可使用Chrome扩展插件<code>Dark Reader</code><br>可以自动将绝大部分网页变成护眼黑色<br>快捷键：<code>Alt</code>+<code>Shift</code>+<code>d</code></p>]]></content>
-      
-    </entry>
-    
-    <entry>
       <title>categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[<h2 id="nothing-here"><a href="#nothing-here" class="headerlink" title="nothing here"></a>nothing here</h2>]]></content>
+      
+    </entry>
+    
+    <entry>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>如果觉得主题刺眼，可使用Chrome扩展插件<code>Dark Reader</code><br>可以自动将绝大部分网页变成护眼黑色<br>快捷键：<code>Alt</code>+<code>Shift</code>+<code>d</code></p>]]></content>
       
     </entry>
     
