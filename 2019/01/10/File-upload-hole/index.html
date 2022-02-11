@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>文件上传漏洞 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/01/10/File-upload-hole/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">文件上传漏洞</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-10T19:46:32+08:00">2019-01-10 19:46:32</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><blockquote>
+<p>文件上传漏洞是WEB安全中经常利用到的一种漏洞形式。这种类型的攻击从大的类型上来说是攻击“数据与代码分离原则”的一种攻击。<br>在文件上传功能处，若服务端脚本语言未对上传的文件进行严格验证和过滤，导致恶意用户上传恶意的脚本文件时就有可能获取执行服务端命令的能力，这就是文件上传漏洞</p>
+</blockquote>
+<h3 id="前端表单"><a href="#前端表单" class="headerlink" title="前端表单"></a>前端表单</h3><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"upload_file.php"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">"multipart/form-data"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"file"</span>&gt;</span>Filename:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"file"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"submit"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>其中<code>upload_file.php</code>规定了处理上传数据的后台php脚本文件<br><code>method</code>规定上传的方法为post方法<br><code>enctype</code>规定了上传数据的编码方式<br><code>multipart/form-data</code>表示不进行编码，文件上传的表单一般采用此方式</p>
+<hr>
+<h3 id="后端处理"><a href="#后端处理" class="headerlink" title="后端处理"></a>后端处理</h3><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    <span class="hljs-keyword">if</span> ($_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"error"</span>]) &#123;<br>    	<span class="hljs-keyword">echo</span> <span class="hljs-string">"Error:"</span>.$_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"error"</span>].<span class="hljs-string">"&lt;br /&gt;"</span>;<br>    &#125;<span class="hljs-keyword">else</span> &#123;<br>    	<span class="hljs-keyword">echo</span> <span class="hljs-string">"Upload:"</span>.$_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"name"</span>].<span class="hljs-string">"&lt;br /&gt;"</span>;<br>    	<span class="hljs-keyword">echo</span> <span class="hljs-string">"Type:"</span>.$_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"type"</span>].<span class="hljs-string">"&lt;br /&gt;"</span>;<br>    	<span class="hljs-keyword">echo</span> <span class="hljs-string">"Size:"</span>.($_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"size"</span>]/<span class="hljs-number">1024</span>).<span class="hljs-string">"Kb&lt;br /&gt;"</span>;<br>    	<span class="hljs-keyword">echo</span> <span class="hljs-string">"Stored in:"</span>.$_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"tmp_name"</span>].<span class="hljs-string">"&lt;br /&gt;"</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span>(file_exists(<span class="hljs-string">"upload/"</span>.$_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"name"</span>])) &#123;<br>    	<span class="hljs-keyword">echo</span> $_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"name"</span>].<span class="hljs-string">" already exists."</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>    	move_uploaded_file($_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"tmp_name"</span>], <span class="hljs-string">"upload/"</span>.$_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"name"</span>]);<br>    	<span class="hljs-keyword">echo</span> <span class="hljs-string">"Stored in: "</span>.<span class="hljs-string">"upload/"</span>.$_FILES[<span class="hljs-string">"file"</span>][<span class="hljs-string">"name"</span>];<br>    &#125;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+<p>服务器拿到上传的文件数据后，会先将其存为一个临时文件，由<code>$_FILES</code>这个全局变量调取使用</p>
+<p><code>$_FILES</code>里有很多文件对应的属性<br><code>type</code>：文件类型<br><code>name</code>：文件名<br><code>size</code>：文件大小<br><code>tmp_name</code>：临时文件的存储位置<br>通过对这些属性进行判断与限制，可控制文件上传的类别、大小等</p>
+<hr>
+<h3 id="检测方式"><a href="#检测方式" class="headerlink" title="检测方式"></a>检测方式</h3><p>常见的对上传文件的检测方式</p>
+<ul>
+<li>任意上传</li>
+<li>js验证</li>
+<li>文件扩展名检测</li>
+<li>MIME-type加测</li>
+<li>文件头检测(x504B：压缩包；文本文件文件头就是本身)</li>
+<li>文件加载检测</li>
+</ul>
+<hr>
+<h2 id="漏洞"><a href="#漏洞" class="headerlink" title="漏洞"></a>漏洞</h2><h3 id="常见类型"><a href="#常见类型" class="headerlink" title="常见类型"></a>常见类型</h3><ul>
+<li>任意文件上传：没有任何校验</li>
+<li>绕过js校验上传：校验发生在前端</li>
+<li><p>绕过后端校验上传：校验发生在后端</p>
+<blockquote>
+<ul>
+<li>绕过文件类型校验</li>
+<li>绕过扩展名校验</li>
+<li>绕过文件头校验</li>
+</ul>
+</blockquote>
+</li>
+<li><p>结合解析漏洞上传：中间件解析漏洞造成</p>
+</li>
+<li>其它类型</li>
+</ul>
+<hr>
+<h3 id="解析漏洞"><a href="#解析漏洞" class="headerlink" title="解析漏洞"></a>解析漏洞</h3><h4 id="IIS6-0"><a href="#IIS6-0" class="headerlink" title="IIS6.0"></a>IIS6.0</h4><ul>
+<li>目录解析<br>漏洞原理：<br>服务器默认会把xx.asp目录下的文件都解析成asp文件</li>
+</ul>
+<p>漏洞形式：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.xxx.com/xx.asp/xx.jpg<br></code></pre></td></tr></table></figure></p>
+<ul>
+<li>文件解析<br>漏洞原理：服务器默认不解析<code>;</code>后面的内容，因此<code>xx.asp;.jpg</code>便被解析成asp文件了</li>
+</ul>
+<hr>
+<h4 id="Apache-1-x-2-x"><a href="#Apache-1-x-2-x" class="headerlink" title="Apache 1.x 2.x"></a>Apache 1.x 2.x</h4><p>实验环境：wamp2.0<br>漏洞原理：Apache解析文件的规则为从右到左开始判断解析，若后缀名为不可识别文件解析，则再往左判断<br>例如：<code>test.php.a.b</code>的<code>.a</code>和<code>.b</code>，此两种后缀是Apache不可识别解析，Apache将会把<code>test.php.a.b</code>解析成<code>test.php</code></p>
+<p>漏洞形式：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.test.com/test.php.a<br></code></pre></td></tr></table></figure></p>
+<p>其余配置问题：</p>
+<ol>
+<li>若Apache的<code>conf</code>里有如下配置，则文件名里只要包含<code>.php</code>，即使文件名形如：<code>test2.php.jpg</code>，依旧会以PHP文件来执行<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">AddHandler php5-script.php<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h4 id="Nginx-1-4-6"><a href="#Nginx-1-4-6" class="headerlink" title="Nginx 1.4.6"></a>Nginx 1.4.6</h4><p>漏洞原理：<br>Nginx接收到文件路径(URI)形如：<code>/test.jpg/test.php</code>之后，一遇到后缀是<code>.php</code>，即判断该文件是PHP文件，并转交给php去处理。而php处理是发现<code>/test.jpg/test.php</code>不存在，便删去最后面的<code>/test.php</code>，而又发现<code>/test.jpg</code>存在，便将<code>/test.jpg</code>当成要执行的文件了，但又因后缀为<code>.jpg</code>，则php认定此文件不是php文件，于是返回<code>Access denied</code><br>此中涉及到php的一个选项：<code>cgi.fix_pathinfo</code>，该值默认为<code>1</code>，表示开启。开启此选项后，php可对文件路径进行“修理”。<br>例如：当php遇到文件路径<code>/1.jpg/2.txt/3.php</code>是，若<code>/1.jpg/2.txt/3.php</code>不存在，则会去掉最后的<code>/3.php</code>，然后判断<code>/1.jpg/2.txt</code>是否存在。若存在，则把<code>/1.jpg/2.txt</code>当作文件<code>/1.jpg/2.txt/3.php</code>，此时若<code>/1.jpg/2.txt</code>仍不存在，则再去掉<code>/2.txt</code>，以此类推</p>
+<p>漏洞形式：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.xxx.com/UploadFiles/image/1.jpg/1.php<br>www.xxx.com/UploadFiles/image/1.jpg%00.php<br>www.xxx.com/UploadFiles/image/1.jpg/%20\0.php<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="IIS7-5"><a href="#IIS7-5" class="headerlink" title="IIS7.5"></a>IIS7.5</h4><p>类似于Nginx，都是由于php配置文件中，开启了<code>cgi.fix_pathinfo</code>，而这并非Nginx或IIS7.5本身的漏洞</p>
+<p>漏洞形式：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.xxx.com/UploadFiles/image/1.jpg/1.php<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="Windows系统"><a href="#Windows系统" class="headerlink" title="Windows系统"></a>Windows系统</h4><p>漏洞原理：<br>旧版Windows Server中存在空格和dot漏洞，类似于<code>a.php.</code>和<code>a.php</code>这样的文件名存储后，会被Windows去掉点和空格，从而使得加上这两个特殊字串后，可以突破过滤，成功上传，并且被当作php代码执行</p>
+<p>漏洞形式：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">test.asp.<br>test.asp[空格] <br><br>test.php:1.jpg<br>test.php:: <span class="hljs-variable">$DATA</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h4><p>参考：<br><a href="https://www.webshell.cc/1006.html" target="_blank" rel="noopener">https://www.webshell.cc/1006.html</a><br><a href="https://blog.csdn.net/u011781521/article/details/59057759" target="_blank" rel="noopener">https://blog.csdn.net/u011781521/article/details/59057759</a><br><a href="https://www.cnblogs.com/qunshu/p/3286650.html" target="_blank" rel="noopener">https://www.cnblogs.com/qunshu/p/3286650.html</a><br><a href="https://www.0dayhack.com/post-426.html" target="_blank" rel="noopener">https://www.0dayhack.com/post-426.html</a></p>
+<hr>
+<h3 id="利用方法"><a href="#利用方法" class="headerlink" title="利用方法"></a>利用方法</h3><h4 id="前端验证绕过"><a href="#前端验证绕过" class="headerlink" title="前端验证绕过"></a>前端验证绕过</h4><ul>
+<li>修改验证函数，在白名单中添加php等后缀名</li>
+<li>删除调用接口，不调用函数（浏览器-&gt;元素检查-&gt;右键在控制台使用）</li>
+<li>浏览器功能禁用js</li>
+<li>无视前端，抓包改包</li>
+</ul>
+<hr>
+<h4 id="MINE绕过"><a href="#MINE绕过" class="headerlink" title="MINE绕过"></a>MINE绕过</h4><p>MINE是用于确认请求包中文件类型与后缀名之间的关系的<br>文件路径：<code>Apache-&gt;conf-&gt;MINE.typtes</code><br>绕过方法：抓包，修改<code>Content-Type</code>字段</p>
+<hr>
+<h4 id="黑名单绕过"><a href="#黑名单绕过" class="headerlink" title="黑名单绕过"></a>黑名单绕过</h4><p>找出未被列入黑名单的可利用文件类型</p>
+<hr>
+<h4 id="htaccess-仅Apache"><a href="#htaccess-仅Apache" class="headerlink" title=".htaccess(仅Apache)"></a>.htaccess(仅Apache)</h4><p>提供了针对目录改变配置的方法（需要Apache开启了相关配置）<br>将下列文件上传到利用路径下，可临时改变上传路径文件夹的解析规则，将所有以<code>.a</code>为后缀的文件都以php的方式解析</p>
+<p><code>.htaccess</code><br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">AddType application/x-httpd-php .a<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h4><p>未对后缀名大小写进行严格验证，导致黑名单出现逻辑漏洞</p>
+<hr>
+<h4 id="Windwos特性"><a href="#Windwos特性" class="headerlink" title="Windwos特性"></a>Windwos特性</h4><p>文件后缀名后添加空格或点导致绕过<br>原理：Windows系统不允许文件后缀后添加点和空格，会将其自动去除<br>利用：使用burpsuite抓包改包<br><code>.</code>，<code></code>,<br><code>..</code> 绕过删除末尾的点且不改名的上传</p>
+<hr>
+<h4 id="NTFS文件流特性"><a href="#NTFS文件流特性" class="headerlink" title="NTFS文件流特性"></a>NTFS文件流特性</h4><p><code>::$DATA</code>：传输数据，将数据写入<code>::$DATA</code>之前的文件名中<br><code>寄生文件</code>：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> &lt;?php @<span class="hljs-built_in">eval</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">'a'</span>]);?&gt; &gt;&gt; jisheng.php:shell.exe<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="双写绕过"><a href="#双写绕过" class="headerlink" title="双写绕过"></a>双写绕过</h4><p>服务端使用了<code>str_replace,str_ireplace</code>等函数进行过滤<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">pphphp  <span class="hljs-comment"># 正确</span><br>phphpp  <span class="hljs-comment"># 错误</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="截断上传（00截断）"><a href="#截断上传（00截断）" class="headerlink" title="截断上传（00截断）"></a>截断上传（00截断）</h4><p>基于一个组合逻辑漏洞造成的。攻击者修改上传过程中的POST包，在文件名后添加一个<code>%00</code>字节，则可以阶段某些函数对文件名的判断。</p>
+<p>原因：在许多语言的函数中，如：C、PHP等语言的常用字符串处理函数中，<code>0x00</code>被认为是终止符。</p>
+<p>受此影响的环境有Web应用和一些服务器，可构造如<code>xxx.php[\0].jpg</code>的文件，其中<code>[\0]</code>代表十六进制的<code>0x00</code>字符，以此绕过上传文件类型判断；但对服务器来说，此文件因为<code>0x00</code>字符截断的关系，最终却变成<code>xxx.php</code></p>
+<p>URL或POST请求实体中带有上传后存储路径的，考虑路径后跟文件名并且截断。<br>适用：<code>PHP 5.2.x</code><br>需关掉配置文件<code>magic_quotes_gpc()</code></p>
+<hr>
+<h4 id="文件头检测绕过"><a href="#文件头检测绕过" class="headerlink" title="文件头检测绕过"></a>文件头检测绕过</h4><p>伪造文件头<br>如：图片马，配合文件包含使用</p>
+<ol>
+<li>使用burpsuite抓包，先上传图片，删除后边内容，写入webshell</li>
+<li>使用cmd命令行中的copy命令合成图片马：<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">copy</span> moon.gif/b+webshell.PHP/a gifshell.gif<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h4 id="图片二次渲染绕过"><a href="#图片二次渲染绕过" class="headerlink" title="图片二次渲染绕过"></a>图片二次渲染绕过</h4><p>服务端对上传的图片进行了二次渲染<br>绕过方法：对上传的图片马进行特殊处理，使得关键信息能在二次渲染后仍旧得以保留</p>
+<h2 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h2><p>文件上传漏洞对Web应用来说是一种非常严重的漏洞。一般情况下，Web应用都会允许用户上传一些文件，如头像、附件等信息，若Web应用未对用户上传的文件进行有效的检查过滤，那么恶意用户就会上传一句话木马等Webshell，从而达到控制Web网站的目的</p>
+<hr>
+<h2 id="高危触发点"><a href="#高危触发点" class="headerlink" title="高危触发点"></a>高危触发点</h2><ul>
+<li>相册、头像上传</li>
+<li>视频、照片分享</li>
+<li>附件上传（论坛发帖、邮件）</li>
+<li>文件管理器：即富文本编辑器（fckeitor、webeditor、xxxx editor等）</li>
+</ul>
+<hr>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/File/" rel="tag"><i class="fas fa-tags"></i>File</a>
+        
+        <a class="post-tag button" href="/tags/Upload/" rel="tag"><i class="fas fa-tags"></i>Upload</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/01/09/WAF_Passby/" rel="next" title="WAF绕过"><i class="fas fa-angle-left"></i><span class="nav-title">WAF绕过</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/01/15/File-include-hole/" rel="prev" title="文件包含漏洞"><span class="nav-title">文件包含漏洞</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#原理"><span class="toc-text">原理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#前端表单"><span class="toc-text">前端表单</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#后端处理"><span class="toc-text">后端处理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#检测方式"><span class="toc-text">检测方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞"><span class="toc-text">漏洞</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常见类型"><span class="toc-text">常见类型</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#解析漏洞"><span class="toc-text">解析漏洞</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#IIS6-0"><span class="toc-text">IIS6.0</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Apache-1-x-2-x"><span class="toc-text">Apache 1.x 2.x</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Nginx-1-4-6"><span class="toc-text">Nginx 1.4.6</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#IIS7-5"><span class="toc-text">IIS7.5</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Windows系统"><span class="toc-text">Windows系统</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#富文本编辑器"><span class="toc-text">富文本编辑器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#利用方法"><span class="toc-text">利用方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#前端验证绕过"><span class="toc-text">前端验证绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#MINE绕过"><span class="toc-text">MINE绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#黑名单绕过"><span class="toc-text">黑名单绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#htaccess-仅Apache"><span class="toc-text">.htaccess(仅Apache)</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#大小写"><span class="toc-text">大小写</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Windwos特性"><span class="toc-text">Windwos特性</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#NTFS文件流特性"><span class="toc-text">NTFS文件流特性</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#双写绕过"><span class="toc-text">双写绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#截断上传（00截断）"><span class="toc-text">截断上传（00截断）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#文件头检测绕过"><span class="toc-text">文件头检测绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#图片二次渲染绕过"><span class="toc-text">图片二次渲染绕过</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#危害"><span class="toc-text">危害</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#高危触发点"><span class="toc-text">高危触发点</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

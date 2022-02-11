@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>基于LAMP的WordPress动态博客搭建 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/05/Linux_wordpress_setup/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">基于LAMP的WordPress动态博客搭建</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-05T18:16:59+08:00">2018-12-05 18:16:59</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <hr>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要说明Linux下基于LAMP的WordPress动态博客的搭建过程。<br>从网站流量上来说，70%以上的访问流量都是LAMP来提供的，是开源的极为强大的网站解决方案。而WordPress功能强大，插件众多，易于扩充功能，安装与使用都极为方便。此组合非常适合新手进行网站搭建的练手。<br>因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己与他人的查询。</p>
+<p><strong>注：安装步骤中的知识补充放在文末。</strong></p>
+<hr>
+<h4 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h4><p>物理机：Windows 10 Enterprise<br>虚拟机：CentOS 7 64位</p>
+<hr>
+<h3 id="LAMP环境搭建"><a href="#LAMP环境搭建" class="headerlink" title="LAMP环境搭建"></a>LAMP环境搭建</h3><h4 id="Apache安装"><a href="#Apache安装" class="headerlink" title="Apache安装"></a>Apache安装</h4><p>在CentOS下，Apache软件安装包又叫httpd，此前曾使用过源码编译安装过httpd，这里使用简单的yum命令安装即可：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># yum install httpd<br></code></pre></td></tr></table></figure></p>
+<blockquote>
+<p>systemctl start httpd     // 开启Apache服务<br>systemctl status httpd    // 查看Apache服务状态<br>chkconfig –level 2345 httpd on     // 设置服务在运行级别为2、3、4、5的情况下都为开启的状态<br>systemctl enable httpd    // 设置服务开机自启</p>
+</blockquote>
+<blockquote>
+<p>systemctl list-unit-files|grep firewalld.service     //查看防火墙状态<br>systemctl stop firewalld.service     // 停止防火墙服务<br>systemctl disable firewalld.service     // 禁止防火墙开机自启</p>
+</blockquote>
+<p>验证Apache是否安装成功：<br>在浏览器中输入CentOS系统服务器IP地址：<br><code>http://{YourServerAddress}</code><br>若出现Apache相关页面，则安装成功</p>
+<hr>
+<h4 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h4><p>由于mysql在CentOS的源中被移除，因此这里安装其分支产品mariaDB数据库。<br>查找所需安装包并安装：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># yum search mariadb<br># yum install mariadb.x86_64 mariadb-server.x86_64 mariadb-libs.x86_64 mariadb-devel.x86_64<br></code></pre></td></tr></table></figure></p>
+<p>启动mysql并设置在特定运行级别为开启状态：</p>
+<blockquote>
+<p>service mariadb start<br>chkconfig –level 2345 mariadb on</p>
+</blockquote>
+<p>设置mariaDB初始密码并登陆：</p>
+<blockquote>
+<p>mysqladmin -u root -p password<br>mysql -u root -p</p>
+</blockquote>
+<p>修改密码：</p>
+<blockquote>
+<p>use mysql;<br>update mysql.user set authentication_string=password(‘YourPassword’) where user=’root’ ;</p>
+</blockquote>
+<p>重启Mysql服务并登陆验证所修改信息：</p>
+<blockquote>
+<p>systemctl restart mysqld.service<br>mysql -u root -p</p>
+</blockquote>
+<hr>
+<h4 id="PHP安装"><a href="#PHP安装" class="headerlink" title="PHP安装"></a>PHP安装</h4><p>查找所需安装包并安装：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># yum search php<br># yum install php.x86_64 php-mysql.x86_64 php-pear php-pear-DB php-gd<br></code></pre></td></tr></table></figure></p>
+<p>验证PHP安装：</p>
+<blockquote>
+<p>vi /var/www/html/info.php     // 新建文件，并输入下列内容</p>
+</blockquote>
+<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?</span> php phpinfo(); <span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+<p>重启Apache Web服务器： <code>systemctl restart apache2</code><br>打开URL：<code>http://{YourServerAddress}/info.php</code><br>若能显示php信息页面，则安装成功。</p>
+<hr>
+<h3 id="WordPress个人博客搭建"><a href="#WordPress个人博客搭建" class="headerlink" title="WordPress个人博客搭建"></a>WordPress个人博客搭建</h3><h4 id="WordPress安装"><a href="#WordPress安装" class="headerlink" title="WordPress安装"></a>WordPress安装</h4><p>进入WordPress官网<a href="https://cn.wordpress.org/download/" target="_blank" rel="noopener">https://cn.wordpress.org/download/</a><br>复制下载链接，进行下载安装操作：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># wget https://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz 	// 下载<br># tar -xzvf wordpress-4.9.4-zh_CN.tar.gz 	// 解压<br># mv -r wordpress /var/www/html/ 	// 进入下载根目录，移动文件<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>打开URL：<code>http://{YourServerAddress}/wordpress</code><br>此时若能访问到正常页面，则可进入下一步。<br>按照安装前的提示信息进行准备，确认无误后，单机开始按钮进行安装</p>
+</blockquote>
+<blockquote>
+<p>填入数据库名、用户名密码，数据库主机和表前缀先按默认来，完成后提交</p>
+</blockquote>
+<blockquote>
+<p>接下来步骤按提示进行，即可完成安装WordPress</p>
+</blockquote>
+<p>进行验证：</p>
+<blockquote>
+<p>打开URL：<code>http://{YourServerAddress}/wordpress</code>，即可进入自己的WordPress博客<br>可以在URL：<code>http://{YourServerAddress}/wordpress/wp-admin</code>，进行自己的博客管理</p>
+</blockquote>
+<p><strong>至此，基于LAMP的WordPress动态个博客搭建成功</strong></p>
+<hr>
+<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><h4 id="LAMP是什么"><a href="#LAMP是什么" class="headerlink" title="LAMP是什么"></a>LAMP是什么</h4><blockquote>
+<p>LAMP = Linux + Apache + MySQL + PHP<br>WAMP = Windows + Apache + MySQL + PHP</p>
+</blockquote>
+<hr>
+<h4 id="mysql修改密码"><a href="#mysql修改密码" class="headerlink" title="mysql修改密码"></a>mysql修改密码</h4><figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">&gt; use mysql;<br>&gt; UPDATE user SET password=password("YourPassword") WHERE user='root'<br>&gt; exit;<br></code></pre></td></tr></table></figure>
+<p>如果提示无法修改密码，可尝试如下操作：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># service mysql stop<br># mkdir -p /var/run/mysqld<br># chwon -R mysql:mysql /var/run/mysqld /usr/bin/mysqld_safe --skip-grant-tables --skip-networking<br></code></pre></td></tr></table></figure>
+<p>再开启一个终端：<br><code># mysql -u root</code><br><figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql">&gt; use mysql;<br>&gt; update user set authentication_string=password("YourPassword") where user='root';<br>&gt; update user set plugin="mysql_native_password";<br>&gt; flush privileges;	#更新所有操作权限<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="mysql数据库创建与权限管理"><a href="#mysql数据库创建与权限管理" class="headerlink" title="mysql数据库创建与权限管理"></a>mysql数据库创建与权限管理</h4><p>常用操作：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># mysql -u root -p 	<br># 使用用户名密码登陆root账号<br></code></pre></td></tr></table></figure></p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql">&gt; show databases; #查看当前有哪些数据库<br>&gt; create database wordpress; #创建新的名为wordpress的数据库<br>&gt; create user admin identified by 'YourPassword'; #创建用户admin<br>&gt; drop user admin; #删除用户admin<br>&gt; show grants for admin; #查看admin权限<br>&gt; grant select on test.* to admin; #授予用户admin对数据库test的查询权限<br>&gt; revoke select on test.* from admin; #收回相应权限<br>&gt; quit; #退出<br></code></pre></td></tr></table></figure>
+<p>常用用户权限如下：</p>
+<blockquote>
+<p>CREATE： 允许MySQL用户创建新的表或数据库<br>DROP：允许删除表或数据库<br>DELETE：    允许从表中删除行<br>INSERT：    允许向表中插入行<br>SELECT：    允许使用Select命令来读取数据库<br>UPDATE：    允许更新表行<br>GRANT OPTION：允许授予或删除其他用户的权限<br>ALL PRIVILEGES：允许访问指定的数据库</p>
+</blockquote>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/CentOS/" rel="tag"><i class="fas fa-tags"></i>CentOS</a>
+        
+        <a class="post-tag button" href="/tags/WordPress/" rel="tag"><i class="fas fa-tags"></i>WordPress</a>
+        
+        <a class="post-tag button" href="/tags/LAMP/" rel="tag"><i class="fas fa-tags"></i>LAMP</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/12/04/Httpd编译安装教程/" rel="next" title="Httpd编译安装教程"><i class="fas fa-angle-left"></i><span class="nav-title">Httpd编译安装教程</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/12/08/V2ray-Tutorial/" rel="prev" title="V2ray科学上网教程"><span class="nav-title">V2ray科学上网教程</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#操作环境"><span class="toc-text">操作环境</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#LAMP环境搭建"><span class="toc-text">LAMP环境搭建</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Apache安装"><span class="toc-text">Apache安装</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#MySQL安装"><span class="toc-text">MySQL安装</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#PHP安装"><span class="toc-text">PHP安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#WordPress个人博客搭建"><span class="toc-text">WordPress个人博客搭建</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#WordPress安装"><span class="toc-text">WordPress安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#补充知识"><span class="toc-text">补充知识</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#LAMP是什么"><span class="toc-text">LAMP是什么</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#mysql修改密码"><span class="toc-text">mysql修改密码</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#mysql数据库创建与权限管理"><span class="toc-text">mysql数据库创建与权限管理</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>TuringGu</title>
+  
+  <subtitle>Info Security</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://TuringGu.github.io/"/>
+  <updated>2019-03-30T09:16:03.501Z</updated>
+  <id>https://TuringGu.github.io/</id>
+  
+  <author>
+    <name>TuringGu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux实用技巧</title>
+    <link href="https://TuringGu.github.io/2019/03/28/Linux-practical-skills/"/>
+    <id>https://TuringGu.github.io/2019/03/28/Linux-practical-skills/</id>
+    <published>2019-03-28T07:08:53.000Z</published>
+    <updated>2019-03-30T09:16:03.501Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;光标移动及命令编辑&quot;&gt;&lt;a href=&quot;#光标移动及命令编辑&quot; class=&quot;headerlink&quot; title=&quot;光标移动及命令编辑&quot;&gt;&lt;/a&gt;光标移动及命令编辑&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;ctrl +
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://TuringGu.github.io/tags/Linux/"/>
+    
+      <category term="Skill" scheme="https://TuringGu.github.io/tags/Skill/"/>
+    
+      <category term="Command" scheme="https://TuringGu.github.io/tags/Command/"/>
+    
+      <category term="Hotkey" scheme="https://TuringGu.github.io/tags/Hotkey/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫</title>
+    <link href="https://TuringGu.github.io/2019/03/22/Crawler/"/>
+    <id>https://TuringGu.github.io/2019/03/22/Crawler/</id>
+    <published>2019-03-22T09:45:32.000Z</published>
+    <updated>2019-03-26T10:02:16.561Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;网络爬虫，按照一定的规则，自动抓取网络信息的程序或者脚本&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;简单实现&quot;&gt;&lt;a href=&quot;#简单实现&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Information" scheme="https://TuringGu.github.io/tags/Information/"/>
+    
+      <category term="Crawler" scheme="https://TuringGu.github.io/tags/Crawler/"/>
+    
+      <category term="Gathering" scheme="https://TuringGu.github.io/tags/Gathering/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PowerSploit</title>
+    <link href="https://TuringGu.github.io/2019/03/20/PowerSploit/"/>
+    <id>https://TuringGu.github.io/2019/03/20/PowerSploit/</id>
+    <published>2019-03-20T07:55:26.000Z</published>
+    <updated>2019-04-06T20:04:32.298Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;内网渗透神器&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;基本使用过程&quot;&gt;&lt;a href=&quot;#基本使用过程&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PowerSploit" scheme="https://TuringGu.github.io/tags/PowerSploit/"/>
+    
+      <category term="Domain" scheme="https://TuringGu.github.io/tags/Domain/"/>
+    
+      <category term="Penetration" scheme="https://TuringGu.github.io/tags/Penetration/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>域渗透</title>
+    <link href="https://TuringGu.github.io/2019/03/15/Domain-penetration/"/>
+    <id>https://TuringGu.github.io/2019/03/15/Domain-penetration/</id>
+    <published>2019-03-15T06:18:27.000Z</published>
+    <updated>2019-03-26T09:06:52.782Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;域环境搭建&quot;&gt;&lt;a href=&quot;#域环境搭建&quot; class=&quot;headerlink&quot; title=&quot;域环境搭建&quot;&gt;&lt;/a&gt;域环境搭建&lt;/h2&gt;&lt;p&gt;这里使用Windows server 2008
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Domain" scheme="https://TuringGu.github.io/tags/Domain/"/>
+    
+      <category term="Penetration" scheme="https://TuringGu.github.io/tags/Penetration/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hash基础</title>
+    <link href="https://TuringGu.github.io/2019/03/05/Hash/"/>
+    <id>https://TuringGu.github.io/2019/03/05/Hash/</id>
+    <published>2019-03-05T05:00:12.000Z</published>
+    <updated>2019-03-15T05:42:34.696Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Hash" scheme="https://TuringGu.github.io/tags/Hash/"/>
+    
+      <category term="Encryption" scheme="https://TuringGu.github.io/tags/Encryption/"/>
+    
+      <category term="Decryption" scheme="https://TuringGu.github.io/tags/Decryption/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件传输</title>
+    <link href="https://TuringGu.github.io/2019/03/01/File-transfer/"/>
+    <id>https://TuringGu.github.io/2019/03/01/File-transfer/</id>
+    <published>2019-03-01T07:42:21.000Z</published>
+    <updated>2019-03-26T09:10:08.122Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;常见文件传输方法&quot;&gt;&lt;a href=&quot;#常见文件传输方法&quot; class=&quot;headerlink&quot; title=&quot;常见文件传输方法&quot;&gt;&lt;/a&gt;常见文件传输方法&lt;/h3&gt;&lt;p&gt;搬运自：&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="File" scheme="https://TuringGu.github.io/tags/File/"/>
+    
+      <category term="Transfer" scheme="https://TuringGu.github.io/tags/Transfer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>内网转发</title>
+    <link href="https://TuringGu.github.io/2019/02/26/Intranet-forwarding/"/>
+    <id>https://TuringGu.github.io/2019/02/26/Intranet-forwarding/</id>
+    <published>2019-02-26T05:58:01.000Z</published>
+    <updated>2019-03-14T07:34:54.964Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;内网转发目的&quot;&gt;&lt;a href=&quot;#内网转发目的&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Intranet" scheme="https://TuringGu.github.io/tags/Intranet/"/>
+    
+      <category term="Forwading" scheme="https://TuringGu.github.io/tags/Forwading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>权限维持</title>
+    <link href="https://TuringGu.github.io/2019/02/20/Privilege-persistence/"/>
+    <id>https://TuringGu.github.io/2019/02/20/Privilege-persistence/</id>
+    <published>2019-02-20T04:41:03.000Z</published>
+    <updated>2019-03-26T09:26:41.874Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;攻击者在获取服务器权限后，通常会用一些后门技术来维持服务器权限，服务器一旦被植入后门，攻击者将如入无人之境&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Privilege" scheme="https://TuringGu.github.io/tags/Privilege/"/>
+    
+      <category term="Persistence" scheme="https://TuringGu.github.io/tags/Persistence/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>权限提升</title>
+    <link href="https://TuringGu.github.io/2019/02/18/Privilege-elevation/"/>
+    <id>https://TuringGu.github.io/2019/02/18/Privilege-elevation/</id>
+    <published>2019-02-18T12:27:53.000Z</published>
+    <updated>2019-03-26T09:08:46.853Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;h3 id=&quot;提权目的&quot;&gt;&lt;a href=&quot;#提权目的&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Privilege" scheme="https://TuringGu.github.io/tags/Privilege/"/>
+    
+      <category term="Elevation" scheme="https://TuringGu.github.io/tags/Elevation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>业务逻辑漏洞</title>
+    <link href="https://TuringGu.github.io/2019/01/28/Business-logic-hole/"/>
+    <id>https://TuringGu.github.io/2019/01/28/Business-logic-hole/</id>
+    <published>2019-01-27T16:04:29.000Z</published>
+    <updated>2019-02-15T17:23:12.083Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;权限绕过&quot;&gt;&lt;a href=&quot;#权限绕过&quot; class=&quot;headerlink&quot; title=&quot;权限绕过&quot;&gt;&lt;/a&gt;权限绕过&lt;/h2&gt;&lt;h3 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Business" scheme="https://TuringGu.github.io/tags/Business/"/>
+    
+      <category term="Logic" scheme="https://TuringGu.github.io/tags/Logic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信息泄露漏洞</title>
+    <link href="https://TuringGu.github.io/2019/01/26/Information-leakage/"/>
+    <id>https://TuringGu.github.io/2019/01/26/Information-leakage/</id>
+    <published>2019-01-26T14:39:40.000Z</published>
+    <updated>2019-02-14T16:05:23.268Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;漏洞定义&quot;&gt;&lt;a href=&quot;#漏洞定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Information" scheme="https://TuringGu.github.io/tags/Information/"/>
+    
+      <category term="Leakage" scheme="https://TuringGu.github.io/tags/Leakage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>非常规注入</title>
+    <link href="https://TuringGu.github.io/2019/01/24/Unconventional-Injection/"/>
+    <id>https://TuringGu.github.io/2019/01/24/Unconventional-Injection/</id>
+    <published>2019-01-24T10:59:22.000Z</published>
+    <updated>2019-02-13T16:37:38.623Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;XML&quot;&gt;&lt;a href=&quot;#XML&quot; class=&quot;headerlink&quot; title=&quot;XML&quot;&gt;&lt;/a&gt;XML&lt;/h2&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
+    
+      <category term="Unconventional" scheme="https://TuringGu.github.io/tags/Unconventional/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSRF跨站请求伪造</title>
+    <link href="https://TuringGu.github.io/2019/01/22/CSRF/"/>
+    <id>https://TuringGu.github.io/2019/01/22/CSRF/</id>
+    <published>2019-01-21T17:22:43.000Z</published>
+    <updated>2019-02-12T18:56:10.310Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="CSRF" scheme="https://TuringGu.github.io/tags/CSRF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XSS跨站脚本攻击</title>
+    <link href="https://TuringGu.github.io/2019/01/20/XSS/"/>
+    <id>https://TuringGu.github.io/2019/01/20/XSS/</id>
+    <published>2019-01-20T14:12:25.000Z</published>
+    <updated>2019-02-12T17:08:54.534Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;相关基础&quot;&gt;&lt;a href=&quot;#相关基础&quot; class=&quot;headerlink&quot; title=&quot;相关基础&quot;&gt;&lt;/a&gt;相关基础&lt;/h2&gt;&lt;h3 id=&quot;浏览器工作机制&quot;&gt;&lt;a href=&quot;#浏览器工作机制&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="XSS" scheme="https://TuringGu.github.io/tags/XSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP反序列化漏洞</title>
+    <link href="https://TuringGu.github.io/2019/01/18/Deserialization-vulnerability/"/>
+    <id>https://TuringGu.github.io/2019/01/18/Deserialization-vulnerability/</id>
+    <published>2019-01-18T08:57:31.000Z</published>
+    <updated>2019-02-12T14:07:31.292Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="https://TuringGu.github.io/tags/PHP/"/>
+    
+      <category term="Deserialization" scheme="https://TuringGu.github.io/tags/Deserialization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>任意代码执行</title>
+    <link href="https://TuringGu.github.io/2019/01/17/Arbitrary-code-execution/"/>
+    <id>https://TuringGu.github.io/2019/01/17/Arbitrary-code-execution/</id>
+    <published>2019-01-17T15:22:10.000Z</published>
+    <updated>2019-02-11T18:15:53.870Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Execution" scheme="https://TuringGu.github.io/tags/Execution/"/>
+    
+      <category term="Code" scheme="https://TuringGu.github.io/tags/Code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件包含漏洞</title>
+    <link href="https://TuringGu.github.io/2019/01/15/File-include-hole/"/>
+    <id>https://TuringGu.github.io/2019/01/15/File-include-hole/</id>
+    <published>2019-01-15T06:38:13.000Z</published>
+    <updated>2019-02-14T15:58:15.494Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="File" scheme="https://TuringGu.github.io/tags/File/"/>
+    
+      <category term="Include" scheme="https://TuringGu.github.io/tags/Include/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件上传漏洞</title>
+    <link href="https://TuringGu.github.io/2019/01/10/File-upload-hole/"/>
+    <id>https://TuringGu.github.io/2019/01/10/File-upload-hole/</id>
+    <published>2019-01-10T11:46:32.000Z</published>
+    <updated>2019-02-14T16:00:12.472Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="File" scheme="https://TuringGu.github.io/tags/File/"/>
+    
+      <category term="Upload" scheme="https://TuringGu.github.io/tags/Upload/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WAF绕过</title>
+    <link href="https://TuringGu.github.io/2019/01/09/WAF_Passby/"/>
+    <id>https://TuringGu.github.io/2019/01/09/WAF_Passby/</id>
+    <published>2019-01-09T09:47:42.000Z</published>
+    <updated>2019-02-10T14:12:46.807Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SQL" scheme="https://TuringGu.github.io/tags/SQL/"/>
+    
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
+    
+      <category term="WAF" scheme="https://TuringGu.github.io/tags/WAF/"/>
+    
+      <category term="Passby" scheme="https://TuringGu.github.io/tags/Passby/"/>
+    
+      <category term="file upload" scheme="https://TuringGu.github.io/tags/file-upload/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>其它常用数据库注入</title>
+    <link href="https://TuringGu.github.io/2019/01/08/Other-Database-Inject/"/>
+    <id>https://TuringGu.github.io/2019/01/08/Other-Database-Inject/</id>
+    <published>2019-01-08T06:29:03.000Z</published>
+    <updated>2019-02-10T09:27:13.112Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Access&quot;&gt;&lt;a href=&quot;#Access&quot; class=&quot;headerlink&quot; title=&quot;Access&quot;&gt;&lt;/a&gt;Access&lt;/h2&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Access" scheme="https://TuringGu.github.io/tags/Access/"/>
+    
+      <category term="MSSQL" scheme="https://TuringGu.github.io/tags/MSSQL/"/>
+    
+      <category term="MongoDB" scheme="https://TuringGu.github.io/tags/MongoDB/"/>
+    
+      <category term="Injection" scheme="https://TuringGu.github.io/tags/Injection/"/>
+    
+  </entry>
+  
+</feed>

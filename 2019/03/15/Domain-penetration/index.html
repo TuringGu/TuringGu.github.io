@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>域渗透 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/03/15/Domain-penetration/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">域渗透</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-03-15T14:18:27+08:00">2019-03-15 14:18:27</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="域环境搭建"><a href="#域环境搭建" class="headerlink" title="域环境搭建"></a>域环境搭建</h2><p>这里使用Windows server 2008 r2<br>dcpromo<br>关键步骤：</p>
+<ol>
+<li>域控：<br>添加角色向导：<br>添加角色–&gt;服务器角色–&gt;Active Directory 域服务</li>
+</ol>
+<p>Active Directory 域服务安装向导<br>在新林中新建域<br>输入域名xxx.com<br>DNS服务器</p>
+<ol start="2">
+<li>客户：<br>系统–&gt;高级系统设置–&gt;系统属性–&gt;更改域<br>先脱离原先域：选择隶属于工作组<br>其它–&gt;输入与域控相同的域名</li>
+</ol>
+<h2 id="域环境操作"><a href="#域环境操作" class="headerlink" title="域环境操作"></a>域环境操作</h2><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p><code>whoami</code>  列出当前登录的用户信息<br><code>ipconfig /add</code>  查询本机IP段、所在域等<br><code>net user</code>  本机用户列表<br><code>net localhroup administrators</code>  本机管理员（通常含有域用户）<br><code>net user /domain</code>  查询域用户<br><code>net group /domain</code>  查询域用户<br><code>net group &quot;domain admins&quot; /domain</code>  查询域管理员用户组<br><code>net localgroup administrators /domain</code>  登录本机的域管理员<br><code>net localgroup administrators [workgroup]\user001 /add</code>  域用户添加到本机<br><code>net group &quot;domain controllers&quot; /domain</code>  查看域控制器（如果有多台）<br><code>net time /domain</code>  判断主域（主域服务器都做时间服务器）<br><code>net config workstation</code>  当前登录域<br><code>net session</code>  查看当前会话<br><code>net user \\ip\ipc$ password /user:username</code>  建立IPC会话[空连接-<code>***</code>]<br><code>net user x: \\192.168.10.100\gong</code> 文件共享<br><code>net share</code>  查看SMB指向的路径[即共享]<br><code>net view</code>  查询同一域内机器列表<br><code>net view \\ip</code>  查询某IP共享<br><code>net view /domain</code>  查询域列表<br><code>net view /domain:domainname</code>  查看workgroup域中计算机列表<br><code>net start</code>  查看当前运行的服务<br><code>net accounts</code>  查看本地密码策略<br><code>net accounts /domain</code>  查看域密码策略<br><code>nbtstat -A ip</code>  netbios查询<br><code>netstat -an/ano/anb</code>  网络连接查询<br><code>route print</code>  路由表<br><code>NETSH FIREWALL show all</code>  显示域/标准配置文件的允许的程序配置<br><code>tasklist /V</code>  查看进程[显示对应用户]<br><code>tasklist /S ip /U domain\username /p password /V</code>  查看远程计算机进程列表<br><code>qprocess *</code>  类似于tasklist<br><code>qprocess /SERVER:IP</code>  远程查看计算机进程列表<br><code>nslookup --qt-MX Yahoo.com</code>  查看邮件服务器<br><code>whoami /all</code>  查询当前用户权限<br><code>set</code>  查看系统环境变量<br><code>systeminfo</code>  查看系统信息<br><code>qwinsta</code>  查看登陆情况<br><code>qwinsta /SERVER:IP</code>  查看远程登录情况<br><code>fsutil fsinfo drives</code>  查看所有盘符<br><code>gpupdate /force</code>  更新域策略</p>
+<hr>
+<h3 id="wmic命令集"><a href="#wmic命令集" class="headerlink" title="wmic命令集"></a>wmic命令集</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>wmic命令集，Windows Management Instrumentation Command-line<br>wmic有2种命令执行方式：</p>
+<ul>
+<li><p>cmd输入wmic进入wmic控制台，再输入详细命令<br>如<code>process</code></p>
+</li>
+<li><p>cmd下直接输入<code>wmic process</code>执行<br>wmic提供了从命令行接口和批命令脚本执行系统管理的支持</p>
+</li>
+</ul>
+<hr>
+<h4 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h4><p><code>process</code>  负责进程管理<br><code>service</code>  负责应用程序管理<br><code>bios</code>  基本输入/输出服务（BIOS）管理<br><code>qfe</code>  快速修复工程（补丁qfe get hotfixid）<br><code>startup</code>  当用户登录到计算机系统时自动运行的命令的管理<br><code>os</code>  已安装操作系统的管理<br><code>share</code>  共享资源管理<br><code>useraccount</code>  用户账户管理<br><code>logicaldisk</code>  本地存储设备管理<br><code>cpu</code>  CPU管理 </p>
+<hr>
+<h3 id="dsquery"><a href="#dsquery" class="headerlink" title="dsquery"></a>dsquery</h3><p>AD域中的管理利器<br><code>dsquery computer</code>  查找目录中的计算机<br><code>dsquery contact</code>  查找目录中的联系人<br><code>dsquery subnet</code>  查找目录中的子网<br><code>dsquery group</code>  查找目录中的组<br><code>dsquery ou</code>  查找目录中的组织单位<br><code>dsquery site</code>  查找目录中的站点<br><code>dsquery server</code>  查找目录中的AD DC/LDS实例<br><code>dsquery user</code>  查找目录中的用户<br><code>dsquery quota</code>  查找目录中的配额规定<br><code>dsquery partition</code>  查找目录中的分区<br><code>dsquery *</code>  用通用的LDAP查询来查找目录中的任何对象</p>
+<hr>
+<h3 id="命令行帮助"><a href="#命令行帮助" class="headerlink" title="命令行帮助"></a>命令行帮助</h3><p><code>/?</code>或<code>-?</code>  显示所有全局开关和别名的语法<br><code>//? /user /?</code>  显示指定全局开关的信息<br><code>/? class /?</code>  显示某个命令的信息<br><code>/? memcache /?</code>  显示某个别名的信息<br><code>/? temperature get /?</code>  显示别名与动词组合的信息<br><code>/?:Full irq get /?:Full</code>  显示动词的帮助信息<br>eg:<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wmic:root\cli&gt;process /?<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="windows查找"><a href="#windows查找" class="headerlink" title="windows查找"></a>windows查找</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">for</span> /r c:\ %i <span class="hljs-keyword">in</span> (flag.txt) <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> %i<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="域环境渗透流程与技巧"><a href="#域环境渗透流程与技巧" class="headerlink" title="域环境渗透流程与技巧"></a>域环境渗透流程与技巧</h2><h3 id="域渗透目的"><a href="#域渗透目的" class="headerlink" title="域渗透目的"></a>域渗透目的</h3><p>从目的出发，找路线：<br>域中，由众多的服务器资源组成。想要摸清整个域结构，在一个很大的域中每一台尝试去渗透是不现实的（时间、精力不足）<br>因此，域渗透中瞄准的对象永远是DC（Domain Controller）域控，所有的一切准备工作都是为了<strong>获取域控</strong>，有了域控，整个域的拓扑、敏感信息信手拈来</p>
+<hr>
+<h3 id="域环境信息搜集"><a href="#域环境信息搜集" class="headerlink" title="域环境信息搜集"></a>域环境信息搜集</h3><h4 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h4><ol>
+<li>内网环境下先查看网络架构。如：网段信息、域控、DNS服务器、时间服务器</li>
+<li>收集到了足够多的信息，考虑扫开放端口21、22、80、443、8080等确定敏感信息，以及之后的渗透方向</li>
+<li>通过以上信息进行一定的弱口令尝试，针对特定的软件做banner采集利用，snamp测试读取和写入权限</li>
+<li>进行一些提权操作，从横向和纵向对目标服务器进行渗透</li>
+<li>注意ids和一些出口控制的绕过预警提示</li>
+<li>进行敏感信息挖掘，同时擦出入侵足迹</li>
+</ol>
+<hr>
+<h4 id="应当收集的信息："><a href="#应当收集的信息：" class="headerlink" title="应当收集的信息："></a>应当收集的信息：</h4><ul>
+<li>已获取权限机：</li>
+</ul>
+<ol>
+<li><p>用户列表[Windows用户列表/邮件列表/…]:<br>分析Windows用户列表，不要忽略administrator<br>分析邮件用户，内网[域]邮件用户，通常就是内网[域]用户，如：owa</p>
+</li>
+<li><p>进程列表：<br>分析杀毒软件/安全监控工具等<br>邮件客户端<br>VPN等</p>
+</li>
+<li><p>端口列表：<br>开放端口对应的常见服务/应用程序[匿名/权限/漏洞等]<br>利用端口进行信息收集，建议深入挖掘[NETBIOS，SMB等]</p>
+</li>
+<li><p>补丁列表：<br>分析Windows补丁<br>第三方软件[Java/Oracle/Flash等]漏洞</p>
+</li>
+<li><p>本机共享[域内共享很多时候相同]：<br>本机共享列表/访问权限<br>本机访问的域共享/访问权限</p>
+</li>
+<li><p>本地用户习惯分析：<br>历史记录<br>收藏夹<br>文档等</p>
+</li>
+</ol>
+<ul>
+<li>扩散信息收集<br>利用本机获取的信息收集内网[域]其它机器的信息：</li>
+</ul>
+<ol>
+<li>用户列表/共享/进程/服务等[参考已获取权限机]</li>
+<li>收集Active Directory信息</li>
+</ol>
+<ul>
+<li>第三方信息收集</li>
+</ul>
+<ol>
+<li>NETBIOS信息收集工具</li>
+<li>SMB </li>
+<li>空会话信息收集</li>
+<li>端口信息收集</li>
+<li>漏洞信息收集</li>
+</ol>
+<hr>
+<h3 id="找域控"><a href="#找域控" class="headerlink" title="找域控"></a>找域控</h3><p>找域控登入过的机器</p>
+<ul>
+<li><code>tasklist /s x.x.x.x /u username /p password /v</code></li>
+<li>系统内部自带的工具<code>psloggedon.exe</code></li>
+<li><code>netsess.exe</code></li>
+<li><code>Nmap</code></li>
+<li><code>Powershell</code></li>
+</ul>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>渗透过程中，走到哪一步，需要做什么<br>使用powershell加载powersploit嗅探模块(recon)<br>需要权限，加载提权/查密码<br>需要维持，使用进程注入/dll注入</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Domain/" rel="tag"><i class="fas fa-tags"></i>Domain</a>
+        
+        <a class="post-tag button" href="/tags/Penetration/" rel="tag"><i class="fas fa-tags"></i>Penetration</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/03/05/Hash/" rel="next" title="Hash基础"><i class="fas fa-angle-left"></i><span class="nav-title">Hash基础</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/03/20/PowerSploit/" rel="prev" title="PowerSploit"><span class="nav-title">PowerSploit</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#域环境搭建"><span class="toc-text">域环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#域环境操作"><span class="toc-text">域环境操作</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#wmic命令集"><span class="toc-text">wmic命令集</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#常用命令-1"><span class="toc-text">常用命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#dsquery"><span class="toc-text">dsquery</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#命令行帮助"><span class="toc-text">命令行帮助</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#windows查找"><span class="toc-text">windows查找</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#域环境渗透流程与技巧"><span class="toc-text">域环境渗透流程与技巧</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#域渗透目的"><span class="toc-text">域渗透目的</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#域环境信息搜集"><span class="toc-text">域环境信息搜集</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#基本步骤"><span class="toc-text">基本步骤</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#应当收集的信息："><span class="toc-text">应当收集的信息：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#找域控"><span class="toc-text">找域控</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

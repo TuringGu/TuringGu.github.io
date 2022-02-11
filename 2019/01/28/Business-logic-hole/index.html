@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>业务逻辑漏洞 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/01/28/Business-logic-hole/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">业务逻辑漏洞</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-28T00:04:29+08:00">2019-01-28 00:04:29</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="权限绕过"><a href="#权限绕过" class="headerlink" title="权限绕过"></a>权限绕过</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><blockquote>
+<p>Web应用在接收某个请求执行特定的操作或者访问请求的资源时，要验证此请求是否由正确的用户发出。若此处验证操作存在缺陷，可能导致攻击者可以访问其他用户的敏感数据，甚至获得执行其它用户对应功能的权限。包括：交易支付、密码修改、密码找回、越权修改、越权查询、突破限制等各类逻辑漏洞</p>
+</blockquote>
+<p><strong>即：应用程序允许攻击者执行他没有资格执行的操作</strong></p>
+<hr>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h4 id="水平权限绕过"><a href="#水平权限绕过" class="headerlink" title="水平权限绕过"></a>水平权限绕过</h4><p>指允许用户控制相同类型下其他用户的资源，例如：一个普通用户可以修改其他同组用户的密码</p>
+<h4 id="垂直权限绕过"><a href="#垂直权限绕过" class="headerlink" title="垂直权限绕过"></a>垂直权限绕过</h4><p>垂直权限绕过是指无权限或低权限的用户，可以控制有权限或高权限用户的资源。例如：普通用户可以使用管理员用户特有的功能，或者非会员时访问会员才能访问的资源</p>
+<hr>
+<h3 id="高危触发点"><a href="#高危触发点" class="headerlink" title="高危触发点"></a>高危触发点</h3><ul>
+<li>密码修改、找回</li>
+<li>订单处理</li>
+<li>用户中心</li>
+<li>资源下载</li>
+</ul>
+<hr>
+<h3 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h3><h4 id="未授权访问"><a href="#未授权访问" class="headerlink" title="未授权访问"></a>未授权访问</h4><ul>
+<li>资源、敏感信息泄露</li>
+</ul>
+<h4 id="未授权操作"><a href="#未授权操作" class="headerlink" title="未授权操作"></a>未授权操作</h4><ul>
+<li>资料修改</li>
+<li>密码重置</li>
+<li>修改支付信息</li>
+<li>散播违规/违法信息</li>
+</ul>
+<hr>
+<h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3><h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><ul>
+<li>不信任用户提交的关于访问权限的参数，应用程序应该只信任服务端完整信任链中的数据，任何用户传送至服务端的权限标识，都应该重新确认</li>
+<li>仔细确认应用程序每个功能单元的权限需求，并进行严格的管理</li>
+<li>对于关键业务逻辑（如：订单处理），应该对每次提出请求的相应权限进行冗余验证或者双重授权</li>
+</ul>
+<h4 id="Web逻辑层权限鉴定"><a href="#Web逻辑层权限鉴定" class="headerlink" title="Web逻辑层权限鉴定"></a>Web逻辑层权限鉴定</h4><p>通过session信息得到提交请求的操作者，通过数据库查询得到目标对象的权限所有者。判断两者是否一致，若不一致则阻断</p>
+<h4 id="限控制转移到数据接口层"><a href="#限控制转移到数据接口层" class="headerlink" title="限控制转移到数据接口层"></a>限控制转移到数据接口层</h4><p>当进行数据操作时，在数据库接口就进行判断<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment"># 原语句</span><br><span class="hljs-keyword">SELECT</span> something <span class="hljs-keyword">FROM</span> xxx <span class="hljs-keyword">WHERE</span> addressID = $addressID<br><br><span class="hljs-comment"># 修改后语句</span><br><span class="hljs-keyword">SELECT</span> something <span class="hljs-keyword">FROM</span> xxx <span class="hljs-keyword">WHERE</span> addressID = $addressID <span class="hljs-keyword">AND</span> ownerID = $userID<br></code></pre></td></tr></table></figure></p>
+<h4 id="增加token校验"><a href="#增加token校验" class="headerlink" title="增加token校验"></a>增加token校验</h4><p>在生成表单时，增加一个<code>token</code>参数。<code>Token</code>可以使用与此次操作相关的参数生成，例如：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php">token = md5(addressID + sessionID + key)<br></code></pre></td></tr></table></figure></p>
+<p>在处理请求时，使用<code>addressID</code>、<code>sessionID</code>和<code>key</code>开检验<code>token</code>，以此判断请求的操作是否越权</p>
+<hr>
+<h2 id="支付逻辑漏洞"><a href="#支付逻辑漏洞" class="headerlink" title="支付逻辑漏洞"></a>支付逻辑漏洞</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>在一些交易网站上，开发者一般设计如下：<br>用户购买商品，然后根据价格，得到一个总价，随后根据总价来扣钱<br>但此逻辑若处理不当，则会出现许多问题例如：<br>若用户购买商品是负数，则计算的总计就是负数了，这样系统的处理反而会给用户钱</p>
+<hr>
+<h4 id="一般支付流程"><a href="#一般支付流程" class="headerlink" title="一般支付流程"></a>一般支付流程</h4><ol>
+<li>挑选商品加入购物车</li>
+<li>确认购物车信息</li>
+<li>输入物流及收货人信息</li>
+<li>确认订单进入支付环节</li>
+<li>交易成功等待发货</li>
+</ol>
+<p>又例如：<br>某网站流程为<code>A==&gt;B==&gt;C==&gt;D</code>，开发者意图为必须顺序执行，也认为用户会按照预定顺序执行每一步，这是因为在浏览器中导航是如此处理的<br>但此开发者的假设是存在缺陷的，用户若控制着他们给应用程序发送的每一个请求，因此能够按照任何顺序进行访问。于是如C是支付过程或验证过程，用户直接跳过C过程，买到了商品或绕过了验证</p>
+<hr>
+<h3 id="常见种类"><a href="#常见种类" class="headerlink" title="常见种类"></a>常见种类</h3><h4 id="金额直接传输导致篡改"><a href="#金额直接传输导致篡改" class="headerlink" title="金额直接传输导致篡改"></a>金额直接传输导致篡改</h4><p>抓包改包，即可改变传输的金额</p>
+<h4 id="确认支付后仍可加入购物车"><a href="#确认支付后仍可加入购物车" class="headerlink" title="确认支付后仍可加入购物车"></a>确认支付后仍可加入购物车</h4><p>攻击者在将商品加入购物车点击支付后，支付会转向一个第三方支付。此时攻击者还能往购物车内加入商品，当支付完成后，商家发放的商品是现有购物车里的东西</p>
+<h4 id="请求重放"><a href="#请求重放" class="headerlink" title="请求重放"></a>请求重放</h4><p>购买成功后，重放其中请求，可以使购买的商品一直增加。购买成功后，会有一个从银行向商户网站跳转的过程，若此过程反复重放，可能会导致商品的反复购买和增加，但用户不用支付更多的货币</p>
+<h4 id="订单替换"><a href="#订单替换" class="headerlink" title="订单替换"></a>订单替换</h4><p>订单替换的攻击方式发生在支付之后的事件处理，攻击者同时向服务器发起两次支付，请求一个多的和一个少的，支付金钱数目少的，支付完成后，替换支付的订单，告诉服务器此订单支付完成，并且此过程可反复回放，因为在服务器端保存的订单状态即使逻辑上处理检查过是否发放商品</p>
+<h4 id="单位替换"><a href="#单位替换" class="headerlink" title="单位替换"></a>单位替换</h4><p>此过程产生在paypal类似国际支付的场景</p>
+<h4 id="强制攻击"><a href="#强制攻击" class="headerlink" title="强制攻击"></a>强制攻击</h4><p>强制攻击发生在暴力破解的情况下，若一个商家运用一个自己的网站，接入第三方支付接口，由于涉及上的不当，导致商家与第三方支付约定的密钥key可以单独被MD5加密，导致可以使用MD5碰撞技术对密钥进行破解，攻击者可以设计简单的密钥加密信息，使得MD5加密是可以用MD5碰撞技术进行暴力破解</p>
+<p>防范：经常更换密钥。由于商家不是开发者，对于密钥没有深刻的理解，甚至可能随意泄露了自己的密钥信息，以及在功能正常的情况下不对密钥进行更改</p>
+<h4 id="密钥泄露"><a href="#密钥泄露" class="headerlink" title="密钥泄露"></a>密钥泄露</h4><p>内置支付功能的app为了设计上的方便可能会把MD5或者RSA的私钥泄露，导致攻击者反编译apk之后，获取密钥信息，使得交易信息可以被篡改</p>
+<h4 id="函数修改"><a href="#函数修改" class="headerlink" title="函数修改"></a>函数修改</h4><p>apk反编译之后的函数修改，有可能导致商家在最后一步向支付方提交订单时未验证信息的准确性，虽然此时以对信息进行签名，但是仍然被篡改</p>
+<hr>
+<h3 id="防范"><a href="#防范" class="headerlink" title="防范"></a>防范</h3><h4 id="支付流程注意事项"><a href="#支付流程注意事项" class="headerlink" title="支付流程注意事项"></a>支付流程注意事项</h4><table>
+<thead>
+<tr>
+<th><strong>支付前</strong></th>
+<th><strong>支付中</strong></th>
+<th><strong>支付后</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.检查支付金额边界值</td>
+<td>漏洞一般很少出现</td>
+<td>1.检测签名是否正确</td>
+</tr>
+<tr>
+<td>2.检查支付数量边界值</td>
+<td>因为由银行或者是第三方管理</td>
+<td>2.检测订单号是否正确</td>
+</tr>
+<tr>
+<td>3.金额不要直接传输</td>
+<td>目前可以利用的有SSL以及根证书欺骗问题</td>
+<td>3.检测订单号对应的金额是否正确</td>
+</tr>
+<tr>
+<td>4.使用订单号的方式传输订单</td>
+<td></td>
+<td>4.检测订单号对应的金额是否正确</td>
+</tr>
+<tr>
+<td>5.对所有的购买信息进行签名</td>
+<td></td>
+<td>5.检测订单号对应的产品是否正确</td>
+</tr>
+<tr>
+<td>6.经常更换签名密钥</td>
+<td></td>
+<td>6.检测收款人是否正确</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="检测模型"><a href="#检测模型" class="headerlink" title="检测模型"></a>检测模型</h4><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 订单号</span><br>Order/OrderId/Order_id/out_trade_no/tradeNo/*trade*/*order*/payno*/payment_id/paymentId/merc_tranid/*tranid*<br><span class="hljs-comment"># 价格</span><br>*Price*/*total_fee*/*amount*/*amt*<br><br><span class="hljs-comment"># 数量</span><br>*Number*/*quantity*<br><br><span class="hljs-comment"># 物品ID</span><br>itemId/Item_id<br><br><span class="hljs-comment"># 用户</span><br>User/usr<br><br><span class="hljs-comment"># 通知地址</span><br>Notifyurl/notify_url/return_url/returnurl/show_url/showurl<br><br><span class="hljs-comment"># 商户</span><br>Default_partner/*partner*<br><br><span class="hljs-comment"># 签名方式</span><br>Sign_type/signtype<br><br><span class="hljs-comment"># 密钥</span><br>PRIVATE/private_key/*MD5*/*key*<br><br><span class="hljs-comment"># 签名</span><br>Sign/*verity_sign*/*auth*<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="密码找回漏洞挖掘"><a href="#密码找回漏洞挖掘" class="headerlink" title="密码找回漏洞挖掘"></a>密码找回漏洞挖掘</h2><h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><h4 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h4><ul>
+<li><p>需要旧密码</p>
+<blockquote>
+<ul>
+<li>验证不输入旧密码可否修改，或尝试抓包将提交旧密码参数删除</li>
+<li>验证旧密码输入处是否存在sql注入</li>
+<li>验证是否可跳过输入旧密码步骤直接修改新密码</li>
+</ul>
+</blockquote>
+</li>
+<li><p>不需要旧密码</p>
+<blockquote>
+<ul>
+<li>验证修改密码提交数据中是否包含了用户身份信息</li>
+<li>验证提交的用户身份信息被修改后是否可以成功修改</li>
+<li>验证修改Cookies中的每一项包含用户身份的信息是否会影响修改结果</li>
+<li>验证是否可以在不登陆的情况下直接提交修改密码的请求进行修改</li>
+<li>验证是否可以越权修改任意用户密码</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><ol>
+<li>走一遍正常密码修改流程，把过程中所有环节的数据包全部保存</li>
+<li>分析流程中哪些步骤使用了哪些身份认证信息，使用了哪些认证方法</li>
+<li>分析哪个步骤可以跳过，或可以直接访问某个步骤</li>
+<li>分析每个认证方法是否存在缺陷，可否越权</li>
+<li>首先尝试正常密码找回流程，选择不同找回方式，如：邮箱、手机、密码提示问题等</li>
+<li>分析各种找回机制所采用的验证手段，如：验证码有效期、有效次数、生成规律、是否与用户信息关联等</li>
+<li>抓取修改密码步骤的所有数据包，尝试修改关键信息，如：用户名、用户ID、邮箱地址、手机号等</li>
+</ol>
+<hr>
+<h3 id="防御方式"><a href="#防御方式" class="headerlink" title="防御方式"></a>防御方式</h3><p><strong>原则</strong><br>密码找回漏洞本质仍然属于权限漏洞的一种，所以需要遵守权限绕过的防御规则</p>
+<ul>
+<li>不信任用户提交的关于访问权限的参数，应用程序应该只信任服务端完整信任链中的数据，任何用户传送至服务端的权限标识，都应重新确认</li>
+<li>在进行密码修改逻辑的过程中，应对每次提交请求的相应权限进行冗余验证或者双重验证</li>
+</ul>
+<hr>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="Google-Hacking基本语法"><a href="#Google-Hacking基本语法" class="headerlink" title="Google Hacking基本语法"></a>Google Hacking基本语法</h3><p><code>Site</code>      指定域名<br><code>Intext</code>     正文中存在关键字的网页<br><code>Intitle</code>     标题中存在关键字的网页<br><code>Info</code>     一些基本信息<br><code>Inurl</code>     URL存在关键字的网页<br><code>Filetype</code>   搜索指定文件类型    </p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Business/" rel="tag"><i class="fas fa-tags"></i>Business</a>
+        
+        <a class="post-tag button" href="/tags/Logic/" rel="tag"><i class="fas fa-tags"></i>Logic</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/01/26/Information-leakage/" rel="next" title="信息泄露漏洞"><i class="fas fa-angle-left"></i><span class="nav-title">信息泄露漏洞</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/02/18/Privilege-elevation/" rel="prev" title="权限提升"><span class="nav-title">权限提升</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#权限绕过"><span class="toc-text">权限绕过</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#分类"><span class="toc-text">分类</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#水平权限绕过"><span class="toc-text">水平权限绕过</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#垂直权限绕过"><span class="toc-text">垂直权限绕过</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#高危触发点"><span class="toc-text">高危触发点</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#危害"><span class="toc-text">危害</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#未授权访问"><span class="toc-text">未授权访问</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#未授权操作"><span class="toc-text">未授权操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#防御"><span class="toc-text">防御</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原则"><span class="toc-text">原则</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Web逻辑层权限鉴定"><span class="toc-text">Web逻辑层权限鉴定</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#限控制转移到数据接口层"><span class="toc-text">限控制转移到数据接口层</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#增加token校验"><span class="toc-text">增加token校验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#支付逻辑漏洞"><span class="toc-text">支付逻辑漏洞</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#原理-1"><span class="toc-text">原理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#一般支付流程"><span class="toc-text">一般支付流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常见种类"><span class="toc-text">常见种类</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#金额直接传输导致篡改"><span class="toc-text">金额直接传输导致篡改</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#确认支付后仍可加入购物车"><span class="toc-text">确认支付后仍可加入购物车</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#请求重放"><span class="toc-text">请求重放</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#订单替换"><span class="toc-text">订单替换</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#单位替换"><span class="toc-text">单位替换</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#强制攻击"><span class="toc-text">强制攻击</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#密钥泄露"><span class="toc-text">密钥泄露</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#函数修改"><span class="toc-text">函数修改</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#防范"><span class="toc-text">防范</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#支付流程注意事项"><span class="toc-text">支付流程注意事项</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#检测模型"><span class="toc-text">检测模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#密码找回漏洞挖掘"><span class="toc-text">密码找回漏洞挖掘</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#原理-2"><span class="toc-text">原理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#修改密码"><span class="toc-text">修改密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#基本流程"><span class="toc-text">基本流程</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#防御方式"><span class="toc-text">防御方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Google-Hacking基本语法"><span class="toc-text">Google Hacking基本语法</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

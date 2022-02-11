@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TuringGu - My first blog</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="写在前面本文主要说明httpd的编译安装过程。源码安装是比较麻烦的一种安装方法，但却有其不可替代性。因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己与,"> 
+    <meta name="author" content="TuringGu"> 
+    <link rel="alternative" href="atom.xml" title="TuringGu" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Http编译安装教程</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Http编译安装教程</h1>
+        <div class="stuff">
+            <span>十二月 04, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/httpd-虚拟机：CentOS/">httpd-虚拟机：CentOS-</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要说明httpd的编译安装过程。<br>源码安装是比较麻烦的一种安装方法，但却有其不可替代性。<br>因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己与他人的查询。</p>
+<h4 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h4><p>物理机：Windows 10 Enterprise<br>虚拟机：CentOS 7 64位</p>
+<h4 id="具体操作流程"><a href="#具体操作流程" class="headerlink" title="具体操作流程"></a>具体操作流程</h4><p>首先安装开发者套件：<br><code><br>    yum groups mark convert    //<br>    yum groupinstall “Development Tools” -y //整套安装一组开发者工具<br></code></p>
+<p>下载源码包：<br><code></code></p>
+<pre><code># cd /usr/local/src/
+# wget https://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-1.6.5.tar.gz
+# wget https://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-util-1.6.1.tar.gz
+# wget https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.37.tar.gz
+</code></pre><p><br>备注：三个源码包都放在/usr/local/src/</p>
+<p>安装apr-1.6.5<br><code></code></p>
+<pre><code># cd /usr/local/src/
+# cp -r apr-1.6.5  /usr/local/src/httpd-2.4.37/srclib/apr
+# cd apr-1.6.5
+# ./configure --prefix=/usr/local/apr
+# make &amp;&amp; make install
+</code></pre><p></p>
+<p>安装apr-util-1.6.<br><code></code></p>
+<pre><code># cd /usr/local/src
+# cp -r apr-util-1.6.1  /usr/local/src/httpd-2.4.37/srclib/apr-util
+# cd /usr/local/src/apr-util-1.6.1
+# ./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr
+# make &amp;&amp; make install
+</code></pre><p></p>
+<p>pcre的编译安装<br><code></code></p>
+<pre><code># wget https://ftp.pcre.org/pub/pcre/pcre-8.00.tar.gz
+# tar -zxvf pcre-8.10.tar.gz
+# cd pcre-8.10
+# ./configure
+# make  &amp;&amp; make install
+</code></pre><p></p>
+<p>安装httpd-2.4.37<br><code></code></p>
+<pre><code># ./configure --with-included-apr --prefix=/usr/local/apache2.4 --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --enable-so --enable-mods-shared=most
+# make &amp;&amp; make install 
+</code></pre><p></p>
+<p>编写启动脚本：vim httpd</p>
+<p>#!/bin/bash</p>
+<h1 id="chkconfig-12345-80-90"><a href="#chkconfig-12345-80-90" class="headerlink" title="chkconfig: 12345 80 90"></a>chkconfig: 12345 80 90</h1><p>function start_http()<br>{<br>/usr/local/apache2.4/bin/apachectl  start<br>}<br>function stop_http()<br>{<br> /usr/local/apache2.4/bin/apachectl  stop<br>}<br>case “$1” in<br>start)<br>    start_http<br>;;<br>stop)<br>    stop_http<br>;;<br>restart)<br>    stop_http<br>    start_http<br>;;<br>*)<br>    echo “Usage : start | stop | restart”<br>;;<br>esac</p>
+<p>加入系统服务：<br>chmod  a+x  httpd<br>cp  -arf  httpd  /etc/init.d/</p>
+<p>启动自己编写的服务：<br>systemctl  daemon-reload<br>systemctl  start  httpd</p>
+<p>设置开机自启动：<br>chkconfig  –add  httpd</p>
+<p>配置文件路径：<br>/usr/local/apache2.4/conf/httpd.conf</p>
+<p>查看状态<br>systemctl status httpd</p>
+<p>补充知识：</p>
+<hr>
+<p>–enable-so    让apache核心装载DSO，但不实际编译任何动态模块<br>–enable-ModuleName=share    将模块编译成动态的<br>–enable-ModuleName=most    动态地编译进来大多数的模块<br>–enable-ModuleName=all    动态地编译所有的模块<br>若不加参数，则为静态地编译</p>
+<p>动态编译：使用模块时才将需要使用的模块Load进来</p>
+<hr>
+<p>补充知识：</p>
+<hr>
+<p>install 与groupinstall区别：<br>yum install    安装单个软件<br>yum grouplist    查看这个软件的所有软件包，每次安装前可以先查看yum grouplist有哪些软件，然后再去安装yum groupinstall<br>yum groupinstall    看装多个软件，安装这个软件的所有依赖包，yum groupinstall安装的时候必须加双引号<br>eg:<br>yum -y groupinstall Desktop<br>-y参数同意所有软件安装操作<br>yum groupremove :卸载所有软件包，</p>
+<p>使用./configure –prefix=/supersparrow<br>安装完成将自动生成目录supersparrow,则该软件任何的文档都被复制到这个目录。指定此安装目录是为了以后的维护方便，否则该软件所需的软件会被复制到不同的系统目录下，难以维护。</p>
+<p>用了-prefix选项的另一个好处是卸载软件或移植软件。当某个安装的软件不再需要时，只须简单的删除该安装目录，就能够把软件卸载得干干净净;移植软件只需拷贝整个目录到另外一个机器即可(相同的操作系统)。</p>
+<hr>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://domain.com/awesome.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>HTTP协议基础 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/24/Http-protocol/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">HTTP协议基础</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-24T15:44:28+08:00">2018-12-24 15:44:28</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h3 id="模型基础"><a href="#模型基础" class="headerlink" title="模型基础"></a>模型基础</h3><h4 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h4><p>最开始提出的叫做开放系统互连基本参考模型OSI/RM模型，叫做国际标准，但由于种种原因，非国际<br>标准的TCP/IP模型成为当前主流标准。</p>
+<blockquote>
+<p>OSI模型七层：物理层、数据链路层、网络层、运输层、会话层、表示层、应用层<br>TCP/IP模型四层：网络接口层、网际层、运输层、应用层</p>
+</blockquote>
+<p>为方便讲述计算机网络原理，通常结合为五层讲：</p>
+<blockquote>
+<ol>
+<li><strong>物理层</strong>：主要规定电气特性，必须按照标准使用哪些硬件。如：调制解调器、PLC、SONET/SDH、G.709、光导纤维、同轴电缆、双绞线，其中数据单元是比特，典型设备有：中继器、集线器、网线、HUB</li>
+<li><strong>数据链路层</strong>：有ARQ、CSMA/CD、PPP、LCP、HDLC、ATM等协议，其数据单元为帧，典型设备有：网卡、网桥、交换机</li>
+<li><strong>网络层</strong>：有ARQ、RARP、ICMP、IGMP、RIP、OSPF、BGP、IS-IS、IPSec等协议，其数据单元为：数据包，典型设备有：路由器、防火墙、多层交换机</li>
+<li><strong>传输层</strong>：有TCP、UDP、DCCP、SCTP、RTP、RSVP、PPTP等协议，其数据单元为数据段，典型设备有端口和进程</li>
+<li><strong>应用层</strong>：有DHCP、FTP、HTTP、SMTP、POP3、IMAP、SMTP、SSH、TELNET、RPC、TLS、SOAP、DNS等协议，典型设备有：应用程序，如：FTP、SMTP、HTTP</li>
+</ol>
+</blockquote>
+<p><strong>越往高层走，越偏向软件化</strong></p>
+<hr>
+<h3 id="通信基础"><a href="#通信基础" class="headerlink" title="通信基础"></a>通信基础</h3><h4 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h4><p>当在应用层活动时，产出的数据需要与其它计算机通信时，会发生如下过程：</p>
+<blockquote>
+<ol>
+<li>应用层数据，先按照运输层协议标准，封装到运输层数据里（数据段）</li>
+<li>接着运输层的数据（数据段），会按照网络层协议的标准，封装到网络层数据里（数据包/报文）</li>
+<li>接着这些数据包会按照链路层协议标准，封装到链路层数据里（帧）</li>
+<li>数据帧按照物理层电气特性，转换为二进制比特流发送出去</li>
+<li>网络会把这些流数据，不断拆封再封装，直至到达目标主机。然后又目标主机依层拆封数据，进行反解析，完成传递</li>
+</ol>
+</blockquote>
+<p><strong>可参考链接：</strong><a href="https://blog.csdn.net/cjf1002361126/article/details/70232721" target="_blank" rel="noopener">数据包结构分析</a></p>
+<hr>
+<h4 id="TCP-UDP协议格式"><a href="#TCP-UDP协议格式" class="headerlink" title="TCP/UDP协议格式"></a>TCP/UDP协议格式</h4><p><strong>可参考链接：</strong><a href="https://blog.csdn.net/u014711094/article/details/80501953" target="_blank" rel="noopener">TCP/UDP协议格式</a></p>
+<hr>
+<h4 id="IP协议格式"><a href="#IP协议格式" class="headerlink" title="IP协议格式"></a>IP协议格式</h4><p><strong>可参考链接：</strong><a href="https://blog.csdn.net/marywang56/article/details/78051556" target="_blank" rel="noopener">IP协议格式</a></p>
+<hr>
+<h4 id="帧协议格式"><a href="#帧协议格式" class="headerlink" title="帧协议格式"></a>帧协议格式</h4><p>以太网帧格式较复杂，有四种，分别是:</p>
+<blockquote>
+<p>Ethernet Ⅱ、Novell Ethernet、IEEE 802.3/802.2、Ethernet SNAP</p>
+</blockquote>
+<p>不论帧格式如何规定，始终在帧头部包含有目的mac地址，源mac地址，后面跟数据段，结尾加CRC校验码。<br>在计算机中，实际是使用MAC地址寻找主机的。</p>
+<hr>
+<h4 id="三次握手、四次挥手"><a href="#三次握手、四次挥手" class="headerlink" title="三次握手、四次挥手"></a>三次握手、四次挥手</h4><hr>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
+<p>HTTP(Hyper Text Transfer Protocol)超文本传输协议，是用于从万维网（WWW:World wide Web）服务器传输超文本到本地浏览器的传送协议。<br>HTTP是一个基于TCP/IP通信协议来传输数据（HTML文件、图片文件、查询结果等）<br>HTTP是一个属于应用层的面向对象协议，由于其便捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。目前在WWW中广泛使用的是HTTP/1.1。</p>
+</blockquote>
+<hr>
+<h4 id="协议说明"><a href="#协议说明" class="headerlink" title="协议说明"></a>协议说明</h4><p>B/S架构的系统使用的协议为HTTP协议。浏览器作为HTTP客户端通过URL向HTTP服务端即web服务器发送所有请求。web服务器根据收到的请求后，向客户端发送响应信息。</p>
+<hr>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>简单快速：客户向服务器请求服务时，只需传递请求方法和路径。常用方法：GET、HEAD、POST。各方法规定了客户与服务器联系的类型不同</li>
+<li>灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记</li>
+<li>无连接：限制每次链接只处理一个请求。服务器处理完客户的请求并收到其应答后，即断开连接。此方法可节省传输时间。</li>
+<li>无状态：HTTP为无状态协议。指对于事物处理无记忆能力。缺少状态意味着如果后续处理需要之前的信息，则必须重传，这样可能导致每次连接传输的数据量增大。另外，在服务器不需要先前信息时它的应答则较快</li>
+<li>支持B/S及C/S模式：B/S即使用浏览器通过HTTP协议和服务器通信，C/S即在其他软件中编程实现和服务器的HTTP通信</li>
+</ul>
+<hr>
+<h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><p>URL(Uniform Resource Locator)统一资源定位符，是互联网上用来标识某一处资源的地址。</p>
+<hr>
+<h4 id="Request请求格式"><a href="#Request请求格式" class="headerlink" title="Request请求格式"></a>Request请求格式</h4><p>客户端发送一个HTTP请求到服务器的请求消息包括以下格式：</p>
+<blockquote>
+<p>四部分：请求行（request line）、请求头部（header）、空行和请求数据</p>
+</blockquote>
+<h4 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h4><p>依据HTTP标准，HTTP请求可以使用多种请求方法：<br>HTTP1.0</p>
+<blockquote>
+<p>GET,POST,HEAD</p>
+</blockquote>
+<p>HTTP1.1</p>
+<blockquote>
+<p>GET,POST,HEAD,OPTIONS,PUT,DELETE,TRACE,CONNECT</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>请求方法</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>请求指定的页面信息，并返回实体主页</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>类似于GET请求，只不过返回的响应中没有具体的内容，用于获取报头</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>向指定资源提交数据进行处理请求（例如提交表单或上传文件）。数据被包含在请求实体中。POST请求可能会导致新的资源的建立或已有资源的修改</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>从客户端向服务器传送的数据取代指定的文档的内容</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>请求服务器删除指定的页面</td>
+</tr>
+<tr>
+<td>CONNECT</td>
+<td>HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>允许客户端查看服务器的性能</td>
+</tr>
+<tr>
+<td>TRACE</td>
+<td>回显服务器收到的消息，主要用于测试或诊断</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="GET-POST请求举例"><a href="#GET-POST请求举例" class="headerlink" title="GET/POST请求举例"></a>GET/POST请求举例</h4><hr>
+<h4 id="GET与POST异同"><a href="#GET与POST异同" class="headerlink" title="GET与POST异同"></a>GET与POST异同</h4><p>PHP通过GET和POST获取客户端发送的数据<br>相同点：</p>
+<blockquote>
+<ul>
+<li>GET和POST都可以创建数组。如：<code>array(key =&gt; value, key1 =&gt; value1, ...)</code>此数组包含键/值对，其中的键是表单控件的名称，值是来自用户的输入数据</li>
+<li>GET和POST通常被视作<code>$_GET</code>和<code>$_POST</code>，是超全局变量，对他们的访问无需考虑作用域，无需任何代码，能够从任何函数、类或文件访问</li>
+</ul>
+</blockquote>
+<p>不同点：</p>
+<blockquote>
+<ul>
+<li><code>$_POST</code>是通过HTTP POST传递到当前脚本的变量数组。<code>$_GET</code>是通过URL参数传递到当前脚本的变量数组</li>
+<li>GET可以直接在地址栏中看到、修改</li>
+<li>POST须使用工具来查看内容</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="响应消息举例"><a href="#响应消息举例" class="headerlink" title="响应消息举例"></a>响应消息举例</h4><hr>
+<h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>状态码有三位数字组成，第一位定义了响应类别，共分五种类别：</p>
+<blockquote>
+<p>1xx：指示信息，标识请求已接受，继续处理<br>2xx：成功，标识请求已被成功接收、理解、接受<br>3xx：重定向，要完成请求必须进行更进一步的操作<br>4xx：客户端错误，请求有语法错误或请求无法实现<br>5xx：服务器端错误，服务器未能实现合法的请求</p>
+</blockquote>
+<p>常见的还有：</p>
+<blockquote>
+<p>200：OK 请求已成功，请求所希望的响应头或数据体将随此响应返回。出现此状态码是表示正常状态</p>
+</blockquote>
+<blockquote>
+<p>302：Move temporarily<br>请求的资源临时从不同的 URI响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。只有在Cache-Control或Expires中进行了指定的情况下，这个响应才是可缓存的。</p>
+</blockquote>
+<blockquote>
+<p>304：Not Modified<br>如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。304响应禁止包含消息体，因此始终以消息头后的第一个空行结尾。</p>
+</blockquote>
+<blockquote>
+<p>400：Bad Request</p>
+<ol>
+<li>语义有误，当前请求无法被服务器理解。除非进行修改，否则客户端不应该重复提交这个请求。</li>
+<li>请求参数有误。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>404：Not Found<br>请求失败，请求所希望得到的资源未被在服务器上发现。</p>
+</blockquote>
+<blockquote>
+<p>500：Internal Server Error<br>服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器端的源代码出现错误时出现。</p>
+</blockquote>
+<hr>
+<h4 id="HTTP与HTTPS"><a href="#HTTP与HTTPS" class="headerlink" title="HTTP与HTTPS"></a>HTTP与HTTPS</h4><p>https == http + ssl/tls<br>ssl：安全套接字（传输层到应用层之间）<br>tls：ssh的升级版<br>ssl 3.0 == tls 1.0</p>
+<p>CA：第三方数字证书可信机构</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Http/" rel="tag"><i class="fas fa-tags"></i>Http</a>
+        
+        <a class="post-tag button" href="/tags/TLS/" rel="tag"><i class="fas fa-tags"></i>TLS</a>
+        
+        <a class="post-tag button" href="/tags/SSL/" rel="tag"><i class="fas fa-tags"></i>SSL</a>
+        
+        <a class="post-tag button" href="/tags/network/" rel="tag"><i class="fas fa-tags"></i>network</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/12/18/B-S-frame/" rel="next" title="B/S架构"><i class="fas fa-angle-left"></i><span class="nav-title">B/S架构</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/12/25/Burpsuite/" rel="prev" title="Burpsuite"><span class="nav-title">Burpsuite</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#模型基础"><span class="toc-text">模型基础</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#模型结构"><span class="toc-text">模型结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#通信基础"><span class="toc-text">通信基础</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#基本流程"><span class="toc-text">基本流程</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#TCP-UDP协议格式"><span class="toc-text">TCP/UDP协议格式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#IP协议格式"><span class="toc-text">IP协议格式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#帧协议格式"><span class="toc-text">帧协议格式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#三次握手、四次挥手"><span class="toc-text">三次握手、四次挥手</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#HTTP"><span class="toc-text">HTTP</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#协议说明"><span class="toc-text">协议说明</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#特点"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#URL"><span class="toc-text">URL</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Request请求格式"><span class="toc-text">Request请求格式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#请求方法"><span class="toc-text">请求方法</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#GET-POST请求举例"><span class="toc-text">GET/POST请求举例</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#GET与POST异同"><span class="toc-text">GET与POST异同</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#响应消息举例"><span class="toc-text">响应消息举例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#HTTP状态码"><span class="toc-text">HTTP状态码</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#HTTP与HTTPS"><span class="toc-text">HTTP与HTTPS</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

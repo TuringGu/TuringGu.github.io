@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>CSRF跨站请求伪造 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/01/22/CSRF/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">CSRF跨站请求伪造</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-22T01:22:43+08:00">2019-01-22 01:22:43</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>CSRF(Cross Site Request Forgery)跨站请求伪造，是一种网络的攻击方式，也被称为<code>One Click Attack</code>或者<code>Session Riding</code>，通常缩写为CSRF或者XSRF</p>
+<h3 id="漏洞产生原因"><a href="#漏洞产生原因" class="headerlink" title="漏洞产生原因"></a>漏洞产生原因</h3><p>当Web应用程序在用户进行敏感操作时，如：修改账号密码、添加账号、转账等时，没有校验表单<code>token</code>或者http请求头中的<code>referer</code>值，从而导致恶意攻击者利用普通用户的身份（cookie）完成攻击行为</p>
+<h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><p>CSRF是一种针对Web应用的攻击方式。它可以在受害者毫不知情的情况下，以受害者的名义伪造请求，并发送给受攻击的站点，从而在未授权的情况下执行在权限保护之下的操作，具有很大危害性。<br>与其他攻击方式（SQL注入、上传、XSS等）相比，CSRF的关注度较少，也更容易出现</p>
+<hr>
+<h3 id="利用方法"><a href="#利用方法" class="headerlink" title="利用方法"></a>利用方法</h3><p>一次CSRF攻击的过程中，受害者需要依次完成两个步骤：</p>
+<ol>
+<li>登录受信任网站A，并在本地生成Cookie</li>
+<li>在A的Cookie存活期间内，访问危险网站B</li>
+</ol>
+<p>eg:</p>
+<ol>
+<li><p>网站A的管理员A成功登录网站A<br>正常返回Cookie</p>
+</li>
+<li><p>网站A的账号密码修改功能存在CSRF漏洞</p>
+</li>
+<li>网站B为黑客控制的恶意网站</li>
+<li>管理员A访问网站B</li>
+</ol>
+<ul>
+<li>HTTP Request:<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">HTTP/1.1<br>GET/<br>Host: www.test.com<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="5">
+<li>网站B的响应数据中，包含了请求修改用户A在网站A账号密码的请求</li>
+</ol>
+<ul>
+<li><p>HTTP Response</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">HTTP /1.1 OK<br>Content-Type:text/html<br>Context-Length: 1024<br>&lt;html&gt;<br>    &lt;body&gt;<br>        &lt;img src=http://finance.bdtest.com/bug.php?symbol=BIDU&amp;shares=1000 /&gt;<br>    &lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>CSRF Attack</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">HTTP/1.1<br>GET /bug.php?symbol=BIDU&amp;shares=1000<br>Host: finance.bdtest.com<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="高危触发点"><a href="#高危触发点" class="headerlink" title="高危触发点"></a>高危触发点</h3><ul>
+<li>论坛交流</li>
+<li>用户中心</li>
+<li>反馈留言</li>
+<li>交易管理</li>
+<li>后台管理</li>
+</ul>
+<hr>
+<h3 id="漏洞危害"><a href="#漏洞危害" class="headerlink" title="漏洞危害"></a>漏洞危害</h3><p>CSRF漏洞会导致受害人在不知情的情况下向论坛发帖子、订阅邮件列表、网购或股票交易、变更用户名或口令。对受到防火墙保护的所有Web应用程序而言，CSRF攻击都能绕过防火墙攻击Web应用<br>CSRF还可与XSS等漏洞联用，从而进一步加大该漏洞的危害。</p>
+<p>主要危害可主要归为以下几类</p>
+<ul>
+<li>伪造HTTP请求进行未授权操作<blockquote>
+<ul>
+<li>篡改、盗取目标网站上的重要用户信息</li>
+<li>未经允许执行对用户名誉或资产有害的操作，如：散播不良信息、进行消费等</li>
+<li>若通过使用社工等方式攻击网站管理员，会危害网站本身的安全性</li>
+</ul>
+</blockquote>
+</li>
+<li>作为其它攻击向量的辅助手法，比如配合XSS</li>
+<li>传播CSRF蠕虫</li>
+</ul>
+<hr>
+<h2 id="漏洞防御"><a href="#漏洞防御" class="headerlink" title="漏洞防御"></a>漏洞防御</h2><h3 id="Token验证码实现"><a href="#Token验证码实现" class="headerlink" title="Token验证码实现"></a>Token验证码实现</h3><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">// Generate Token</span><br><span class="hljs-comment">// 生成随机数</span><br><span class="hljs-keyword">if</span>(!function_exists(<span class="hljs-string">"random_bytes"</span>)) &#123;<br>    <span class="hljs-comment">// random_bytes函数存在于PHP7</span><br>    <span class="hljs-comment">// 若random_bytes函数不存在，使用简单生成伪随机数</span><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">random_bytes</span><span class="hljs-params">($length =<span class="hljs-number">32</span>)</span> </span>&#123;<br>    	<span class="hljs-comment">// 0~9,a~Z</span><br>    	$seed = <span class="hljs-string">"01234569abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>;<br>    	<span class="hljs-keyword">return</span> substr(str_shuffle(str_repeat($seed, $length)), <span class="hljs-number">0</span>, $length);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// Token生成</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">csrf_token</span><span class="hljs-params">($length = <span class="hljs-number">40</span>)</span> </span>&#123;<br>    $str = <span class="hljs-string">""</span>;<br>    <span class="hljs-keyword">while</span> (($len = strlen($str)) &lt; $length) &#123;<br>    	$size = $length - $len;<br>    	$bytes = random_bytes($size);<br>    	$str .=substr(str_replace([<span class="hljs-string">'/'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'='</span>],<span class="hljs-string">''</span>,base64_encode(($bytes)), <span class="hljs-number">0</span>, $size);<br>    &#125;<br>    <span class="hljs-keyword">return</span> $str;<br>&#125;<br><br>$token = csrf_token();<br>$_SESSION[<span class="hljs-string">'_csrf_token'</span>] = $token;<br><span class="hljs-comment">// 渲染到页面</span><br><span class="hljs-comment">// ...</span><br><span class="hljs-comment">// 表单提交，校验Token</span><br><span class="hljs-keyword">if</span>($_POST[<span class="hljs-string">'_csrf_token'</span>] !== $_SESSION[<span class="hljs-string">'_csrf_token'</span>]) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="Referer验证代码实现"><a href="#Referer验证代码实现" class="headerlink" title="Referer验证代码实现"></a>Referer验证代码实现</h3><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs php">$regex = <span class="hljs-string">"/yourdomain.com$/i"</span>;<br>$referer = <span class="hljs-keyword">isset</span>($_SERVER[<span class="hljs-string">'HTTP_REFERER'</span>]) ? $_SERVER[<span class="hljs-string">'HTTP_REFERER'</span>]:<span class="hljs-string">''</span>;<br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>($referer) || preg_match($referer, $regex) != <span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="防御总结"><a href="#防御总结" class="headerlink" title="防御总结"></a>防御总结</h3><blockquote>
+<p>CSRF攻击核心时伪造请求，识别此类攻击的重点就是判断当前操作是否伪造；通过在当前页面生成随机Token，后端业务逻辑在处理操作时，应先校验Token的有效性，然后才能处理业务流程。尤其在核心业务中，采用Token+Referer的组合进行操作验证；采用验证码校验操作是因为攻击者无法预知验证码的值，进而无法构造有效的攻击；但毫无疑问，验证码会一定程度影响用户体验，所以需要在安全与用户体验之间找到一个微妙的平衡点</p>
+</blockquote>
+<hr>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="CSRF与XSS区别"><a href="#CSRF与XSS区别" class="headerlink" title="CSRF与XSS区别"></a>CSRF与XSS区别</h3><ul>
+<li>csrf：无需获取任何信息，只是诱导用户进行恶意访问,要利用已登录的状态，发起登录后才能发起的请求</li>
+<li>xss：获取到Cookie等信息后，利用Cookie登录</li>
+</ul>
+<hr>
+<h3 id="bwapp安装"><a href="#bwapp安装" class="headerlink" title="bwapp安装"></a>bwapp安装</h3><ol>
+<li>修改<code>admin/setting</code>数据用户密码</li>
+<li>点击<code>here</code></li>
+<li>新建用户登录</li>
+</ol>
+<hr>
+<h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><p>同源策略，由浏览器支持（域名、协议、端口相同）<br>思考以下是否同源：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">file:///C:/phpStudy/PHPTutorial/WWW/127.0.0.1html<br>http://127.0.0.1/127.0.0.1.html<br></code></pre></td></tr></table></figure></p>
+<p>答：<strong>不属于同源</strong></p>
+<p>浏览器同源策略与跨域问题（跨域访问）</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/CSRF/" rel="tag"><i class="fas fa-tags"></i>CSRF</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/01/20/XSS/" rel="next" title="XSS跨站脚本攻击"><i class="fas fa-angle-left"></i><span class="nav-title">XSS跨站脚本攻击</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/01/24/Unconventional-Injection/" rel="prev" title="非常规注入"><span class="nav-title">非常规注入</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞产生原因"><span class="toc-text">漏洞产生原因</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞原理"><span class="toc-text">漏洞原理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#利用方法"><span class="toc-text">利用方法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#高危触发点"><span class="toc-text">高危触发点</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞危害"><span class="toc-text">漏洞危害</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞防御"><span class="toc-text">漏洞防御</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Token验证码实现"><span class="toc-text">Token验证码实现</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Referer验证代码实现"><span class="toc-text">Referer验证代码实现</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#防御总结"><span class="toc-text">防御总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#CSRF与XSS区别"><span class="toc-text">CSRF与XSS区别</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#bwapp安装"><span class="toc-text">bwapp安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#同源策略"><span class="toc-text">同源策略</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

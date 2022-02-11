@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Httpd编译安装教程 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/12/04/Httpd编译安装教程/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Httpd编译安装教程</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-04T17:40:33+08:00">2018-12-04 17:40:33</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <hr>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要说明httpd的编译安装过程。<br>源码安装是比较麻烦的一种安装方法，但却有其不可替代性。<br>因为此前在网上查找的其他相关文章或多或少存在一些问题，此处将个人实际成功的步骤记录下来，方便自己与他人的查询。</p>
+<p>注：安装步骤中的知识补充放在文末。</p>
+<hr>
+<h4 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h4><p>物理机：Windows 10 Enterprise<br>虚拟机：CentOS 7 64位</p>
+<hr>
+<h3 id="具体操作流程"><a href="#具体操作流程" class="headerlink" title="具体操作流程"></a>具体操作流程</h3><p>首先安装开发者套件：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># yum groups mark convert<br># yum groupinstall &quot;Development Tools&quot; -y // 整套安装一组开发者工具<br></code></pre></td></tr></table></figure></p>
+<h4 id="下载源码包："><a href="#下载源码包：" class="headerlink" title="下载源码包："></a>下载源码包：</h4><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># cd /usr/local/src/<br># wget https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-1.6.5.tar.gz<br># wget https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-util-1.6.1.tar.gz<br># wget https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.37.tar.gz<br></code></pre></td></tr></table></figure>
+<p>备注：三个源码包都放在<code>/usr/local/src/</code></p>
+<hr>
+<h4 id="安装apr-1-6-5"><a href="#安装apr-1-6-5" class="headerlink" title="安装apr-1.6.5"></a>安装apr-1.6.5</h4><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># cd /usr/local/src/<br># cp -r apr-1.6.5  /usr/local/src/httpd-2.4.37/srclib/apr<br># cd apr-1.6.5<br># ./configure --prefix=/usr/local/apr<br># make &amp;&amp; make install<br></code></pre></td></tr></table></figure>
+<hr>
+<h4 id="安装apr-util-1-6-1"><a href="#安装apr-util-1-6-1" class="headerlink" title="安装apr-util-1.6.1"></a>安装apr-util-1.6.1</h4><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># cd /usr/local/src<br># cp -r apr-util-1.6.1  /usr/local/src/httpd-2.4.37/srclib/apr-util<br># cd /usr/local/src/apr-util-1.6.1<br># ./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr<br># make &amp;&amp; make install<br></code></pre></td></tr></table></figure>
+<p>pcre的编译安装<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># wget https://ftp.pcre.org/pub/pcre/pcre-8.00.tar.gz<br># tar -zxvf pcre-8.10.tar.gz<br># cd pcre-8.10<br># ./configure<br># make  &amp;&amp; make install<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="安装httpd-2-4-37"><a href="#安装httpd-2-4-37" class="headerlink" title="安装httpd-2.4.37"></a>安装httpd-2.4.37</h4><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># ./configure --with-included-apr --prefix=/usr/local/apache2.4 --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --enable-so --enable-mods-shared=most<br># make &amp;&amp; make install<br></code></pre></td></tr></table></figure>
+<hr>
+<h4 id="编写启动脚本："><a href="#编写启动脚本：" class="headerlink" title="编写启动脚本："></a>编写启动脚本：</h4><figure class="hljs highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta"># vim httpd</span><br>#!/bin/bash<br><span class="hljs-meta"># chkconfig: 12345 80 90</span><br><span class="hljs-function">function <span class="hljs-title">start_http</span><span class="hljs-params">()</span><br></span>&#123;<br>/usr/local/apache2<span class="hljs-number">.4</span>/bin/apachectl  start<br>&#125;<br><span class="hljs-function">function <span class="hljs-title">stop_http</span><span class="hljs-params">()</span><br></span>&#123;<br> /usr/local/apache2<span class="hljs-number">.4</span>/bin/apachectl  stop<br>&#125;<br><span class="hljs-keyword">case</span> <span class="hljs-string">"$1"</span> in<br>start)<br>    start_http<br>;;<br>stop)<br>    stop_http<br>;;  <br>restart)<br>    stop_http<br>    start_http<br>;;<br>*)<br>    echo <span class="hljs-string">"Usage : start | stop | restart"</span><br>;;<br>esac<br></code></pre></td></tr></table></figure>
+<hr>
+<p>加入所编写的httpd系统服务：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># chmod a+x httpd<br># cp -arf httpd /etc/init.d/<br></code></pre></td></tr></table></figure></p>
+<p>启动自己编写的服务：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># systemctl daemon-reload<br># systemctl start httpd<br></code></pre></td></tr></table></figure></p>
+<p>设置开机自启动：<code># chkconfig --add httpd</code><br>查看配置文件路径：<code># /usr/local/apache2.4/conf/httpd.conf</code><br>查看httpd服务运行状态<code># systemctl status httpd</code></p>
+<hr>
+<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><h4 id="参数释义："><a href="#参数释义：" class="headerlink" title="参数释义："></a>参数释义：</h4><blockquote>
+<p>–enable-mods     // 让apache核心装载DSO，但不实际编译任何动态模块，未加参数，为静态编译<br>–enable-ModuleName=share     // 将模块编译成动态的<br>–enable-ModuleName=most     // 动态地编译进来大多数的模块<br>–enable-ModuleName=all     // 动态地编译所有的模块</p>
+</blockquote>
+<p>动态编译：使用模块时才将需要使用的模块Load进来<br>静态编译：先将所需模块Load进去，使用时直接调用</p>
+<hr>
+<h4 id="install与groupinstall区别："><a href="#install与groupinstall区别：" class="headerlink" title="install与groupinstall区别："></a>install与groupinstall区别：</h4><blockquote>
+<p><code>yum install</code>    安装单个软件<br><code>yum grouplist</code>    查看这个软件的所有软件包，每次安装前可以先查看<code>yum grouplist</code>有哪些软件，然后再去安装<code>yum groupinstall</code><br><code>yum groupinstall</code>    看装多个软件，安装这个软件的所有依赖包，<code>yum groupinstall</code>安装的时候必须加双引号</p>
+</blockquote>
+<p>示例代码:</p>
+<blockquote>
+<p>yum -y groupinstall Desktop     // -y参数同意所有软件安装操作<br>yum groupremove     // 卸载所有软件包</p>
+</blockquote>
+<hr>
+<h4 id="prefix选项："><a href="#prefix选项：" class="headerlink" title="-prefix选项："></a>-prefix选项：</h4><p>使用<code>./configure --prefix=/supersparrow</code><br>安装完成将自动生成目录<code>supersparrow</code>，则该软件任何的文档都被复制到这个目录。指定此安装目录是为了以后的维护方便，否则该软件所需的软件会被复制到不同的系统目录下，难以维护。</p>
+<p>用了<code>-prefix</code>选项的另一个好处是卸载软件或移植软件。当某个安装的软件不再需要时，只须简单的删除该安装目录，就能够把软件卸载得干干净净;移植软件只需拷贝整个目录到另外一个机器即可(相同的操作系统)。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/CentOS/" rel="tag"><i class="fas fa-tags"></i>CentOS</a>
+        
+        <a class="post-tag button" href="/tags/Httpd/" rel="tag"><i class="fas fa-tags"></i>Httpd</a>
+        
+        <a class="post-tag button" href="/tags/编译安装/" rel="tag"><i class="fas fa-tags"></i>编译安装</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/12/03/Security-config/" rel="next" title="常见安全配置"><i class="fas fa-angle-left"></i><span class="nav-title">常见安全配置</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/12/05/Linux_wordpress_setup/" rel="prev" title="基于LAMP的WordPress动态博客搭建"><span class="nav-title">基于LAMP的WordPress动态博客搭建</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#操作环境"><span class="toc-text">操作环境</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#具体操作流程"><span class="toc-text">具体操作流程</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#下载源码包："><span class="toc-text">下载源码包：</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#安装apr-1-6-5"><span class="toc-text">安装apr-1.6.5</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#安装apr-util-1-6-1"><span class="toc-text">安装apr-util-1.6.1</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#安装httpd-2-4-37"><span class="toc-text">安装httpd-2.4.37</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#编写启动脚本："><span class="toc-text">编写启动脚本：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#补充知识"><span class="toc-text">补充知识</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#参数释义："><span class="toc-text">参数释义：</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#install与groupinstall区别："><span class="toc-text">install与groupinstall区别：</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#prefix选项："><span class="toc-text">-prefix选项：</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

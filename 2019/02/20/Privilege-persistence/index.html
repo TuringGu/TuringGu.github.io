@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>权限维持 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/02/20/Privilege-persistence/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">权限维持</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-20T12:41:03+08:00">2019-02-20 12:41:03</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>攻击者在获取服务器权限后，通常会用一些后门技术来维持服务器权限，服务器一旦被植入后门，攻击者将如入无人之境</p>
+<h3 id="常见后门技术列表"><a href="#常见后门技术列表" class="headerlink" title="常见后门技术列表"></a>常见后门技术列表</h3><ul>
+<li>隐藏、克隆后门</li>
+<li>shift后门</li>
+<li>启动项、计划任务</li>
+<li>DLL劫持技术</li>
+<li>Powershell后门</li>
+<li>远控软件</li>
+</ul>
+<hr>
+<h2 id="获取系统登陆账号"><a href="#获取系统登陆账号" class="headerlink" title="获取系统登陆账号"></a>获取系统登陆账号</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>系统登陆账号位置：<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">C:\Windows\System32\config\SAM<br></code></pre></td></tr></table></figure></p>
+<blockquote>
+<p>在Windows系统中，对用户账户的安全管理采用了SAM（Security Account Manager）安全账号管理机制，用户账户以及密码经过Hash加密后，保存在SAM数据库中<br>SAM数据库保存在<code>C:\Windows\System32\config\SAM</code>文件中，当用户登录系统时，首先就要与SAM文件中存放的账户信息进行对比，验证通过方可登陆。系统对SAM文件提供了保护机制，无法将其复制或者删除，也就无法直接读取其中的内容</p>
+</blockquote>
+<hr>
+<h4 id="SAM加密方式"><a href="#SAM加密方式" class="headerlink" title="SAM加密方式"></a>SAM加密方式</h4><ul>
+<li><p>LM加密<br>密码位数 &lt;= 14，不足部分用<code>0</code>补齐，把所有的字符转变为大写，随后分成2组，每组7位，分别加密，然后拼接在一起，就是最终的LM散列。<br>其本质是DES加密</p>
+</li>
+<li><p>NTLM加密<br>先将用户口令转变为unicode编码，在进行标准MD4单向哈希加密</p>
+</li>
+<li><p>两种加密方式区别<br>LM加密安全性远低于NTLM加密，因为NTLM加密允许使用更长的密码、大小写不同，而且无需分割密码为更短、更易被破解的块。所以在一个纯NTLM环境中，应该关闭Lan Manager加密方式</p>
+</li>
+</ul>
+<hr>
+<h4 id="非免杀工具"><a href="#非免杀工具" class="headerlink" title="非免杀工具"></a>非免杀工具</h4><ul>
+<li>wce.exe</li>
+<li>QuarksPwDump.exe</li>
+<li>Pwdump7.exe</li>
+<li>gethash.exe</li>
+<li>mimikatz</li>
+</ul>
+<hr>
+<h4 id="目前免杀版"><a href="#目前免杀版" class="headerlink" title="目前免杀版"></a>目前免杀版</h4><ul>
+<li><p>使用注册表导出Hash</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">reg save hklm\sam C:\<span class="hljs-built_in">hash</span>\sam.hive<br>reg save hklm\system C:\<span class="hljs-built_in">hash</span>\system.hive<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>导出SAM文件</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 一般用于域控上w至上10w用户时</span><br>shadow copy<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>其他方式</p>
+<blockquote>
+<ul>
+<li>procdump + mimikatz</li>
+<li>lsadump + mimikatz</li>
+<li>powershell + mimikatz</li>
+<li>powershell + getpasshash</li>
+<li>powershell + 其它工具</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h4 id="破解方式"><a href="#破解方式" class="headerlink" title="破解方式"></a>破解方式</h4><ul>
+<li><p>在线破解</p>
+<blockquote>
+<p><a href="http://www.objectif-securite.ch/en/ophcrack.php" target="_blank" rel="noopener">http://www.objectif-securite.ch/en/ophcrack.php</a><br><a href="http://cmd5.com" target="_blank" rel="noopener">http://cmd5.com</a><br><a href="https://www.somd5.com" target="_blank" rel="noopener">https://www.somd5.com</a><br><a href="https://hashkiller.co.uk/" target="_blank" rel="noopener">https://hashkiller.co.uk/</a></p>
+</blockquote>
+</li>
+<li><p>本地破解</p>
+<blockquote>
+<ul>
+<li>暴力破解</li>
+<li>LM加密：cain</li>
+<li>NTLM加密：ophcrack + <a href="http://ophcrack.sourceforge.net/tables.php" target="_blank" rel="noopener"><strong><code>彩虹表</code></strong></a></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ol>
+<li><p>LM只能存储 &lt;= 14个字符 的密码Hash，若 密码 &gt;= 14位，windows就自动使用NTLM对其进行加密了，此时只有对应的NTLM Hash可用，在LM-Password中会以全<code>0</code>显示</p>
+</li>
+<li><p>一般情况下使用工具导出的Hash都有对应的LM和NTLM值，即 密码位数 &lt;= 14，此时LM也会有值，除了LM值全为<code>0</code>之外，在老版本中看到LM为如下开头显示的：<br><code>aad3b435b51404eeaad3b435b51404ee</code><br>即表示密码为空或者位数超过了14位</p>
+</li>
+<li><p>在wind2003之前包括win2003会默认启用LM加密，win2003之后系统禁用了LM加密，使用NTLM加密</p>
+</li>
+<li><p>LM方式的加密会存在一个对应的NTLM Hash值</p>
+</li>
+</ol>
+<hr>
+<h3 id="Linux-Unix"><a href="#Linux-Unix" class="headerlink" title="Linux/Unix"></a>Linux/Unix</h3><h4 id="账号信息存储位置"><a href="#账号信息存储位置" class="headerlink" title="账号信息存储位置"></a>账号信息存储位置</h4><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">/etc/passwd<br>/etc/shadow<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">root:<span class="hljs-variable">$1</span><span class="hljs-variable">$Bg1H</span>/4mz<span class="hljs-variable">$X89TqH7tpi9dX1B9j5YsF</span>.:14838:0:99999:7:::<br></code></pre></td></tr></table></figure>
+<p>id对应加密方式：<br><code>1</code>：MD5<br><code>5</code>：SHA256<br><code>6</code>：SHA512</p>
+<h4 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h4><p>John The Ripper</p>
+<hr>
+<h2 id="安装后门程序"><a href="#安装后门程序" class="headerlink" title="安装后门程序"></a>安装后门程序</h2><h3 id="Windows-Shift后门"><a href="#Windows-Shift后门" class="headerlink" title="Windows Shift后门"></a>Windows Shift后门</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>利用<code>cmd.exe</code>重命名，并覆盖原来的粘滞键。当再次触发粘滞键时，相当于运行了<code>cmd.exe</code></p>
+<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><p>使用命令，将cmd.exe重命名并替换掉<code>shift</code>（<code>setch.exe</code>）功能，这样当通过远程桌面登陆服务器后，在输入账号密码处，连按5次shift即可弹出cmd命令行，权限为system</p>
+<hr>
+<h3 id="DLL劫持"><a href="#DLL劫持" class="headerlink" title="DLL劫持"></a>DLL劫持</h3><h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>某播放器安装了播放器，而播放器在播放音乐时必须调用windows系统下一个标准动态链接库mp3play.dll，则黑客就自己开发一个恶意的mp3play.dll，然后再找一个MP3歌曲，将这个恶意的DLL和歌曲放在同一个文件下，然后打包压缩发给受害者<br>若受害者用右键将此压缩包中的MP3文件和DLL文件都解压缩到了一个目录中（大部分人会这么做），则受害人点击这个MP3文件时，播放器就会先去寻找mp3play.dll进行加载，<strong>而微软设计的加载dll顺序是先从默认文件本身的目录进行寻找</strong>，则虚假的、恶意的mp3play.dll就先被加载了</p>
+<h4 id="基于IE-DLL劫持"><a href="#基于IE-DLL劫持" class="headerlink" title="基于IE DLL劫持"></a>基于IE DLL劫持</h4><p>原理：<br>在IE目录下构造IE会调用的恶意DLL库，完成提权</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="影子账号"><a href="#影子账号" class="headerlink" title="影子账号"></a>影子账号</h3><p>创建与查看<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">net user <span class="hljs-built_in">test</span>$ Test123 /add<br>net user <span class="hljs-built_in">test</span>$<br></code></pre></td></tr></table></figure></p>
+<h3 id="一句话添加用户"><a href="#一句话添加用户" class="headerlink" title="一句话添加用户"></a>一句话添加用户</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 一句话添加普通用户</span><br>useradd -p `openssl passwd -1 -salt <span class="hljs-string">'suiyi'</span> mima` zhanghu<br><br><span class="hljs-comment"># 一句话添加用户至root</span><br>useradd -p `openssl passwd -1 -salt <span class="hljs-string">'xxllxx'</span> 123456` -u 0 -g root -G root -s /bin/bash -d /usr/bin/xxllxx xxllxx<br>useradd -p `openssl passwd -1 -salt <span class="hljs-string">'xxllxx'</span> 123456` -u 15 -g root -G root -s /bin/bash -d /usr/bin/xxllxx xxllxx<br><br><span class="hljs-comment"># 一句话修改密码</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">"123456"</span> | passwd --stdin xxllxx<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="windows下解决乱码"><a href="#windows下解决乱码" class="headerlink" title="windows下解决乱码"></a>windows下解决乱码</h3><ul>
+<li><p>cmd下乱码：<br><code>chcp 65001</code></p>
+</li>
+<li><p>python输出编码问题</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 指定网页的编码格式</span><br>r.encoding = <span class="hljs-string">'utf-8'</span><br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="windows开启3389端口"><a href="#windows开启3389端口" class="headerlink" title="windows开启3389端口"></a>windows开启3389端口</h3><p>windows低版本<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">C:\Windows\System32\wbem\wmic /namespace:\\root\cimv2\terminalservices path win32_terminalservicesetting <span class="hljs-built_in">where</span> (__CLASS!=<span class="hljs-string">""</span>) call setallowtsconnections 1<br><br>C:\Windows\System32\wbem\wmic /namespace:\\root\cimv2\terminalservices path win32_tsgeneralsetting <span class="hljs-built_in">where</span> (TerminalNmae=<span class="hljs-string">'RDP-Tcp'</span>) call setuserauthenticationrequired 1<br><br>reg add <span class="hljs-string">"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server"</span> /v fSingleSessionPerUser /t REG_DWORD /d 0 /f<br><br>net start TermService C:\Windows\System32\wbem\wmic<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="Linux使用远程桌面"><a href="#Linux使用远程桌面" class="headerlink" title="Linux使用远程桌面"></a>Linux使用远程桌面</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rdesktop 192.168.1.1<br></code></pre></td></tr></table></figure>
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Privilege/" rel="tag"><i class="fas fa-tags"></i>Privilege</a>
+        
+        <a class="post-tag button" href="/tags/Persistence/" rel="tag"><i class="fas fa-tags"></i>Persistence</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/02/18/Privilege-elevation/" rel="next" title="权限提升"><i class="fas fa-angle-left"></i><span class="nav-title">权限提升</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/02/26/Intranet-forwarding/" rel="prev" title="内网转发"><span class="nav-title">内网转发</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常见后门技术列表"><span class="toc-text">常见后门技术列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#获取系统登陆账号"><span class="toc-text">获取系统登陆账号</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Windows"><span class="toc-text">Windows</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#SAM加密方式"><span class="toc-text">SAM加密方式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#非免杀工具"><span class="toc-text">非免杀工具</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#目前免杀版"><span class="toc-text">目前免杀版</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#破解方式"><span class="toc-text">破解方式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#注意事项"><span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Linux-Unix"><span class="toc-text">Linux/Unix</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#账号信息存储位置"><span class="toc-text">账号信息存储位置</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#破解"><span class="toc-text">破解</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#安装后门程序"><span class="toc-text">安装后门程序</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Windows-Shift后门"><span class="toc-text">Windows Shift后门</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#流程"><span class="toc-text">流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#DLL劫持"><span class="toc-text">DLL劫持</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#举例"><span class="toc-text">举例</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#基于IE-DLL劫持"><span class="toc-text">基于IE DLL劫持</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#影子账号"><span class="toc-text">影子账号</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#一句话添加用户"><span class="toc-text">一句话添加用户</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#windows下解决乱码"><span class="toc-text">windows下解决乱码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#windows开启3389端口"><span class="toc-text">windows开启3389端口</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Linux使用远程桌面"><span class="toc-text">Linux使用远程桌面</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

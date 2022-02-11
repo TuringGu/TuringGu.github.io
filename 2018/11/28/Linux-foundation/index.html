@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Linux入门基础 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2018/11/28/Linux-foundation/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Linux入门基础</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-11-28T16:24:20+08:00">2018-11-28 16:24:20</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <hr>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要内容为Linux入门向的基础知识，记录下来方便自己与他人的查询。</p>
+<p><strong>注：知识补充放在文末。</strong></p>
+<hr>
+<h3 id="Linux基础"><a href="#Linux基础" class="headerlink" title="Linux基础"></a>Linux基础</h3><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><h5 id="开关机"><a href="#开关机" class="headerlink" title="开关机"></a>开关机</h5><blockquote>
+<p>重启：<br><code>reboot</code>、<code>init 6</code></p>
+</blockquote>
+<blockquote>
+<p>关机：<br><code>shutdown</code>、<code>halt</code>、<code>poweroff</code>、<code>init 0</code></p>
+</blockquote>
+<blockquote>
+<p>登陆：<br><code>login</code></p>
+</blockquote>
+<blockquote>
+<p>注销：<br><code>exit</code>、<code>logout</code></p>
+</blockquote>
+<hr>
+<h5 id="很常用"><a href="#很常用" class="headerlink" title="很常用"></a>很常用</h5><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sh">rm -rf /* 	<span class="hljs-comment"># 删除所有文件</span><br><span class="hljs-built_in">pwd</span>	<span class="hljs-comment"># 查看当前目录</span><br><span class="hljs-built_in">cd</span> 	<span class="hljs-comment"># 切换当前工作目录 	</span><br>ls 	<span class="hljs-comment"># 列出目录下文件</span><br>clear 	<span class="hljs-comment"># 终端清屏</span><br>ping 	<span class="hljs-comment"># 因特网包探索器</span><br>ifconfig 	<span class="hljs-comment"># 显示或配置网络设备</span><br>cat 	<span class="hljs-comment"># 获取当前文件所有内容</span><br>route -n 	<span class="hljs-comment"># 查看网关</span><br>./ 	<span class="hljs-comment"># 当前目录</span><br>../ 	<span class="hljs-comment"># 上级目录</span><br><span class="hljs-built_in">cd</span> ~ <span class="hljs-comment"># 进入目前使用者身份所在主文件夹</span><br><span class="hljs-built_in">cd</span> ~account <span class="hljs-comment"># 进入account这个使用者的主文件夹</span><br><span class="hljs-built_in">cd</span> - <span class="hljs-comment"># 回到前一个工作目录</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h5 id="渗透中常用"><a href="#渗透中常用" class="headerlink" title="渗透中常用"></a>渗透中常用</h5><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh">whoami 	<span class="hljs-comment"># 查看当前用户身份</span><br>tar 	<span class="hljs-comment"># 压缩与解压缩</span><br>netstat 	<span class="hljs-comment"># 查看网络状态，常用 -ano</span><br>nslookp 	<span class="hljs-comment"># 查看dns信息</span><br>ps 		<span class="hljs-comment"># 查看运行的程序，常用 -C sshd</span><br>top 	<span class="hljs-comment"># 实时查看运行的程序</span><br>service 	<span class="hljs-comment"># 使用service控制服务启动关闭</span><br>curl 	<span class="hljs-comment"># 获取网页，可使用输出重定向来下载文件</span><br>wget 	<span class="hljs-comment"># 下载文件</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><blockquote>
+<p><code>Tab</code> 补全自动<br><code>ctrl+c</code> 强行停止<br><code>exit</code>、<code>ctrl+d</code> 退出shell<br><code>ctrl+l</code> 清屏（控制台记录并未清除）<br><code>date</code> 时间<br><code>ctrl+z</code> 后台挂起</p>
+</blockquote>
+<hr>
+<h4 id="文件组织"><a href="#文件组织" class="headerlink" title="文件组织"></a>文件组织</h4><h5 id="Linux目录管理"><a href="#Linux目录管理" class="headerlink" title="Linux目录管理"></a>Linux目录管理</h5><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sh">/bin 	<span class="hljs-comment"># 放置可执行文件</span><br>/dev 	<span class="hljs-comment"># 任何设备与周边设备等硬件</span><br>/media 	<span class="hljs-comment"># 放置可移除的设备</span><br>/opt 	<span class="hljs-comment"># 第三方协力软件放置的目录</span><br>/tmp 	<span class="hljs-comment"># 临时文件</span><br>/home 	<span class="hljs-comment"># 使用者主文件夹</span><br>/root 	<span class="hljs-comment"># 系统管理员的主文件夹</span><br>/etc 	<span class="hljs-comment"># 是linux中各种服务，启动项，配置信息的位置</span><br>/usr 	<span class="hljs-comment"># usr（Unix Software Resource）Unix操作系统软件资源</span><br>/var 	<span class="hljs-comment"># var目录主要针对常态性变动</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h5 id="常用文件位置"><a href="#常用文件位置" class="headerlink" title="常用文件位置"></a>常用文件位置</h5><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh">/etc/yum/source.list 	<span class="hljs-comment"># centOS源，kali为则将yum换为apt即可</span><br>/etc/ssh/sshd_config 	<span class="hljs-comment"># ssh配置文件</span><br>/etc/init.d/network 	<span class="hljs-comment"># 网络服务配置文件，kali为networking</span><br>/etc/sysconfig/network-scripts 	<span class="hljs-comment"># 网卡配置文件</span><br>/etc/passwd 	<span class="hljs-comment"># 用户信息</span><br>/etc/shadow 	<span class="hljs-comment"># 用户密码信息</span><br>/etc/group 	<span class="hljs-comment"># 用户组信息</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h4 id="文件读写操作"><a href="#文件读写操作" class="headerlink" title="文件读写操作"></a>文件读写操作</h4><p>新建文件：<code>touch /tmp/hello</code><br>新建文件夹：<code>mkdir ./hello</code></p>
+<p>删除文件：<code>rm /hello.txt</code><br>删除文件夹：<code>rm ./hello</code></p>
+<p><code>rm -rf /*</code> -r 删除文件夹  -f 递归删除</p>
+<p>复制移动</p>
+<blockquote>
+<p><code>cp</code> 复制文件或文件夹到指定路径<br><code>mv</code> 移动文件或文件夹到指定路径</p>
+</blockquote>
+<p>查看文件</p>
+<blockquote>
+<p><code>cat</code> 显示一个文件夹内容<br><code>more</code> 显示一个文件的内容</p>
+</blockquote>
+<p>显示文件的前几行</p>
+<blockquote>
+<p><code>head -n 5 /test/yum.conf</code><br><code>head -7 /test/yum.conf</code></p>
+</blockquote>
+<p>显示文件的后几行</p>
+<blockquote>
+<p><code>tail -n 3 /test/yum.conf</code><br><code>tail -2 /test/yum.conf</code></p>
+</blockquote>
+<p>查找文件或文件里的内容</p>
+<blockquote>
+<p>查找文件名：<br><code>find 路径 -name 文件名</code></p>
+</blockquote>
+<blockquote>
+<p>查找字符串：<br><code>grep 字符串</code></p>
+</blockquote>
+<blockquote>
+<p><code>whereis 查找某个命令所在位置</code><br><code>which 查找当前用户命令</code></p>
+</blockquote>
+<hr>
+<h4 id="系统基础命令"><a href="#系统基础命令" class="headerlink" title="系统基础命令"></a>系统基础命令</h4><blockquote>
+<p><code>jobs</code> 显示当前暂停的进程（与<code>ctrl+z</code>配合，将一个进程停止并挂在后台）<br><code>bg %N</code> 使后台第N个任务在后台运行<br><code>fg %N</code> 使后台第N个任务在前台运行<br>默认<code>bg</code>，<code>fg</code>不带<code>%N</code>时表示对最后一个进程操作</p>
+</blockquote>
+<p>使一个程序在后台不中断地运行：</p>
+<blockquote>
+<ol>
+<li>做成一个service</li>
+<li>使用<code>&amp;</code>符号，让一个运行的进程一直在后台运行</li>
+<li>使用<code>nohup setsid</code>做到即使shell退出后，依然能运行程序，<br>不中断地将任务进行并输出到<code>nohup.out</code></li>
+<li>使用<code>screen</code></li>
+<li>使用<code>()</code>符号，将进程加入<code>subshell</code>中</li>
+<li>其他方式</li>
+</ol>
+</blockquote>
+<hr>
+<h4 id="压缩包文件处理命令"><a href="#压缩包文件处理命令" class="headerlink" title="压缩包文件处理命令"></a>压缩包文件处理命令</h4><p>Linux下压缩包格式有：</p>
+<blockquote>
+<p><code>.tar</code>、<code>.gz</code>、<code>.tar.gz</code>、<code>.tgz</code>、<code>.bz2</code><br>、<code>.tar.bz2</code>、<code>.bz</code>、<code>.tar.bz</code>    、<code>.Z</code>、<code>.tar.Z</code>、<code>.xz</code>、<code>.zip</code>、<code>.rar</code><br>常用的压缩格式为<code>.tar.gz</code>和<code>.zip</code></p>
+</blockquote>
+<p>解压与压缩命令：<br><code>.gz</code></p>
+<blockquote>
+<p><code>-c</code>：create新的包<br><code>-x</code>：解包<br><code>-z</code>：压缩方式为gz<br><code>v</code>：显示细节<br><code>f</code>：使用归档文件</p>
+</blockquote>
+<p><code>.tar</code></p>
+<blockquote>
+<p>解包：<code>tar xzvf FileName.tar</code>解包后原始文件存在<br>打包：<code>tar czvf FileName.tar    filename1 filename2 ...</code> （打包多个文件）<br><code>tar czvf FileName.tar DirName</code>（打包压缩一个目录）</p>
+</blockquote>
+<p><code>.zip</code></p>
+<blockquote>
+<p>解压：<code>unzip FileName.zip</code> 解包后原始文件依然存在<br>压缩：<code>zip FileName.zip DirName</code><br>列出内容：<code>unzip -l FileName.zip</code></p>
+</blockquote>
+<p><strong>打包的意义：提高传输速度及完整性</strong></p>
+<hr>
+<h3 id="vim编辑器"><a href="#vim编辑器" class="headerlink" title="vim编辑器"></a>vim编辑器</h3><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">vim FileName 	<span class="hljs-comment"># 使用vim打开文件</span><br>i/a/o 	<span class="hljs-comment"># 在当前字符前/后/下一行插入</span><br>ESC、ctrl+c 	<span class="hljs-comment">#退出编辑模式</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h4 id="底行命令"><a href="#底行命令" class="headerlink" title="底行命令"></a>底行命令</h4><blockquote>
+<p><code>:w</code>保存     <code>:q</code>退出     <code>/</code>查找<br><code>shift+g</code>     转到文件末行<br><code>shift+h</code>     转到文件首行<br><code>ndd</code>     （<code>n</code>代表数字）从当前行删除n行<br><code>nyy</code>     从游标所行开始复制n行<br><code>x</code>，<code>X</code>     在一行字中，<code>x</code>为向后删除一个字符，<code>X</code>相反<br><code>p</code>，<code>P</code>     <code>p</code>为将已复制内容在光标下一行贴上<br><code>u</code>     撤销操作<br><code>:set nu</code>     显示行号(全名<code>nummber</code>)<br><code>:set nonu</code>     不显示行号(全名<code>nonumber</code>)<br><code>:%s/word1/word2</code>     寻找字符串<code>word1</code>替换为<code>word2</code></p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/libaoliang/articles/6961676.html" target="_blank" rel="noopener">Vim/Vi工作模式图解</a></p>
+<hr>
+<h3 id="用户与用户组"><a href="#用户与用户组" class="headerlink" title="用户与用户组"></a>用户与用户组</h3><h4 id="文件位置"><a href="#文件位置" class="headerlink" title="文件位置"></a>文件位置</h4><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">/etc/passwd 	<span class="hljs-comment"># 存储用户信息</span><br>/etc/shadow 	<span class="hljs-comment"># 存储用户密码信息</span><br>/etc/group 		<span class="hljs-comment"># 存储用户组信息</span><br></code></pre></td></tr></table></figure>
+<h4 id="passwd文件配置"><a href="#passwd文件配置" class="headerlink" title="passwd文件配置"></a>passwd文件配置</h4><h5 id="账号格式"><a href="#账号格式" class="headerlink" title="账号格式"></a>账号格式</h5><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">用户名:x:uid:gid:备注信息:home:shell<br></code></pre></td></tr></table></figure>
+<hr>
+<h5 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h5><p><code>nologin</code>     此账户目前不可用，不能被切换到的账号<br><code>/bin/false</code>     登录必然报错，无法登陆<br><code>/home/Username</code>     没有的话，登陆后会报Could not chdir to home<br><code>directory /home/Username</code><br><code>x</code>     代表允许登录，并且密码在<code>/etc/shadow</code><br><code>*</code>     代表不允许登陆</p>
+<p>Kali密码破解：<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">john passwd<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h4><p>环境：CentOS<br><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">useradd Username 	<span class="hljs-comment"># 添加用户，但不设密码，会创建一个/home/用户名</span><br>adduser Username 	<span class="hljs-comment"># 添加用户，但不设密码，会创建一个/home/用户名</span><br>passwd	修改密码<br>su Username	切换用户<br>userdel	删除用户<br></code></pre></td></tr></table></figure></p>
+<blockquote>
+<p>若在Ubuntu环境下，<code>adduser</code>则会设置密码与备注等信息</p>
+</blockquote>
+<hr>
+<h4 id="权限操作"><a href="#权限操作" class="headerlink" title="权限操作"></a>权限操作</h4><h5 id="修改所属组"><a href="#修改所属组" class="headerlink" title="修改所属组"></a>修改所属组</h5><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">groupadd 	<span class="hljs-comment"># 新建用户组</span><br>groupdel 	<span class="hljs-comment"># 删除</span><br>groupmod 	<span class="hljs-comment"># 修改</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h5 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h5><p><code>chomod</code>     修改当前文件或文件夹权限<br>可以使用数组或使用字母参数：</p>
+<blockquote>
+<p><code>u</code>：user     <code>g</code>：group     <code>o</code>：other     <code>a</code>：all</p>
+</blockquote>
+<p>exmaple:<br><figure class="hljs highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">chmod ou-r filename 	<span class="hljs-comment"># user和other用户剥夺读权限</span><br>chmod g=wr,o=r 	<span class="hljs-comment"># group用户赋予读写权限，其他只赋读权限</span><br>chown 用户:用户组 	<span class="hljs-comment"># 修改当前文件或文件夹所属用户</span><br>chown root:root /tmp/tmp1 	<span class="hljs-comment"># 单个文件改变文件所诉用户及组</span><br>chown -R root:root /tmp/tmp1 	<span class="hljs-comment"># 文件夹及其内部全部改变</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="Linux查看进程及端口信息"><a href="#Linux查看进程及端口信息" class="headerlink" title="Linux查看进程及端口信息"></a>Linux查看进程及端口信息</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 根据进程名差看进程信息</span><br>ps -ef | grep tmocat<br><br><span class="hljs-comment"># 根据进程id查看进程占用端口</span><br>netstat -nap | grep 1095<br><br><span class="hljs-comment"># 根据端口查看对应进程</span><br>netstat -tunlp | grep 8080<br><br><span class="hljs-comment"># 根据进程id查看进程信息</span><br>ps -ef | grep 1095<br><br><span class="hljs-comment"># 根据进程id杀死进程</span><br><span class="hljs-built_in">kill</span> -9 1095<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><h4 id="init六种运行模式"><a href="#init六种运行模式" class="headerlink" title="init六种运行模式"></a>init六种运行模式</h4><p><a href="https://blog.csdn.net/db_hunter/article/details/44243745" target="_blank" rel="noopener">原文</a><br>基本概念：</p>
+<blockquote>
+<p>init是Linux系统里的根进程，是系统所有进程的祖先。它的主要作用是根据记录在<code>/etc/inittab</code>里的一个脚本程序产生进程。这个文件通常用于控制用户的登录模式。<br>Linux系统的有效登录模式有0~9共十种，不过沿用UNIX系统的至多6种的限制，一般只有1到6有效</p>
+</blockquote>
+<p>init一般在系统启动时自动运行，也可以由root用户调用。它的作用是切换系统的运行状态。<br>它的命令格式是:<br><code>init NUM</code><br>其中NUM表示1到6的任一数字</p>
+<p>6种模式中有两种是系统内定的： </p>
+<blockquote>
+<p><code>0</code>：停止系统运行。相当于<code>halt</code><br><code>6</code>：重启系统。相当于<code>reboot</code></p>
+</blockquote>
+<p>其余： </p>
+<blockquote>
+<p><code>init 1</code> 进入单用户模式。<br><code>init 2</code> 进入无网络服务的多用户模式 如果你的计算机没有对外提供网络服务，这个模式就跟普通模式一样了。<br><code>init 3/4</code> 进入控制台登录的多用户模式.每个用户都要先从黑白屏幕登录之后才可以运行才能<code>startx</code>进入KDE图形界面。<br><code>init 5</code> 进入图形化登录的多用户模式。<br>可以通过<code>runlevel</code> 和 <code>who -r</code>命令来查看当前运行的模式。</p>
+</blockquote>
+<hr>
+<h4 id="No-such-file-or-directory"><a href="#No-such-file-or-directory" class="headerlink" title="No such file or directory"></a>No such file or directory</h4><p><code>./</code>一个存在的文件，提示上述信息<br>原因：可能缺少32位运行库ia32-libs<br>解决：<code>sudo apt-get install g++-multilib</code></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Linux/" rel="tag"><i class="fas fa-tags"></i>Linux</a>
+        
+        <a class="post-tag button" href="/tags/基础/" rel="tag"><i class="fas fa-tags"></i>基础</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/10/12/网站搭建/" rel="next" title="个人网站搭建"><i class="fas fa-angle-left"></i><span class="nav-title">个人网站搭建</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/11/30/CentOS-software-install/" rel="prev" title="CentOS下软件安装方法"><span class="nav-title">CentOS下软件安装方法</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Linux基础"><span class="toc-text">Linux基础</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#命令"><span class="toc-text">命令</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#开关机"><span class="toc-text">开关机</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#很常用"><span class="toc-text">很常用</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#渗透中常用"><span class="toc-text">渗透中常用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#常用快捷键"><span class="toc-text">常用快捷键</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#文件组织"><span class="toc-text">文件组织</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#Linux目录管理"><span class="toc-text">Linux目录管理</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#常用文件位置"><span class="toc-text">常用文件位置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#文件读写操作"><span class="toc-text">文件读写操作</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#系统基础命令"><span class="toc-text">系统基础命令</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#压缩包文件处理命令"><span class="toc-text">压缩包文件处理命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#vim编辑器"><span class="toc-text">vim编辑器</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#底行命令"><span class="toc-text">底行命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#用户与用户组"><span class="toc-text">用户与用户组</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#文件位置"><span class="toc-text">文件位置</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#passwd文件配置"><span class="toc-text">passwd文件配置</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#账号格式"><span class="toc-text">账号格式</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#参数配置"><span class="toc-text">参数配置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#添加用户"><span class="toc-text">添加用户</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#权限操作"><span class="toc-text">权限操作</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#修改所属组"><span class="toc-text">修改所属组</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#权限控制"><span class="toc-text">权限控制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Linux查看进程及端口信息"><span class="toc-text">Linux查看进程及端口信息</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#补充知识"><span class="toc-text">补充知识</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#init六种运行模式"><span class="toc-text">init六种运行模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#No-such-file-or-directory"><span class="toc-text">No such file or directory</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

